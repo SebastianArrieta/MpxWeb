@@ -56,7 +56,9 @@
     {
       "year": "1995",
       "title": "UNESCO Patrimonio",
-      "detail": "El centro histórico es inscrito como Patrimonio de la Humanidad por la UNESCO."
+      "detail": "El centro histórico es inscrito como Patrimonio de la Humanidad por la UNESCO.",
+      "image": "media/images/muestra-mompox.svg",
+      "audio": "media/audio/muestra.wav"
     }
   ],
   "culturalMilestones": [
@@ -153,7 +155,13 @@
       "Sábado de Gloria — cierre simbólico"
     ],
     "galeriaTitle": "Galería",
-    "galeriaFoto": "Foto {n}"
+    "galeriaFoto": "Foto {n}",
+    "galeria": [
+      { "src": "media/images/muestra-mompox.svg", "caption": "Semana Santa — procesión 1" },
+      { "src": "media/images/muestra-mompox.svg", "caption": "Semana Santa — procesión 2" },
+      { "src": "media/images/muestra-mompox.svg", "caption": "Semana Santa — procesión 3" },
+      { "src": "media/images/muestra-mompox.svg", "caption": "Semana Santa — procesión 4" }
+    ]
   },
   "festivalJazz": {
     "title": "Festival de Jazz",
@@ -168,7 +176,12 @@
     ],
     "escenariosStub": "Descripción breve del escenario (stub).",
     "galeriaTitle": "Galería",
-    "galeriaConcierto": "Concierto {n}"
+    "galeriaConcierto": "Concierto {n}",
+    "galeria": [
+      { "src": "media/images/muestra-mompox.svg", "caption": "Festival Jazz — concierto 1" },
+      { "src": "media/images/muestra-mompox.svg", "caption": "Festival Jazz — concierto 2" },
+      { "src": "media/images/muestra-mompox.svg", "caption": "Festival Jazz — concierto 3" }
+    ]
   },
   "queVer": {
     "title": "Qué ver",

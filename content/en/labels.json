@@ -56,7 +56,9 @@
     {
       "year": "1995",
       "title": "UNESCO Heritage",
-      "detail": "The historic center is inscribed as a UNESCO World Heritage Site."
+      "detail": "The historic center is inscribed as a UNESCO World Heritage Site.",
+      "image": "media/images/muestra-mompox.svg",
+      "audio": "media/audio/muestra.wav"
     }
   ],
   "culturalMilestones": [
@@ -153,7 +155,13 @@
       "Holy Saturday — symbolic closing"
     ],
     "galeriaTitle": "Gallery",
-    "galeriaFoto": "Photo {n}"
+    "galeriaFoto": "Photo {n}",
+    "galeria": [
+      { "src": "media/images/muestra-mompox.svg", "caption": "Holy Week — procession 1" },
+      { "src": "media/images/muestra-mompox.svg", "caption": "Holy Week — procession 2" },
+      { "src": "media/images/muestra-mompox.svg", "caption": "Holy Week — procession 3" },
+      { "src": "media/images/muestra-mompox.svg", "caption": "Holy Week — procession 4" }
+    ]
   },
   "festivalJazz": {
     "title": "Jazz Festival",
@@ -168,7 +176,12 @@
     ],
     "escenariosStub": "Short description of the venue (stub).",
     "galeriaTitle": "Gallery",
-    "galeriaConcierto": "Concert {n}"
+    "galeriaConcierto": "Concert {n}",
+    "galeria": [
+      { "src": "media/images/muestra-mompox.svg", "caption": "Jazz Festival — concert 1" },
+      { "src": "media/images/muestra-mompox.svg", "caption": "Jazz Festival — concert 2" },
+      { "src": "media/images/muestra-mompox.svg", "caption": "Jazz Festival — concert 3" }
+    ]
   },
   "queVer": {
     "title": "What to see",
