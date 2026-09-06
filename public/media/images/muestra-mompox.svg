@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="titulo desc">
+  <title id="titulo">Santa Cruz de Mompox al atardecer</title>
+  <desc id="desc">Silueta del pueblo colonial junto al río Magdalena: campanario de Santa Bárbara, casas coloniales, palmeras y reflejos al atardecer.</desc>
+  <defs>
+    <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#15323a"/>
+      <stop offset="0.42" stop-color="#2a5a63"/>
+      <stop offset="0.72" stop-color="#c96a45"/>
+      <stop offset="1" stop-color="#f3c98b"/>
+    </linearGradient>
+    <linearGradient id="rio" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a6363"/>
+      <stop offset="1" stop-color="#123838"/>
+    </linearGradient>
+    <linearGradient id="reflejo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3c98b" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#1a4a4a" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="solGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe6b3" stop-opacity="0.95"/>
+      <stop offset="0.55" stop-color="#f3c98b" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#f3c98b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="muro" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6e8d4"/>
+      <stop offset="1" stop-color="#d9c29a"/>
+    </linearGradient>
+    <linearGradient id="techo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c45c3e"/>
+      <stop offset="1" stop-color="#8b3a2a"/>
+    </linearGradient>
+    <filter id="blurSol" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <filter id="blurNube" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+
+  <!-- Cielo -->
+  <rect width="1200" height="900" fill="url(#cielo)"/>
+
+  <!-- Estrellas tímidas -->
+  <g fill="#fdf6e3" opacity="0.7">
+    <circle cx="180" cy="90" r="2.2"/>
+    <circle cx="420" cy="140" r="1.6"/>
+    <circle cx="700" cy="70" r="2"/>
+    <circle cx="960" cy="120" r="2.4"/>
+    <circle cx="1120" cy="200" r="1.6"/>
+    <circle cx="90" cy="230" r="1.4"/>
+  </g>
+
+  <!-- Nubes altas -->
+  <g fill="#fff" opacity="0.14" filter="url(#blurNube)">
+    <ellipse cx="320" cy="180" rx="240" ry="22"/>
+    <ellipse cx="900" cy="150" rx="300" ry="26"/>
+  </g>
+
+  <!-- Glow solar -->
+  <circle cx="600" cy="580" r="220" fill="url(#solGlow)" filter="url(#blurSol)"/>
+
+  <!-- Avejas / garzas -->
+  <g fill="none" stroke="#2a5a63" stroke-width="3" stroke-linecap="round" opacity="0.85">
+    <path d="M210 300 q10 -12 20 0 q10 -12 20 0"/>
+    <path d="M260 330 q8 -9 16 0 q8 -9 16 0"/>
+    <path d="M900 260 q9 -11 18 0 q9 -11 18 0"/>
+  </g>
+
+  <!-- Silueta lejana (orilla opuesta) -->
+  <g fill="#2a1812" opacity="0.4">
+    <rect x="0" y="560" width="1200" height="120"/>
+    <ellipse cx="130" cy="600" rx="160" ry="46"/>
+    <ellipse cx="700" cy="590" rx="200" ry="50"/>
+  </g>
+
+  <!-- Pueblo colonial -->
+  <g>
+    <!-- casa 1 -->
+    <g>
+      <rect x="40" y="470" width="110" height="120" fill="url(#muro)"/>
+      <path d="M32 470 L95 432 L158 470 Z" fill="url(#techo)"/>
+      <rect x="72" y="520" width="30" height="42" fill="#5a4026" opacity="0.85"/>
+      <rect x="58" y="485" width="28" height="28" fill="#2a5a63" opacity="0.9"/>
+    </g>
+    <!-- casa 2 -->
+    <g>
+      <rect x="168" y="492" width="124" height="98" fill="#f2e3c9"/>
+      <path d="M158 492 L230 458 L302 492 Z" fill="#a8492f"/>
+      <rect x="214" y="530" width="34" height="40" fill="#5a4026" opacity="0.85"/>
+      <rect x="180" y="505" width="32" height="30" fill="#2a5a63" opacity="0.9"/>
+      <rect x="250" y="505" width="32" height="30" fill="#2a5a63" opacity="0.9"/>
+    </g>
+    <!-- casa 3 -->
+    <g>
+      <rect x="318" y="478" width="118" height="112" fill="url(#muro)"/>
+      <path d="M308 478 L377 444 L446 478 Z" fill="url(#techo)"/>
+      <rect x="360" y="528" width="36" height="42" fill="#5a4026" opacity="0.85"/>
+    </g>
+    <!-- Iglesia Santa Bárbara (torre campanario) -->
+    <g>
+      <rect x="470" y="452" width="150" height="138" fill="#f7ecd8"/>
+      <path d="M458 452 L545 412 L632 452 Z" fill="#b85638"/>
+      <rect x="528" y="500" width="34" height="46" fill="#5a4026" opacity="0.85"/>
+      <rect x="490" y="468" width="20" height="26" fill="#2a5a63" opacity="0.9"/>
+      <rect x="580" y="468" width="20" height="26" fill="#2a5a63" opacity="0.9"/>
+      <!-- torre octogonal -->
+      <path d="M520 452 L520 300 L580 300 L580 452 Z" fill="#efdcbb"/>
+      <path d="M514 452 L520 440 L580 440 L586 452 Z" fill="#e3cba2"/>
+      <circle cx="550" cy="330" r="16" fill="#2a5a63" opacity="0.95"/>
+      <path d="M550 314 a 16 16 0 0 1 0 32" fill="none" stroke="#2a5a63" stroke-width="4"/>
+      <circle cx="550" cy="262" r="4" fill="#15323a"/>
+      <path d="M550 266 L550 246 L560 236 L550 230 L540 236 L550 246" fill="#8b3a2a"/>
+      <rect x="542" y="410" width="16" height="30" fill="#2a5a63" opacity="0.9"/>
+      <rect x="546" y="400" width="8" height="10" fill="#8b3a2a"/>
+    </g>
+    <!-- casa 4 -->
+    <g>
+      <rect x="668" y="486" width="116" height="104" fill="#f2e3c9"/>
+      <path d="M658 486 L726 452 L794 486 Z" fill="#a8492f"/>
+      <rect x="712" y="526" width="32" height="40" fill="#5a4026" opacity="0.85"/>
+      <rect x="682" y="500" width="30" height="28" fill="#2a5a63" opacity="0.9"/>
+    </g>
+    <!-- casa 5 -->
+    <g>
+      <rect x="828" y="466" width="112" height="124" fill="url(#muro)"/>
+      <path d="M818 466 L884 430 L950 466 Z" fill="url(#techo)"/>
+      <rect x="872" y="516" width="32" height="44" fill="#5a4026" opacity="0.85"/>
+      <rect x="844" y="482" width="30" height="30" fill="#2a5a63" opacity="0.9"/>
+    </g>
+    <!-- casa 6 -->
+    <g>
+      <rect x="972" y="492" width="118" height="98" fill="#f2e3c9"/>
+      <path d="M962 492 L1031 458 L1100 492 Z" fill="#a8492f"/>
+      <rect x="1020" y="530" width="34" height="42" fill="#5a4026" opacity="0.85"/>
+      <rect x="986" y="506" width="30" height="28" fill="#2a5a63" opacity="0.9"/>
+    </g>
+    <!-- casa 7 -->
+    <g>
+      <rect x="1116" y="474" width="84" height="116" fill="url(#muro)"/>
+      <path d="M1108 474 L1158 440 L1208 474 Z" fill="url(#techo)"/>
+      <rect x="1136" y="524" width="26" height="40" fill="#5a4026" opacity="0.85"/>
+    </g>
+  </g>
+
+  <!-- Banco / orilla -->
+  <path d="M0 600 Q 300 592 480 600 T 1200 604 L1200 620 L0 620 Z" fill="#1c3c3f"/>
+
+  <!-- Río -->
+  <rect x="0" y="618" width="1200" height="282" fill="url(#rio)"/>
+
+  <!-- Reflejo del sol -->
+  <g opacity="0.7">
+    <ellipse cx="600" cy="650" rx="120" ry="10" fill="url(#reflejo)" filter="url(#blurSol)"/>
+    <ellipse cx="600" cy="690" rx="80" ry="8" fill="url(#reflejo)" filter="url(#blurSol)"/>
+    <ellipse cx="600" cy="740" rx="52" ry="6" fill="url(#reflejo)" filter="url(#blurSol)"/>
+  </g>
+
+  <!-- Reflejos de la torre -->
+  <g fill="#2a1812" opacity="0.16">
+    <rect x="530" y="640" width="40" height="90"/>
+    <rect x="555" y="640" width="10" height="130"/>
+  </g>
+
+  <!-- Ondas del río -->
+  <g fill="none" stroke="#e8d5bc" stroke-opacity="0.28" stroke-width="3" stroke-linecap="round">
+    <path d="M120 700 q18 -7 36 0 q18 -7 36 0"/>
+    <path d="M820 720 q18 -7 36 0 q18 -7 36 0"/>
+    <path d="M60 780 q18 -7 36 0 q18 -7 36 0"/>
+    <path d="M620 800 q18 -7 36 0 q18 -7 36 0"/>
+    <path d="M980 840 q18 -7 36 0 q18 -7 36 0"/>
+    <path d="M320 860 q18 -7 36 0 q18 -7 36 0"/>
+  </g>
+
+  <!-- Solar destacado -->
+  <circle cx="600" cy="576" r="46" fill="#ffd9a0"/>
+  <circle cx="600" cy="576" r="30" fill="#ffe6b3"/>
+
+  <!-- Palmeras en primer plano -->
+  <g>
+    <path d="M1180 900 L1160 640 Q1156 600 1170 570" fill="none" stroke="#1c1410" stroke-width="12" stroke-linecap="round"/>
+    <path d="M1170 570 Q1130 550 1108 522 Q1134 540 1160 550 Q1188 556 1170 570 Z" fill="#123838"/>
+    <path d="M1170 570 Q1180 520 1210 500 Q1184 528 1170 566 Z" fill="#123838"/>
+    <path d="M1170 570 Q1140 522 1146 486 Q1152 520 1172 560 Z" fill="#1c4a4a"/>
+    <path d="M1155 900 L1160 700 Q1160 670 1170 650" fill="none" stroke="#241a14" stroke-width="9" stroke-linecap="round"/>
+    <path d="M1170 650 Q1125 636 1110 610 Q1134 628 1168 644 Z" fill="#1c4a4a"/>
+    <path d="M1170 650 Q1180 610 1202 588 Q1184 618 1174 648 Z" fill="#123838"/>
+    <path d="M1170 650 Q1152 618 1158 590 Q1168 616 1178 646 Z" fill="#2a5a63"/>
+  </g>
+  <g>
+    <path d="M0 900 L26 640 Q30 610 54 584" fill="none" stroke="#221813" stroke-width="10" stroke-linecap="round"/>
+    <path d="M54 584 Q24 560 6 534 Q32 552 56 576 Z" fill="#123838"/>
+    <path d="M54 584 Q70 530 100 512 Q72 540 58 580 Z" fill="#1c4a4a"/>
+    <path d="M54 584 Q40 544 44 512 Q52 544 66 578 Z" fill="#2a5a63"/>
+  </g>
+
+  <!-- Ventanas cálidas -->
+  <g fill="#ffd9a0" opacity="0.85">
+    <rect x="60" y="520" width="26" height="26" rx="2"/>
+    <rect x="712" y="526" width="26" height="26" rx="2"/>
+    <rect x="1020" y="530" width="26" height="26" rx="2"/>
+  </g>
+</svg>

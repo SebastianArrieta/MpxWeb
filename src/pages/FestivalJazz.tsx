@@ -1,4 +1,5 @@
 import { useApp } from '../context/AppContext'
+import Gallery from '../components/Gallery'
 
 export default function FestivalJazz() {
   const { labels } = useApp()
@@ -29,13 +30,7 @@ export default function FestivalJazz() {
 
       <section className="section">
         <h2 className="section__title">{l.galeriaTitle}</h2>
-        <div className="gallery-stub">
-          {[1, 2, 3].map((n) => (
-            <div key={n} className="gallery-stub__item">
-              {l.galeriaConcierto.replace('{n}', String(n))}
-            </div>
-          ))}
-        </div>
+        <Gallery items={l.galeria ?? []} label={l.galeriaTitle} />
       </section>
     </div>
   )

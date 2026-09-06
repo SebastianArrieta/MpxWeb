@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
 import VisitCounter from '../components/VisitCounter'
 import Timeline from '../components/Timeline'
+import { mediaUrl } from '../helpers/mediaUrl'
 
 export default function Home() {
   const { audience, labels } = useApp()
@@ -13,6 +14,10 @@ export default function Home() {
   return (
     <div className="page home">
       <section className="hero hero--cinematic">
+        <div className="hero__backdrop">
+          <img src={mediaUrl('media/images/muestra-mompox.svg')} alt="" />
+        </div>
+        <div className="hero__shade" aria-hidden="true" />
         <p className="hero__eyebrow">{labels.inicio.eyebrow}</p>
         <h1 className="hero__title">{labels.site.fullName}</h1>
         <p className="hero__slogan">{labels.site.slogan}</p>
@@ -26,8 +31,8 @@ export default function Home() {
           </Link>
         </div>
         <div className="badge-row" aria-label="Reconocimientos">
-          {labels.inicio.reconocimientos.map((b) => (
-            <span key={b} className="badge">
+          {labels.inicio.reconocimientos.map((b, i) => (
+            <span key={b} className="badge" style={{ ['--i' as string]: i }}>
               {b}
             </span>
           ))}

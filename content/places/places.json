@@ -18,12 +18,11 @@
       "descripcion_en": "Main square in Mompox’s historic center.",
       "lat": 9.2415916,
       "lng": -74.4234409,
-      "foto": null,
+      "foto": "media/images/muestra-mompox.svg",
       "horario": null,
       "telefono": null,
       "pendiente": true,
       "pendiente_campos": [
-        "foto",
         "horario"
       ]
     },

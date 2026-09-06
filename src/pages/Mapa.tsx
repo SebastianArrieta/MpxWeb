@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import placesData from '../../content/places/places.json'
 import categoriesData from '../../content/places/categories.json'
 import { useApp } from '../context/AppContext'
+import { mediaUrl } from '../helpers/mediaUrl'
 
 type Place = (typeof placesData.items)[number]
 type MobileView = 'lista' | 'mapa'
@@ -66,7 +67,13 @@ export default function Mapa() {
             {mapaLabels.cerrarFicha}
           </button>
         ) : null}
-        <div className="map-card__foto">{f.sinFoto}</div>
+        <div className="map-card__foto">
+          {place.foto ? (
+            <img src={mediaUrl(place.foto)} alt={place.nombre_es} loading="lazy" decoding="async" />
+          ) : (
+            f.sinFoto
+          )}
+        </div>
         <h3>{place.nombre_es}</h3>
         <p>{place.descripcion_es}</p>
         <ul className="stub-list">
