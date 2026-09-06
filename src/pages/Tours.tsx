@@ -1,29 +1,21 @@
-const PRESENCIAL = [
-  { title: 'Recorrido histórico', meta: '2 h · a pie' },
-  { title: 'Ruta fluvial', meta: '1.5 h · río' },
-  { title: 'Artesanos y orfebrería', meta: '2 h · talleres' },
-]
-
-const VIRTUAL = [
-  { title: 'Casco 360°', meta: 'Online · 30 min' },
-  { title: 'Semana Santa VR', meta: 'Online · 20 min' },
-  { title: 'Jazz en casa', meta: 'Streaming · archivo' },
-]
+import { useApp } from '../context/AppContext'
 
 export default function Tours() {
+  const { labels } = useApp()
+  const l = labels.tours
   return (
     <div className="page">
       <header className="page-header">
-        <h1>Tours</h1>
-        <p>Experiencias presenciales y virtuales (maquetado).</p>
+        <h1>{l.title}</h1>
+        <p>{l.tagline}</p>
       </header>
 
       <section className="section">
-        <h2 className="section__title">Presencial</h2>
+        <h2 className="section__title">{l.presenciales}</h2>
         <div className="card-grid card-grid--3">
-          {PRESENCIAL.map((t) => (
+          {l.presencialesList.map((t) => (
             <article key={t.title} className="info-card">
-              <span className="info-card__tag">Presencial</span>
+              <span className="info-card__tag">{l.presencialTag}</span>
               <h3>{t.title}</h3>
               <p>{t.meta}</p>
             </article>
@@ -32,11 +24,11 @@ export default function Tours() {
       </section>
 
       <section className="section">
-        <h2 className="section__title">Virtual</h2>
+        <h2 className="section__title">{l.virtuales}</h2>
         <div className="card-grid card-grid--3">
-          {VIRTUAL.map((t) => (
+          {l.virtualesList.map((t) => (
             <article key={t.title} className="info-card info-card--teal">
-              <span className="info-card__tag">Virtual</span>
+              <span className="info-card__tag">{l.virtualTag}</span>
               <h3>{t.title}</h3>
               <p>{t.meta}</p>
             </article>

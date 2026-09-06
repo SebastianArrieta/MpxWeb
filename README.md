@@ -32,10 +32,11 @@ npm run preview
 
 ## Notas del maquetado
 
-- Barra superior: logo ¼Mompox», navegación, toggle ES|EN (stub data-lang), chip Visitante | Momposino (persistido en localStorage), contador de visitas fijo en 0.
+- Barra superior: logo ¼Mompox», navegación, toggle ES|EN (bilingüe real; copy EN provisional en `content/en/labels.json`), chip Visitante | Momposino (persistido en localStorage), contador de visitas fijo en 0.
 - Primera visita: pantalla de bienvenida para elegir audiencia.
 - La audiencia no oculta páginas; solo reordena los accesos rapidos del inicio y mensajes cortos.
-- Mapa y contador son placeholders (sin claves ni backend).
+- Contenido único en `content/`: labels ES/EN y lugares. Los mockups estáticos de `maquetado/` leen `content/places`; la app React importa desde `content/` también.
+- Mapa y contador son placeholders (sin claves ni backend). Ruta 404 y scroll-to-top incluidos.
 
 ## Publicar en GitHub
 

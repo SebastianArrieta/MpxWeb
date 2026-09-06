@@ -1,10 +1,10 @@
 import { useApp } from '../context/AppContext'
 
 export default function VisitCounter({ className = '' }: { className?: string }) {
-  const { visitCount } = useApp()
+  const { visitCount, labels } = useApp()
   return (
-    <span className={`visit-counter ${className}`.trim()} title="Contador de visitas (stub)">
-      Visitas: <strong>{visitCount}</strong>
+    <span className={`visit-counter ${className}`.trim()} title={labels.shell.contadorTitle}>
+      {labels.shell.contadorVisitas}: <strong>{visitCount}</strong>
     </span>
   )
 }

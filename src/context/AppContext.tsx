@@ -7,12 +7,17 @@ import {
   useState,
   type ReactNode,
 } from 'react'
+import esLabels from '../../content/es/labels.json'
+import enLabels from '../../content/en/labels.json'
 
 export type Audience = 'visitante' | 'momposino'
 export type Lang = 'es' | 'en'
+export type ContentLabels = typeof esLabels
 
 const AUDIENCE_KEY = 'mpx-audience'
 const LANG_KEY = 'mpx-lang'
+
+const LABELS_BY_LANG: Record<Lang, ContentLabels> = { es: esLabels, en: enLabels }
 
 interface AppContextValue {
   audience: Audience | null
@@ -21,6 +26,7 @@ interface AppContextValue {
   toggleLang: () => void
   hasChosenAudience: boolean
   visitCount: number
+  labels: ContentLabels
 }
 
 const AppContext = createContext<AppContextValue | null>(null)
@@ -38,6 +44,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-lang', lang)
+    document.documentElement.setAttribute('lang', lang)
   }, [lang])
 
   useEffect(() => {
@@ -69,6 +76,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       toggleLang,
       hasChosenAudience: audience !== null,
       visitCount: 0,
+      labels: LABELS_BY_LANG[lang],
     }),
     [audience, setAudience, lang, toggleLang],
   )

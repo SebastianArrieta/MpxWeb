@@ -1,0 +1,274 @@
+{
+  "meta": {
+    "lang": "en",
+    "note": "Provisional English copy. Edit freely once official wording is provided."
+  },
+  "site": {
+    "name": "Mompox",
+    "fullName": "Santa Cruz de Mompox",
+    "slogan": "The land of God…"
+  },
+  "authors": [
+    {
+      "id": "sebastian",
+      "name": "Sebastián Arrieta",
+      "initials": "SA",
+      "role": "Development & product",
+      "whatsapp": "3143050786",
+      "whatsappDisplay": "+57 314 305 0786",
+      "whatsappUrl": "https://wa.me/573143050786",
+      "instagram": "sebck_",
+      "instagramUrl": "https://instagram.com/sebck_"
+    },
+    {
+      "id": "juan",
+      "name": "Juan Arguelles",
+      "initials": "JA",
+      "role": "Content & design",
+      "whatsapp": "3008837491",
+      "whatsappDisplay": "+57 300 883 7491",
+      "whatsappUrl": "https://wa.me/573008837491",
+      "instagram": "juan_xpz",
+      "instagramUrl": "https://instagram.com/juan_xpz"
+    }
+  ],
+  "timeline": [
+    {
+      "year": "1537",
+      "title": "Foundation",
+      "detail": "Santa Cruz de Mompox is founded by Alonso de Heredia."
+    },
+    {
+      "year": "1810",
+      "title": "Absolute independence",
+      "detail": "On August 6, Mompox proclaims its absolute independence."
+    },
+    {
+      "year": "1812",
+      "title": "Bolívar and Valorous City",
+      "detail": "Simón Bolívar and the Admirable Campaign. On October 19 the town receives the title of Valorous City."
+    },
+    {
+      "year": "1959",
+      "title": "National Monument",
+      "detail": "The historic center is declared a National Monument."
+    },
+    {
+      "year": "1995",
+      "title": "UNESCO Heritage",
+      "detail": "The historic center is inscribed as a UNESCO World Heritage Site."
+    }
+  ],
+  "culturalMilestones": [
+    {
+      "title": "Holy Week",
+      "detail": "Processions and living tradition that mark Mompox's cultural calendar."
+    },
+    {
+      "title": "Jazz Festival",
+      "detail": "A musical gathering that animates the town's contemporary cultural life."
+    }
+  ],
+  "entrada": {
+    "eyebrow": "Santa Cruz de Mompox",
+    "pregunta": "Are you a visitor or a momposino?",
+    "opcionVisitante": "Visitor",
+    "opcionMomposino": "Momposino",
+    "ayuda": "Your choice reorders the home page and shows short messages. You can change it anytime from the top bar."
+  },
+  "audiencia": {
+    "chipVisitante": "Visitor",
+    "chipMomposino": "Momposino",
+    "cambiar": "Change audience"
+  },
+  "idioma": {
+    "es": "ES",
+    "en": "EN",
+    "aria": "Change language"
+  },
+  "nav": {
+    "inicio": "Home",
+    "historia": "History",
+    "semanaSanta": "Holy Week",
+    "festivalJazz": "Jazz Festival",
+    "queVer": "What to see",
+    "mapa": "Map",
+    "tours": "Tours",
+    "autor": "Authors",
+    "contacto": "Contact"
+  },
+  "inicio": {
+    "eyebrow": "Living heritage of the Colombian Caribbean",
+    "reconocimientos": [
+      "UNESCO 1995",
+      "National Monument 1959",
+      "Heritage Towns"
+    ],
+    "ctaHistoria": "Explore the timeline",
+    "ctaMapa": "See the map",
+    "msgVisitante": "Welcome, visitor. Start with the map, the history and the tours.",
+    "msgMomposino": "Welcome, momposino. Here we prioritize events and local life.",
+    "accesosTitle": "Quick access",
+    "accesosLead": "Order adapted to your profile ({perfil}).",
+    "historiaTeaserTitle": "History in motion",
+    "historiaTeaserLead": "Foundation, independence, Bolívar, National Monument and UNESCO — in an interactive tab.",
+    "historiaTeaserCta": "Open the History tab",
+    "quickVisitante": [
+      { "to": "/mapa", "label": "Explore the map", "hint": "Streets and points of interest" },
+      { "to": "/historia", "label": "History", "hint": "Interactive timeline" },
+      { "to": "/semana-santa", "label": "Holy Week", "hint": "Processions and tradition" },
+      { "to": "/tours", "label": "Tours", "hint": "In person and virtual" }
+    ],
+    "quickMomposino": [
+      { "to": "/semana-santa", "label": "Holy Week", "hint": "Your local tradition" },
+      { "to": "/festival-jazz", "label": "Jazz Festival", "hint": "Town agenda" },
+      { "to": "/historia", "label": "History", "hint": "Memory of the homeland" },
+      { "to": "/mapa", "label": "Map", "hint": "Historic center references" }
+    ]
+  },
+  "historia": {
+    "eyebrow": "Memory of the river",
+    "title": "Timeline of Mompox",
+    "intro": "An interactive experience: use the year bar, click each milestone and let the scroll trigger the moment. Only confirmed dates.",
+    "desplaza": "Scroll"
+  },
+  "timelineUi": {
+    "close": "Close",
+    "explore": "Explore",
+    "teaser": "{inicio} → {fin}. Explore the full history.",
+    "railAria": "Milestone navigation",
+    "culturalTitle": "Living tradition",
+    "culturalLead": "Cultural highlights of the momposino calendar (no fixed invented year)."
+  },
+  "semanaSanta": {
+    "title": "Holy Week",
+    "tagline": "Processions, faith and living heritage in Mompox.",
+    "historiaTitle": "History",
+    "historiaText": "Lorem ipsum — brief historical account of Mompox's Holy Week. Colonial tradition, brotherhoods and collective memory. (stub)",
+    "procesionesTitle": "Processions",
+    "procesiones": [
+      "Palm Sunday — placeholder route",
+      "Maundy Thursday — steps and main streets",
+      "Good Friday — silence and candles",
+      "Holy Saturday — symbolic closing"
+    ],
+    "galeriaTitle": "Gallery",
+    "galeriaFoto": "Photo {n}"
+  },
+  "festivalJazz": {
+    "title": "Jazz Festival",
+    "tagline": "Rhythms under the momposino sky.",
+    "origenTitle": "Origins",
+    "origenText": "Lorem ipsum — how the festival was born, its bond with the river and the community. Mockup placeholder text.",
+    "escenariosTitle": "Venues",
+    "escenarios": [
+      "Main square",
+      "Riverfront walkway",
+      "Historic cloister"
+    ],
+    "escenariosStub": "Short description of the venue (stub).",
+    "galeriaTitle": "Gallery",
+    "galeriaConcierto": "Concert {n}"
+  },
+  "queVer": {
+    "title": "What to see",
+    "tagline": "Four starting points to discover Mompox.",
+    "sights": [
+      { "title": "Church of Santa Bárbara", "text": "Baroque icon by the river. Stub." },
+      { "title": "Municipal cemetery", "text": "Funerary architecture and stillness. Stub." },
+      { "title": "House of Culture", "text": "Local memory and history. Stub." },
+      { "title": "Riverfront walkway", "text": "Sunsets and riverside strolls. Stub." }
+    ]
+  },
+  "mapa": {
+    "title": "Map",
+    "tagline": "Explore spots in the historic center (initial data; several fields pending).",
+    "buscar": "Search…",
+    "filtros": {
+      "todos": "All",
+      "sitios": "Sites",
+      "restaurantes": "Restaurants",
+      "hoteles": "Hotels",
+      "parqueaderos": "Parking",
+      "artesanias": "Crafts",
+      "iglesias": "Churches",
+      "servicios": "Services"
+    },
+    "vistaLista": "List",
+    "vistaMapa": "Map",
+    "vistaAria": "Mobile view",
+    "listaAria": "Places list",
+    "panelAria": "Map panel",
+    "lugaresCount": "Places ({n})",
+    "listaVacia": "No places with these filters.",
+    "pendiente": "Pending",
+    "panelCentro": "Approximate center {lat}, {lng}",
+    "panelNota": "Mockup — Google Maps later",
+    "ficha": {
+      "sinFoto": "Photo pending",
+      "coords": "Coords",
+      "horario": "Hours",
+      "telefono": "Phone",
+      "pendiente": "Pending",
+      "comoLlegar": "Directions",
+      "sinRuta": "No coordinates to open directions."
+    },
+    "cerrarFicha": "Close"
+  },
+  "tours": {
+    "title": "Tours",
+    "tagline": "In-person and virtual experiences (mockup).",
+    "presenciales": "In person",
+    "virtuales": "Virtual",
+    "presencialTag": "In person",
+    "virtualTag": "Virtual",
+    "presencialesList": [
+      { "title": "Historic walking tour", "meta": "2 h · walking" },
+      { "title": "River route", "meta": "1.5 h · river" },
+      { "title": "Crafts and filigree", "meta": "2 h · workshops" }
+    ],
+    "virtualesList": [
+      { "title": "360° historic center", "meta": "Online · 30 min" },
+      { "title": "Holy Week VR", "meta": "Online · 20 min" },
+      { "title": "Jazz at home", "meta": "Streaming · archive" }
+    ]
+  },
+  "autor": {
+    "title": "Authors",
+    "tagline": "Who drive this tourism project.",
+    "bio": "Co-author of the tourism website for Santa Cruz de Mompox: heritage, visitor experience and local storytelling.",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "enfoque": "Focus: heritage and responsible tourism"
+  },
+  "contacto": {
+    "title": "Contact",
+    "tagline": "Write to us or reach out via WhatsApp and Instagram.",
+    "formTitle": "Form",
+    "formNombre": "Name",
+    "formEmail": "Email",
+    "formMensaje": "Message",
+    "formPlaceholderNombre": "Your name",
+    "formPlaceholderEmail": "you@email.com",
+    "formPlaceholderMensaje": "How can we help?",
+    "formEnviar": "Send (stub)",
+    "autoresTitle": "Authors",
+    "note": "Static data from the brief. No backend or real submission in this mockup."
+  },
+  "shell": {
+    "contadorVisitas": "Visits",
+    "contadorTitle": "Visit counter (stub)",
+    "footerBrand": "Mompox — heritage tourism",
+    "footerNote": "Vite mockup · no APIs yet"
+  },
+  "comunes": {
+    "volver": "Back",
+    "proximamente": "Coming soon"
+  },
+  "notfound": {
+    "code": "404",
+    "title": "Page not found",
+    "text": "The route you are looking for does not exist or has moved.",
+    "cta": "Back to home"
+  }
+}

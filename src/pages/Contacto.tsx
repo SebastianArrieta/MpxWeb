@@ -1,16 +1,18 @@
-import labels from '../data/labels.json'
+import { useApp } from '../context/AppContext'
 
 export default function Contacto() {
+  const { labels } = useApp()
+  const l = labels.contacto
   return (
     <div className="page">
       <header className="page-header">
-        <h1>Contacto</h1>
-        <p>Escríbenos o coordina por WhatsApp e Instagram.</p>
+        <h1>{l.title}</h1>
+        <p>{l.tagline}</p>
       </header>
 
       <div className="contact-layout">
         <section className="section contact-form-wrap">
-          <h2 className="section__title">Formulario</h2>
+          <h2 className="section__title">{l.formTitle}</h2>
           <form
             className="contact-form"
             onSubmit={(e) => {
@@ -18,38 +20,38 @@ export default function Contacto() {
             }}
           >
             <label>
-              Nombre
-              <input type="text" name="nombre" placeholder="Tu nombre" />
+              {l.formNombre}
+              <input type="text" name="nombre" placeholder={l.formPlaceholderNombre} />
             </label>
             <label>
-              Correo
-              <input type="email" name="email" placeholder="tu@correo.com" />
+              {l.formEmail}
+              <input type="email" name="email" placeholder={l.formPlaceholderEmail} />
             </label>
             <label>
-              Mensaje
-              <textarea name="mensaje" rows={4} placeholder="¿En qué te ayudamos?" />
+              {l.formMensaje}
+              <textarea name="mensaje" rows={4} placeholder={l.formPlaceholderMensaje} />
             </label>
             <button type="submit" className="btn btn--primary">
-              Enviar (stub)
+              {l.formEnviar}
             </button>
           </form>
         </section>
 
         <aside className="section contact-aside">
-          <h2 className="section__title">Autores</h2>
+          <h2 className="section__title">{l.autoresTitle}</h2>
           <div className="contact-authors">
             {labels.authors.map((author) => (
               <article key={author.id} className="contact-author-card">
                 <h3>{author.name}</h3>
                 <p className="contact-author-card__role">{author.role}</p>
                 <p>
-                  <strong>WhatsApp:</strong>{' '}
+                  <strong>{labels.autor.whatsapp}:</strong>{' '}
                   <a href={author.whatsappUrl} target="_blank" rel="noreferrer">
                     {author.whatsappDisplay}
                   </a>
                 </p>
                 <p>
-                  <strong>Instagram:</strong>{' '}
+                  <strong>{labels.autor.instagram}:</strong>{' '}
                   <a href={author.instagramUrl} target="_blank" rel="noreferrer">
                     @{author.instagram}
                   </a>
@@ -57,9 +59,7 @@ export default function Contacto() {
               </article>
             ))}
           </div>
-          <p className="placeholder-text">
-            Datos estáticos del brief. Sin backend ni envío real en este maquetado.
-          </p>
+          <p className="placeholder-text">{l.note}</p>
         </aside>
       </div>
     </div>
