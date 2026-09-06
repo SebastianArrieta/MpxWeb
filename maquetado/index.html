@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mompox, Colombia — Inicio (maquetado)</title>
+  <meta name="description" content="La tierra de Dios... Sitio turístico bilingüe de Santa Cruz de Mompox." />
+  <link rel="stylesheet" href="css/shell.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span>Mompox</span></a>
+    <nav class="nav-desktop" aria-label="Principal">
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="semana-santa.html">Semana Santa</a>
+      <a href="festival-jazz.html">Festival de Jazz</a>
+      <a href="que-ver.html">Qué ver y hacer</a>
+      <a href="mapa.html">Mapa</a>
+      <a href="tours.html">Tours</a>
+      <a href="autor.html">Sobre el autor</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="header-controls" style="position:relative">
+      <button type="button" class="menu-btn" data-menu-btn aria-label="Abrir menú">Menú</button>
+      <button type="button" class="chip" data-audience-chip aria-haspopup="true" aria-expanded="false">Visitante</button>
+      <div class="audience-menu" data-audience-menu role="menu">
+        <button type="button" data-set-audience="visitante">Visitante</button>
+        <button type="button" data-set-audience="momposino">Momposino</button>
+      </div>
+      <button type="button" class="lang-toggle" data-lang-toggle aria-label="Cambiar idioma">ES | EN</button>
+    </div>
+  </header>
+  <nav class="nav-mobile" data-nav-mobile aria-label="Móvil">
+    <a href="index.html">Inicio</a>
+    <a href="semana-santa.html">Semana Santa</a>
+    <a href="festival-jazz.html">Festival de Jazz</a>
+    <a href="que-ver.html">Qué ver y hacer</a>
+    <a href="mapa.html">Mapa</a>
+    <a href="tours.html">Tours</a>
+    <a href="autor.html">Sobre el autor</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Mompox, Colombia</h1>
+      <p class="tagline">La tierra de Dios...</p>
+      <p class="msg" data-show-audience="visitante">Descubre tours, el mapa y lo esencial para tu visita.</p>
+      <p class="msg hidden" data-show-audience="momposino">Agenda cultural, patrimonio y servicios locales.</p>
+      <div class="cta-row" data-show-audience="visitante">
+        <a class="btn btn-primary" href="mapa.html">Explorar el mapa</a>
+        <a class="btn btn-secondary" href="tours.html">Tours</a>
+      </div>
+      <div class="cta-row hidden" data-show-audience="momposino">
+        <a class="btn btn-primary" href="festival-jazz.html">Ver eventos</a>
+        <a class="btn btn-secondary" href="mapa.html">Servicios en el mapa</a>
+      </div>
+      <p class="counter" style="margin:.85rem 0 0;color:var(--muted);font-size:.85rem">
+        Visitas: <span data-visit-count>0</span>
+      </p>
+    </section>
+
+    <div class="recog" aria-label="Reconocimientos" data-block="reconocimientos">
+      <span>UNESCO</span>
+      <span>Monumento Nacional</span>
+      <span>Pueblos Patrimonio</span>
+      <span>Destino sostenible ICONTEC</span>
+    </div>
+
+    <div data-home-order
+         data-order-visitante="tours,mapa,hoteles,eventos,cultura,autor"
+         data-order-momposino="eventos,cultura,servicios,tours,reconocimientos,autor">
+
+      <section class="section" data-block="tours">
+        <h2>Tours</h2>
+        <div class="cards">
+          <article class="card"><h3>City tour a pie</h3><p>Placeholder · duración y precio por confirmar</p></article>
+          <article class="card"><h3>En bici</h3><p>Placeholder · duración y precio por confirmar</p></article>
+          <article class="card"><h3>Motocarro</h3><p>Placeholder · duración y precio por confirmar</p></article>
+        </div>
+        <p style="margin:.75rem 0 0"><a href="tours.html">Ver todos los tours</a></p>
+      </section>
+
+      <section class="section" data-block="mapa">
+        <h2>Mapa</h2>
+        <div class="card">
+          <p>Vista previa del mapa interactivo (filtros, lista y «Cómo llegar»).</p>
+          <p style="margin-top:.75rem"><a class="btn btn-primary" href="mapa.html">Abrir mapa</a></p>
+        </div>
+      </section>
+
+      <section class="section" data-block="hoteles">
+        <h2>Dónde dormir</h2>
+        <div class="cards">
+          <article class="card"><h3>Hoteles</h3><p>Teaser desde lugares · datos reales en el mapa</p></article>
+        </div>
+      </section>
+
+      <section class="section" data-block="eventos">
+        <h2>Eventos</h2>
+        <div class="cards">
+          <article class="card"><h3>Semana Santa</h3><p>Fechas oficiales: pendiente de confirmación</p><p><a href="semana-santa.html">Ver página</a></p></article>
+          <article class="card"><h3>Festival de Jazz</h3><p>Fechas oficiales: pendiente de confirmación</p><p><a href="festival-jazz.html">Ver página</a></p></article>
+        </div>
+      </section>
+
+      <section class="section" data-block="cultura">
+        <h2>Qué ver y hacer</h2>
+        <div class="cards">
+          <article class="card"><h3>Arquitectura</h3><p>Colonial y religiosa</p></article>
+          <article class="card"><h3>Río Magdalena</h3><p>Ecoturismo</p></article>
+          <article class="card"><h3>Cementerio</h3><p>Realismo mágico</p></article>
+          <article class="card"><h3>Filigrana</h3><p>Artesanía momposina</p></article>
+        </div>
+        <p style="margin:.75rem 0 0"><a href="que-ver.html">Ver sección</a></p>
+      </section>
+
+      <section class="section" data-block="servicios">
+        <h2>Servicios locales</h2>
+        <div class="card">
+          <p>Parqueaderos, servicios y artesanías en el mapa.</p>
+          <p style="margin-top:.75rem"><a class="btn btn-secondary" href="mapa.html">Abrir con filtros</a></p>
+        </div>
+      </section>
+
+      <section class="section" data-block="autor">
+        <h2>Sobre el autor</h2>
+        <div class="card">
+          <h3>Luis Alfredo Domínguez Hazbún</h3>
+          <p>Dedicatoria a Efraín Domínguez Rivera</p>
+          <p style="margin-top:.5rem"><a href="autor.html">Leer más</a></p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>Mompox, Colombia</span>
+    <span class="counter">Visitas: <span data-visit-count>0</span></span>
+  </footer>
+
+  <script src="js/shell.js"></script>
+  <script>
+    if (!MpxShell.getAudience()) {
+      location.href = "entrada.html";
+    } else {
+      MpxShell.mount();
+    }
+  </script>
+</body>
+</html>

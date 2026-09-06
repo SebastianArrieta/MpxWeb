@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>que ver — Mompox (maquetado)</title>
+  <link rel="stylesheet" href="css/shell.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span>Mompox</span></a>
+    <nav class="nav-desktop" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="semana-santa.html">Semana Santa</a>
+      <a href="festival-jazz.html">Festival de Jazz</a>
+      <a href="que-ver.html">Qué ver y hacer</a>
+      <a href="mapa.html">Mapa</a>
+      <a href="tours.html">Tours</a>
+      <a href="autor.html">Sobre el autor</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="header-controls" style="position:relative">
+      <button type="button" class="menu-btn" data-menu-btn aria-label="Abrir menú">Menú</button>
+      <button type="button" class="chip" data-audience-chip aria-haspopup="true" aria-expanded="false">Visitante</button>
+      <div class="audience-menu" data-audience-menu role="menu">
+        <button type="button" data-set-audience="visitante">Visitante</button>
+        <button type="button" data-set-audience="momposino">Momposino</button>
+      </div>
+      <button type="button" class="lang-toggle" data-lang-toggle aria-label="Cambiar idioma">ES | EN</button>
+    </div>
+  </header>
+  <nav class="nav-mobile" data-nav-mobile aria-label="Móvil">
+    <a href="index.html">Inicio</a>
+    <a href="semana-santa.html">Semana Santa</a>
+    <a href="festival-jazz.html">Festival de Jazz</a>
+    <a href="que-ver.html">Qué ver y hacer</a>
+    <a href="mapa.html">Mapa</a>
+    <a href="tours.html">Tours</a>
+    <a href="autor.html">Sobre el autor</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+  <main class="wrap">
+    <section class="hero">
+      <h1>que ver</h1>
+      <p class="tagline">Shell de página — contenido lo completa el especialista de la sección.</p>
+      <p><a href="index.html">← Volver al inicio</a></p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <span>Mompox, Colombia</span>
+    <span class="counter">Visitas: <span data-visit-count>0</span></span>
+  </footer>
+  <script src="js/shell.js"></script>
+  <script>MpxShell.mount({ countVisit: false });</script>
+</body>
+</html>
