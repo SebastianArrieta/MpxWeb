@@ -26,7 +26,7 @@
     "queVer": "Qué ver y hacer",
     "mapa": "Mapa",
     "tours": "Tours",
-    "autor": "Sobre el autor",
+    "autor": "Autores",
     "contacto": "Contacto"
   },
   "inicio": {
@@ -40,22 +40,50 @@
     ],
     "ctaMapa": "Explorar el mapa",
     "ctaEventos": "Ver eventos",
-    "ordenVisitante": ["tours", "mapa", "hoteles", "eventos"],
-    "ordenMomposino": ["agendaCultural", "cultura", "serviciosLocales"],
+    "ordenVisitante": [
+      "tours",
+      "mapa",
+      "hoteles",
+      "eventos"
+    ],
+    "ordenMomposino": [
+      "agendaCultural",
+      "cultura",
+      "serviciosLocales"
+    ],
     "msgVisitante": "Descubre tours, el mapa y lo esencial para tu visita.",
-    "msgMomposino": "Agenda cultural, patrimonio y servicios locales."
+    "msgMomposino": "Agenda cultural, patrimonio y servicios locales.",
+    "ctaAutores": "Conoce a los autores"
   },
   "semanaSanta": {
     "titulo": "Semana Santa",
-    "secciones": ["Historia", "Significado", "Procesiones y recorridos", "Galería"],
+    "secciones": [
+      "Historia",
+      "Significado",
+      "Procesiones y recorridos",
+      "Galería"
+    ],
     "pendienteFechas": "Fechas oficiales: pendiente de confirmación",
-    "pendienteFotos": "Fotos reales: pendientes"
+    "pendienteFotos": "Fotos reales: pendientes",
+    "tagline": "Fe, silencio y patrimonio vivo en las calles de Santa Cruz de Mompox.",
+    "msgVisitante": "Una de las Semanas Santas más sentidas del Caribe colombiano: procesiones, hermandades y casco histórico.",
+    "msgMomposino": "Tu Semana Mayor: hermandades, pasos y la memoria que habita el centro histórico.",
+    "historia": "En Mompox, la Semana Santa es tradición de siglos: órdenes religiosas, hermandades y vecinos cuidan procesiones y rituales desde la Cuaresma hasta la Resurrección, en el casco histórico UNESCO. Reconocida como Patrimonio Cultural e Inmaterial de la Nación."
   },
   "festivalJazz": {
     "titulo": "Festival de Jazz",
-    "secciones": ["Origen", "Ambiente", "Escenarios", "Galería"],
+    "secciones": [
+      "Origen",
+      "Ambiente",
+      "Escenarios",
+      "Galería"
+    ],
     "pendienteFechas": "Fechas oficiales: pendiente de confirmación",
-    "pendienteFotos": "Fotos reales: pendientes"
+    "pendienteFotos": "Fotos reales: pendientes",
+    "tagline": "Música, río y patrimonio: el FestiJazz en la tierra de Dios.",
+    "msgVisitante": "Vive el ambiente del festival: escenarios al aire libre, street jazz y el casco histórico de noche.",
+    "msgMomposino": "Agenda cultural local: jazz, street jazz y vida en plazas y malecón.",
+    "origen": "El FestiJazz nació en 2012 para proyectar a Mompox como destino cultural. Lo organizan la Gobernación de Bolívar, ICULTUR y Unibac."
   },
   "queVer": {
     "titulo": "Qué ver y hacer",
@@ -100,23 +128,44 @@
     "placeholderHorario": "Horario: por confirmar"
   },
   "autor": {
-    "titulo": "Sobre el autor",
-    "nombre": "Luis Alfredo Domínguez Hazbún",
-    "dedicatoriaLabel": "Dedicatoria",
-    "dedicatoriaA": "Efraín Domínguez Rivera",
-    "bioPlaceholder": "Texto de perfil: pendiente de copy definitivo"
+    "titulo": "Autores",
+    "tagline": "Quiénes impulsan este sitio turístico bilingüe de Santa Cruz de Mompox.",
+    "nombre": "Sebastián Arrieta y Juan Arguelles",
+    "autores": [
+      {
+        "nombre": "Sebastián Arrieta",
+        "bio": "Coautor del proyecto. Coordina el desarrollo del sitio y la experiencia web para visitantes y momposinos."
+      },
+      {
+        "nombre": "Juan Arguelles",
+        "bio": "Coautor del proyecto. Colabora en el diseño y la construcción del sitio turístico de Mompox."
+      }
+    ]
   },
   "contacto": {
     "titulo": "Contacto",
+    "tagline": "Escríbenos o háblanos por WhatsApp e Instagram.",
     "formNombre": "Nombre",
     "formEmail": "Correo",
     "formMensaje": "Mensaje",
     "formEnviar": "Enviar",
-    "whatsapp": "WhatsApp",
-    "whatsappNumero": "+57 310 351 3606",
-    "correoLabel": "Correo",
-    "correoPlaceholder": "Correo: pendiente si no está en el brief",
-    "redes": "@alfredompox"
+    "formPlaceholderNombre": "Tu nombre",
+    "formPlaceholderEmail": "tu@correo.com",
+    "formPlaceholderMensaje": "¿En qué te ayudamos?",
+    "sebastian": {
+      "nombre": "Sebastián Arrieta",
+      "whatsapp": "+57 314 305 0786",
+      "whatsappLink": "https://wa.me/573143050786",
+      "instagram": "@sebck_",
+      "instagramLink": "https://instagram.com/sebck_"
+    },
+    "juan": {
+      "nombre": "Juan Arguelles",
+      "whatsapp": "+57 300 883 7491",
+      "whatsappLink": "https://wa.me/573008837491",
+      "instagram": "@juan_xpz",
+      "instagramLink": "https://instagram.com/juan_xpz"
+    }
   },
   "shell": {
     "contadorVisitas": "Visitas",

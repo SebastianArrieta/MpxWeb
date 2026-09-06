@@ -3,8 +3,50 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>festival jazz — Mompox (maquetado)</title>
+  <title>Festival de Jazz — Mompox</title>
+  <meta name="description" content="Festival Internacional de Jazz de Mompox: origen, ambiente, escenarios y galería." />
   <link rel="stylesheet" href="css/shell.css" />
+  <style>
+    .pending {
+      display: inline-block;
+      margin: .35rem .35rem 0 0;
+      padding: .25rem .65rem;
+      border-radius: 999px;
+      border: 1px dashed var(--accent);
+      color: var(--accent);
+      font-size: .8rem;
+      background: #f6efe4;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: .75rem;
+    }
+    .gallery-item {
+      aspect-ratio: 4/3;
+      display: grid;
+      place-items: center;
+      background: var(--chip);
+      border: 1px dashed var(--line);
+      border-radius: .75rem;
+      color: var(--muted);
+      font-size: .85rem;
+      text-align: center;
+      padding: .5rem;
+    }
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .checklist li {
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .checklist li:last-child { border-bottom: 0; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -12,11 +54,11 @@
     <nav class="nav-desktop" aria-label="Principal">
       <a href="index.html">Inicio</a>
       <a href="semana-santa.html">Semana Santa</a>
-      <a href="festival-jazz.html">Festival de Jazz</a>
+      <a href="festival-jazz.html" aria-current="page">Festival de Jazz</a>
       <a href="que-ver.html">Qué ver y hacer</a>
       <a href="mapa.html">Mapa</a>
       <a href="tours.html">Tours</a>
-      <a href="autor.html">Sobre el autor</a>
+      <a href="autor.html">Autores</a>
       <a href="contacto.html">Contacto</a>
     </nav>
     <div class="header-controls" style="position:relative">
@@ -32,20 +74,114 @@
   <nav class="nav-mobile" data-nav-mobile aria-label="Móvil">
     <a href="index.html">Inicio</a>
     <a href="semana-santa.html">Semana Santa</a>
-    <a href="festival-jazz.html">Festival de Jazz</a>
+    <a href="festival-jazz.html" aria-current="page">Festival de Jazz</a>
     <a href="que-ver.html">Qué ver y hacer</a>
     <a href="mapa.html">Mapa</a>
     <a href="tours.html">Tours</a>
-    <a href="autor.html">Sobre el autor</a>
+    <a href="autor.html">Autores</a>
     <a href="contacto.html">Contacto</a>
   </nav>
+
   <main class="wrap">
     <section class="hero">
-      <h1>festival jazz</h1>
-      <p class="tagline">Shell de página — contenido lo completa el especialista de la sección.</p>
-      <p><a href="index.html">← Volver al inicio</a></p>
+      <h1>Festival de Jazz</h1>
+      <p class="tagline">Música, río y patrimonio: el FestiJazz en la tierra de Dios.</p>
+      <p class="msg" data-show-audience="visitante">Vive el ambiente del festival: escenarios al aire libre, street jazz y el casco histórico de noche.</p>
+      <p class="msg hidden" data-show-audience="momposino">Agenda cultural local: jazz, street jazz y vida en plazas y malecón.</p>
+      <p>
+        <span class="pending">Fechas oficiales: pendiente de confirmación</span>
+        <span class="pending">Fotos reales: pendientes</span>
+      </p>
+      <div class="cta-row" style="margin-top:1rem">
+        <a class="btn btn-secondary" href="mapa.html">Ver lugares en el mapa</a>
+        <a class="btn btn-secondary" href="contacto.html">Contacto</a>
+      </div>
+    </section>
+
+    <section class="section" id="origen">
+      <h2>Origen</h2>
+      <div class="card">
+        <p>
+          El Festival Internacional de Jazz de Mompox (FestiJazz) nació en 2012 con el impulso
+          de proyectar al municipio como destino cultural. Desde entonces lo han organizado
+          la Gobernación de Bolívar, ICULTUR y Unibac, consolidándolo como referente de jazz
+          en el Caribe colombiano.
+        </p>
+        <p style="margin-top:.75rem">
+          Los primeros conciertos se dieron en la Plaza Santa Bárbara y el Parque del Cementerio;
+          con el tiempo se sumaron más tarimas y el Parque del Jazz junto al malecón de la Albarrada.
+          Cartel y fechas de cada edición: pendiente de confirmación oficial.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="ambiente">
+      <h2>Ambiente</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Jazz y calle</h3>
+          <p>Conciertos nocturnos y street jazz entre el patrimonio y el río Magdalena.</p>
+        </article>
+        <article class="card">
+          <h3>Cultura viva</h3>
+          <p>Gastronomía, arte y espacios académicos junto a la programación musical.</p>
+        </article>
+        <article class="card">
+          <h3>Para todos</h3>
+          <p>Visitantes y momposinos comparten plazas, malecón y noches de festival.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="escenarios">
+      <h2>Escenarios</h2>
+      <p style="margin:0 0 .75rem;color:var(--muted);font-size:.9rem">
+        Escenarios históricos y actuales. Programación del año en curso: pendiente.
+      </p>
+      <div class="cards">
+        <article class="card">
+          <h3>Parque del Jazz / Albarrada</h3>
+          <p>Escenario principal junto al malecón. Horarios de edición: pendiente.</p>
+        </article>
+        <article class="card">
+          <h3>Plaza Santa Bárbara</h3>
+          <p>Uno de los primeros escenarios del festival. Uso en la edición actual: pendiente.</p>
+        </article>
+        <article class="card">
+          <h3>Parque del Cementerio</h3>
+          <p>Espacio histórico de conciertos. Confirmación de tarima: pendiente.</p>
+        </article>
+        <article class="card">
+          <h3>Street jazz</h3>
+          <p>Intervenciones en calles y plazas del casco. Rutas y artistas: pendiente.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="galeria">
+      <h2>Galería</h2>
+      <div class="gallery-grid" aria-label="Galería pendiente">
+        <div class="gallery-item">Concierto noche<br /><small>pendiente</small></div>
+        <div class="gallery-item">Street jazz<br /><small>pendiente</small></div>
+        <div class="gallery-item">Malecón / Parque del Jazz<br /><small>pendiente</small></div>
+        <div class="gallery-item">Público en plaza<br /><small>pendiente</small></div>
+      </div>
+    </section>
+
+    <section class="section" id="pendientes">
+      <h2>Checklist de pendientes</h2>
+      <div class="card">
+        <ul class="checklist">
+          <li>Fechas oficiales de la próxima edición</li>
+          <li>Cartel / artistas confirmados (sin inventar nombres de la edición actual)</li>
+          <li>Horarios por escenario</li>
+          <li>Fotos reales con créditos y permisos</li>
+          <li>Versión en inglés (EN) del copy de esta página</li>
+        </ul>
+      </div>
     </section>
   </main>
+
   <footer class="site-footer">
     <span>Mompox, Colombia</span>
     <span class="counter">Visitas: <span data-visit-count>0</span></span>

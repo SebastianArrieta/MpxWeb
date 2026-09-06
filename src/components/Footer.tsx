@@ -1,12 +1,25 @@
 import VisitCounter from './VisitCounter'
+import labels from '../data/labels.json'
 
 export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="site-footer__inner">
-        <p className="site-footer__brand">Mompox — maquetado turístico</p>
+        <div className="site-footer__brand-block">
+          <p className="site-footer__brand">Mompox — turismo patrimonial</p>
+          <p className="site-footer__authors">
+            {labels.authors.map((a, i) => (
+              <span key={a.id}>
+                {i > 0 && ' · '}
+                <a href={a.instagramUrl} target="_blank" rel="noreferrer">
+                  {a.name}
+                </a>
+              </span>
+            ))}
+          </p>
+        </div>
         <VisitCounter />
-        <p className="site-footer__note">Estructura placeholder · sin APIs aún</p>
+        <p className="site-footer__note">Maquetado Vite · sin APIs aún</p>
       </div>
     </footer>
   )

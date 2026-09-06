@@ -8,12 +8,14 @@ import Mapa from './pages/Mapa'
 import Tours from './pages/Tours'
 import Autor from './pages/Autor'
 import Contacto from './pages/Contacto'
+import Historia from './pages/Historia'
 
 export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/historia" element={<Historia />} />
         <Route path="/semana-santa" element={<SemanaSanta />} />
         <Route path="/festival-jazz" element={<FestivalJazz />} />
         <Route path="/que-ver" element={<QueVer />} />

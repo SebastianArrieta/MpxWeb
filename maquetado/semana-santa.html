@@ -3,20 +3,62 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>semana santa — Mompox (maquetado)</title>
+  <title>Semana Santa — Mompox</title>
+  <meta name="description" content="Semana Santa en Santa Cruz de Mompox: historia, significado, procesiones y galería." />
   <link rel="stylesheet" href="css/shell.css" />
+  <style>
+    .pending {
+      display: inline-block;
+      margin: .35rem .35rem 0 0;
+      padding: .25rem .65rem;
+      border-radius: 999px;
+      border: 1px dashed var(--accent);
+      color: var(--accent);
+      font-size: .8rem;
+      background: #f6efe4;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: .75rem;
+    }
+    .gallery-item {
+      aspect-ratio: 4/3;
+      display: grid;
+      place-items: center;
+      background: var(--chip);
+      border: 1px dashed var(--line);
+      border-radius: .75rem;
+      color: var(--muted);
+      font-size: .85rem;
+      text-align: center;
+      padding: .5rem;
+    }
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .checklist li {
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .checklist li:last-child { border-bottom: 0; }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="index.html"><span>Mompox</span></a>
     <nav class="nav-desktop" aria-label="Principal">
       <a href="index.html">Inicio</a>
-      <a href="semana-santa.html">Semana Santa</a>
+      <a href="semana-santa.html" aria-current="page">Semana Santa</a>
       <a href="festival-jazz.html">Festival de Jazz</a>
       <a href="que-ver.html">Qué ver y hacer</a>
       <a href="mapa.html">Mapa</a>
       <a href="tours.html">Tours</a>
-      <a href="autor.html">Sobre el autor</a>
+      <a href="autor.html">Autores</a>
       <a href="contacto.html">Contacto</a>
     </nav>
     <div class="header-controls" style="position:relative">
@@ -31,21 +73,115 @@
   </header>
   <nav class="nav-mobile" data-nav-mobile aria-label="Móvil">
     <a href="index.html">Inicio</a>
-    <a href="semana-santa.html">Semana Santa</a>
+    <a href="semana-santa.html" aria-current="page">Semana Santa</a>
     <a href="festival-jazz.html">Festival de Jazz</a>
     <a href="que-ver.html">Qué ver y hacer</a>
     <a href="mapa.html">Mapa</a>
     <a href="tours.html">Tours</a>
-    <a href="autor.html">Sobre el autor</a>
+    <a href="autor.html">Autores</a>
     <a href="contacto.html">Contacto</a>
   </nav>
+
   <main class="wrap">
     <section class="hero">
-      <h1>semana santa</h1>
-      <p class="tagline">Shell de página — contenido lo completa el especialista de la sección.</p>
-      <p><a href="index.html">← Volver al inicio</a></p>
+      <h1>Semana Santa</h1>
+      <p class="tagline">Fe, silencio y patrimonio vivo en las calles de Santa Cruz de Mompox.</p>
+      <p class="msg" data-show-audience="visitante">Una de las Semanas Santas más sentidas del Caribe colombiano: procesiones, hermandades y casco histórico.</p>
+      <p class="msg hidden" data-show-audience="momposino">Tu Semana Mayor: hermandades, pasos y la memoria que habita el centro histórico.</p>
+      <p>
+        <span class="pending">Fechas oficiales: pendiente de confirmación</span>
+        <span class="pending">Fotos reales: pendientes</span>
+      </p>
+      <div class="cta-row" style="margin-top:1rem">
+        <a class="btn btn-secondary" href="mapa.html">Ver iglesias en el mapa</a>
+        <a class="btn btn-secondary" href="tours.html">Tours relacionados</a>
+      </div>
+    </section>
+
+    <section class="section" id="historia">
+      <h2>Historia</h2>
+      <div class="card">
+        <p>
+          En Mompox, la Semana Santa es tradición de siglos: órdenes religiosas, hermandades
+          y vecinos han cuidado procesiones, música y rituales que acompañan el calendario
+          litúrgico desde la Cuaresma hasta el Domingo de Resurrección, en el casco histórico
+          declarado Patrimonio de la Humanidad por la UNESCO.
+        </p>
+        <p style="margin-top:.75rem">
+          El Congreso de la República la reconoce como Patrimonio Cultural e Inmaterial
+          de la Nación. La cronología fina de cada año y el detalle de cada jornada
+          quedan pendientes de confirmación con fuentes oficiales.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="significado">
+      <h2>Significado</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Fe y comunidad</h3>
+          <p>Liturgia, hermandades y el encuentro de momposinos y visitantes en la Semana Mayor.</p>
+        </article>
+        <article class="card">
+          <h3>Memoria viva</h3>
+          <p>Procesiones nocturnas, marchas y un ritmo propio del Caribe patrimonial.</p>
+        </article>
+        <article class="card">
+          <h3>Patrimonio</h3>
+          <p>Calles, iglesias y plazas del centro histórico como escenario sagrado.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="procesiones">
+      <h2>Procesiones y recorridos</h2>
+      <p style="margin:0 0 .75rem;color:var(--muted);font-size:.9rem">
+        Nombres emblemáticos de la tradición. Horarios, salidas y mapa del año en curso: pendientes.
+      </p>
+      <div class="cards">
+        <article class="card">
+          <h3>Jueves Santo — 14 pasos</h3>
+          <p>Procesión nocturna de los pasos. Recorrido y hora: pendiente de agenda oficial.</p>
+        </article>
+        <article class="card">
+          <h3>Pasión del Señor</h3>
+          <p>Acto solemne de la Semana Mayor. Detalle de ruta: pendiente.</p>
+        </article>
+        <article class="card">
+          <h3>Viernes Santo — Santo Entierro</h3>
+          <p>Procesión del Santo Entierro. Templos de salida y llegada: pendiente de confirmar.</p>
+        </article>
+        <article class="card">
+          <h3>Sábado Santo y Resurrección</h3>
+          <p>Vigilia Pascual y procesión del Señor Resucitado. Horarios: pendiente.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="galeria">
+      <h2>Galería</h2>
+      <div class="gallery-grid" aria-label="Galería pendiente">
+        <div class="gallery-item">Foto procesión<br /><small>pendiente</small></div>
+        <div class="gallery-item">Foto pasos<br /><small>pendiente</small></div>
+        <div class="gallery-item">Foto iglesias<br /><small>pendiente</small></div>
+        <div class="gallery-item">Foto velas / Albarrada<br /><small>pendiente</small></div>
+      </div>
+    </section>
+
+    <section class="section" id="pendientes">
+      <h2>Checklist de pendientes</h2>
+      <div class="card">
+        <ul class="checklist">
+          <li>Fechas oficiales del año en curso (Gobernación / ICULTUR / parroquia)</li>
+          <li>Horarios y puntos de salida de cada procesión</li>
+          <li>Mapa o lista de recorridos enlazable al mapa del sitio</li>
+          <li>Fotos reales con créditos y permisos</li>
+          <li>Versión en inglés (EN) del copy de esta página</li>
+        </ul>
+      </div>
     </section>
   </main>
+
   <footer class="site-footer">
     <span>Mompox, Colombia</span>
     <span class="counter">Visitas: <span data-visit-count>0</span></span>

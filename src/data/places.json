@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "source": "Selección inicial de lugares públicos conocidos. Coords vía OpenStreetMap/Nominatim donde se hallaron. Teléfono/horario/foto: pendientes. Sebastián confirma y corrige.",
+    "map_center": {
+      "lat": 9.2416,
+      "lng": -74.4234,
+      "zoom": 15,
+      "label": "Centro histórico Mompox (aprox. Plaza de la Concepción)"
+    }
+  },
+  "items": [
+    {
+      "id": "plaza-concepcion",
+      "categoria": "sitios",
+      "nombre_es": "Plaza de la Concepción",
+      "nombre_en": "Plaza de la Concepción",
+      "descripcion_es": "Plaza principal del centro histórico de Mompox.",
+      "descripcion_en": "Main square in Mompox’s historic center.",
+      "lat": 9.2415916,
+      "lng": -74.4234409,
+      "foto": null,
+      "horario": null,
+      "telefono": null,
+      "pendiente": true,
+      "pendiente_campos": [
+        "foto",
+        "horario"
+      ]
+    },
+    {
+      "id": "iglesia-santa-barbara",
+      "categoria": "iglesias",
+      "nombre_es": "Iglesia de Santa Bárbara",
+      "nombre_en": "Church of Santa Bárbara",
+      "descripcion_es": "Iglesia histórica del centro de Mompox (patrimonio UNESCO).",
+      "descripcion_en": "Historic church in central Mompox (UNESCO heritage).",
+      "lat": 9.2365293,
+      "lng": -74.4205067,
+      "foto": null,
+      "horario": null,
+      "telefono": null,
+      "pendiente": true,
+      "pendiente_campos": [
+        "foto",
+        "horario",
+        "telefono"
+      ]
+    },
+    {
+      "id": "cementerio-municipal",
+      "categoria": "sitios",
+      "nombre_es": "Cementerio Municipal",
+      "nombre_en": "Municipal Cemetery",
+      "descripcion_es": "Cementerio histórico asociado al realismo mágico y al patrimonio local.",
+      "descripcion_en": "Historic cemetery linked to local heritage and magical realism.",
+      "lat": 9.2380998,
+      "lng": -74.4269029,
+      "foto": null,
+      "horario": null,
+      "telefono": null,
+      "pendiente": true,
+      "pendiente_campos": [
+        "foto",
+        "horario"
+      ]
+    },
+    {
+      "id": "casa-cultura",
+      "categoria": "servicios",
+      "nombre_es": "Casa de la Cultura",
+      "nombre_en": "House of Culture",
+      "descripcion_es": "Espacio cultural en el centro de Mompox.",
+      "descripcion_en": "Cultural venue in central Mompox.",
+      "lat": 9.2393314,
+      "lng": -74.4230583,
+      "foto": null,
+      "horario": null,
+      "telefono": null,
+      "pendiente": true,
+      "pendiente_campos": [
+        "foto",
+        "horario",
+        "telefono",
+        "descripcion"
+      ]
+    },
+    {
+      "id": "iglesia-san-francisco",
+      "categoria": "iglesias",
+      "nombre_es": "Iglesia San Francisco",
+      "nombre_en": "San Francisco Church",
+      "descripcion_es": "Iglesia del conjunto histórico de Mompox.",
+      "descripcion_en": "Church within Mompox’s historic ensemble.",
+      "lat": null,
+      "lng": null,
+      "foto": null,
+      "horario": null,
+      "telefono": null,
+      "pendiente": true,
+      "pendiente_campos": [
+        "lat",
+        "lng",
+        "foto",
+        "horario",
+        "telefono"
+      ]
+    },
+    {
+      "id": "basilica-santo-cristo",
+      "categoria": "iglesias",
+      "nombre_es": "Basílica del Santísimo Cristo Milagroso",
+      "nombre_en": "Basilica of the Miraculous Holy Christ",
+      "descripcion_es": "Basílica menor en el centro histórico de Mompox.",
+      "descripcion_en": "Minor basilica in Mompox’s historic center.",
+      "lat": null,
+      "lng": null,
+      "foto": null,
+      "horario": null,
+      "telefono": null,
+      "pendiente": true,
+      "pendiente_campos": [
+        "lat",
+        "lng",
+        "foto",
+        "horario",
+        "telefono"
+      ]
+    }
+  ]
+}

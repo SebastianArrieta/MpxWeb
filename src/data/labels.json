@@ -1,0 +1,68 @@
+{
+  "site": {
+    "name": "Mompox",
+    "fullName": "Santa Cruz de Mompox",
+    "slogan": "La tierra de Dios…"
+  },
+  "authors": [
+    {
+      "id": "sebastian",
+      "name": "Sebastián Arrieta",
+      "initials": "SA",
+      "role": "Desarrollo y producto",
+      "whatsapp": "3143050786",
+      "whatsappDisplay": "+57 314 305 0786",
+      "whatsappUrl": "https://wa.me/573143050786",
+      "instagram": "sebck_",
+      "instagramUrl": "https://instagram.com/sebck_"
+    },
+    {
+      "id": "juan",
+      "name": "Juan Arguelles",
+      "initials": "JA",
+      "role": "Contenido y diseño",
+      "whatsapp": "3008837491",
+      "whatsappDisplay": "+57 300 883 7491",
+      "whatsappUrl": "https://wa.me/573008837491",
+      "instagram": "juan_xpz",
+      "instagramUrl": "https://instagram.com/juan_xpz"
+    }
+  ],
+  "timeline": [
+    {
+      "year": "1537",
+      "title": "Fundación",
+      "detail": "Santa Cruz de Mompox es fundada por Alonso de Heredia."
+    },
+    {
+      "year": "1810",
+      "title": "Independencia absoluta",
+      "detail": "El 6 de agosto Mompox proclama su independencia absoluta."
+    },
+    {
+      "year": "1812",
+      "title": "Bolívar y Ciudad Valerosa",
+      "detail": "Simón Bolívar y la Campaña Admirable. El 19 de octubre recibe el título de Ciudad Valerosa."
+    },
+    {
+      "year": "1959",
+      "title": "Monumento Nacional",
+      "detail": "El casco histórico es declarado Monumento Nacional."
+    },
+    {
+      "year": "1995",
+      "title": "UNESCO Patrimonio",
+      "detail": "El centro histórico es inscrito como Patrimonio de la Humanidad por la UNESCO."
+    }
+  ],
+  "culturalMilestones": [
+    {
+      "title": "Semana Santa",
+      "detail": "Procesiones y tradición viva que marcan el calendario cultural de Mompox."
+    },
+    {
+      "title": "Festival de Jazz",
+      "detail": "Encuentro musical que anima la vida cultural contemporánea del pueblo."
+    }
+  ]
+}

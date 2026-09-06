@@ -1,9 +1,11 @@
+import labels from '../data/labels.json'
+
 export default function Contacto() {
   return (
     <div className="page">
       <header className="page-header">
         <h1>Contacto</h1>
-        <p>Escríbenos o coordina por WhatsApp.</p>
+        <p>Escríbenos o coordina por WhatsApp e Instagram.</p>
       </header>
 
       <div className="contact-layout">
@@ -34,14 +36,27 @@ export default function Contacto() {
         </section>
 
         <aside className="section contact-aside">
-          <h2 className="section__title">Canales</h2>
-          <p>
-            <strong>WhatsApp:</strong>{' '}
-            <a href="https://wa.me/573103513606">+57 310 351 3606</a>
-          </p>
-          <p>
-            <strong>Instagram / redes:</strong> @alfredompox
-          </p>
+          <h2 className="section__title">Autores</h2>
+          <div className="contact-authors">
+            {labels.authors.map((author) => (
+              <article key={author.id} className="contact-author-card">
+                <h3>{author.name}</h3>
+                <p className="contact-author-card__role">{author.role}</p>
+                <p>
+                  <strong>WhatsApp:</strong>{' '}
+                  <a href={author.whatsappUrl} target="_blank" rel="noreferrer">
+                    {author.whatsappDisplay}
+                  </a>
+                </p>
+                <p>
+                  <strong>Instagram:</strong>{' '}
+                  <a href={author.instagramUrl} target="_blank" rel="noreferrer">
+                    @{author.instagram}
+                  </a>
+                </p>
+              </article>
+            ))}
+          </div>
           <p className="placeholder-text">
             Datos estáticos del brief. Sin backend ni envío real en este maquetado.
           </p>

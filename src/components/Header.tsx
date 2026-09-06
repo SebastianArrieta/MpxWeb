@@ -4,12 +4,13 @@ import VisitCounter from './VisitCounter'
 
 const NAV = [
   { to: '/', label: 'Inicio', end: true },
+  { to: '/historia', label: 'Historia' },
   { to: '/semana-santa', label: 'Semana Santa' },
   { to: '/festival-jazz', label: 'Festival Jazz' },
   { to: '/que-ver', label: 'Qué ver' },
   { to: '/mapa', label: 'Mapa' },
   { to: '/tours', label: 'Tours' },
-  { to: '/autor', label: 'Autor' },
+  { to: '/autor', label: 'Autores' },
   { to: '/contacto', label: 'Contacto' },
 ] as const
 
