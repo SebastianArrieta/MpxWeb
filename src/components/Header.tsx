@@ -2,20 +2,20 @@ import { NavLink } from 'react-router-dom'
 import { useApp, type Audience } from '../context/AppContext'
 import VisitCounter from './VisitCounter'
 
-const NAV = [
-  { to: '/', label: 'Inicio', end: true },
-  { to: '/historia', label: 'Historia' },
-  { to: '/semana-santa', label: 'Semana Santa' },
-  { to: '/festival-jazz', label: 'Festival Jazz' },
-  { to: '/que-ver', label: 'Qué ver' },
-  { to: '/mapa', label: 'Mapa' },
-  { to: '/tours', label: 'Tours' },
-  { to: '/autor', label: 'Autores' },
-  { to: '/contacto', label: 'Contacto' },
-] as const
-
 export default function Header() {
-  const { audience, setAudience, lang, toggleLang } = useApp()
+  const { audience, setAudience, lang, toggleLang, labels } = useApp()
+
+  const NAV = [
+    { to: '/', label: labels.nav.inicio, end: true },
+    { to: '/historia', label: labels.nav.historia },
+    { to: '/semana-santa', label: labels.nav.semanaSanta },
+    { to: '/festival-jazz', label: labels.nav.festivalJazz },
+    { to: '/que-ver', label: labels.nav.queVer },
+    { to: '/mapa', label: labels.nav.mapa },
+    { to: '/tours', label: labels.nav.tours },
+    { to: '/autor', label: labels.nav.autor },
+    { to: '/contacto', label: labels.nav.contacto },
+  ] as const
 
   const cycleAudience = () => {
     const next: Audience = audience === 'momposino' ? 'visitante' : 'momposino'
@@ -49,20 +49,22 @@ export default function Header() {
             type="button"
             className="lang-toggle"
             onClick={toggleLang}
-            aria-label="Cambiar idioma"
+            aria-label={labels.idioma.aria}
           >
-            <span className={lang === 'es' ? 'is-on' : ''}>ES</span>
+            <span className={lang === 'es' ? 'is-on' : ''}>{labels.idioma.es}</span>
             <span className="lang-toggle__sep">|</span>
-            <span className={lang === 'en' ? 'is-on' : ''}>EN</span>
+            <span className={lang === 'en' ? 'is-on' : ''}>{labels.idioma.en}</span>
           </button>
 
           <button
             type="button"
             className="audience-chip"
             onClick={cycleAudience}
-            title="Cambiar audiencia"
+            title={labels.audiencia.cambiar}
           >
-            {audience === 'momposino' ? 'Momposino' : 'Visitante'}
+            {audience === 'momposino'
+              ? labels.audiencia.chipMomposino
+              : labels.audiencia.chipVisitante}
           </button>
 
           <VisitCounter className="visit-counter--header" />

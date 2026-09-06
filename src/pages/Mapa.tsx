@@ -1,20 +1,10 @@
 import { useMemo, useState } from 'react'
-import placesData from '../data/places.json'
-import categoriesData from '../data/categories.json'
+import placesData from '../../content/places/places.json'
+import categoriesData from '../../content/places/categories.json'
+import { useApp } from '../context/AppContext'
 
 type Place = (typeof placesData.items)[number]
 type MobileView = 'lista' | 'mapa'
-
-const CAT_LABELS: Record<string, string> = {
-  todos: 'Todos',
-  sitios: 'Sitios',
-  restaurantes: 'Restaurantes',
-  hoteles: 'Hoteles',
-  parqueaderos: 'Parqueaderos',
-  artesanias: 'Artesanías',
-  iglesias: 'Iglesias',
-  servicios: 'Servicios',
-}
 
 const center = placesData.meta.map_center
 
@@ -28,6 +18,10 @@ function project(lat: number, lng: number) {
 }
 
 export default function Mapa() {
+  const { labels } = useApp()
+  const mapaLabels = labels.mapa
+  const catLabel = (id: string) => (mapaLabels.filtros as Record<string, string>)[id] ?? id
+
   const [query, setQuery] = useState('')
   const [cat, setCat] = useState('todos')
   const [selectedId, setSelectedId] = useState<string | null>(null)
@@ -55,45 +49,47 @@ export default function Mapa() {
 
   function pickPlace(id: string) {
     setSelectedId(id)
-    // En móvil, al elegir un lugar pasamos a mapa + ficha (bottom sheet)
     setMobileView('mapa')
   }
 
   function renderFicha(place: Place, asSheet: boolean) {
+    const f = mapaLabels.ficha
     return (
       <article className={asSheet ? 'map-sheet' : 'map-card'} aria-live="polite">
         {asSheet ? (
           <button
             type="button"
             className="map-sheet__close"
-            aria-label="Cerrar ficha"
+            aria-label={mapaLabels.cerrarFicha}
             onClick={() => setSelectedId(null)}
           >
-            Cerrar
+            {mapaLabels.cerrarFicha}
           </button>
         ) : null}
-        <div className="map-card__foto">Foto pendiente</div>
+        <div className="map-card__foto">{f.sinFoto}</div>
         <h3>{place.nombre_es}</h3>
         <p>{place.descripcion_es}</p>
         <ul className="stub-list">
           <li>
-            Coords:{' '}
+            {f.coords}:{' '}
             {place.lat != null && place.lng != null
               ? `${place.lat}, ${place.lng}`
               : 'pendiente'}
           </li>
-          <li>Horario: {place.horario ?? 'pendiente'}</li>
-          <li>Teléfono: {place.telefono ?? 'pendiente'}</li>
+          <li>{f.horario}: {place.horario ?? 'pendiente'}</li>
+          <li>{f.telefono}: {place.telefono ?? 'pendiente'}</li>
           {place.pendiente_campos?.length ? (
-            <li>Pendiente: {place.pendiente_campos.join(', ')}</li>
+            <li>
+              {f.pendiente}: {place.pendiente_campos.join(', ')}
+            </li>
           ) : null}
         </ul>
         {mapsUrl ? (
           <a className="btn btn--primary" href={mapsUrl} target="_blank" rel="noreferrer">
-            Cómo llegar
+            {f.comoLlegar}
           </a>
         ) : (
-          <p className="placeholder-text">Sin coordenadas para abrir ruta.</p>
+          <p className="placeholder-text">{f.sinRuta}</p>
         )}
       </article>
     )
@@ -102,16 +98,16 @@ export default function Mapa() {
   return (
     <div className="page">
       <header className="page-header">
-        <h1>Mapa</h1>
-        <p>Explora lugares del casco histórico (datos iniciales; varios campos pendientes).</p>
+        <h1>{mapaLabels.title}</h1>
+        <p>{mapaLabels.tagline}</p>
       </header>
 
       <section className="map-toolbar">
         <input
           type="search"
           className="map-search"
-          placeholder="Buscar lugar…"
-          aria-label="Buscar lugar"
+          placeholder={mapaLabels.buscar}
+          aria-label={mapaLabels.buscar}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -124,18 +120,18 @@ export default function Mapa() {
               aria-pressed={cat === c.id}
               onClick={() => setCat(c.id)}
             >
-              {CAT_LABELS[c.id] ?? c.id}
+              {catLabel(c.id)}
             </button>
           ))}
         </div>
-        <div className="map-view-toggle" role="group" aria-label="Vista móvil">
+        <div className="map-view-toggle" role="group" aria-label={mapaLabels.vistaAria}>
           <button
             type="button"
             className={`chip-filter${mobileView === 'lista' ? ' is-active' : ''}`}
             aria-pressed={mobileView === 'lista'}
             onClick={() => setMobileView('lista')}
           >
-            Lista
+            {mapaLabels.vistaLista}
           </button>
           <button
             type="button"
@@ -143,16 +139,18 @@ export default function Mapa() {
             aria-pressed={mobileView === 'mapa'}
             onClick={() => setMobileView('mapa')}
           >
-            Mapa
+            {mapaLabels.vistaMapa}
           </button>
         </div>
       </section>
 
       <section className={`map-layout map-layout--${mobileView}`}>
-        <aside className="map-list" aria-label="Listado de lugares">
-          <h2 className="map-list__title">Lugares ({filtered.length})</h2>
+        <aside className="map-list" aria-label={mapaLabels.listaAria}>
+          <h2 className="map-list__title">
+            {mapaLabels.lugaresCount.replace('{n}', String(filtered.length))}
+          </h2>
           {filtered.length === 0 ? (
-            <p className="placeholder-text">No hay lugares con estos filtros.</p>
+            <p className="placeholder-text">{mapaLabels.listaVacia}</p>
           ) : (
             <ul>
               {filtered.map((p) => (
@@ -163,8 +161,8 @@ export default function Mapa() {
                     onClick={() => pickPlace(p.id)}
                   >
                     <strong>{p.nombre_es}</strong>
-                    <span>{CAT_LABELS[p.categoria] ?? p.categoria}</span>
-                    {p.pendiente ? <em>Pendiente</em> : null}
+                    <span>{catLabel(p.categoria)}</span>
+                    {p.pendiente ? <em>{mapaLabels.pendiente}</em> : null}
                   </button>
                 </li>
               ))}
@@ -172,7 +170,7 @@ export default function Mapa() {
           )}
         </aside>
 
-        <div className="map-panel map-panel--live" aria-label="Panel de mapa">
+        <div className="map-panel map-panel--live" aria-label={mapaLabels.panelAria}>
           <div className="map-panel__canvas">
             {filtered
               .filter((p) => p.lat != null && p.lng != null)
@@ -191,20 +189,20 @@ export default function Mapa() {
                 )
               })}
             <p className="map-panel__label">
-              Centro aprox. {center.lat.toFixed(4)}, {center.lng.toFixed(4)}
+              {mapaLabels.panelCentro
+                .replace('{lat}', center.lat.toFixed(4))
+                .replace('{lng}', center.lng.toFixed(4))}
               <br />
-              <small>Maquetado — Google Maps después</small>
+              <small>{mapaLabels.panelNota}</small>
             </p>
           </div>
 
-          {/* Desktop: ficha en panel */}
           {selected ? (
             <div className="map-ficha-desktop">{renderFicha(selected, false)}</div>
           ) : null}
         </div>
       </section>
 
-      {/* Móvil: ficha bottom sheet */}
       {selected ? <div className="map-sheet-wrap">{renderFicha(selected, true)}</div> : null}
     </div>
   )

@@ -1,18 +1,85 @@
 {
   "meta": {
     "lang": "es",
-    "note": "Labels y placeholders para maquetado. Sin fechas inventadas; contactos solo los del brief."
+    "note": "Única fuente de contenido del sitio. La versión EN vive en content/en/labels.json."
   },
+  "site": {
+    "name": "Mompox",
+    "fullName": "Santa Cruz de Mompox",
+    "slogan": "La tierra de Dios…"
+  },
+  "authors": [
+    {
+      "id": "sebastian",
+      "name": "Sebastián Arrieta",
+      "initials": "SA",
+      "role": "Desarrollo y producto",
+      "whatsapp": "3143050786",
+      "whatsappDisplay": "+57 314 305 0786",
+      "whatsappUrl": "https://wa.me/573143050786",
+      "instagram": "sebck_",
+      "instagramUrl": "https://instagram.com/sebck_"
+    },
+    {
+      "id": "juan",
+      "name": "Juan Arguelles",
+      "initials": "JA",
+      "role": "Contenido y diseño",
+      "whatsapp": "3008837491",
+      "whatsappDisplay": "+57 300 883 7491",
+      "whatsappUrl": "https://wa.me/573008837491",
+      "instagram": "juan_xpz",
+      "instagramUrl": "https://instagram.com/juan_xpz"
+    }
+  ],
+  "timeline": [
+    {
+      "year": "1537",
+      "title": "Fundación",
+      "detail": "Santa Cruz de Mompox es fundada por Alonso de Heredia."
+    },
+    {
+      "year": "1810",
+      "title": "Independencia absoluta",
+      "detail": "El 6 de agosto Mompox proclama su independencia absoluta."
+    },
+    {
+      "year": "1812",
+      "title": "Bolívar y Ciudad Valerosa",
+      "detail": "Simón Bolívar y la Campaña Admirable. El 19 de octubre recibe el título de Ciudad Valerosa."
+    },
+    {
+      "year": "1959",
+      "title": "Monumento Nacional",
+      "detail": "El casco histórico es declarado Monumento Nacional."
+    },
+    {
+      "year": "1995",
+      "title": "UNESCO Patrimonio",
+      "detail": "El centro histórico es inscrito como Patrimonio de la Humanidad por la UNESCO."
+    }
+  ],
+  "culturalMilestones": [
+    {
+      "title": "Semana Santa",
+      "detail": "Procesiones y tradición viva que marcan el calendario cultural de Mompox."
+    },
+    {
+      "title": "Festival de Jazz",
+      "detail": "Encuentro musical que anima la vida cultural contemporánea del pueblo."
+    }
+  ],
   "entrada": {
+    "eyebrow": "Santa Cruz de Mompox",
     "pregunta": "¿Eres visitante o momposino?",
     "opcionVisitante": "Visitante",
     "opcionMomposino": "Momposino",
-    "ayuda": "Misma información; cambia el orden y los mensajes."
+    "ayuda": "Tu elección ordena el inicio y muestra mensajes breves. Puedes cambiarla cuando quieras desde la barra superior."
   },
   "audiencia": {
     "chipVisitante": "Visitante",
     "chipMomposino": "Momposino",
-    "cambiar": "Cambiar perfil"
+    "cambiar": "Cambiar audiencia"
   },
   "idioma": {
     "es": "ES",
@@ -21,162 +88,187 @@
   },
   "nav": {
     "inicio": "Inicio",
+    "historia": "Historia",
     "semanaSanta": "Semana Santa",
-    "festivalJazz": "Festival de Jazz",
-    "queVer": "Qué ver y hacer",
+    "festivalJazz": "Festival Jazz",
+    "queVer": "Qué ver",
     "mapa": "Mapa",
     "tours": "Tours",
     "autor": "Autores",
     "contacto": "Contacto"
   },
   "inicio": {
-    "nombre": "Mompox, Colombia",
-    "eslogan": "La tierra de Dios...",
+    "eyebrow": "Patrimonio vivo del Caribe colombiano",
     "reconocimientos": [
-      "UNESCO",
-      "Monumento Nacional",
-      "Pueblos Patrimonio",
-      "Destino sostenible ICONTEC"
+      "UNESCO 1995",
+      "Monumento Nacional 1959",
+      "Pueblos Patrimonio"
     ],
-    "ctaMapa": "Explorar el mapa",
-    "ctaEventos": "Ver eventos",
-    "ordenVisitante": [
-      "tours",
-      "mapa",
-      "hoteles",
-      "eventos"
+    "ctaHistoria": "Explorar cronología",
+    "ctaMapa": "Ver mapa",
+    "msgVisitante": "Bienvenido, visitante. Empieza por el mapa, la historia y los recorridos.",
+    "msgMomposino": "Bienvenido, momposino. Aquí priorizamos eventos y vida local.",
+    "accesosTitle": "Accesos rápidos",
+    "accesosLead": "Orden adaptado a tu perfil ({perfil}).",
+    "historiaTeaserTitle": "Historia en movimiento",
+    "historiaTeaserLead": "Fundación, independencia, Bolívar, Monumento Nacional y UNESCO — en una pestaña interactiva.",
+    "historiaTeaserCta": "Abrir pestaña Historia",
+    "quickVisitante": [
+      { "to": "/mapa", "label": "Explorar mapa", "hint": "Calles y puntos de interés" },
+      { "to": "/historia", "label": "Historia", "hint": "Cronología interactiva" },
+      { "to": "/semana-santa", "label": "Semana Santa", "hint": "Procesiones y tradición" },
+      { "to": "/tours", "label": "Tours", "hint": "Presencial y virtual" }
     ],
-    "ordenMomposino": [
-      "agendaCultural",
-      "cultura",
-      "serviciosLocales"
-    ],
-    "msgVisitante": "Descubre tours, el mapa y lo esencial para tu visita.",
-    "msgMomposino": "Agenda cultural, patrimonio y servicios locales.",
-    "ctaAutores": "Conoce a los autores"
+    "quickMomposino": [
+      { "to": "/semana-santa", "label": "Semana Santa", "hint": "Tu tradición local" },
+      { "to": "/festival-jazz", "label": "Festival Jazz", "hint": "Agenda del pueblo" },
+      { "to": "/historia", "label": "Historia", "hint": "Memoria del terruño" },
+      { "to": "/mapa", "label": "Mapa", "hint": "Referencias del casco" }
+    ]
+  },
+  "historia": {
+    "eyebrow": "Memoria del río",
+    "title": "Cronología de Mompox",
+    "intro": "Una experiencia interactiva: usa la barra de años, haz clic en cada hito y deja que el scroll active el momento. Solo fechas confirmadas.",
+    "desplaza": "Desplaza"
+  },
+  "timelineUi": {
+    "close": "Cerrar",
+    "explore": "Explorar",
+    "teaser": "{inicio} → {fin}. Recorre la historia completa.",
+    "railAria": "Navegación de hitos",
+    "culturalTitle": "Tradición viva",
+    "culturalLead": "Hitos culturales del calendario momposino (sin año fijo inventado)."
   },
   "semanaSanta": {
-    "titulo": "Semana Santa",
-    "secciones": [
-      "Historia",
-      "Significado",
-      "Procesiones y recorridos",
-      "Galería"
+    "title": "Semana Santa",
+    "tagline": "Procesiones, fe y patrimonio vivo en Mompox.",
+    "historiaTitle": "Historia",
+    "historiaText": "Lorem ipsum — breve relato histórico de la Semana Santa momposina. Tradición colonial, hermandades y memoria colectiva. (stub)",
+    "procesionesTitle": "Procesiones",
+    "procesiones": [
+      "Domingo de Ramos — recorrido placeholder",
+      "Jueves Santo — pasos y calles principales",
+      "Viernes Santo — silencio y velas",
+      "Sábado de Gloria — cierre simbólico"
     ],
-    "pendienteFechas": "Fechas oficiales: pendiente de confirmación",
-    "pendienteFotos": "Fotos reales: pendientes",
-    "tagline": "Fe, silencio y patrimonio vivo en las calles de Santa Cruz de Mompox.",
-    "msgVisitante": "Una de las Semanas Santas más sentidas del Caribe colombiano: procesiones, hermandades y casco histórico.",
-    "msgMomposino": "Tu Semana Mayor: hermandades, pasos y la memoria que habita el centro histórico.",
-    "historia": "En Mompox, la Semana Santa es tradición de siglos: órdenes religiosas, hermandades y vecinos cuidan procesiones y rituales desde la Cuaresma hasta la Resurrección, en el casco histórico UNESCO. Reconocida como Patrimonio Cultural e Inmaterial de la Nación."
+    "galeriaTitle": "Galería",
+    "galeriaFoto": "Foto {n}"
   },
   "festivalJazz": {
-    "titulo": "Festival de Jazz",
-    "secciones": [
-      "Origen",
-      "Ambiente",
-      "Escenarios",
-      "Galería"
+    "title": "Festival de Jazz",
+    "tagline": "Ritmos bajo el cielo momposino.",
+    "origenTitle": "Origen",
+    "origenText": "Lorem ipsum — cómo nació el festival, su vínculo con el río y la comunidad. Texto placeholder del maquetado.",
+    "escenariosTitle": "Escenarios",
+    "escenarios": [
+      "Plaza principal",
+      "Malecón",
+      "Claustro histórico"
     ],
-    "pendienteFechas": "Fechas oficiales: pendiente de confirmación",
-    "pendienteFotos": "Fotos reales: pendientes",
-    "tagline": "Música, río y patrimonio: el FestiJazz en la tierra de Dios.",
-    "msgVisitante": "Vive el ambiente del festival: escenarios al aire libre, street jazz y el casco histórico de noche.",
-    "msgMomposino": "Agenda cultural local: jazz, street jazz y vida en plazas y malecón.",
-    "origen": "El FestiJazz nació en 2012 para proyectar a Mompox como destino cultural. Lo organizan la Gobernación de Bolívar, ICULTUR y Unibac."
+    "escenariosStub": "Descripción breve del escenario (stub).",
+    "galeriaTitle": "Galería",
+    "galeriaConcierto": "Concierto {n}"
   },
   "queVer": {
-    "titulo": "Qué ver y hacer",
-    "bloques": [
-      "Arquitectura colonial y religiosa",
-      "Río Magdalena y ecoturismo",
-      "Cementerio y realismo mágico",
-      "Filigrana momposina"
+    "title": "Qué ver",
+    "tagline": "Cuatro puntos de partida para descubrir Mompox.",
+    "sights": [
+      { "title": "Iglesia de Santa Bárbara", "text": "Ícono barroco junto al río. Stub." },
+      { "title": "Cementerio municipal", "text": "Arquitectura funeraria y quietud. Stub." },
+      { "title": "Casa de la Cultura", "text": "Memoria e historia local. Stub." },
+      { "title": "Malecón fluvial", "text": "Atardeceres y paseo ribereño. Stub." }
     ]
   },
   "mapa": {
-    "titulo": "Mapa",
+    "title": "Mapa",
+    "tagline": "Explora lugares del casco histórico (datos iniciales; varios campos pendientes).",
     "buscar": "Buscar lugar…",
     "filtros": {
       "todos": "Todos",
-      "sitios": "Sitios turísticos",
+      "sitios": "Sitios",
       "restaurantes": "Restaurantes",
       "hoteles": "Hoteles",
       "parqueaderos": "Parqueaderos",
-      "artesanias": "Artesanías / filigrana",
+      "artesanias": "Artesanías",
       "iglesias": "Iglesias",
       "servicios": "Servicios"
     },
+    "vistaLista": "Lista",
+    "vistaMapa": "Mapa",
+    "vistaAria": "Vista móvil",
+    "listaAria": "Listado de lugares",
+    "panelAria": "Panel de mapa",
+    "lugaresCount": "Lugares ({n})",
+    "listaVacia": "No hay lugares con estos filtros.",
+    "pendiente": "Pendiente",
+    "panelCentro": "Centro aprox. {lat}, {lng}",
+    "panelNota": "Maquetado — Google Maps después",
     "ficha": {
+      "sinFoto": "Foto pendiente",
+      "coords": "Coords",
       "horario": "Horario",
       "telefono": "Teléfono",
+      "pendiente": "Pendiente",
       "comoLlegar": "Cómo llegar",
-      "pendiente": "Dato pendiente de confirmar",
-      "sinFoto": "Foto pendiente"
+      "sinRuta": "Sin coordenadas para abrir ruta."
     },
-    "listaVacia": "No hay lugares con estos filtros."
+    "cerrarFicha": "Cerrar"
   },
   "tours": {
-    "titulo": "Tours",
-    "presenciales": "Tours presenciales",
-    "virtuales": "Tours virtuales",
-    "incluye": "Qué incluye",
-    "duracion": "Duración",
-    "paraQuien": "Para quién",
-    "ctaContacto": "Consultar por WhatsApp",
-    "placeholderPrecio": "Precio: por confirmar",
-    "placeholderHorario": "Horario: por confirmar"
-  },
-  "autor": {
-    "titulo": "Autores",
-    "tagline": "Quiénes impulsan este sitio turístico bilingüe de Santa Cruz de Mompox.",
-    "nombre": "Sebastián Arrieta y Juan Arguelles",
-    "autores": [
-      {
-        "nombre": "Sebastián Arrieta",
-        "bio": "Coautor del proyecto. Coordina el desarrollo del sitio y la experiencia web para visitantes y momposinos."
-      },
-      {
-        "nombre": "Juan Arguelles",
-        "bio": "Coautor del proyecto. Colabora en el diseño y la construcción del sitio turístico de Mompox."
-      }
+    "title": "Tours",
+    "tagline": "Experiencias presenciales y virtuales (maquetado).",
+    "presenciales": "Presencial",
+    "virtuales": "Virtual",
+    "presencialTag": "Presencial",
+    "virtualTag": "Virtual",
+    "presencialesList": [
+      { "title": "Recorrido histórico", "meta": "2 h · a pie" },
+      { "title": "Ruta fluvial", "meta": "1.5 h · río" },
+      { "title": "Artesanos y orfebrería", "meta": "2 h · talleres" }
+    ],
+    "virtualesList": [
+      { "title": "Casco 360°", "meta": "Online · 30 min" },
+      { "title": "Semana Santa VR", "meta": "Online · 20 min" },
+      { "title": "Jazz en casa", "meta": "Streaming · archivo" }
     ]
   },
+  "autor": {
+    "title": "Autores",
+    "tagline": "Quiénes impulsan este proyecto turístico.",
+    "bio": "Coautor del sitio turístico de Santa Cruz de Mompox: patrimonio, experiencia de visitante y narración local.",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "enfoque": "Enfoque: patrimonio y turismo responsable"
+  },
   "contacto": {
-    "titulo": "Contacto",
-    "tagline": "Escríbenos o háblanos por WhatsApp e Instagram.",
+    "title": "Contacto",
+    "tagline": "Escríbenos o coordina por WhatsApp e Instagram.",
+    "formTitle": "Formulario",
     "formNombre": "Nombre",
     "formEmail": "Correo",
     "formMensaje": "Mensaje",
-    "formEnviar": "Enviar",
     "formPlaceholderNombre": "Tu nombre",
     "formPlaceholderEmail": "tu@correo.com",
     "formPlaceholderMensaje": "¿En qué te ayudamos?",
-    "sebastian": {
-      "nombre": "Sebastián Arrieta",
-      "whatsapp": "+57 314 305 0786",
-      "whatsappLink": "https://wa.me/573143050786",
-      "instagram": "@sebck_",
-      "instagramLink": "https://instagram.com/sebck_"
-    },
-    "juan": {
-      "nombre": "Juan Arguelles",
-      "whatsapp": "+57 300 883 7491",
-      "whatsappLink": "https://wa.me/573008837491",
-      "instagram": "@juan_xpz",
-      "instagramLink": "https://instagram.com/juan_xpz"
-    }
+    "formEnviar": "Enviar (stub)",
+    "autoresTitle": "Autores",
+    "note": "Datos estáticos del brief. Sin backend ni envío real en este maquetado."
   },
   "shell": {
     "contadorVisitas": "Visitas",
-    "footerCopy": "Mompox, Colombia",
-    "menuAbrir": "Abrir menú",
-    "menuCerrar": "Cerrar menú"
+    "contadorTitle": "Contador de visitas (stub)",
+    "footerBrand": "Mompox — turismo patrimonial",
+    "footerNote": "Maquetado Vite · sin APIs aún"
   },
   "comunes": {
-    "cargarMas": "Ver más",
     "volver": "Volver",
-    "proximamente": "Próximamente",
-    "pendienteRevision": "Pendiente de revisión"
+    "proximamente": "Próximamente"
+  },
+  "notfound": {
+    "code": "404",
+    "title": "Página no encontrada",
+    "text": "La ruta que buscas no existe o cambió de lugar.",
+    "cta": "Volver al inicio"
   }
 }

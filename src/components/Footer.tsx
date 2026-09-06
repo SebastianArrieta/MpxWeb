@@ -1,12 +1,13 @@
 import VisitCounter from './VisitCounter'
-import labels from '../data/labels.json'
+import { useApp } from '../context/AppContext'
 
 export default function Footer() {
+  const { labels } = useApp()
   return (
     <footer className="site-footer">
       <div className="site-footer__inner">
         <div className="site-footer__brand-block">
-          <p className="site-footer__brand">Mompox — turismo patrimonial</p>
+          <p className="site-footer__brand">{labels.shell.footerBrand}</p>
           <p className="site-footer__authors">
             {labels.authors.map((a, i) => (
               <span key={a.id}>
@@ -19,7 +20,7 @@ export default function Footer() {
           </p>
         </div>
         <VisitCounter />
-        <p className="site-footer__note">Maquetado Vite · sin APIs aún</p>
+        <p className="site-footer__note">{labels.shell.footerNote}</p>
       </div>
     </footer>
   )

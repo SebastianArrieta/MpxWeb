@@ -1,19 +1,21 @@
 import Timeline from '../components/Timeline'
+import { useApp } from '../context/AppContext'
 
 export default function Historia() {
+  const { labels } = useApp()
   return (
     <div className="page page--historia">
-      <header className="page-header page-header--heroish">
-        <p className="page-header__eyebrow">Memoria del río Magdalena</p>
-        <h1>Historia de Mompox</h1>
-        <p>
-          Línea de tiempo con hitos confirmados: fundación, independencia, Bolívar,
-          Monumento Nacional y Patrimonio UNESCO. Desplázate para revelar cada
-          momento.
-        </p>
+      <header className="historia-hero">
+        <p className="page-header__eyebrow">{labels.historia.eyebrow}</p>
+        <h1>{labels.historia.title}</h1>
+        <p>{labels.historia.intro}</p>
+        <div className="historia-hero__hint" aria-hidden="true">
+          <span>{labels.historia.desplaza}</span>
+          <span className="historia-hero__arrow">↓</span>
+        </div>
       </header>
 
-      <section className="section section--timeline" aria-label="Línea de tiempo">
+      <section className="section section--timeline" aria-label={labels.timelineUi.railAria}>
         <Timeline />
       </section>
     </div>
