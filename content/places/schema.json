@@ -1,0 +1,90 @@
+{
+  "table": "lugares",
+  "for": "Lovable Cloud / Google Maps",
+  "note": "Campos listos para tabla. No inventar teléfonos ni horarios; usar pendiente=true si falta confirmar.",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "categoria",
+      "type": "enum",
+      "values": [
+        "sitios",
+        "restaurantes",
+        "hoteles",
+        "parqueaderos",
+        "artesanias",
+        "iglesias",
+        "servicios"
+      ],
+      "required": true
+    },
+    {
+      "name": "nombre_es",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "nombre_en",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "descripcion_es",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "descripcion_en",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "lat",
+      "type": "number",
+      "required": false,
+      "note": "null si pendiente"
+    },
+    {
+      "name": "lng",
+      "type": "number",
+      "required": false,
+      "note": "null si pendiente"
+    },
+    {
+      "name": "foto",
+      "type": "string|null",
+      "required": false
+    },
+    {
+      "name": "horario",
+      "type": "string|null",
+      "required": false
+    },
+    {
+      "name": "telefono",
+      "type": "string|null",
+      "required": false
+    },
+    {
+      "name": "pendiente",
+      "type": "boolean",
+      "required": true,
+      "note": "true si cualquier dato clave falta confirmar"
+    },
+    {
+      "name": "pendiente_campos",
+      "type": "string[]",
+      "required": false
+    }
+  ],
+  "map_center": {
+    "lat": 9.2416,
+    "lng": -74.4234,
+    "zoom": 15,
+    "label": "Centro histórico Mompox (aprox. Plaza de la Concepción)"
+  }
+}

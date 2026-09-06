@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mapa — Mompox (maquetado)</title>
+  <style>
+    :root {
+      --bg: #f7f3ec;
+      --ink: #1f1a14;
+      --muted: #6b6258;
+      --card: #fffdf8;
+      --line: #e4d8c4;
+      --accent: #8b4513;
+      --chip: #efe4d2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: .85rem 1rem;
+      border-bottom: 1px solid var(--line);
+      background: var(--card);
+    }
+    header h1 { font-size: 1.1rem; margin: 0; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+    input[type="search"] {
+      min-width: 12rem;
+      flex: 1;
+      padding: .55rem .75rem;
+      border: 1px solid var(--line);
+      border-radius: .5rem;
+      background: #fff;
+    }
+    .filters { display: flex; flex-wrap: wrap; gap: .35rem; }
+    .filters button {
+      border: 1px solid var(--line);
+      background: var(--chip);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: .35rem .7rem;
+      font-size: .85rem;
+      cursor: pointer;
+    }
+    .filters button[aria-pressed="true"] {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .layout {
+      flex: 1;
+      display: grid;
+      grid-template-columns: minmax(240px, 340px) 1fr;
+      min-height: 0;
+    }
+    @media (max-width: 800px) {
+      .layout { grid-template-columns: 1fr; grid-template-rows: 45vh 1fr; }
+    }
+    .list {
+      overflow: auto;
+      border-right: 1px solid var(--line);
+      background: var(--card);
+    }
+    .list article {
+      padding: .85rem 1rem;
+      border-bottom: 1px solid var(--line);
+      cursor: pointer;
+    }
+    .list article[aria-selected="true"] { background: #f3e8d6; }
+    .list h2 { font-size: .95rem; margin: 0 0 .25rem; }
+    .list p { margin: 0; font-size: .85rem; color: var(--muted); }
+    .badge {
+      display: inline-block;
+      margin-top: .35rem;
+      font-size: .7rem;
+      padding: .15rem .45rem;
+      border-radius: 999px;
+      background: #f0e0a8;
+      color: #5c4a10;
+    }
+    .map-pane {
+      position: relative;
+      background:
+        linear-gradient(135deg, #d9e5d2 0%, #c7d8e8 50%, #e8d9c4 100%);
+      min-height: 280px;
+    }
+    .map-placeholder {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 1rem;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .markers { position: absolute; inset: 0; pointer-events: none; }
+    .marker {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid #fff;
+      transform: translate(-50%, -50%);
+      pointer-events: auto;
+      cursor: pointer;
+    }
+    .ficha {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      max-width: 360px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: .75rem;
+      padding: 1rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+      display: none;
+    }
+    .ficha.visible { display: block; }
+    .ficha .foto {
+      height: 120px;
+      border-radius: .5rem;
+      background: #eee6d8;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: .85rem;
+      margin-bottom: .75rem;
+    }
+    .ficha h3 { margin: 0 0 .35rem; font-size: 1rem; }
+    .ficha dl { margin: .5rem 0; font-size: .85rem; }
+    .ficha dt { color: var(--muted); }
+    .ficha dd { margin: 0 0 .4rem; }
+    .cta {
+      display: inline-block;
+      margin-top: .35rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: .5rem .85rem;
+      border-radius: .5rem;
+      font-size: .9rem;
+    }
+    .empty { padding: 1rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mapa</h1>
+    <div class="toolbar">
+      <input id="buscar" type="search" placeholder="Buscar lugar…" aria-label="Buscar lugar" />
+      <nav class="filters" id="filtros" aria-label="Filtros por categoría"></nav>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="list" id="lista" aria-label="Lista de lugares"></aside>
+    <section class="map-pane" aria-label="Mapa">
+      <div class="map-placeholder" id="mapHint">
+        Vista de mapa (Google Maps se cablea en implementación).<br />
+        Centro: Mompox · marcadores de maquetado.
+      </div>
+      <div class="markers" id="markers"></div>
+      <div class="ficha" id="ficha" aria-live="polite"></div>
+    </section>
+  </div>
+
+  <script>
+    const LABELS = {
+      todos: "Todos",
+      sitios: "Sitios turísticos",
+      restaurantes: "Restaurantes",
+      hoteles: "Hoteles",
+      parqueaderos: "Parqueaderos",
+      artesanias: "Artesanías / filigrana",
+      iglesias: "Iglesias",
+      servicios: "Servicios",
+      pendiente: "Dato pendiente de confirmar",
+      sinFoto: "Foto pendiente",
+      horario: "Horario",
+      telefono: "Teléfono",
+      comoLlegar: "Cómo llegar",
+      listaVacia: "No hay lugares con estos filtros."
+    };
+
+    const CATEGORIES = ["todos","sitios","restaurantes","hoteles","parqueaderos","artesanias","iglesias","servicios"];
+
+    // Seed embebido para maquetado; en producción leer content/places/places.json
+    let places = [];
+    let cat = "todos";
+    let q = "";
+    let selected = null;
+
+    const center = { lat: 9.2416, lng: -74.4234 };
+
+    function project(lat, lng) {
+      // proyección simple relativa al centro para maquetado (no es Web Mercator real)
+      const x = 50 + (lng - center.lng) * 1800;
+      const y = 50 - (lat - center.lat) * 1800;
+      return { left: Math.min(92, Math.max(8, x)) + "%", top: Math.min(88, Math.max(12, y)) + "%" };
+    }
+
+    function filtered() {
+      const term = q.trim().toLowerCase();
+      return places.filter(p => {
+        const okCat = cat === "todos" || p.categoria === cat;
+        const okQ = !term || p.nombre_es.toLowerCase().includes(term) || p.descripcion_es.toLowerCase().includes(term);
+        return okCat && okQ;
+      });
+    }
+
+    function renderFilters() {
+      const el = document.getElementById("filtros");
+      el.innerHTML = CATEGORIES.map(id =>
+        `<button type="button" data-cat="${id}" aria-pressed="${cat===id}">${LABELS[id]}</button>`
+      ).join("");
+      el.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+          cat = btn.dataset.cat;
+          render();
+        });
+      });
+    }
+
+    function renderList(items) {
+      const el = document.getElementById("lista");
+      if (!items.length) {
+        el.innerHTML = `<p class="empty">${LABELS.listaVacia}</p>`;
+        return;
+      }
+      el.innerHTML = items.map(p => `
+        <article data-id="${p.id}" aria-selected="${selected===p.id}">
+          <h2>${p.nombre_es}</h2>
+          <p>${p.descripcion_es}</p>
+          ${p.pendiente ? `<span class="badge">${LABELS.pendiente}</span>` : ""}
+        </article>
+      `).join("");
+      el.querySelectorAll("article").forEach(a => {
+        a.addEventListener("click", () => {
+          selected = a.dataset.id;
+          render();
+        });
+      });
+    }
+
+    function renderMarkers(items) {
+      const el = document.getElementById("markers");
+      el.innerHTML = items.filter(p => p.lat != null && p.lng != null).map(p => {
+        const pos = project(p.lat, p.lng);
+        return `<button class="marker" title="${p.nombre_es}" data-id="${p.id}" style="left:${pos.left};top:${pos.top}" aria-label="${p.nombre_es}"></button>`;
+      }).join("");
+      el.querySelectorAll(".marker").forEach(m => {
+        m.addEventListener("click", () => {
+          selected = m.dataset.id;
+          render();
+        });
+      });
+    }
+
+    function renderFicha(items) {
+      const el = document.getElementById("ficha");
+      const p = items.find(x => x.id === selected) || places.find(x => x.id === selected);
+      if (!p) {
+        el.classList.remove("visible");
+        el.innerHTML = "";
+        return;
+      }
+      const mapsUrl = (p.lat != null && p.lng != null)
+        ? `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}`
+        : null;
+      el.classList.add("visible");
+      el.innerHTML = `
+        <div class="foto">${LABELS.sinFoto}</div>
+        <h3>${p.nombre_es}</h3>
+        <p style="margin:0;color:var(--muted);font-size:.9rem">${p.descripcion_es}</p>
+        <dl>
+          <dt>${LABELS.horario}</dt>
+          <dd>${p.horario || LABELS.pendiente}</dd>
+          <dt>${LABELS.telefono}</dt>
+          <dd>${p.telefono || LABELS.pendiente}</dd>
+        </dl>
+        ${mapsUrl ? `<a class="cta" href="${mapsUrl}" target="_blank" rel="noopener">${LABELS.comoLlegar}</a>` : `<span class="badge">${LABELS.pendiente}: coords</span>`}
+      `;
+    }
+
+    function render() {
+      renderFilters();
+      const items = filtered();
+      renderList(items);
+      renderMarkers(items);
+      renderFicha(items);
+    }
+
+    document.getElementById("buscar").addEventListener("input", (e) => {
+      q = e.target.value;
+      render();
+    });
+
+    fetch("../content/places/places.json")
+      .then(r => r.json())
+      .then(data => {
+        places = data.items || [];
+        if (data.meta && data.meta.map_center) {
+          center.lat = data.meta.map_center.lat;
+          center.lng = data.meta.map_center.lng;
+        }
+        render();
+      })
+      .catch(() => {
+        places = [];
+        render();
+      });
+  </script>
+</body>
+</html>

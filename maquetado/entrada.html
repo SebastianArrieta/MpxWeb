@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Entrada — Mompox (maquetado)</title>
+  <meta name="description" content="Elige visitante o momposino. Misma información; cambia el orden y los mensajes." />
+  <link rel="stylesheet" href="css/shell.css" />
+</head>
+<body>
+  <div class="gate">
+    <div class="gate-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+        <strong>Mompox</strong>
+        <button type="button" class="lang-toggle" data-lang-toggle aria-label="Cambiar idioma">ES | EN</button>
+      </div>
+      <h1>¿Eres visitante o momposino?</h1>
+      <p>Misma información; cambia el orden y los mensajes.</p>
+      <div class="gate-actions">
+        <button type="button" class="btn btn-primary" data-pick="visitante">Visitante</button>
+        <button type="button" class="btn btn-secondary" data-pick="momposino">Momposino</button>
+      </div>
+      <button type="button" class="gate-skip" data-pick="visitante">Continuar como visitante</button>
+    </div>
+  </div>
+  <script src="js/shell.js"></script>
+  <script>
+    MpxShell.mount({ countVisit: false });
+    document.querySelectorAll("[data-pick]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        MpxShell.setAudience(btn.getAttribute("data-pick"));
+        location.href = "index.html";
+      });
+    });
+  </script>
+</body>
+</html>
