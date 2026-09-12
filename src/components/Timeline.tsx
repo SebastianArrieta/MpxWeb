@@ -180,8 +180,9 @@ export default function Timeline({ preview = false, showCultural = true }: Timel
   }
 
   return (
-    <div className="timeline timeline--scrolly" ref={wrapperRef}>
-      <aside className="timeline-rail" aria-label={labels.timelineUi.railAria}>
+    <>
+      <div className="timeline timeline--scrolly" ref={wrapperRef}>
+        <aside className="timeline-rail" aria-label={labels.timelineUi.railAria}>
         <div className="timeline-rail__head">
           <span className="timeline-rail__eyebrow">Río de Mompox</span>
           <strong className="timeline-rail__year">{activeId}</strong>
@@ -226,47 +227,48 @@ export default function Timeline({ preview = false, showCultural = true }: Timel
             </li>
           ))}
         </ol>
-      </aside>
+        </aside>
 
-      <div className="timeline-scenes">
-        {events.map((event, index) => {
-          const tone = ERA_TONES[index % ERA_TONES.length]
-          return (
-            <section
-              key={event.year}
-              className={`timeline-scene ${tone}${activeId === event.year ? ' is-active' : ''}`}
-              data-year={event.year}
-              ref={(node) => {
-                sceneRefs.current[event.year] = node
-              }}
-            >
-              <span className="timeline-scene__year" aria-hidden="true">
-                {event.year}
-              </span>
-              <div className="timeline-scene__card">
-                <header className="timeline-scene__card-head">
-                  <span className="timeline-scene__index">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="timeline-scene__title">{event.title}</h3>
-                </header>
-                {event.image ? (
-                  <div className="timeline-scene__media">
-                    <img src={mediaUrl(event.image)} alt="" loading="lazy" decoding="async" />
-                  </div>
-                ) : null}
-                <p className="timeline-scene__detail">{event.detail}</p>
-                {event.audio ? (
-                  <div className="timeline-scene__audio">
-                    <audio controls preload="none" src={mediaUrl(event.audio)}>
-                      Tu navegador no soporta audio.
-                    </audio>
-                  </div>
-                ) : null}
-              </div>
-            </section>
-          )
-        })}
+        <div className="timeline-scenes">
+          {events.map((event, index) => {
+            const tone = ERA_TONES[index % ERA_TONES.length]
+            return (
+              <section
+                key={event.year}
+                className={`timeline-scene ${tone}${activeId === event.year ? ' is-active' : ''}`}
+                data-year={event.year}
+                ref={(node) => {
+                  sceneRefs.current[event.year] = node
+                }}
+              >
+                <span className="timeline-scene__year" aria-hidden="true">
+                  {event.year}
+                </span>
+                <div className="timeline-scene__card">
+                  <header className="timeline-scene__card-head">
+                    <span className="timeline-scene__index">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className="timeline-scene__title">{event.title}</h3>
+                  </header>
+                  {event.image ? (
+                    <div className="timeline-scene__media">
+                      <img src={mediaUrl(event.image)} alt="" loading="lazy" decoding="async" />
+                    </div>
+                  ) : null}
+                  <p className="timeline-scene__detail">{event.detail}</p>
+                  {event.audio ? (
+                    <div className="timeline-scene__audio">
+                      <audio controls preload="none" src={mediaUrl(event.audio)}>
+                        Tu navegador no soporta audio.
+                      </audio>
+                    </div>
+                  ) : null}
+                </div>
+              </section>
+            )
+          })}
+        </div>
       </div>
 
       {showCultural && (
@@ -283,6 +285,6 @@ export default function Timeline({ preview = false, showCultural = true }: Timel
           </div>
         </div>
       )}
-    </div>
+    </>
   )
 }
