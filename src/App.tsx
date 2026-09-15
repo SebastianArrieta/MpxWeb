@@ -1,9 +1,8 @@
-import { Routes, Route } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
-import SemanaSanta from './pages/SemanaSanta'
-import FestivalJazz from './pages/FestivalJazz'
+import Eventos from './pages/Eventos'
 import QueVer from './pages/QueVer'
 import Mapa from './pages/Mapa'
 import Tours from './pages/Tours'
@@ -20,8 +19,9 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/historia" element={<Historia />} />
-          <Route path="/semana-santa" element={<SemanaSanta />} />
-          <Route path="/festival-jazz" element={<FestivalJazz />} />
+          <Route path="/eventos" element={<Eventos />} />
+          <Route path="/semana-santa" element={<Navigate to="/eventos#semana-santa" replace />} />
+          <Route path="/festival-jazz" element={<Navigate to="/eventos#festijazz" replace />} />
           <Route path="/que-ver" element={<QueVer />} />
           <Route path="/mapa" element={<Mapa />} />
           <Route path="/tours" element={<Tours />} />

@@ -91,13 +91,17 @@
   "nav": {
     "inicio": "Inicio",
     "historia": "Historia",
+    "eventos": "Eventos",
     "semanaSanta": "Semana Santa",
     "festivalJazz": "Festival Jazz",
     "queVer": "Qué ver",
     "mapa": "Mapa",
     "tours": "Tours",
     "autor": "Autores",
-    "contacto": "Contacto"
+    "contacto": "Contacto",
+    "principal": "Principal",
+    "abrirMenu": "Abrir menú",
+    "cerrarMenu": "Cerrar menú"
   },
   "inicio": {
     "eyebrow": "Patrimonio vivo del Caribe colombiano",
@@ -106,27 +110,40 @@
       "Monumento Nacional 1959",
       "Pueblos Patrimonio"
     ],
-    "ctaHistoria": "Explorar cronología",
-    "ctaMapa": "Ver mapa",
-    "msgVisitante": "Bienvenido, visitante. Empieza por el mapa, la historia y los recorridos.",
-    "msgMomposino": "Bienvenido, momposino. Aquí priorizamos eventos y vida local.",
-    "accesosTitle": "Accesos rápidos",
-    "accesosLead": "Orden adaptado a tu perfil ({perfil}).",
+    "introTitle": "Río, cal y memoria viva.",
+    "introLead": "Santa Cruz de Mompox se lee despacio: el casco UNESCO, las procesiones y el jazz sobre el malecón. Empieza por una ruta y deja que el pueblo ordene el resto.",
+    "eventsTitle": "Calendario vivo",
+    "eventsLead": "Dos celebraciones marcan el año. Entra a cada una sin salir de la misma página.",
+    "ctaEventos": "Ver eventos",
+    "ctaHistoria": "Recorrer su historia",
+    "ctaMapa": "Ver el mapa",
+    "msgVisitante": "Si es tu primera vez por aquí, te va a gustar arrancar por el mapa o por la historia desde el principio.",
+    "msgMomposino": "Vecino, esta es tu casa: aquí le damos prioridad a las fechas del pueblo y a la vida local.",
+    "accesosTitle": "¿Por dónde empezar?",
+    "accesosLead": "Cuatro atajos, según lo que andes buscando.",
     "historiaTeaserTitle": "Historia en movimiento",
     "historiaTeaserLead": "Fundación, independencia, Bolívar, Monumento Nacional y UNESCO — en una pestaña interactiva.",
     "historiaTeaserCta": "Abrir pestaña Historia",
     "quickVisitante": [
-      { "to": "/mapa", "label": "Explorar mapa", "hint": "Calles y puntos de interés" },
-      { "to": "/historia", "label": "Historia", "hint": "Cronología interactiva" },
-      { "to": "/semana-santa", "label": "Semana Santa", "hint": "Procesiones y tradición" },
-      { "to": "/tours", "label": "Tours", "hint": "Presencial y virtual" }
+      { "to": "/tours", "label": "Tours guiados", "hint": "A pie o por el río, con gente del pueblo" },
+      { "to": "/que-ver", "label": "Qué ver", "hint": "Iglesias, cementerio y malecón" },
+      { "to": "/eventos#semana-santa", "label": "Semana Santa", "hint": "Procesiones que mueven a todo el pueblo" },
+      { "to": "/eventos#festijazz", "label": "Festijazz", "hint": "Tres días de música junto al río" }
     ],
     "quickMomposino": [
-      { "to": "/semana-santa", "label": "Semana Santa", "hint": "Tu tradición local" },
-      { "to": "/festival-jazz", "label": "Festival Jazz", "hint": "Agenda del pueblo" },
-      { "to": "/historia", "label": "Historia", "hint": "Memoria del terruño" },
-      { "to": "/mapa", "label": "Mapa", "hint": "Referencias del casco" }
+      { "to": "/eventos#semana-santa", "label": "Semana Santa", "hint": "Tus fechas, tu tradición" },
+      { "to": "/eventos#festijazz", "label": "Festijazz", "hint": "La agenda del pueblo" },
+      { "to": "/mapa", "label": "Mapa", "hint": "Referencias del casco, de confianza" },
+      { "to": "/historia", "label": "Historia", "hint": "La memoria del terruño en años" }
     ]
+  },
+  "eventos": {
+    "title": "Eventos",
+    "eyebrow": "Calendario vivo",
+    "tagline": "Las dos celebraciones que marcan el año en Mompox: Semana Santa y Festijazz.",
+    "jumpAria": "Festividades",
+    "semanaSanta": "Semana Santa",
+    "festijazz": "Festijazz"
   },
   "historia": {
     "eyebrow": "Memoria del río",

@@ -91,13 +91,17 @@
   "nav": {
     "inicio": "Home",
     "historia": "History",
+    "eventos": "Events",
     "semanaSanta": "Holy Week",
     "festivalJazz": "Jazz Festival",
     "queVer": "What to see",
     "mapa": "Map",
     "tours": "Tours",
     "autor": "Authors",
-    "contacto": "Contact"
+    "contacto": "Contact",
+    "principal": "Main",
+    "abrirMenu": "Open menu",
+    "cerrarMenu": "Close menu"
   },
   "inicio": {
     "eyebrow": "Living heritage of the Colombian Caribbean",
@@ -106,27 +110,40 @@
       "National Monument 1959",
       "Heritage Towns"
     ],
-    "ctaHistoria": "Explore the timeline",
+    "introTitle": "River, lime and living memory.",
+    "introLead": "Santa Cruz de Mompox is meant to be read slowly: the UNESCO center, the processions and jazz on the riverfront. Pick a route and let the town order the rest.",
+    "eventsTitle": "Living calendar",
+    "eventsLead": "Two celebrations shape the year. Open each one without leaving the same page.",
+    "ctaEventos": "See events",
+    "ctaHistoria": "Discover its story",
     "ctaMapa": "See the map",
-    "msgVisitante": "Welcome, visitor. Start with the map, the history and the tours.",
-    "msgMomposino": "Welcome, momposino. Here we prioritize events and local life.",
-    "accesosTitle": "Quick access",
-    "accesosLead": "Order adapted to your profile ({perfil}).",
+    "msgVisitante": "If it's your first time here, we'd suggest starting with the map or with the story from the beginning.",
+    "msgMomposino": "Neighbor, this is your home: here we put the town's dates and local life first.",
+    "accesosTitle": "Where to begin",
+    "accesosLead": "A few shortcuts, depending on what you're looking for.",
     "historiaTeaserTitle": "History in motion",
     "historiaTeaserLead": "Foundation, independence, Bolívar, National Monument and UNESCO — in an interactive tab.",
     "historiaTeaserCta": "Open the History tab",
     "quickVisitante": [
-      { "to": "/mapa", "label": "Explore the map", "hint": "Streets and points of interest" },
-      { "to": "/historia", "label": "History", "hint": "Interactive timeline" },
-      { "to": "/semana-santa", "label": "Holy Week", "hint": "Processions and tradition" },
-      { "to": "/tours", "label": "Tours", "hint": "In person and virtual" }
+      { "to": "/tours", "label": "Guided tours", "hint": "On foot or by river, led by locals" },
+      { "to": "/que-ver", "label": "What to see", "hint": "Churches, the cemetery and the riverwalk" },
+      { "to": "/eventos#semana-santa", "label": "Holy Week", "hint": "Processions that move the whole town" },
+      { "to": "/eventos#festijazz", "label": "Festijazz", "hint": "Three days of music by the river" }
     ],
     "quickMomposino": [
-      { "to": "/semana-santa", "label": "Holy Week", "hint": "Your local tradition" },
-      { "to": "/festival-jazz", "label": "Jazz Festival", "hint": "Town agenda" },
-      { "to": "/historia", "label": "History", "hint": "Memory of the homeland" },
-      { "to": "/mapa", "label": "Map", "hint": "Historic center references" }
+      { "to": "/eventos#semana-santa", "label": "Holy Week", "hint": "Your dates, your tradition" },
+      { "to": "/eventos#festijazz", "label": "Festijazz", "hint": "The town's agenda" },
+      { "to": "/mapa", "label": "Map", "hint": "Trustworthy spots in the historic center" },
+      { "to": "/historia", "label": "History", "hint": "The homeland's memory, year by year" }
     ]
+  },
+  "eventos": {
+    "title": "Events",
+    "eyebrow": "Living calendar",
+    "tagline": "The two celebrations that shape the year in Mompox: Holy Week and Festijazz.",
+    "jumpAria": "Festivities",
+    "semanaSanta": "Holy Week",
+    "festijazz": "Festijazz"
   },
   "historia": {
     "eyebrow": "Memory of the river",

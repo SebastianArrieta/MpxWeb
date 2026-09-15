@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useApp, type Audience } from '../context/AppContext'
 import VisitCounter from './VisitCounter'
@@ -6,16 +6,20 @@ import VisitCounter from './VisitCounter'
 export default function Header() {
   const { audience, setAudience, lang, toggleLang, labels } = useApp()
   const [navOpen, setNavOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 20)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   const NAV = [
-    { to: '/', label: labels.nav.inicio, end: true },
     { to: '/historia', label: labels.nav.historia },
-    { to: '/semana-santa', label: labels.nav.semanaSanta },
-    { to: '/festival-jazz', label: labels.nav.festivalJazz },
-    { to: '/que-ver', label: labels.nav.queVer },
+    { to: '/eventos', label: labels.nav.eventos },
     { to: '/mapa', label: labels.nav.mapa },
     { to: '/tours', label: labels.nav.tours },
-    { to: '/autor', label: labels.nav.autor },
     { to: '/contacto', label: labels.nav.contacto },
   ] as const
 
@@ -25,7 +29,7 @@ export default function Header() {
   }
 
   return (
-    <header className="site-header">
+    <header className={`site-header${isScrolled ? ' is-scrolled' : ''}`}>
       <div className="site-header__inner">
         <NavLink to="/" className="site-logo" end>
           <span className="site-logo__mark" aria-hidden="true">M</span>
@@ -37,7 +41,7 @@ export default function Header() {
           className={`site-nav__toggle${navOpen ? ' is-open' : ''}`}
           aria-expanded={navOpen}
           aria-controls="primary-navigation"
-          aria-label={navOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-label={navOpen ? labels.nav.cerrarMenu : labels.nav.abrirMenu}
           onClick={() => setNavOpen((open) => !open)}
         >
           <span />
@@ -45,12 +49,11 @@ export default function Header() {
           <span />
         </button>
 
-        <nav id="primary-navigation" className={`site-nav${navOpen ? ' is-open' : ''}`} aria-label="Principal">
+        <nav id="primary-navigation" className={`site-nav${navOpen ? ' is-open' : ''}`} aria-label={labels.nav.principal}>
           {NAV.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
-              end={'end' in item ? item.end : false}
               onClick={() => setNavOpen(false)}
               className={({ isActive }) =>
                 isActive ? 'site-nav__link is-active' : 'site-nav__link'
