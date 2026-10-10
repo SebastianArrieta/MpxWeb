@@ -1,42 +1,37 @@
 import { useApp } from '../context/AppContext'
+import Reveal from '../components/Reveal'
 
 export default function Autor() {
   const { labels } = useApp()
   const l = labels.autor
   return (
-    <div className="page">
+    <div className="page page--about">
       <header className="page-header">
+        <p className="page-header__eyebrow">Mompox · Colombia</p>
         <h1>{l.title}</h1>
         <p>{l.tagline}</p>
       </header>
-
+      <p className="about-intro">{l.bio}</p>
       <div className="author-grid">
-        {labels.authors.map((author) => (
-          <section key={author.id} className="section author-stub">
-            <div className="author-stub__avatar" aria-hidden="true">
-              {author.initials}
-            </div>
-            <div className="author-stub__body">
-              <h2>{author.name}</h2>
-              <p className="author-stub__role">{author.role}</p>
-              <p className="placeholder-text">{l.bio}</p>
-              <ul className="stub-list">
-                <li>
-                  {l.whatsapp}:{' '}
-                  <a href={author.whatsappUrl} target="_blank" rel="noreferrer">
-                    {author.whatsappDisplay}
-                  </a>
-                </li>
-                <li>
-                  {l.instagram}:{' '}
+        {labels.authors.map((author, index) => (
+          <Reveal key={author.id} delay={index * 0.1}>
+            <section className="author-stub">
+              <div className="author-stub__avatar" aria-hidden="true">{author.initials}</div>
+              <div className="author-stub__body">
+                <h2>{author.name}</h2>
+                <p className="author-stub__role">{author.role}</p>
+                <p className="placeholder-text">{author.bio}</p>
+                <div className="about-links">
                   <a href={author.instagramUrl} target="_blank" rel="noreferrer">
-                    @{author.instagram}
+                    Instagram <span aria-hidden="true">↗</span>
                   </a>
-                </li>
-                <li>{l.enfoque}</li>
-              </ul>
-            </div>
-          </section>
+                  <a href={author.githubUrl} target="_blank" rel="noreferrer">
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </div>
+            </section>
+          </Reveal>
         ))}
       </div>
     </div>

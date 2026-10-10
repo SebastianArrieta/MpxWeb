@@ -41,49 +41,6 @@ export default function Timeline({ preview = false, showCultural = true }: Timel
     [activeId, events],
   )
 
-  // Revelado de tarjetas: IntersectionObserver + keep-alive para escenas visibles
-  useEffect(() => {
-    if (preview) return
-    const nodes = events.map((e) => sceneRefs.current[e.year]).filter(Boolean) as HTMLElement[]
-    if (!nodes.length) return
-
-    const markVisible = () => {
-      const vh = window.innerHeight
-      for (const e of events) {
-        const node = sceneRefs.current[e.year]
-        if (!node) continue
-        const r = node.getBoundingClientRect()
-        if (r.top < vh && r.bottom > 0) node.classList.add('is-in')
-      }
-    }
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      nodes.forEach((n) => n.classList.add('is-in'))
-      return
-    }
-
-    markVisible()
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-in')
-            observer.unobserve(entry.target)
-          }
-        }
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -6% 0px' },
-    )
-    nodes.forEach((n) => observer.observe(n))
-
-    const fallback = window.setTimeout(markVisible, 700)
-    return () => {
-      observer.disconnect()
-      window.clearTimeout(fallback)
-    }
-  }, [events, preview])
-
   // Progreso + parallax + hito activo (banda central con histéresis)
   useEffect(() => {
     if (preview) return
