@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { useApp, type Audience } from '../context/AppContext'
+import { useApp } from '../context/AppContext'
 import VisitCounter from './VisitCounter'
 
 export default function Header() {
-  const { audience, setAudience, lang, toggleLang, labels } = useApp()
+  const { lang, toggleLang, labels } = useApp()
   const [navOpen, setNavOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const navRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20)
@@ -15,53 +16,68 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const NAV = [
-    { to: '/historia', label: labels.nav.historia },
-    { to: '/eventos', label: labels.nav.eventos },
-    { to: '/mapa', label: labels.nav.mapa },
-    { to: '/tours', label: labels.nav.tours },
-    { to: '/contacto', label: labels.nav.contacto },
-  ] as const
-
-  const cycleAudience = () => {
-    const next: Audience = audience === 'momposino' ? 'visitante' : 'momposino'
-    setAudience(next)
+  const closeNav = () => {
+    setNavOpen(false)
+    navRef.current?.querySelectorAll('details[open]').forEach((item) => item.removeAttribute('open'))
   }
+
+  const discover = [
+    { to: '/semana-santa', label: labels.nav.semanaSanta },
+    { to: '/festival-jazz', label: labels.nav.festivalJazz },
+    { to: '/que-ver', label: labels.nav.queVer },
+    { to: '/galeria', label: labels.nav.galeria },
+    { to: '/historia', label: labels.nav.historia },
+  ]
+  const planning = [
+    { to: '/como-llegar', label: labels.nav.comoLlegar },
+    { to: '/itinerarios', label: labels.nav.itinerarios },
+    { to: '/tours', label: labels.nav.tours },
+  ]
 
   return (
     <header className={`site-header${isScrolled ? ' is-scrolled' : ''}`}>
       <div className="site-header__inner">
         <NavLink to="/" className="site-logo" end>
-          <span className="site-logo__mark" aria-hidden="true">M</span>
-          <span>Mompox</span>
+          <span className="site-logo__name">Mompox<span aria-hidden="true">.</span></span>
+          <span className="site-logo__country">Colombia</span>
         </NavLink>
 
-        <button
-          type="button"
-          className={`site-nav__toggle${navOpen ? ' is-open' : ''}`}
-          aria-expanded={navOpen}
-          aria-controls="primary-navigation"
-          aria-label={navOpen ? labels.nav.cerrarMenu : labels.nav.abrirMenu}
-          onClick={() => setNavOpen((open) => !open)}
+        <nav
+          id="primary-navigation"
+          ref={navRef}
+          className={`site-nav${navOpen ? ' is-open' : ''}`}
+          aria-label={labels.nav.principal}
         >
-          <span />
-          <span />
-          <span />
-        </button>
-
-        <nav id="primary-navigation" className={`site-nav${navOpen ? ' is-open' : ''}`} aria-label={labels.nav.principal}>
-          {NAV.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              onClick={() => setNavOpen(false)}
-              className={({ isActive }) =>
-                isActive ? 'site-nav__link is-active' : 'site-nav__link'
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
+          <details className="site-nav-group">
+            <summary>{labels.nav.descubre}</summary>
+            <div className="site-nav-group__menu">
+              {discover.map((item) => (
+                <NavLink key={item.to} to={item.to} onClick={closeNav}>
+                  {item.label}
+                </NavLink>
+              ))}
+            </div>
+          </details>
+          <details className="site-nav-group">
+            <summary>{labels.nav.planea}</summary>
+            <div className="site-nav-group__menu">
+              {planning.map((item) => (
+                <NavLink key={item.to} to={item.to} onClick={closeNav}>
+                  {item.label}
+                </NavLink>
+              ))}
+            </div>
+          </details>
+          <details className="site-nav-group">
+            <summary>{labels.nav.nosotros}</summary>
+            <div className="site-nav-group__menu">
+              <NavLink to="/sobre-nosotros" onClick={closeNav}>{labels.nav.sobreNosotros}</NavLink>
+              <NavLink to="/contacto" onClick={closeNav}>{labels.nav.contacto}</NavLink>
+            </div>
+          </details>
+          <NavLink to="/mapa" onClick={closeNav} className="site-nav__map-link">
+            {labels.nav.mapa}
+          </NavLink>
         </nav>
 
         <div className="site-header__tools">
@@ -78,13 +94,15 @@ export default function Header() {
 
           <button
             type="button"
-            className="audience-chip"
-            onClick={cycleAudience}
-            title={labels.audiencia.cambiar}
+            className={`site-nav__toggle${navOpen ? ' is-open' : ''}`}
+            aria-expanded={navOpen}
+            aria-controls="primary-navigation"
+            aria-label={navOpen ? labels.nav.cerrarMenu : labels.nav.abrirMenu}
+            onClick={() => setNavOpen((open) => !open)}
           >
-            {audience === 'momposino'
-              ? labels.audiencia.chipMomposino
-              : labels.audiencia.chipVisitante}
+            <span />
+            <span />
+            <span />
           </button>
 
           <VisitCounter className="visit-counter--header" />

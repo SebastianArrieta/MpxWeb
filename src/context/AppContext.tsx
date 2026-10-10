@@ -22,6 +22,7 @@ const LABELS_BY_LANG: Record<Lang, ContentLabels> = { es: esLabels, en: enLabels
 interface AppContextValue {
   audience: Audience | null
   setAudience: (a: Audience) => void
+  resetAudience: () => void
   lang: Lang
   toggleLang: () => void
   hasChosenAudience: boolean
@@ -60,6 +61,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setAudienceState(a)
   }, [])
 
+  const resetAudience = useCallback(() => {
+    localStorage.removeItem(AUDIENCE_KEY)
+    setAudienceState(null)
+  }, [])
+
   const toggleLang = useCallback(() => {
     setLang((prev) => {
       const next: Lang = prev === 'es' ? 'en' : 'es'
@@ -72,13 +78,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
     () => ({
       audience,
       setAudience,
+      resetAudience,
       lang,
       toggleLang,
       hasChosenAudience: audience !== null,
       visitCount: 0,
       labels: LABELS_BY_LANG[lang],
     }),
-    [audience, setAudience, lang, toggleLang],
+    [audience, setAudience, resetAudience, lang, toggleLang],
   )
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>

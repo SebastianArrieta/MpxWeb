@@ -25,8 +25,8 @@
   --radius-lg: 16px;
   --shadow: rgba(0, 0, 0, 0.08) 0px 1px 1px 0px, rgba(0, 0, 0, 0.08) 0px 4px 5px 0px;
   --shadow-lg: rgba(0, 0, 0, 0.15) 0px 2px 6px 0px;
-  --font-serif: 'Fraunces', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Bodoni Moda', Georgia, serif;
+  --font-sans: 'Karla', system-ui, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --header-h: 56px;
 }
@@ -1252,10 +1252,6 @@ body::before { display: none; }
   box-shadow: 0 18px 44px rgba(28, 20, 16, 0.1);
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s ease, opacity 0.5s ease;
 }
-@media (prefers-reduced-motion: no-preference) {
-  .timeline-scene__card { opacity: 0; transform: translateY(24px); }
-  .timeline-scene.is-in .timeline-scene__card { opacity: 1; transform: none; }
-}
 .timeline-scene.is-active .timeline-scene__card {
   transform: translateY(-3px);
   border-color: var(--accent, #8b3a2a);
@@ -1276,7 +1272,7 @@ body::before { display: none; }
 .timeline-scene__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 /* Kenburns sin reinicios: arranca con is-in y solo se pausa/reanuda */
 @media (prefers-reduced-motion: no-preference) {
-  .timeline-scene.is-in .timeline-scene__media img {
+  .timeline-scene .timeline-scene__media img {
     animation: kenburns-card 24s ease-in-out infinite alternate;
     animation-play-state: paused;
   }
@@ -1354,38 +1350,55 @@ body::before { display: none; }
 
 /* ===========================================================================
    Mompox atelier refinement
-   A quieter editorial system built on the existing colonial palette.
+   Paleta derivada de Santa Cruz de Mompox: ocre colonial, teja, ceiba,
+   cielo del Magdalena, barro del río y cal blanca.
    ========================================================================== */
 
 :root {
-  --cream: #fefffc;
-  --cream-dark: #f9faf7;
-  --sand: #dee2de;
-  --terracotta: #41a1cf;
-  --terracotta-deep: #0081c0;
-  --teal: #2c2c2c;
-  --teal-mid: #444141;
-  --teal-soft: #f9faf7;
-  --ink: #2c2c2c;
-  --muted: #646464;
+  /* Tokens de marca: nombres = color real */
+  --mpx-ocre: #d9a441;
+  --mpx-ocre-soft: #f6e7bf;
+  --mpx-teja: #b5532e;
+  --mpx-teja-deep: #8b3a2a;
+  --mpx-ceiba: #5e7f3a;
+  --mpx-ceiba-soft: #e3ead6;
+  --mpx-cielo: #41a1cf;
+  --mpx-cielo-deep: #0081c0;
+  --mpx-barro: #6b5a45;
+  --mpx-barro-soft: #ede4d6;
+  --mpx-cal: #fefffc;
+  --mpx-tinta: #2c2c2c;
+
+  /* Alias semánticos (las reglas existentes los consumen) */
+  --cream: var(--mpx-cal);
+  --cream-dark: #f8f4ea;
+  --sand: #e4dccd;
+  --terracotta: var(--mpx-teja);
+  --terracotta-deep: var(--mpx-teja-deep);
+  --teal: var(--mpx-ceiba);
+  --teal-mid: var(--mpx-barro);
+  --teal-soft: var(--mpx-ceiba-soft);
+  --ink: var(--mpx-tinta);
+  --muted: #5f5a52;
   --white: #ffffff;
-  --color-parchment: #fefffc;
+  --color-parchment: var(--mpx-cal);
   --color-paper: #ffffff;
-  --color-linen: #f9faf7;
-  --color-graphite: #2c2c2c;
+  --color-linen: #f8f4ea;
+  --color-graphite: var(--mpx-tinta);
   --color-charcoal: #444141;
-  --color-ash: #646464;
-  --color-mist: #dee2de;
-  --color-twilight: #282834;
-  --color-dusk: #1f1f29;
-  --color-signal-blue: #41a1cf;
-  --color-cerulean: #0081c0;
+  --color-ash: var(--muted);
+  --color-mist: var(--sand);
+  --color-twilight: var(--mpx-barro);
+  --color-dusk: #3a3026;
+  --color-signal-blue: var(--mpx-cielo);
+  --color-cerulean: var(--mpx-cielo-deep);
+  --mpx-glow: rgba(217, 164, 65, 0.35);
   --radius: 12px;
   --radius-lg: 16px;
   --shadow: rgba(0, 0, 0, 0.08) 0px 1px 1px 0px, rgba(0, 0, 0, 0.08) 0px 4px 5px 0px;
   --shadow-lg: rgba(0, 0, 0, 0.15) 0px 2px 6px 0px;
-  --font-serif: 'Fraunces', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Bodoni Moda', Georgia, serif;
+  --font-sans: 'Karla', system-ui, sans-serif;
   --header-h: 56px;
 }
 

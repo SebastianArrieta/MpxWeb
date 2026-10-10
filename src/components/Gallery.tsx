@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { mediaUrl } from '../helpers/mediaUrl'
 
-export type GalleryItem = { src: string; caption?: string }
+export type GalleryItem = { src: string; caption?: string; categoria?: string }
 
 export default function Gallery({
   items,
