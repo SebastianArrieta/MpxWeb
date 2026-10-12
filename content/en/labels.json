@@ -151,7 +151,6 @@
     "historiaTeaserCta": "Open the History tab",
     "empiezaTitle": "Start here",
     "empieza": [
-      { "to": "/mapa", "label": "Map", "hint": "Tourist sites, restaurants, hotels, parking and services, with directions from your location.", "image": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg" },
       { "to": "/semana-santa", "label": "Holy Week", "hint": "One of America's oldest and most solemn religious celebrations, alive in Mompox since the 16th century.", "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg" },
       { "to": "/festival-jazz", "label": "Jazz Festival", "hint": "Each year the colonial town becomes an open-air stage for jazz, Caribbean music and Momposino tradition beneath the stars.", "image": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg" },
       { "to": "/tours", "label": "Tours", "hint": "Guided experiences to discover Mompox on foot, by bike or from home with local guides.", "image": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg" },
@@ -279,7 +278,32 @@
     "title": "Getting to Mompox",
     "tagline": "Mompox lies in the Bolívar department, on the banks of the Magdalena River. Getting here is part of the adventure.",
     "ctaMapa": "View hotels and services on the map",
-    "nota": "Distances, schedules and transport operators can change. Confirm information with the terminal before setting out.",
+    "nota": "Routes, frequencies, fares and schedules can change. This guide is for orientation only: confirm every trip directly with the operator or terminal before traveling.",
+    "empresasTitle": "Operators to check",
+    "empresasLead": "These operators are common options for reaching Mompox. Contact them directly to check departures from your city, whether the trip is direct and where you need to connect.",
+    "empresas": [
+      {
+        "nombre": "SATENA",
+        "tipo": "Regional flights",
+        "detalle": "Check flights to Mompox, available departure cities, operating days and baggage allowance.",
+        "web": "https://www.satena.com/",
+        "webLabel": "Check SATENA"
+      },
+      {
+        "nombre": "Expreso Brasilia",
+        "tipo": "Ground transportation",
+        "detalle": "Check options from Cartagena, Barranquilla, Santa Marta and other terminals, as well as possible connections to Mompox.",
+        "web": "https://www.expresobrasilia.com/",
+        "webLabel": "Check Brasilia"
+      },
+      {
+        "nombre": "Coopetran",
+        "tipo": "Ground transportation",
+        "detalle": "Ask about routes to Mompox or connections through Magangué, El Banco and other nearby cities.",
+        "web": "https://www.coopetran.com/",
+        "webLabel": "Check Coopetran"
+      }
+    ],
     "secciones": [
       {
         "title": "Where it is",
@@ -306,8 +330,16 @@
       {
         "title": "From Bogotá",
         "items": [
-          "Fly to Cartagena, Montería or Corozal and continue by road to Mompox.",
-          "The air-and-road connection usually takes 5 to 8 hours, depending on connections."
+          "Check for direct flights to Mompox, or fly to Cartagena, Montería or Corozal and continue by road.",
+          "The air-and-road connection usually takes 5 to 8 hours, depending on connections and availability."
+        ]
+      },
+      {
+        "title": "By air and by river",
+        "items": [
+          "Check with SATENA for available flights from your city on your travel dates.",
+          "You can also combine a bus with river transportation depending on the connection point and river levels.",
+          "Always ask for the exact arrival point and the final transfer into central Mompox."
         ]
       },
       {
@@ -373,6 +405,7 @@
   "mapa": {
     "title": "Map",
     "tagline": "Tourist sites, restaurants, hotels, parking and services, with directions from your location.",
+    "notaVerificacion": "Only places with checked coordinates are shown. More places will be added once their locations are confirmed.",
     "buscar": "Search…",
     "filtros": {
       "todos": "All",
@@ -429,7 +462,30 @@
       "Recommended accommodation and restaurants on the map.",
       "Help planning travel to Mompox from other cities."
     ],
-    "consulta": "Message on Instagram"
+    "consulta": "Message on Instagram",
+    "valerosa": {
+      "tag": "Local experiences",
+      "title": "Valerosa Tours",
+      "lead": "A recommendation for discovering the Magdalena River and Pijiño Wetlands with local information.",
+      "recommended": "Recommended",
+      "departure": "Departure",
+      "contactLabel": "Contact",
+      "phone": "310 494 4314 · 312 618 8435",
+      "instagram": "https://www.instagram.com/valerosa_tours/",
+      "instagramLabel": "View Instagram profile",
+      "items": [
+        {
+          "title": "Magdalena River Tour",
+          "departure": "4:30 PM",
+          "detail": "A river experience to enjoy the afternoon. Contact the operator directly for duration, price, meeting point and inclusions."
+        },
+        {
+          "title": "Pijiño Wetlands Tour",
+          "departure": "3:00 PM",
+          "detail": "An outing to discover the wetlands and their natural surroundings. Contact the operator directly for duration, price, meeting point and inclusions."
+        }
+      ]
+    }
   },
   "autor": {
     "title": "About us",

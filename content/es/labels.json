@@ -151,7 +151,6 @@
     "historiaTeaserCta": "Abrir pestaña Historia",
     "empiezaTitle": "Empieza por aquí",
     "empieza": [
-      { "to": "/mapa", "label": "Mapa", "hint": "Sitios turísticos, restaurantes, hoteles, parqueaderos y servicios, con ruta directa desde donde estés.", "image": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg" },
       { "to": "/semana-santa", "label": "Semana Santa", "hint": "Una de las celebraciones religiosas más antiguas y solemnes de América, viva en Mompox desde el siglo XVI.", "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg" },
       { "to": "/festival-jazz", "label": "Festival de Jazz", "hint": "Cada año la ciudad colonial se convierte en escenario abierto: jazz, música del Caribe y tradición momposina bajo las estrellas.", "image": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg" },
       { "to": "/tours", "label": "Tours", "hint": "Recorridos guiados para conocer Mompox a pie, en bici o desde casa con guías locales.", "image": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg" },
@@ -279,7 +278,32 @@
     "title": "Cómo llegar a Mompox",
     "tagline": "Mompox está en el departamento de Bolívar, a orillas del río Magdalena. Llegar es parte de la aventura.",
     "ctaMapa": "Ver hoteles y servicios en el mapa",
-    "nota": "Las distancias, horarios y empresas de transporte pueden cambiar. Confirma la información con la terminal antes de salir.",
+    "nota": "Las rutas, frecuencias, tarifas y horarios pueden cambiar. Esta guía es orientativa: confirma cada trayecto directamente con la empresa o la terminal antes de viajar.",
+    "empresasTitle": "Empresas para consultar",
+    "empresasLead": "Estas empresas suelen aparecer entre las opciones para llegar a Mompox. Consulta directamente si tienen salida desde tu ciudad, si el trayecto es directo y dónde debes hacer conexión.",
+    "empresas": [
+      {
+        "nombre": "SATENA",
+        "tipo": "Vuelos regionales",
+        "detalle": "Consulta vuelos hacia Mompox, ciudades de origen disponibles, días de operación y equipaje incluido.",
+        "web": "https://www.satena.com/",
+        "webLabel": "Consultar SATENA"
+      },
+      {
+        "nombre": "Expreso Brasilia",
+        "tipo": "Transporte terrestre",
+        "detalle": "Consulta opciones desde Cartagena, Barranquilla, Santa Marta u otras terminales, además de posibles conexiones hacia Mompox.",
+        "web": "https://www.expresobrasilia.com/",
+        "webLabel": "Consultar Brasilia"
+      },
+      {
+        "nombre": "Coopetran",
+        "tipo": "Transporte terrestre",
+        "detalle": "Pregunta por rutas hacia Mompox o por conexiones en Magangué, El Banco y otras ciudades cercanas.",
+        "web": "https://www.coopetran.com/",
+        "webLabel": "Consultar Coopetran"
+      }
+    ],
     "secciones": [
       {
         "title": "Dónde queda",
@@ -306,8 +330,16 @@
       {
         "title": "Desde Bogotá",
         "items": [
-          "Puedes volar a Cartagena, Montería o Corozal y continuar por carretera hasta Mompox.",
-          "La combinación aérea y terrestre suele tomar entre 5 y 8 horas, según las conexiones."
+          "Puedes consultar vuelos directos a Mompox o volar a Cartagena, Montería o Corozal y continuar por carretera.",
+          "La combinación aérea y terrestre suele tomar entre 5 y 8 horas, según las conexiones y la disponibilidad."
+        ]
+      },
+      {
+        "title": "Por aire y por río",
+        "items": [
+          "Revisa con SATENA si hay vuelos disponibles desde tu ciudad para las fechas del viaje.",
+          "También puedes combinar bus con transporte fluvial según el punto de conexión y el nivel del río.",
+          "Pregunta siempre por el punto exacto de llegada y el traslado final hasta el centro de Mompox."
         ]
       },
       {
@@ -373,6 +405,7 @@
   "mapa": {
     "title": "Mapa",
     "tagline": "Sitios turísticos, restaurantes, hoteles, parqueaderos y servicios, con ruta directa desde donde estés.",
+    "notaVerificacion": "Mostramos solo lugares con coordenadas revisadas. Los demás se añadirán cuando su ubicación sea confirmada.",
     "buscar": "Buscar lugar…",
     "filtros": {
       "todos": "Todos",
@@ -429,7 +462,30 @@
       "Alojamiento y restaurantes recomendados en el mapa.",
       "Asesoría para llegar a Mompox desde otras ciudades."
     ],
-    "consulta": "Escribir por Instagram"
+    "consulta": "Escribir por Instagram",
+    "valerosa": {
+      "tag": "Experiencias locales",
+      "title": "Valerosa Tours",
+      "lead": "Una recomendación para descubrir el río Magdalena y la Ciénaga de Pijiño con información local.",
+      "recommended": "Recomendado",
+      "departure": "Salida",
+      "contactLabel": "Contacto",
+      "phone": "310 494 4314 · 312 618 8435",
+      "instagram": "https://www.instagram.com/valerosa_tours/",
+      "instagramLabel": "Ver perfil en Instagram",
+      "items": [
+        {
+          "title": "Tour Río Magdalena",
+          "departure": "4:30 PM",
+          "detail": "Plan de río para disfrutar la tarde. Consulta directamente la duración, el precio, el punto de encuentro y lo que incluye."
+        },
+        {
+          "title": "Tour Ciénaga de Pijiño",
+          "departure": "3:00 PM",
+          "detail": "Salida para conocer la ciénaga y su entorno natural. Consulta directamente la duración, el precio, el punto de encuentro y lo que incluye."
+        }
+      ]
+    }
   },
   "autor": {
     "title": "Sobre nosotros",
