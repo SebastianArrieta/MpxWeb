@@ -1,14 +1,14 @@
-import { useEffect, useMemo, useState } from 'react'
-import { CircleMarker, MapContainer, Popup, TileLayer, useMap } from 'react-leaflet'
-import type { LatLngExpression } from 'leaflet'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import * as maplibregl from 'maplibre-gl'
 import placesData from '../../content/places/places.json'
 import categoriesData from '../../content/places/categories.json'
 import { useApp } from '../context/AppContext'
 
 type Place = (typeof placesData.items)[number]
+type MappedPlace = Place & { lat: number; lng: number; ubicacion_verificada: true }
 type MobileView = 'lista' | 'mapa'
 
-const center: LatLngExpression = [placesData.meta.map_center.lat, placesData.meta.map_center.lng]
+const center: [number, number] = [placesData.meta.map_center.lng, placesData.meta.map_center.lat]
 const categoryColors: Record<string, string> = {
   sitios: '#b5532e',
   restaurantes: '#d9a441',
@@ -18,35 +18,40 @@ const categoryColors: Record<string, string> = {
   servicios: '#525d66',
 }
 
-function MapFocus({ selected }: { selected?: Place }) {
-  const map = useMap()
-  useEffect(() => {
-    if (selected) map.flyTo([selected.lat, selected.lng], Math.max(map.getZoom(), 16), { duration: 0.55 })
-  }, [selected, map])
-  return null
-}
-
-function MapLayoutSync({ view }: { view: MobileView }) {
-  const map = useMap()
-  useEffect(() => {
-    const timer = window.setTimeout(() => map.invalidateSize({ pan: false }), 120)
-    return () => window.clearTimeout(timer)
-  }, [view, map])
-  return null
+const mapStyle: maplibregl.StyleSpecification = {
+  version: 8,
+  sources: {
+    osm: {
+      type: 'raster',
+      tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+      tileSize: 256,
+      attribution: '&copy; OpenStreetMap contributors',
+    },
+  },
+  layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
 }
 
 export default function Mapa() {
   const { labels, lang } = useApp()
   const mapaLabels = labels.mapa
   const catLabel = (id: string) => (mapaLabels.filtros as Record<string, string>)[id] ?? id
+  const mapContainer = useRef<HTMLDivElement | null>(null)
+  const mapRef = useRef<maplibregl.Map | null>(null)
+  const markersRef = useRef<Map<string, maplibregl.Marker>>(new Map())
+  const markerElementsRef = useRef<Map<string, HTMLButtonElement>>(new Map())
+  const [mapReady, setMapReady] = useState(false)
   const [query, setQuery] = useState('')
   const [cat, setCat] = useState('todos')
   const [selectedId, setSelectedId] = useState<string | null>(null)
-  const [mobileView, setMobileView] = useState<MobileView>('lista')
+  const [mobileView, setMobileView] = useState<MobileView>('mapa')
+  const mappedPlaces = placesData.items.filter(
+    (place): place is MappedPlace =>
+      place.ubicacion_verificada === true && typeof place.lat === 'number' && typeof place.lng === 'number',
+  )
 
   const filtered = useMemo(() => {
     const q = query.trim().toLocaleLowerCase(lang)
-    return placesData.items.filter((place) => {
+    return mappedPlaces.filter((place) => {
       if (cat !== 'todos' && place.categoria !== cat) return false
       if (!q) return true
       const fields = [
@@ -60,18 +65,106 @@ export default function Mapa() {
     })
   }, [query, cat, lang])
 
-  const selected = placesData.items.find((place) => place.id === selectedId)
+  const selected = mappedPlaces.find((place) => place.id === selectedId)
+  const placeName = (place: Place) => (lang === 'en' ? place.nombre_en : place.nombre_es)
+  const placeDescription = (place: Place) =>
+    lang === 'en' ? place.descripcion_en : place.descripcion_es
+
+  useEffect(() => {
+    if (!mapContainer.current || mapRef.current) return
+
+    const map = new maplibregl.Map({
+      container: mapContainer.current,
+      style: mapStyle,
+      center,
+      zoom: placesData.meta.map_center.zoom,
+      minZoom: 11,
+      maxZoom: 19,
+    })
+
+    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right')
+    const onStyleLoad = () => {
+      setMapReady(true)
+      window.requestAnimationFrame(() => map.resize())
+    }
+    map.on('style.load', onStyleLoad)
+    mapRef.current = map
+
+    return () => {
+      map.off('style.load', onStyleLoad)
+      markersRef.current.forEach((marker) => marker.remove())
+      markersRef.current.clear()
+      markerElementsRef.current.clear()
+      map.remove()
+      mapRef.current = null
+      setMapReady(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map || !mapReady) return
+
+    markersRef.current.forEach((marker) => marker.remove())
+    markersRef.current.clear()
+    markerElementsRef.current.clear()
+
+    filtered.forEach((place) => {
+      const markerElement = document.createElement('button')
+      markerElement.type = 'button'
+      markerElement.className = 'map-marker'
+      markerElement.style.backgroundColor = categoryColors[place.categoria] ?? '#525d66'
+      markerElement.setAttribute('aria-label', placeName(place))
+      markerElement.title = placeName(place)
+      markerElement.addEventListener('click', () => {
+        setSelectedId(place.id)
+        setMobileView('mapa')
+      })
+
+      const marker = new maplibregl.Marker({ element: markerElement, anchor: 'center' })
+        .setLngLat([place.lng, place.lat])
+        .addTo(map)
+
+      markersRef.current.set(place.id, marker)
+      markerElementsRef.current.set(place.id, markerElement)
+    })
+
+    return () => {
+      markersRef.current.forEach((marker) => marker.remove())
+      markersRef.current.clear()
+      markerElementsRef.current.clear()
+    }
+  }, [filtered, lang, mapReady])
+
+  useEffect(() => {
+    markerElementsRef.current.forEach((element, id) => {
+      element.classList.toggle('is-active', id === selectedId)
+    })
+  }, [selectedId, filtered])
+
+  useEffect(() => {
+    if (!selected || !mapRef.current || !mapReady) return
+    mapRef.current.flyTo({
+      center: [selected.lng, selected.lat],
+      zoom: Math.max(mapRef.current.getZoom(), 16),
+      duration: 550,
+    })
+  }, [selected, mapReady])
+
+  useEffect(() => {
+    if (!mapRef.current) return
+    const frame = window.requestAnimationFrame(() => mapRef.current?.resize())
+    return () => window.cancelAnimationFrame(frame)
+  }, [mobileView])
 
   useEffect(() => {
     if (selectedId && !filtered.some((place) => place.id === selectedId)) setSelectedId(null)
   }, [filtered, selectedId])
 
-  const placeName = (place: Place) => (lang === 'en' ? place.nombre_en : place.nombre_es)
-  const placeDescription = (place: Place) =>
-    lang === 'en' ? place.descripcion_en : place.descripcion_es
-
-  const directions = (place: Place) =>
-    `https://www.google.com/maps/dir/?api=1&destination=${place.lat},${place.lng}`
+  const directions = (place: Place) => {
+    const destination = `${placeName(place)}, Santa Cruz de Mompox, Bolívar, Colombia`
+    return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`
+  }
 
   const pickPlace = (id: string) => {
     setSelectedId(id)
@@ -110,6 +203,7 @@ export default function Mapa() {
         <p className="page-header__eyebrow">Mompox · Bolívar</p>
         <h1>{mapaLabels.title}</h1>
         <p>{mapaLabels.tagline}</p>
+        <p className="map-verification-note">{mapaLabels.notaVerificacion}</p>
       </header>
 
       <section className="map-toolbar" aria-label={mapaLabels.title}>
@@ -163,7 +257,7 @@ export default function Mapa() {
             <h2 className="map-list__title">
               {mapaLabels.lugaresCount.replace('{n}', String(filtered.length))}
             </h2>
-            <span className="map-list__total">23</span>
+            <span className="map-list__total">{mappedPlaces.length}</span>
           </div>
           {filtered.length === 0 ? (
             <p className="placeholder-text">{mapaLabels.listaVacia}</p>
@@ -194,48 +288,8 @@ export default function Mapa() {
         </aside>
 
         <div className="map-panel map-panel--live" aria-label={mapaLabels.panelAria}>
-          <MapContainer
-            center={center}
-            zoom={placesData.meta.map_center.zoom}
-            minZoom={11}
-            maxZoom={19}
-            scrollWheelZoom={false}
-            className="leaflet-map"
-            >
-            <MapLayoutSync view={mobileView} />
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <MapFocus selected={selected} />
-            {filtered.map((place) => (
-              <CircleMarker
-                key={place.id}
-                center={[place.lat, place.lng]}
-                radius={selected?.id === place.id ? 10 : 7}
-                pathOptions={{
-                  color: '#fffdf9',
-                  weight: 3,
-                  fillColor: categoryColors[place.categoria],
-                  fillOpacity: 1,
-                }}
-                eventHandlers={{ click: () => setSelectedId(place.id) }}
-              >
-                <Popup>
-                  <div className="map-popup">
-                    <strong>{placeName(place)}</strong>
-                    <span>{catLabel(place.categoria)}</span>
-                    <p>{placeDescription(place)}</p>
-                    <a href={directions(place)} target="_blank" rel="noreferrer">
-                      {mapaLabels.ficha.comoLlegar} ↗
-                    </a>
-                  </div>
-                </Popup>
-              </CircleMarker>
-            ))}
-          </MapContainer>
+          <div ref={mapContainer} className="maplibre-map" />
           {selected ? <div className="map-ficha-desktop">{renderPlaceCard(selected)}</div> : null}
-          <p className="map-attribution">{mapaLabels.panelNota}</p>
         </div>
       </section>
 

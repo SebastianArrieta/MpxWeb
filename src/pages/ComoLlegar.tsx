@@ -25,6 +25,26 @@ export default function ComoLlegar() {
           </Reveal>
         ))}
       </div>
+      <section className="section travel-operators">
+        <header className="section__head">
+          <div>
+            <h2 className="section__title">{l.empresasTitle}</h2>
+            <p className="section__lead">{l.empresasLead}</p>
+          </div>
+        </header>
+        <div className="card-grid card-grid--3">
+          {l.empresas.map((empresa) => (
+            <article className="info-card info-card--teal" key={empresa.nombre}>
+              <span className="info-card__tag">{empresa.tipo}</span>
+              <h3>{empresa.nombre}</h3>
+              <p>{empresa.detalle}</p>
+              <a className="info-card__cta" href={empresa.web} target="_blank" rel="noreferrer">
+                {empresa.webLabel} ↗
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
       <p className="travel-note">{l.nota}</p>
       <Link to="/mapa" className="btn btn--primary itinerarios-map-link">
         {l.ctaMapa} ↗
