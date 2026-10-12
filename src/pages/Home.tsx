@@ -32,8 +32,8 @@ export default function Home() {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
   const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4])
-  const visitorOrder = ['/mapa', '/semana-santa', '/festival-jazz', '/tours', '/itinerarios', '/galeria', '/como-llegar']
-  const localOrder = ['/semana-santa', '/festival-jazz', '/mapa', '/galeria', '/itinerarios', '/tours', '/como-llegar']
+  const visitorOrder = ['/semana-santa', '/festival-jazz', '/tours', '/itinerarios', '/galeria', '/como-llegar']
+  const localOrder = ['/semana-santa', '/festival-jazz', '/galeria', '/itinerarios', '/tours', '/como-llegar']
   const order = audience === 'momposino' ? localOrder : visitorOrder
   const startCards = [...labels.inicio.empieza].sort((a, b) => order.indexOf(a.to) - order.indexOf(b.to))
 

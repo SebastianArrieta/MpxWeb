@@ -317,12 +317,13 @@
 .itinerario__steps span { font-size: 0.95rem; }
 .info-card__title { font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 0.5rem; }
 
-/* ---------- Mapa real con Leaflet/OpenStreetMap ---------- */
+/* ---------- Mapa real con MapLibre/OpenStreetMap ---------- */
 .map-toolbar { background: #fffdf9; border-color: var(--sand); }
 .map-search-wrap { display: flex; align-items: center; gap: 0.6rem; }
 .map-search-wrap > span { color: var(--mpx-barro); font-size: 1.4rem; line-height: 1; }
 .map-search { border-color: transparent; background: transparent; padding-left: 0; }
 .map-search:focus { box-shadow: none !important; }
+.map-verification-note { margin-top: 0.65rem !important; color: var(--mpx-teja-deep) !important; font-size: 0.82rem; }
 .map-layout {
   grid-template-columns: minmax(280px, 350px) minmax(0, 1fr);
   align-items: stretch;
@@ -341,8 +342,10 @@
 .map-list__item:hover .map-list__arrow,
 .map-list__item.is-active .map-list__arrow { opacity: 1; transform: translate(2px, -2px); }
 .map-panel--live { min-height: 650px; display: block; border: 1px solid var(--sand); }
-.leaflet-map { width: 100%; height: 100%; min-height: 650px; z-index: 1; border-radius: inherit; }
-.map-attribution { position: absolute; right: 0.7rem; bottom: 0.4rem; z-index: 400; margin: 0; border-radius: 4px; padding: 0.2rem 0.4rem; background: rgba(255, 253, 249, 0.86); color: #51483e; font-size: 0.65rem; pointer-events: none; }
+.maplibre-map { position: relative; width: 100%; height: 650px; min-height: 650px; z-index: 1; border-radius: inherit; overflow: hidden; }
+.maplibregl-map { font: inherit; }
+.maplibregl-ctrl-group { border: 1px solid rgba(42, 33, 28, 0.15); box-shadow: var(--shadow); }
+.maplibregl-ctrl button { width: 34px; height: 34px; }
 .map-card { max-width: 100%; padding: 1rem; }
 .map-card__category { display: block; margin-bottom: 0.3rem; color: var(--mpx-teja); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.68rem; font-weight: 700; }
 .map-card__note { margin-top: 0.5rem !important; font-size: 0.75rem !important; }
@@ -352,9 +355,6 @@
 .map-popup > span { color: var(--mpx-teja); font-size: 0.74rem; }
 .map-popup p { margin: 0.2rem 0; font-size: 0.82rem; }
 .map-popup a { font-weight: 600; }
-.leaflet-container { font: inherit; }
-.leaflet-control-attribution { font-size: 9px !important; }
-
 @media (max-width: 799px) {
   .map-layout { grid-template-columns: 1fr; min-height: 0; }
   .map-list { max-height: 62vh; }
@@ -362,7 +362,7 @@
   .map-layout--mapa .map-list { display: none; }
   .map-layout--mapa .map-panel { display: block; min-height: 60vh; }
   .map-panel--live,
-  .leaflet-map { min-height: 60vh; }
+  .maplibre-map { min-height: 60vh; height: 60vh; }
   .map-ficha-desktop { display: none; }
 }
 
@@ -514,6 +514,13 @@
 .about-links a:hover { text-decoration: underline; }
 .tour-card { height: 100%; }
 .tour-card__meta { color: var(--mpx-teja-deep) !important; font-weight: 700; font-size: 0.84rem !important; }
+.tour-card--recommended { border-top-color: var(--mpx-ocre); }
+.tour-recommended__contact { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; margin-top: 1rem; padding: 1rem 1.15rem; background: #f8f4ea; border-radius: 0.6rem; }
+.tour-recommended__contact p { margin: 0; color: var(--muted); }
+.tour-recommended__contact .info-card__cta { margin-left: auto; }
+.travel-operators { margin-top: 2.5rem; }
+.travel-operators .section__head { margin-bottom: 1rem; }
+.travel-operators .info-card__cta { display: inline-block; margin-top: 1rem; font-weight: 700; text-decoration: none; }
 .tour-services { padding: 1.5rem; background: #f8f4ea; border-radius: 16px; }
 .tour-services__links { display: flex; flex-wrap: wrap; gap: 1.25rem; margin: 1rem 0 0; font-weight: 700; }
 .map-layout .map-list__title { color: var(--mpx-tinta); }
@@ -529,6 +536,7 @@
   .event-detail__index { font-size: 1.35rem; }
   .event-detail__tips { grid-template-columns: 1fr; }
   .event-detail__tips .btn { grid-column: auto; }
+  .tour-recommended__contact .info-card__cta { margin-left: 0; }
 }
 
 /* ---------- Visual alignment with the supplied Mompox Mágico HTML ---------- */
@@ -756,9 +764,7 @@ h4 { font-family: var(--font-serif); }
 .btn--primary { border-color: var(--primary); background: var(--primary); color: var(--primary-foreground); }
 .btn--primary:hover { border-color: oklch(63% 0.15 74); background: oklch(63% 0.15 74); color: var(--primary-foreground); }
 .chip-filter.is-active { border-color: var(--primary); background: var(--primary); color: var(--primary-foreground); }
-.leaflet-container { background: var(--muted-surface); color: var(--card-foreground); font-family: var(--font-sans); }
-.leaflet-popup-content-wrapper,
-.leaflet-popup-tip { border-radius: calc(var(--radius) + 4px); background: var(--card); color: var(--card-foreground); }
+.maplibregl-map { background: var(--muted-surface); color: var(--card-foreground); font-family: var(--font-sans); }
 
 @media (min-width: 640px) {
   .home__start-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
