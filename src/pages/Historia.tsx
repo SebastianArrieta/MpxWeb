@@ -1,4 +1,5 @@
 import Timeline from '../components/Timeline'
+import Simbolos from '../components/Simbolos'
 import { useApp } from '../context/AppContext'
 
 export default function Historia() {
@@ -14,6 +15,8 @@ export default function Historia() {
           <span className="historia-hero__arrow">↓</span>
         </div>
       </header>
+
+      <Simbolos />
 
       <section className="section section--timeline" aria-label={labels.timelineUi.railAria}>
         <Timeline />

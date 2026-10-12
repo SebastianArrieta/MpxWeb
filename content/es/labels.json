@@ -42,29 +42,61 @@
     {
       "year": "1537",
       "title": "Fundación",
-      "detail": "Según la tradición, Santa Cruz de Mompox se funda en 1537. Los historiadores aún debaten la fecha exacta y quién la fundó."
+      "detail": "Según la tradición, Santa Cruz de Mompox se funda el 3 de mayo de 1537, tras la batalla contra el cacique Kimbay. Los historiadores aún debaten si fue Alonso de Heredia o Juan de Santa Cruz.",
+      "image": "media/images/mompox-casas-coloniales.jpg"
+    },
+    {
+      "year": "1540",
+      "title": "Erección de la villa",
+      "detail": "Crónicas y documentos dan cuenta de la fundación formal de la villa de Santa Cruz de Mompox, punto clave de la navegación del río Magdalena."
+    },
+    {
+      "year": "1541",
+      "title": "Encomiendas del Magdalena",
+      "detail": "Pedro de Heredia distribuye 22 encomiendas en Mompox. La mano de obra ribereña —remeros, cargadores y constructores— se vuelve el primer pilar del oficio momposino."
+    },
+    {
+      "year": "1561",
+      "title": "Provincia y escudo real",
+      "detail": "Felipe II crea la Provincia de Mompox y el Rey de España concede a la villa su escudo de armas."
+    },
+    {
+      "year": "1613",
+      "title": "Templos del esplendor",
+      "detail": "Se levantan iglesias como San Agustín (1606) y Santa Bárbara (1613), iconos del barroco momposino y de la vida religiosa de la villa.",
+      "image": "media/images/mompox-santa-barbara.jpg"
+    },
+    {
+      "year": "s. XVII",
+      "title": "Conventos y colegios",
+      "detail": "La fundación del convento de San Agustín y el colegio jesuita de San Carlos consolidan a Mompox como centro cultural y religioso de la región."
+    },
+    {
+      "year": "1784",
+      "title": "Sociedad Patriótica",
+      "detail": "Se funda la Sociedad Patriótica de Comercio, reflejo del poderío mercantil de la villa en la red fluvial del Magdalena."
     },
     {
       "year": "1810",
       "title": "Independencia absoluta",
-      "detail": "El 6 de agosto Mompox proclama su independencia absoluta."
+      "detail": "El 6 de agosto Mompox proclama su independencia absoluta de España, una de las primeras del Caribe colombiano."
     },
     {
       "year": "1812",
       "title": "Bolívar y Ciudad Valerosa",
-      "detail": "Simón Bolívar y la Campaña Admirable. El 19 de octubre recibe el título de Ciudad Valerosa."
+      "detail": "Simón Bolívar y la Campaña Admirable. El 19 de octubre la villa recibe el título de Ciudad Valerosa."
     },
     {
       "year": "1959",
       "title": "Monumento Nacional",
-      "detail": "El casco histórico es declarado Monumento Nacional."
+      "detail": "El casco histórico es declarado Monumento Nacional, primer paso hacia su protección.",
+      "image": "media/images/mompox-calles.jpg"
     },
     {
       "year": "1995",
       "title": "UNESCO Patrimonio",
       "detail": "El centro histórico es inscrito como Patrimonio de la Humanidad por la UNESCO.",
-      "image": "media/images/muestra-mompox.svg",
-      "audio": "media/audio/muestra.wav"
+      "image": "media/images/mompox-albarrada.jpg"
     }
   ],
   "culturalMilestones": [
@@ -88,9 +120,21 @@
     "saltar": "Saltar presentación",
     "continuar": "Continuar",
     "slides": [
-      { "eyebrow": "Bienvenido a", "title": "Santa Cruz de Mompox", "text": "Un pueblo colonial detenido en el tiempo, sobre las aguas del río Magdalena." },
-      { "eyebrow": "Caribe colombiano", "title": "Río, cal y memoria viva", "text": "Procesiones, jazz junto al malecón, filigrana y casas de tapia que cuentan siglos de historia." },
-      { "eyebrow": "Patrimonio", "title": "Declarado por la UNESCO", "text": "Desde 1995, el centro histórico es Patrimonio de la Humanidad. Déjanos mostrarte el camino." }
+      {
+        "eyebrow": "Bienvenido a",
+        "title": "Santa Cruz de Mompox",
+        "text": "Un pueblo colonial detenido en el tiempo, sobre las aguas del río Magdalena."
+      },
+      {
+        "eyebrow": "Caribe colombiano",
+        "title": "Río, cal y memoria viva",
+        "text": "Procesiones, jazz junto al malecón, filigrana y casas de tapia que cuentan siglos de historia."
+      },
+      {
+        "eyebrow": "Patrimonio",
+        "title": "Declarado por la UNESCO",
+        "text": "Desde 1995, el centro histórico es Patrimonio de la Humanidad. Déjanos mostrarte el camino."
+      }
     ]
   },
   "audiencia": {
@@ -151,24 +195,86 @@
     "historiaTeaserCta": "Abrir pestaña Historia",
     "empiezaTitle": "Empieza por aquí",
     "empieza": [
-      { "to": "/semana-santa", "label": "Semana Santa", "hint": "Una de las celebraciones religiosas más antiguas y solemnes de América, viva en Mompox desde el siglo XVI.", "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg" },
-      { "to": "/festival-jazz", "label": "Festival de Jazz", "hint": "Cada año la ciudad colonial se convierte en escenario abierto: jazz, música del Caribe y tradición momposina bajo las estrellas.", "image": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg" },
-      { "to": "/tours", "label": "Tours", "hint": "Recorridos guiados para conocer Mompox a pie, en bici o desde casa con guías locales.", "image": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg" },
-      { "to": "/itinerarios", "label": "Itinerarios", "hint": "Rutas de 1 día, 2 días y fin de semana para aprovechar al máximo tu visita.", "image": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg" },
-      { "to": "/galeria", "label": "Galería", "hint": "Fotos de la arquitectura, el río, las procesiones y el jazz.", "image": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg" },
-      { "to": "/como-llegar", "label": "Cómo llegar", "hint": "Buses, vuelos, carretera y dónde quedarte.", "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg" }
+      {
+        "to": "/semana-santa",
+        "label": "Semana Santa",
+        "hint": "Una de las celebraciones religiosas más antiguas y solemnes de América, viva en Mompox desde el siglo XVI.",
+        "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg"
+      },
+      {
+        "to": "/festival-jazz",
+        "label": "Festival de Jazz",
+        "hint": "Cada año la ciudad colonial se convierte en escenario abierto: jazz, música del Caribe y tradición momposina bajo las estrellas.",
+        "image": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg"
+      },
+      {
+        "to": "/tours",
+        "label": "Tours",
+        "hint": "Recorridos guiados para conocer Mompox a pie, en bici o desde casa con guías locales.",
+        "image": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg"
+      },
+      {
+        "to": "/itinerarios",
+        "label": "Itinerarios",
+        "hint": "Rutas de 1 día, 2 días y fin de semana para aprovechar al máximo tu visita.",
+        "image": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg"
+      },
+      {
+        "to": "/galeria",
+        "label": "Galería",
+        "hint": "Fotos de la arquitectura, el río, las procesiones y el jazz.",
+        "image": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg"
+      },
+      {
+        "to": "/como-llegar",
+        "label": "Cómo llegar",
+        "hint": "Buses, vuelos, carretera y dónde quedarte.",
+        "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg"
+      }
     ],
     "quickVisitante": [
-      { "to": "/tours", "label": "Tours guiados", "hint": "A pie o por el río, con gente del pueblo" },
-      { "to": "/que-ver", "label": "Qué ver", "hint": "Iglesias, cementerio y malecón" },
-      { "to": "/semana-santa", "label": "Semana Santa", "hint": "Procesiones que mueven a todo el pueblo" },
-      { "to": "/festival-jazz", "label": "Festijazz", "hint": "Música del Caribe junto al río" }
+      {
+        "to": "/tours",
+        "label": "Tours guiados",
+        "hint": "A pie o por el río, con gente del pueblo"
+      },
+      {
+        "to": "/que-ver",
+        "label": "Qué ver",
+        "hint": "Iglesias, cementerio y malecón"
+      },
+      {
+        "to": "/semana-santa",
+        "label": "Semana Santa",
+        "hint": "Procesiones que mueven a todo el pueblo"
+      },
+      {
+        "to": "/festival-jazz",
+        "label": "Festijazz",
+        "hint": "Música del Caribe junto al río"
+      }
     ],
     "quickMomposino": [
-      { "to": "/semana-santa", "label": "Semana Santa", "hint": "Tus fechas, tu tradición" },
-      { "to": "/festival-jazz", "label": "Festijazz", "hint": "La agenda del pueblo" },
-      { "to": "/mapa", "label": "Mapa", "hint": "Referencias del casco, de confianza" },
-      { "to": "/historia", "label": "Historia", "hint": "La memoria del terruño en años" }
+      {
+        "to": "/semana-santa",
+        "label": "Semana Santa",
+        "hint": "Tus fechas, tu tradición"
+      },
+      {
+        "to": "/festival-jazz",
+        "label": "Festijazz",
+        "hint": "La agenda del pueblo"
+      },
+      {
+        "to": "/mapa",
+        "label": "Mapa",
+        "hint": "Referencias del casco, de confianza"
+      },
+      {
+        "to": "/historia",
+        "label": "Historia",
+        "hint": "La memoria del terruño en años"
+      }
     ]
   },
   "eventos": {
@@ -182,25 +288,116 @@
   "historia": {
     "eyebrow": "Memoria del río",
     "title": "Cronología de Mompox",
-    "intro": "Una experiencia interactiva: usa la barra de años, haz clic en cada hito y deja que el scroll active el momento. Solo fechas confirmadas.",
-    "desplaza": "Desplaza"
+    "intro": "Recorre los hitos confirmados de Santa Cruz de Mompox en una línea de tiempo. Desliza, usa las flechas o toca un año.",
+    "desplaza": "Desplaza",
+    "simbolosEyebrow": "Identidad",
+    "simbolosTitle": "Símbolos de Mompox",
+    "simbolosIntro": "La bandera, el escudo y el himno que dan identidad a Santa Cruz de Mompox, junto con los datos esenciales del municipio.",
+    "creditos": "Créditos"
   },
   "timelineUi": {
     "close": "Cerrar",
     "explore": "Explorar",
     "teaser": "{inicio} → {fin}. Recorre la historia completa.",
     "railAria": "Navegación de hitos",
+    "railEyebrow": "Río de Mompox",
     "culturalTitle": "Tradición viva",
-    "culturalLead": "Hitos culturales del calendario momposino (sin año fijo inventado)."
+    "culturalLead": "Hitos culturales del calendario momposino (sin año fijo inventado).",
+    "prev": "Hito anterior",
+    "next": "Hito siguiente",
+    "dragHint": "Desliza para recorrer la historia",
+    "play": "Reproducir",
+    "pause": "Pausar",
+    "autoplayAria": "Reproducir o pausar el recorrido automático"
+  },
+  "simbolos": {
+    "bandera": {
+      "title": "Bandera",
+      "image": "media/images/bandera-mompox.svg",
+      "alt": "Bandera de Santa Cruz de Mompox: cruz blanca latina sobre fondo rojo",
+      "description": "Rectangular, roja con una cruz blanca latina al centro. El rojo representa la sangre derramada por los próceres momposinos y la cruz blanca la religiosidad heredada de España. Fue oficializada en 1810; por eso el parecido con la bandera de Suiza, instaurada en 1848, es coincidencia.",
+      "credit": "Bandera de Mompox — BrCaLeTo, vía Wikimedia Commons (CC BY-SA 3.0)"
+    },
+    "escudo": {
+      "title": "Escudo",
+      "image": "media/images/escudo-mompox.svg",
+      "alt": "Escudo de armas de Santa Cruz de Mompox",
+      "description": "Concedido por el Rey de España en 1561. De forma rectangular con ángulo en la parte inferior, se divide en tres cuarteles: en los superiores, sobre campo de oro, una cruz latina y una palmera; en el inferior, sobre azul que evoca el río, flota un champán, símbolo de la navegación. Lo flanquean la Justicia (espada y balanza) y la Prudencia (serpiente y lámpara encendida), y a sus pies un perro blanco, símbolo de la fidelidad.",
+      "credit": "Escudo de Mompox — SajoR, vía Wikimedia Commons (CC BY-SA 2.5)"
+    },
+    "himno": {
+      "title": "Himno",
+      "author": "Manuel Isaac Ribón Morón",
+      "note": "Letra del himno de Santa Cruz de Mompox.",
+      "coroTitle": "Coro",
+      "coro": "Loor al noble pueblo que altivo osó el primero, del fausto seis de Agosto al esplendente sol. De independencia o muerte lanzar el grito fiero, la saña desafiando del déspota español.",
+      "estrofas": [
+        "Sin patria, sin derecho esclavos degradados, tres siglos de ignominia y amarga humillación, vivieron nuestros padres al yugo infame atados, inermes soportando la bárbara opresión.",
+        "Mompox La Valerosa, ejemplo da sublime de intrépido heroísmo, de varonil virtud, rompiendo la pesada coyunda que la oprime, la muerte desafiando a horrible esclavitud.",
+        "Mompox de independencia el lábaro enarbola, y en torno ve a sus hijos valientes combatir, su sangre a mares vierte la cólera española, más ellos han jurado ser libres o morir.",
+        "Al juramento fieles ardiendo en sacra llama, se arrojan al combate de Bolívar en pos, y vencedor el héroe agradecido exclama: «Caracas dióme cuna; me dio glorias Mompox».",
+        "Tenaz, sangrienta y larga fue aquella lucha cruda, que mudo el universo atónito admiró, más la justicia santa que a los libres escuda, del triunfo las coronas al oprimido dio.",
+        "Colombia, la guerra hija de la victoria, ostentase ante el mundo con noble majestad, el mundo entusiasmado contempla su alta gloria y digna la proclama de paz y libertad."
+      ]
+    },
+    "datosTitle": "Datos generales",
+    "datos": [
+      {
+        "label": "Fundación",
+        "value": "3 de mayo de 1537 (tradicional)"
+      },
+      {
+        "label": "Erección",
+        "value": "1540"
+      },
+      {
+        "label": "Departamento",
+        "value": "Bolívar"
+      },
+      {
+        "label": "Superficie",
+        "value": "645,37 km²"
+      },
+      {
+        "label": "Altitud",
+        "value": "33 m s. n. m."
+      },
+      {
+        "label": "Población",
+        "value": "49.152 hab. (2025)"
+      },
+      {
+        "label": "Gentilicio",
+        "value": "momposino, -a"
+      },
+      {
+        "label": "Coordenadas",
+        "value": "9°14′22″N 74°25′30″O"
+      },
+      {
+        "label": "Huso horario",
+        "value": "UTC −5"
+      }
+    ],
+    "imagenesCredit": "Fotografías de Mompox — autores varios, vía Wikimedia Commons (dominio público y CC BY / BY-SA)."
   },
   "semanaSanta": {
     "title": "Semana Santa",
     "tagline": "Una de las celebraciones religiosas más antiguas y solemnes de América, viva en Mompox desde el siglo XVI.",
     "heroImage": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg",
     "sections": [
-      { "title": "Una tradición de siglos", "text": "Desde tiempos coloniales, las hermandades y nazarenos momposinos recorren las calles empedradas cargando los pasos. La ciudad entera se organiza durante todo el año para estos días." },
-      { "title": "Los nazarenos y el paso de mano", "text": "Vestidos de túnica, los nazarenos avanzan en un vaivén lento y rítmico, meciendo los pasos al compás de la banda. Es un movimiento único que los momposinos aprenden desde niños." },
-      { "title": "Los días grandes", "text": "Jueves y Viernes Santo concentran las procesiones más largas: salen de la Iglesia de la Concepción y San Agustín y no terminan hasta la madrugada, entre velas y silencio." }
+      {
+        "title": "Una tradición de siglos",
+        "text": "Desde tiempos coloniales, las hermandades y nazarenos momposinos recorren las calles empedradas cargando los pasos. La ciudad entera se organiza durante todo el año para estos días."
+      },
+      {
+        "title": "Los nazarenos y el paso de mano",
+        "text": "Vestidos de túnica, los nazarenos avanzan en un vaivén lento y rítmico, meciendo los pasos al compás de la banda. Es un movimiento único que los momposinos aprenden desde niños."
+      },
+      {
+        "title": "Los días grandes",
+        "text": "Jueves y Viernes Santo concentran las procesiones más largas: salen de la Iglesia de la Concepción y San Agustín y no terminan hasta la madrugada, entre velas y silencio."
+      }
     ],
     "consejosTitle": "Cómo vivirla",
     "consulta": "Consultar programación",
@@ -222,10 +419,22 @@
     "galeriaTitle": "Galería",
     "galeriaFoto": "Foto {n}",
     "galeria": [
-      { "src": "media/images/muestra-mompox.svg", "caption": "Semana Santa — procesión 1" },
-      { "src": "media/images/muestra-mompox.svg", "caption": "Semana Santa — procesión 2" },
-      { "src": "media/images/muestra-mompox.svg", "caption": "Semana Santa — procesión 3" },
-      { "src": "media/images/muestra-mompox.svg", "caption": "Semana Santa — procesión 4" }
+      {
+        "src": "media/images/muestra-mompox.svg",
+        "caption": "Semana Santa — procesión 1"
+      },
+      {
+        "src": "media/images/muestra-mompox.svg",
+        "caption": "Semana Santa — procesión 2"
+      },
+      {
+        "src": "media/images/muestra-mompox.svg",
+        "caption": "Semana Santa — procesión 3"
+      },
+      {
+        "src": "media/images/muestra-mompox.svg",
+        "caption": "Semana Santa — procesión 4"
+      }
     ]
   },
   "festivalJazz": {
@@ -233,9 +442,18 @@
     "tagline": "Cada año la ciudad colonial se convierte en escenario abierto: jazz, música del Caribe y tradición momposina bajo las estrellas.",
     "heroImage": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg",
     "sections": [
-      { "title": "Jazz frente a las iglesias", "text": "Las plazas y la albarrada se llenan de tarimas. Los conciertos son gratuitos y al aire libre, con las fachadas coloniales como telón de fondo." },
-      { "title": "Encuentro de músicos", "text": "Llegan agrupaciones nacionales e internacionales que se mezclan con bandas, gaiteros y tamboreros de la región. El resultado no suena igual en ningún otro festival." },
-      { "title": "Más que conciertos", "text": "Talleres, clases magistrales y descargas espontáneas en las calles: durante esos días Mompox no duerme." }
+      {
+        "title": "Jazz frente a las iglesias",
+        "text": "Las plazas y la albarrada se llenan de tarimas. Los conciertos son gratuitos y al aire libre, con las fachadas coloniales como telón de fondo."
+      },
+      {
+        "title": "Encuentro de músicos",
+        "text": "Llegan agrupaciones nacionales e internacionales que se mezclan con bandas, gaiteros y tamboreros de la región. El resultado no suena igual en ningún otro festival."
+      },
+      {
+        "title": "Más que conciertos",
+        "text": "Talleres, clases magistrales y descargas espontáneas en las calles: durante esos días Mompox no duerme."
+      }
     ],
     "consejosTitle": "Consejos para asistir",
     "consulta": "Consultar fechas y programación",
@@ -256,22 +474,58 @@
     "galeriaTitle": "Galería",
     "galeriaConcierto": "Concierto {n}",
     "galeria": [
-      { "src": "media/images/muestra-mompox.svg", "caption": "Festival Jazz — concierto 1" },
-      { "src": "media/images/muestra-mompox.svg", "caption": "Festival Jazz — concierto 2" },
-      { "src": "media/images/muestra-mompox.svg", "caption": "Festival Jazz — concierto 3" }
+      {
+        "src": "media/images/muestra-mompox.svg",
+        "caption": "Festival Jazz — concierto 1"
+      },
+      {
+        "src": "media/images/muestra-mompox.svg",
+        "caption": "Festival Jazz — concierto 2"
+      },
+      {
+        "src": "media/images/muestra-mompox.svg",
+        "caption": "Festival Jazz — concierto 3"
+      }
     ]
   },
   "galeriaPagina": {
     "title": "Galería",
     "tagline": "Imágenes de eventos, calles, oficios y paisajes que capturan el alma de la ciudad.",
     "nota": "Estas imágenes son de ambiente mientras llegan las fotos reales del equipo.",
-    "filtros": { "todos": "Todas", "semanaSanta": "Semana Santa", "jazz": "Jazz", "calles": "Calles", "filigrana": "Filigrana", "rio": "Río Magdalena" },
+    "filtros": {
+      "todos": "Todas",
+      "semanaSanta": "Semana Santa",
+      "jazz": "Jazz",
+      "calles": "Calles",
+      "filigrana": "Filigrana",
+      "rio": "Río Magdalena"
+    },
     "fotos": [
-      { "src": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg", "caption": "Iglesia de Santa Bárbara en Mompox al atardecer", "categoria": "calles" },
-      { "src": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg", "caption": "Procesión de Semana Santa en las calles de Mompox", "categoria": "semanaSanta" },
-      { "src": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg", "caption": "Concierto del Festival de Jazz de Mompox", "categoria": "jazz" },
-      { "src": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg", "caption": "Trabajo de filigrana momposina", "categoria": "filigrana" },
-      { "src": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg", "caption": "Río Magdalena a su paso por Mompox", "categoria": "rio" }
+      {
+        "src": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg",
+        "caption": "Iglesia de Santa Bárbara en Mompox al atardecer",
+        "categoria": "calles"
+      },
+      {
+        "src": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg",
+        "caption": "Procesión de Semana Santa en las calles de Mompox",
+        "categoria": "semanaSanta"
+      },
+      {
+        "src": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg",
+        "caption": "Concierto del Festival de Jazz de Mompox",
+        "categoria": "jazz"
+      },
+      {
+        "src": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg",
+        "caption": "Trabajo de filigrana momposina",
+        "categoria": "filigrana"
+      },
+      {
+        "src": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg",
+        "caption": "Río Magdalena a su paso por Mompox",
+        "categoria": "rio"
+      }
     ]
   },
   "comoLlegarPagina": {
@@ -362,32 +616,74 @@
         "titulo": "Mompox en 1 día",
         "duracion": "6 a 8 horas",
         "paradas": [
-          { "nombre": "Iglesia de Santa Bárbara y su torre octogonal", "nota": "Empieza entre las fachadas y las calles del centro histórico." },
-          { "nombre": "Calle de la Albarrada y el río Magdalena", "nota": "Camina junto a la ribera y conoce la relación del pueblo con el río." },
-          { "nombre": "Almuerzo costeño", "nota": "Haz una pausa para probar sabores de la región." },
-          { "nombre": "Taller de filigrana", "nota": "Observa el oficio artesanal de la orfebrería momposina." },
-          { "nombre": "Atardecer desde la albarrada", "nota": "Cierra el recorrido frente al Magdalena." }
+          {
+            "nombre": "Iglesia de Santa Bárbara y su torre octogonal",
+            "nota": "Empieza entre las fachadas y las calles del centro histórico."
+          },
+          {
+            "nombre": "Calle de la Albarrada y el río Magdalena",
+            "nota": "Camina junto a la ribera y conoce la relación del pueblo con el río."
+          },
+          {
+            "nombre": "Almuerzo costeño",
+            "nota": "Haz una pausa para probar sabores de la región."
+          },
+          {
+            "nombre": "Taller de filigrana",
+            "nota": "Observa el oficio artesanal de la orfebrería momposina."
+          },
+          {
+            "nombre": "Atardecer desde la albarrada",
+            "nota": "Cierra el recorrido frente al Magdalena."
+          }
         ]
       },
       {
         "titulo": "Mompox en 2 días",
         "duracion": "Fin de semana",
         "paradas": [
-          { "nombre": "Día 1: centro histórico", "nota": "Iglesias, filigrana y arquitectura colonial." },
-          { "nombre": "Día 1: cena típica", "nota": "Descubre la gastronomía momposina." },
-          { "nombre": "Día 2: río Magdalena", "nota": "Planea una salida en canoa por el río." },
-          { "nombre": "Día 2: ciénaga de Pijiño", "nota": "Pregunta por las opciones de avistamiento de aves." },
-          { "nombre": "Día 2: almuerzo de pesca del día", "nota": "Consulta la disponibilidad al llegar." }
+          {
+            "nombre": "Día 1: centro histórico",
+            "nota": "Iglesias, filigrana y arquitectura colonial."
+          },
+          {
+            "nombre": "Día 1: cena típica",
+            "nota": "Descubre la gastronomía momposina."
+          },
+          {
+            "nombre": "Día 2: río Magdalena",
+            "nota": "Planea una salida en canoa por el río."
+          },
+          {
+            "nombre": "Día 2: ciénaga de Pijiño",
+            "nota": "Pregunta por las opciones de avistamiento de aves."
+          },
+          {
+            "nombre": "Día 2: almuerzo de pesca del día",
+            "nota": "Consulta la disponibilidad al llegar."
+          }
         ]
       },
       {
         "titulo": "Fin de semana cultural",
         "duracion": "Según temporada",
         "paradas": [
-          { "nombre": "Llega un día antes", "nota": "En Semana Santa y Jazz, anticipa la reserva de alojamiento." },
-          { "nombre": "Procesión o concierto", "nota": "Elige según el calendario del evento y la programación oficial." },
-          { "nombre": "City tour por la mañana", "nota": "Recorre el centro histórico con guía local." },
-          { "nombre": "Taller de filigrana", "nota": "Conoce el oficio artesanal de la ciudad." }
+          {
+            "nombre": "Llega un día antes",
+            "nota": "En Semana Santa y Jazz, anticipa la reserva de alojamiento."
+          },
+          {
+            "nombre": "Procesión o concierto",
+            "nota": "Elige según el calendario del evento y la programación oficial."
+          },
+          {
+            "nombre": "City tour por la mañana",
+            "nota": "Recorre el centro histórico con guía local."
+          },
+          {
+            "nombre": "Taller de filigrana",
+            "nota": "Conoce el oficio artesanal de la ciudad."
+          }
         ]
       }
     ]
@@ -396,10 +692,26 @@
     "title": "Qué ver",
     "tagline": "Cuatro maneras de entender Mompox: su arquitectura, su río, sus tradiciones y sus manos artesanas.",
     "sights": [
-      { "title": "Arquitectura colonial y religiosa", "text": "Seis iglesias, calles empedradas y casonas de patios frescos. La torre octogonal de Santa Bárbara es única en América.", "image": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg" },
-      { "title": "Río Magdalena y ecoturismo", "text": "Recorridos en canoa por las ciénagas, avistamiento de aves y atardeceres desde la albarrada.", "image": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg" },
-      { "title": "Realismo mágico y tradiciones", "text": "El cementerio, sus leyendas y la huella de Gabriel García Márquez, que hizo de Mompox territorio literario.", "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg" },
-      { "title": "Filigrana momposina", "text": "Orfebres que tejen hilos de plata a mano. Puedes entrar a los talleres y ver nacer una joya.", "image": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg" }
+      {
+        "title": "Arquitectura colonial y religiosa",
+        "text": "Seis iglesias, calles empedradas y casonas de patios frescos. La torre octogonal de Santa Bárbara es única en América.",
+        "image": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg"
+      },
+      {
+        "title": "Río Magdalena y ecoturismo",
+        "text": "Recorridos en canoa por las ciénagas, avistamiento de aves y atardeceres desde la albarrada.",
+        "image": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg"
+      },
+      {
+        "title": "Realismo mágico y tradiciones",
+        "text": "El cementerio, sus leyendas y la huella de Gabriel García Márquez, que hizo de Mompox territorio literario.",
+        "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg"
+      },
+      {
+        "title": "Filigrana momposina",
+        "text": "Orfebres que tejen hilos de plata a mano. Puedes entrar a los talleres y ver nacer una joya.",
+        "image": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg"
+      }
     ]
   },
   "mapa": {
@@ -425,7 +737,7 @@
     "listaVacia": "No hay lugares con estos filtros.",
     "pendiente": "Pendiente",
     "panelCentro": "Centro aprox. {lat}, {lng}",
-     "panelNota": "Mapa © OpenStreetMap",
+    "panelNota": "Mapa © OpenStreetMap",
     "ficha": {
       "sinFoto": "Foto pendiente",
       "coords": "Coords",
@@ -445,16 +757,48 @@
     "presencialTag": "Presencial",
     "virtualTag": "Virtual",
     "presencialesList": [
-      { "title": "City Tour Mompox", "meta": "3 horas o más · a pie", "detalle": "Recorre monumentos, historia, leyendas, el río y la relación de la ciudad con Gabriel García Márquez." },
-      { "title": "Taller de orfebrería", "meta": "Demostración en vivo", "detalle": "Conoce el trabajo de filigrana momposina junto a un maestro orfebre." },
-      { "title": "En bici o en motocarro", "meta": "Recorrido por el centro histórico", "detalle": "Una alternativa para recorrer el pueblo si tienes poco tiempo o prefieres caminar menos." }
+      {
+        "title": "City Tour Mompox",
+        "meta": "3 horas o más · a pie",
+        "detalle": "Recorre monumentos, historia, leyendas, el río y la relación de la ciudad con Gabriel García Márquez."
+      },
+      {
+        "title": "Taller de orfebrería",
+        "meta": "Demostración en vivo",
+        "detalle": "Conoce el trabajo de filigrana momposina junto a un maestro orfebre."
+      },
+      {
+        "title": "En bici o en motocarro",
+        "meta": "Recorrido por el centro histórico",
+        "detalle": "Una alternativa para recorrer el pueblo si tienes poco tiempo o prefieres caminar menos."
+      }
     ],
     "virtualesList": [
-      { "title": "Tour Histórico, Cultural y Arquitectónico", "meta": "Recorrido general", "detalle": "Un paseo virtual por las joyas coloniales de la ciudad." },
-      { "title": "Semana SanTour", "meta": "Religiosidad y tradición", "detalle": "Conoce el fervor y las tradiciones de la Semana Santa momposina." },
-      { "title": "TanaTour", "meta": "Cementerio y memoria", "detalle": "Mitos, personajes célebres y creencias alrededor del cementerio de Mompox." },
-      { "title": "MusiConferencia", "meta": "Historia musical", "detalle": "La tradición musical momposina, desde la época precolombina hasta el Festival de Jazz." },
-      { "title": "Tour Hilos Mágicos", "meta": "Filigrana momposina", "detalle": "Mira cómo nace una joya artesanal en manos de un maestro orfebre." }
+      {
+        "title": "Tour Histórico, Cultural y Arquitectónico",
+        "meta": "Recorrido general",
+        "detalle": "Un paseo virtual por las joyas coloniales de la ciudad."
+      },
+      {
+        "title": "Semana SanTour",
+        "meta": "Religiosidad y tradición",
+        "detalle": "Conoce el fervor y las tradiciones de la Semana Santa momposina."
+      },
+      {
+        "title": "TanaTour",
+        "meta": "Cementerio y memoria",
+        "detalle": "Mitos, personajes célebres y creencias alrededor del cementerio de Mompox."
+      },
+      {
+        "title": "MusiConferencia",
+        "meta": "Historia musical",
+        "detalle": "La tradición musical momposina, desde la época precolombina hasta el Festival de Jazz."
+      },
+      {
+        "title": "Tour Hilos Mágicos",
+        "meta": "Filigrana momposina",
+        "detalle": "Mira cómo nace una joya artesanal en manos de un maestro orfebre."
+      }
     ],
     "serviciosTitle": "Servicios complementarios",
     "servicios": [
@@ -525,7 +869,8 @@
   "comunes": {
     "volver": "Volver",
     "explorar": "Ver más",
-    "proximamente": "Próximamente"
+    "proximamente": "Próximamente",
+    "autor": "Autor"
   },
   "notfound": {
     "code": "404",

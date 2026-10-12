@@ -42,12 +42,44 @@
     {
       "year": "1537",
       "title": "Foundation",
-      "detail": "By tradition, Santa Cruz de Mompox was founded in 1537. Historians still debate the exact date and who founded it."
+      "detail": "By tradition, Santa Cruz de Mompox was founded on May 3, 1537, after the battle against the Kimbay cacique. Historians still debate whether it was Alonso de Heredia or Juan de Santa Cruz.",
+      "image": "media/images/mompox-casas-coloniales.jpg"
+    },
+    {
+      "year": "1540",
+      "title": "Erection of the town",
+      "detail": "Chronicles and documents record the formal founding of the town of Santa Cruz de Mompox, a key point on the Magdalena River navigation route."
+    },
+    {
+      "year": "1541",
+      "title": "Encomiendas of the Magdalena",
+      "detail": "Pedro de Heredia distributes 22 encomiendas in Mompox. The river workforce —rowers, carriers and boat builders— becomes the first pillar of the momposino trade."
+    },
+    {
+      "year": "1561",
+      "title": "Province and royal arms",
+      "detail": "Philip II creates the Province of Mompox and the King of Spain grants the town its coat of arms."
+    },
+    {
+      "year": "1613",
+      "title": "Temples of splendor",
+      "detail": "Churches such as San Agustín (1606) and Santa Bárbara (1613) are built, icons of Mompox baroque and of the town's religious life.",
+      "image": "media/images/mompox-santa-barbara.jpg"
+    },
+    {
+      "year": "17th c.",
+      "title": "Convents and colleges",
+      "detail": "The founding of the San Agustín convent and the Jesuit San Carlos college establish Mompox as a cultural and religious center of the region."
+    },
+    {
+      "year": "1784",
+      "title": "Patriotic Society",
+      "detail": "The Patriotic Society of Commerce is founded, a reflection of the town's mercantile power on the Magdalena river network."
     },
     {
       "year": "1810",
       "title": "Absolute independence",
-      "detail": "On August 6, Mompox proclaims its absolute independence."
+      "detail": "On August 6, Mompox proclaims its absolute independence from Spain, one of the first in the Colombian Caribbean."
     },
     {
       "year": "1812",
@@ -57,14 +89,14 @@
     {
       "year": "1959",
       "title": "National Monument",
-      "detail": "The historic center is declared a National Monument."
+      "detail": "The historic center is declared a National Monument, the first step toward its protection.",
+      "image": "media/images/mompox-calles.jpg"
     },
     {
       "year": "1995",
       "title": "UNESCO Heritage",
       "detail": "The historic center is inscribed as a UNESCO World Heritage Site.",
-      "image": "media/images/muestra-mompox.svg",
-      "audio": "media/audio/muestra.wav"
+      "image": "media/images/mompox-albarrada.jpg"
     }
   ],
   "culturalMilestones": [
@@ -88,9 +120,21 @@
     "saltar": "Skip intro",
     "continuar": "Continue",
     "slides": [
-      { "eyebrow": "Welcome to", "title": "Santa Cruz de Mompox", "text": "A colonial town frozen in time, on the waters of the Magdalena River." },
-      { "eyebrow": "Colombian Caribbean", "title": "River, lime and living memory", "text": "Processions, jazz by the riverfront, filigree and adobe houses that carry centuries of history." },
-      { "eyebrow": "Heritage", "title": "Declared by UNESCO", "text": "Since 1995 the historic center has been a World Heritage Site. Let us show you the way." }
+      {
+        "eyebrow": "Welcome to",
+        "title": "Santa Cruz de Mompox",
+        "text": "A colonial town frozen in time, on the waters of the Magdalena River."
+      },
+      {
+        "eyebrow": "Colombian Caribbean",
+        "title": "River, lime and living memory",
+        "text": "Processions, jazz by the riverfront, filigree and adobe houses that carry centuries of history."
+      },
+      {
+        "eyebrow": "Heritage",
+        "title": "Declared by UNESCO",
+        "text": "Since 1995 the historic center has been a World Heritage Site. Let us show you the way."
+      }
     ]
   },
   "audiencia": {
@@ -151,24 +195,86 @@
     "historiaTeaserCta": "Open the History tab",
     "empiezaTitle": "Start here",
     "empieza": [
-      { "to": "/semana-santa", "label": "Holy Week", "hint": "One of America's oldest and most solemn religious celebrations, alive in Mompox since the 16th century.", "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg" },
-      { "to": "/festival-jazz", "label": "Jazz Festival", "hint": "Each year the colonial town becomes an open-air stage for jazz, Caribbean music and Momposino tradition beneath the stars.", "image": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg" },
-      { "to": "/tours", "label": "Tours", "hint": "Guided experiences to discover Mompox on foot, by bike or from home with local guides.", "image": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg" },
-      { "to": "/itinerarios", "label": "Itineraries", "hint": "1-day, 2-day and weekend routes to make the most of your visit.", "image": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg" },
-      { "to": "/galeria", "label": "Gallery", "hint": "Photos of the architecture, river, processions and jazz.", "image": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg" },
-      { "to": "/como-llegar", "label": "Getting here", "hint": "Buses, flights, roads and where to stay.", "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg" }
+      {
+        "to": "/semana-santa",
+        "label": "Holy Week",
+        "hint": "One of America's oldest and most solemn religious celebrations, alive in Mompox since the 16th century.",
+        "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg"
+      },
+      {
+        "to": "/festival-jazz",
+        "label": "Jazz Festival",
+        "hint": "Each year the colonial town becomes an open-air stage for jazz, Caribbean music and Momposino tradition beneath the stars.",
+        "image": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg"
+      },
+      {
+        "to": "/tours",
+        "label": "Tours",
+        "hint": "Guided experiences to discover Mompox on foot, by bike or from home with local guides.",
+        "image": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg"
+      },
+      {
+        "to": "/itinerarios",
+        "label": "Itineraries",
+        "hint": "1-day, 2-day and weekend routes to make the most of your visit.",
+        "image": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg"
+      },
+      {
+        "to": "/galeria",
+        "label": "Gallery",
+        "hint": "Photos of the architecture, river, processions and jazz.",
+        "image": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg"
+      },
+      {
+        "to": "/como-llegar",
+        "label": "Getting here",
+        "hint": "Buses, flights, roads and where to stay.",
+        "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg"
+      }
     ],
     "quickVisitante": [
-      { "to": "/tours", "label": "Guided tours", "hint": "On foot or by river, led by locals" },
-      { "to": "/que-ver", "label": "What to see", "hint": "Churches, the cemetery and the riverwalk" },
-      { "to": "/semana-santa", "label": "Holy Week", "hint": "Processions that move the whole town" },
-      { "to": "/festival-jazz", "label": "Festijazz", "hint": "Caribbean music by the river" }
+      {
+        "to": "/tours",
+        "label": "Guided tours",
+        "hint": "On foot or by river, led by locals"
+      },
+      {
+        "to": "/que-ver",
+        "label": "What to see",
+        "hint": "Churches, the cemetery and the riverwalk"
+      },
+      {
+        "to": "/semana-santa",
+        "label": "Holy Week",
+        "hint": "Processions that move the whole town"
+      },
+      {
+        "to": "/festival-jazz",
+        "label": "Festijazz",
+        "hint": "Caribbean music by the river"
+      }
     ],
     "quickMomposino": [
-      { "to": "/semana-santa", "label": "Holy Week", "hint": "Your dates, your tradition" },
-      { "to": "/festival-jazz", "label": "Festijazz", "hint": "The town's agenda" },
-      { "to": "/mapa", "label": "Map", "hint": "Trustworthy spots in the historic center" },
-      { "to": "/historia", "label": "History", "hint": "The homeland's memory, year by year" }
+      {
+        "to": "/semana-santa",
+        "label": "Holy Week",
+        "hint": "Your dates, your tradition"
+      },
+      {
+        "to": "/festival-jazz",
+        "label": "Festijazz",
+        "hint": "The town's agenda"
+      },
+      {
+        "to": "/mapa",
+        "label": "Map",
+        "hint": "Trustworthy spots in the historic center"
+      },
+      {
+        "to": "/historia",
+        "label": "History",
+        "hint": "The homeland's memory, year by year"
+      }
     ]
   },
   "eventos": {
@@ -182,25 +288,116 @@
   "historia": {
     "eyebrow": "Memory of the river",
     "title": "Timeline of Mompox",
-    "intro": "An interactive experience: use the year bar, click each milestone and let the scroll trigger the moment. Only confirmed dates.",
-    "desplaza": "Scroll"
+    "intro": "Explore the confirmed milestones of Santa Cruz de Mompox on a timeline. Swipe, use the arrows or tap a year.",
+    "desplaza": "Scroll",
+    "simbolosEyebrow": "Identity",
+    "simbolosTitle": "Symbols of Mompox",
+    "simbolosIntro": "The flag, the coat of arms and the anthem that give identity to Santa Cruz de Mompox, together with the essential facts of the municipality.",
+    "creditos": "Credits"
   },
   "timelineUi": {
     "close": "Close",
     "explore": "Explore",
     "teaser": "{inicio} → {fin}. Explore the full history.",
     "railAria": "Milestone navigation",
+    "railEyebrow": "Mompox River",
     "culturalTitle": "Living tradition",
-    "culturalLead": "Cultural highlights of the momposino calendar (no fixed invented year)."
+    "culturalLead": "Cultural highlights of the momposino calendar (no fixed invented year).",
+    "prev": "Previous milestone",
+    "next": "Next milestone",
+    "dragHint": "Swipe to explore the history",
+    "play": "Play",
+    "pause": "Pause",
+    "autoplayAria": "Play or pause the automatic tour"
+  },
+  "simbolos": {
+    "bandera": {
+      "title": "Flag",
+      "image": "media/images/bandera-mompox.svg",
+      "alt": "Flag of Santa Cruz de Mompox: white Latin cross on a red field",
+      "description": "Rectangular, red with a white Latin cross in the center. The red represents the blood shed by the momposino heroes and the white cross the religiosity inherited from Spain. It was made official in 1810; that is why its resemblance to the flag of Switzerland, established in 1848, is coincidental.",
+      "credit": "Flag of Mompox — BrCaLeTo, via Wikimedia Commons (CC BY-SA 3.0)"
+    },
+    "escudo": {
+      "title": "Coat of arms",
+      "image": "media/images/escudo-mompox.svg",
+      "alt": "Coat of arms of Santa Cruz de Mompox",
+      "description": "Granted by the King of Spain in 1561. Rectangular with an angle at the base, it is divided into three quarters: in the upper ones, on a gold field, a Latin cross and a palm tree; in the lower one, on blue evoking the river, a champán (riverboat) floats, a symbol of navigation. It is flanked by Justice (sword and scales) and Prudence (snake and lit lamp), with a white dog at its feet, a symbol of fidelity.",
+      "credit": "Coat of arms of Mompox — SajoR, via Wikimedia Commons (CC BY-SA 2.5)"
+    },
+    "himno": {
+      "title": "Anthem",
+      "author": "Manuel Isaac Ribón Morón",
+      "note": "Lyrics of the anthem of Santa Cruz de Mompox (in Spanish).",
+      "coroTitle": "Chorus",
+      "coro": "Loor al noble pueblo que altivo osó el primero, del fausto seis de Agosto al esplendente sol. De independencia o muerte lanzar el grito fiero, la saña desafiando del déspota español.",
+      "estrofas": [
+        "Sin patria, sin derecho esclavos degradados, tres siglos de ignominia y amarga humillación, vivieron nuestros padres al yugo infame atados, inermes soportando la bárbara opresión.",
+        "Mompox La Valerosa, ejemplo da sublime de intrépido heroísmo, de varonil virtud, rompiendo la pesada coyunda que la oprime, la muerte desafiando a horrible esclavitud.",
+        "Mompox de independencia el lábaro enarbola, y en torno ve a sus hijos valientes combatir, su sangre a mares vierte la cólera española, más ellos han jurado ser libres o morir.",
+        "Al juramento fieles ardiendo en sacra llama, se arrojan al combate de Bolívar en pos, y vencedor el héroe agradecido exclama: «Caracas dióme cuna; me dio glorias Mompox».",
+        "Tenaz, sangrienta y larga fue aquella lucha cruda, que mudo el universo atónito admiró, más la justicia santa que a los libres escuda, del triunfo las coronas al oprimido dio.",
+        "Colombia, la guerra hija de la victoria, ostentase ante el mundo con noble majestad, el mundo entusiasmado contempla su alta gloria y digna la proclama de paz y libertad."
+      ]
+    },
+    "datosTitle": "General facts",
+    "datos": [
+      {
+        "label": "Foundation",
+        "value": "May 3, 1537 (traditional)"
+      },
+      {
+        "label": "Erection",
+        "value": "1540"
+      },
+      {
+        "label": "Department",
+        "value": "Bolívar"
+      },
+      {
+        "label": "Area",
+        "value": "645.37 km²"
+      },
+      {
+        "label": "Elevation",
+        "value": "33 m a.s.l."
+      },
+      {
+        "label": "Population",
+        "value": "49,152 (2025)"
+      },
+      {
+        "label": "Demonym",
+        "value": "momposino, -a"
+      },
+      {
+        "label": "Coordinates",
+        "value": "9°14′22″N 74°25′30″W"
+      },
+      {
+        "label": "Time zone",
+        "value": "UTC −5"
+      }
+    ],
+    "imagenesCredit": "Photos of Mompox — various authors, via Wikimedia Commons (public domain and CC BY / BY-SA)."
   },
   "semanaSanta": {
     "title": "Holy Week",
     "tagline": "One of America's oldest and most solemn religious celebrations, alive in Mompox since the 16th century.",
     "heroImage": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg",
     "sections": [
-      { "title": "A centuries-old tradition", "text": "Since colonial times, Mompox brotherhoods and nazarenos have carried the pasos through cobbled streets. The whole town prepares all year for these days." },
-      { "title": "The nazarenos and paso de mano", "text": "Dressed in robes, the nazarenos advance in a slow, rhythmic sway, moving the pasos to the band's beat. Momposinos learn this distinctive movement from childhood." },
-      { "title": "The main days", "text": "Maundy Thursday and Good Friday have the longest processions. They leave the Church of the Conception and San Agustín and continue until dawn, among candles and silence." }
+      {
+        "title": "A centuries-old tradition",
+        "text": "Since colonial times, Mompox brotherhoods and nazarenos have carried the pasos through cobbled streets. The whole town prepares all year for these days."
+      },
+      {
+        "title": "The nazarenos and paso de mano",
+        "text": "Dressed in robes, the nazarenos advance in a slow, rhythmic sway, moving the pasos to the band's beat. Momposinos learn this distinctive movement from childhood."
+      },
+      {
+        "title": "The main days",
+        "text": "Maundy Thursday and Good Friday have the longest processions. They leave the Church of the Conception and San Agustín and continue until dawn, among candles and silence."
+      }
     ],
     "consejosTitle": "How to experience it",
     "consulta": "Ask about the program",
@@ -222,10 +419,22 @@
     "galeriaTitle": "Gallery",
     "galeriaFoto": "Photo {n}",
     "galeria": [
-      { "src": "media/images/muestra-mompox.svg", "caption": "Holy Week — procession 1" },
-      { "src": "media/images/muestra-mompox.svg", "caption": "Holy Week — procession 2" },
-      { "src": "media/images/muestra-mompox.svg", "caption": "Holy Week — procession 3" },
-      { "src": "media/images/muestra-mompox.svg", "caption": "Holy Week — procession 4" }
+      {
+        "src": "media/images/muestra-mompox.svg",
+        "caption": "Holy Week — procession 1"
+      },
+      {
+        "src": "media/images/muestra-mompox.svg",
+        "caption": "Holy Week — procession 2"
+      },
+      {
+        "src": "media/images/muestra-mompox.svg",
+        "caption": "Holy Week — procession 3"
+      },
+      {
+        "src": "media/images/muestra-mompox.svg",
+        "caption": "Holy Week — procession 4"
+      }
     ]
   },
   "festivalJazz": {
@@ -233,9 +442,18 @@
     "tagline": "Each year the colonial town becomes an open-air stage for jazz, Caribbean music and Momposino tradition beneath the stars.",
     "heroImage": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg",
     "sections": [
-      { "title": "Jazz by the churches", "text": "Stages fill the squares and riverfront. Concerts are free and outdoors, with colonial facades as their backdrop." },
-      { "title": "A gathering of musicians", "text": "National and international groups meet local bands, gaita players and drummers. The result sounds unlike any other festival." },
-      { "title": "More than concerts", "text": "Workshops, master classes and impromptu street performances make Mompox come alive during the festival." }
+      {
+        "title": "Jazz by the churches",
+        "text": "Stages fill the squares and riverfront. Concerts are free and outdoors, with colonial facades as their backdrop."
+      },
+      {
+        "title": "A gathering of musicians",
+        "text": "National and international groups meet local bands, gaita players and drummers. The result sounds unlike any other festival."
+      },
+      {
+        "title": "More than concerts",
+        "text": "Workshops, master classes and impromptu street performances make Mompox come alive during the festival."
+      }
     ],
     "consejosTitle": "Tips for attending",
     "consulta": "Ask about dates and program",
@@ -256,22 +474,58 @@
     "galeriaTitle": "Gallery",
     "galeriaConcierto": "Concert {n}",
     "galeria": [
-      { "src": "media/images/muestra-mompox.svg", "caption": "Jazz Festival — concert 1" },
-      { "src": "media/images/muestra-mompox.svg", "caption": "Jazz Festival — concert 2" },
-      { "src": "media/images/muestra-mompox.svg", "caption": "Jazz Festival — concert 3" }
+      {
+        "src": "media/images/muestra-mompox.svg",
+        "caption": "Jazz Festival — concert 1"
+      },
+      {
+        "src": "media/images/muestra-mompox.svg",
+        "caption": "Jazz Festival — concert 2"
+      },
+      {
+        "src": "media/images/muestra-mompox.svg",
+        "caption": "Jazz Festival — concert 3"
+      }
     ]
   },
   "galeriaPagina": {
     "title": "Gallery",
     "tagline": "Images of events, streets, crafts and landscapes that capture the soul of the town.",
     "nota": "These are sample images while the team's own photos are prepared.",
-    "filtros": { "todos": "All", "semanaSanta": "Holy Week", "jazz": "Jazz", "calles": "Streets", "filigrana": "Filigree", "rio": "Magdalena River" },
+    "filtros": {
+      "todos": "All",
+      "semanaSanta": "Holy Week",
+      "jazz": "Jazz",
+      "calles": "Streets",
+      "filigrana": "Filigree",
+      "rio": "Magdalena River"
+    },
     "fotos": [
-      { "src": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg", "caption": "Church of Santa Bárbara at sunset", "categoria": "calles" },
-      { "src": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg", "caption": "Holy Week procession through Mompox", "categoria": "semanaSanta" },
-      { "src": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg", "caption": "Mompox Jazz Festival concert", "categoria": "jazz" },
-      { "src": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg", "caption": "Momposino filigree craftwork", "categoria": "filigrana" },
-      { "src": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg", "caption": "The Magdalena River by Mompox", "categoria": "rio" }
+      {
+        "src": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg",
+        "caption": "Church of Santa Bárbara at sunset",
+        "categoria": "calles"
+      },
+      {
+        "src": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg",
+        "caption": "Holy Week procession through Mompox",
+        "categoria": "semanaSanta"
+      },
+      {
+        "src": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg",
+        "caption": "Mompox Jazz Festival concert",
+        "categoria": "jazz"
+      },
+      {
+        "src": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg",
+        "caption": "Momposino filigree craftwork",
+        "categoria": "filigrana"
+      },
+      {
+        "src": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg",
+        "caption": "The Magdalena River by Mompox",
+        "categoria": "rio"
+      }
     ]
   },
   "comoLlegarPagina": {
@@ -362,32 +616,74 @@
         "titulo": "Mompox in 1 day",
         "duracion": "6 to 8 hours",
         "paradas": [
-          { "nombre": "Church of Santa Bárbara and its octagonal tower", "nota": "Begin among the facades and streets of the historic center." },
-          { "nombre": "La Albarrada street and the Magdalena River", "nota": "Walk along the river and learn how it shaped the town." },
-          { "nombre": "Caribbean lunch", "nota": "Take a break to taste regional flavors." },
-          { "nombre": "Filigree workshop", "nota": "See the local goldsmithing craft at work." },
-          { "nombre": "Sunset from La Albarrada", "nota": "End the day facing the Magdalena." }
+          {
+            "nombre": "Church of Santa Bárbara and its octagonal tower",
+            "nota": "Begin among the facades and streets of the historic center."
+          },
+          {
+            "nombre": "La Albarrada street and the Magdalena River",
+            "nota": "Walk along the river and learn how it shaped the town."
+          },
+          {
+            "nombre": "Caribbean lunch",
+            "nota": "Take a break to taste regional flavors."
+          },
+          {
+            "nombre": "Filigree workshop",
+            "nota": "See the local goldsmithing craft at work."
+          },
+          {
+            "nombre": "Sunset from La Albarrada",
+            "nota": "End the day facing the Magdalena."
+          }
         ]
       },
       {
         "titulo": "Mompox in 2 days",
         "duracion": "Weekend",
         "paradas": [
-          { "nombre": "Day 1: historic center", "nota": "Churches, filigree and colonial architecture." },
-          { "nombre": "Day 1: local dinner", "nota": "Discover Momposino cuisine." },
-          { "nombre": "Day 2: Magdalena River", "nota": "Plan a canoe trip along the river." },
-          { "nombre": "Day 2: Pijiño wetlands", "nota": "Ask about local birdwatching options." },
-          { "nombre": "Day 2: catch-of-the-day lunch", "nota": "Check availability when you arrive." }
+          {
+            "nombre": "Day 1: historic center",
+            "nota": "Churches, filigree and colonial architecture."
+          },
+          {
+            "nombre": "Day 1: local dinner",
+            "nota": "Discover Momposino cuisine."
+          },
+          {
+            "nombre": "Day 2: Magdalena River",
+            "nota": "Plan a canoe trip along the river."
+          },
+          {
+            "nombre": "Day 2: Pijiño wetlands",
+            "nota": "Ask about local birdwatching options."
+          },
+          {
+            "nombre": "Day 2: catch-of-the-day lunch",
+            "nota": "Check availability when you arrive."
+          }
         ]
       },
       {
         "titulo": "Cultural weekend",
         "duracion": "Seasonal",
         "paradas": [
-          { "nombre": "Arrive a day early", "nota": "Book accommodation ahead for Holy Week and the Jazz Festival." },
-          { "nombre": "Procession or concert", "nota": "Choose according to the event calendar and official program." },
-          { "nombre": "Morning city tour", "nota": "Explore the historic center with a local guide." },
-          { "nombre": "Filigree workshop", "nota": "Discover the town's artisan craft." }
+          {
+            "nombre": "Arrive a day early",
+            "nota": "Book accommodation ahead for Holy Week and the Jazz Festival."
+          },
+          {
+            "nombre": "Procession or concert",
+            "nota": "Choose according to the event calendar and official program."
+          },
+          {
+            "nombre": "Morning city tour",
+            "nota": "Explore the historic center with a local guide."
+          },
+          {
+            "nombre": "Filigree workshop",
+            "nota": "Discover the town's artisan craft."
+          }
         ]
       }
     ]
@@ -396,10 +692,26 @@
     "title": "What to see",
     "tagline": "Four ways to understand Mompox: its architecture, river, traditions and artisan hands.",
     "sights": [
-      { "title": "Colonial and religious architecture", "text": "Six churches, cobbled streets and houses with cool courtyards. Santa Bárbara's octagonal tower is unique in the Americas.", "image": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg" },
-      { "title": "Magdalena River and ecotourism", "text": "Canoe trips through the wetlands, birdwatching and sunsets from the riverfront.", "image": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg" },
-      { "title": "Magical realism and traditions", "text": "The cemetery, its legends and Gabriel García Márquez's connection to Mompox as literary territory.", "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg" },
-      { "title": "Momposino filigree", "text": "Goldsmiths weave silver threads by hand. Visit workshops and watch a piece of jewelry take shape.", "image": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg" }
+      {
+        "title": "Colonial and religious architecture",
+        "text": "Six churches, cobbled streets and houses with cool courtyards. Santa Bárbara's octagonal tower is unique in the Americas.",
+        "image": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg"
+      },
+      {
+        "title": "Magdalena River and ecotourism",
+        "text": "Canoe trips through the wetlands, birdwatching and sunsets from the riverfront.",
+        "image": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg"
+      },
+      {
+        "title": "Magical realism and traditions",
+        "text": "The cemetery, its legends and Gabriel García Márquez's connection to Mompox as literary territory.",
+        "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg"
+      },
+      {
+        "title": "Momposino filigree",
+        "text": "Goldsmiths weave silver threads by hand. Visit workshops and watch a piece of jewelry take shape.",
+        "image": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg"
+      }
     ]
   },
   "mapa": {
@@ -445,16 +757,48 @@
     "presencialTag": "In person",
     "virtualTag": "Virtual",
     "presencialesList": [
-      { "title": "Mompox City Tour", "meta": "3 hours or more · walking", "detalle": "Explore monuments, history, legends, the river and the town's relationship with Gabriel García Márquez." },
-      { "title": "Goldsmith workshop", "meta": "Live demonstration", "detalle": "Discover Momposino filigree with a master goldsmith." },
-      { "title": "By bike or motocarro", "meta": "Historic center tour", "detalle": "An alternative way to explore if you have little time or prefer less walking." }
+      {
+        "title": "Mompox City Tour",
+        "meta": "3 hours or more · walking",
+        "detalle": "Explore monuments, history, legends, the river and the town's relationship with Gabriel García Márquez."
+      },
+      {
+        "title": "Goldsmith workshop",
+        "meta": "Live demonstration",
+        "detalle": "Discover Momposino filigree with a master goldsmith."
+      },
+      {
+        "title": "By bike or motocarro",
+        "meta": "Historic center tour",
+        "detalle": "An alternative way to explore if you have little time or prefer less walking."
+      }
     ],
     "virtualesList": [
-      { "title": "Historical, Cultural and Architectural Tour", "meta": "General tour", "detalle": "A virtual walk through the town's colonial landmarks." },
-      { "title": "Semana SanTour", "meta": "Faith and tradition", "detalle": "Discover the devotion and traditions of Mompox Holy Week." },
-      { "title": "TanaTour", "meta": "Cemetery and memory", "detalle": "Myths, notable figures and beliefs surrounding Mompox cemetery." },
-      { "title": "MusiConference", "meta": "Musical history", "detalle": "Momposino musical traditions from pre-Columbian times to the Jazz Festival." },
-      { "title": "Hilos Mágicos Tour", "meta": "Momposino filigree", "detalle": "Watch an artisan jewel take shape in the hands of a master goldsmith." }
+      {
+        "title": "Historical, Cultural and Architectural Tour",
+        "meta": "General tour",
+        "detalle": "A virtual walk through the town's colonial landmarks."
+      },
+      {
+        "title": "Semana SanTour",
+        "meta": "Faith and tradition",
+        "detalle": "Discover the devotion and traditions of Mompox Holy Week."
+      },
+      {
+        "title": "TanaTour",
+        "meta": "Cemetery and memory",
+        "detalle": "Myths, notable figures and beliefs surrounding Mompox cemetery."
+      },
+      {
+        "title": "MusiConference",
+        "meta": "Musical history",
+        "detalle": "Momposino musical traditions from pre-Columbian times to the Jazz Festival."
+      },
+      {
+        "title": "Hilos Mágicos Tour",
+        "meta": "Momposino filigree",
+        "detalle": "Watch an artisan jewel take shape in the hands of a master goldsmith."
+      }
     ],
     "serviciosTitle": "Additional services",
     "servicios": [
@@ -525,7 +869,8 @@
   "comunes": {
     "volver": "Back",
     "explorar": "Explore",
-    "proximamente": "Coming soon"
+    "proximamente": "Coming soon",
+    "autor": "Author"
   },
   "notfound": {
     "code": "404",

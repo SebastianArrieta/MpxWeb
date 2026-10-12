@@ -1,9 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import type { KeyboardEvent } from 'react'
 import { useApp } from '../context/AppContext'
 import { mediaUrl } from '../helpers/mediaUrl'
 
 type TimelineProps = {
-  preview?: boolean
   showCultural?: boolean
 }
 
@@ -12,220 +12,264 @@ type TimelineEvent = {
   title: string
   detail: string
   image?: string
-  audio?: string
 }
 
-const ERA_TONES = ['era-terracotta', 'era-teal', 'era-ink', 'era-terracotta', 'era-teal'] as const
+const TONES = 3
+const AUTOPLAY_MS = 7000
+const SCROLL_LOCK_MS = 800
+const INTERACT_IDLE_MS = 900
 
-function clamp01(value: number) {
-  return Math.min(1, Math.max(0, value))
+function prefersReducedMotion() {
+  return typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
-function clamp(value: number, min: number, max: number) {
-  return Math.min(max, Math.max(min, value))
-}
-
-export default function Timeline({ preview = false, showCultural = true }: TimelineProps) {
+export default function Timeline({ showCultural = true }: TimelineProps) {
   const { labels } = useApp()
-  const allEvents = labels.timeline as TimelineEvent[]
-  const events = preview ? allEvents.slice(0, 3) : allEvents
-  const [activeId, setActiveId] = useState(events[0]?.year ?? '')
-  const wrapperRef = useRef<HTMLDivElement | null>(null)
-  const sceneRefs = useRef<Record<string, HTMLElement | null>>({})
-  const dotRefs = useRef<Record<string, HTMLButtonElement | null>>({})
+  const events = labels.timeline as TimelineEvent[]
+  const viewportRef = useRef<HTMLDivElement | null>(null)
+  const cardRefs = useRef<Record<string, HTMLLIElement | null>>({})
   const rafRef = useRef(0)
-  const percentRef = useRef<HTMLSpanElement | null>(null)
+  const lockRef = useRef(0)
+  const interactTimerRef = useRef(0)
+  const [active, setActive] = useState(0)
+  const [progress, setProgress] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(() => !prefersReducedMotion())
+  const [isHovered, setIsHovered] = useState(false)
+  const [isInteracting, setIsInteracting] = useState(false)
+  const [isDocVisible, setIsDocVisible] = useState(true)
+  const [isInView, setIsInView] = useState(true)
 
-  const activeIndex = useMemo(
-    () => Math.max(0, events.findIndex((e) => e.year === activeId)),
-    [activeId, events],
+  const goTo = useCallback(
+    (index: number) => {
+      const i = Math.min(events.length - 1, Math.max(0, index))
+      const viewport = viewportRef.current
+      const node = cardRefs.current[events[i]?.year]
+      if (!viewport || !node) return
+      lockRef.current = Date.now() + SCROLL_LOCK_MS
+      setActive(i)
+      const vRect = viewport.getBoundingClientRect()
+      const cRect = node.getBoundingClientRect()
+      const delta = cRect.left + cRect.width / 2 - (vRect.left + vRect.width / 2)
+      viewport.scrollTo({ left: viewport.scrollLeft + delta, behavior: prefersReducedMotion() ? 'auto' : 'smooth' })
+    },
+    [events],
   )
 
-  // Progreso + parallax + hito activo (banda central con histéresis)
   useEffect(() => {
-    if (preview) return
-    const wrapper = wrapperRef.current
-    if (!wrapper) return
+    const viewport = viewportRef.current
+    if (!viewport) return
 
-    let current = activeId
+    const update = () => {
+      rafRef.current = 0
+      const max = viewport.scrollWidth - viewport.clientWidth
+      setProgress(max > 0 ? Math.min(1, Math.max(0, viewport.scrollLeft / max)) : 0)
 
-    const compute = () => {
-      const rect = wrapper.getBoundingClientRect()
-      const vh = window.innerHeight
-      const progress = clamp01((vh * 0.62 - rect.top) / Math.max(rect.height, 1))
-      wrapper.style.setProperty('--progress', String(progress))
-      if (percentRef.current) percentRef.current.textContent = `${Math.round(progress * 100)}%`
+      if (Date.now() < lockRef.current) return
 
-      const vpCenter = vh / 2
-      const band = vh * 0.52
-      const margin = vh * 0.08
-      let best: string | null = null
-      let bestAbs = Infinity
-      let currentAbs = Infinity
-
-      for (const event of events) {
-        const node = sceneRefs.current[event.year]
-        if (!node) continue
+      const vRect = viewport.getBoundingClientRect()
+      const center = vRect.left + vRect.width / 2
+      let best = 0
+      let bestDist = Infinity
+      events.forEach((event, i) => {
+        const node = cardRefs.current[event.year]
+        if (!node) return
         const r = node.getBoundingClientRect()
-        const center = r.top + r.height / 2
-        const dist = center - vpCenter
-        const abs = Math.abs(dist)
-
-        if (abs <= band && abs < bestAbs) {
-          bestAbs = abs
-          best = event.year
+        const dist = Math.abs(r.left + r.width / 2 - center)
+        if (dist < bestDist) {
+          bestDist = dist
+          best = i
         }
-        if (event.year === current) currentAbs = abs
-
-        node.style.setProperty('--near', String(clamp01(1 - abs / (vh * 0.85))))
-        node.style.setProperty('--off', String(clamp(dist / (vh * 0.85), -1, 1)))
-
-        const dot = dotRefs.current[event.year]
-        if (dot) {
-          const relCenter = center - rect.top
-          const pct = (relCenter / Math.max(rect.height, 1)) * 100
-          dot.style.setProperty('--dot-y', `${pct}%`)
-        }
-      }
-
-      if (best && best !== current && currentAbs - bestAbs > margin) {
-        current = best
-        setActiveId(best)
-      }
+      })
+      setActive(best)
     }
 
     const schedule = () => {
       if (rafRef.current) return
-      rafRef.current = requestAnimationFrame(() => {
-        rafRef.current = 0
-        compute()
-      })
+      rafRef.current = requestAnimationFrame(update)
     }
 
-    compute()
-    window.addEventListener('scroll', schedule, { passive: true })
+    update()
+    viewport.addEventListener('scroll', schedule, { passive: true })
     window.addEventListener('resize', schedule)
     return () => {
-      window.removeEventListener('scroll', schedule)
+      viewport.removeEventListener('scroll', schedule)
       window.removeEventListener('resize', schedule)
       if (rafRef.current) cancelAnimationFrame(rafRef.current)
     }
-  }, [events, preview])
+  }, [events])
 
-  const jumpTo = (year: string) => {
-    setActiveId(year)
-    sceneRefs.current[year]?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  useEffect(() => {
+    const onVisibility = () => setIsDocVisible(!document.hidden)
+    document.addEventListener('visibilitychange', onVisibility)
+    return () => document.removeEventListener('visibilitychange', onVisibility)
+  }, [])
+
+  useEffect(() => {
+    const viewport = viewportRef.current
+    if (!viewport || typeof IntersectionObserver === 'undefined') return
+    const observer = new IntersectionObserver((entries) => setIsInView(entries[0]?.isIntersecting ?? true), {
+      threshold: 0.25,
+    })
+    observer.observe(viewport)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!isPlaying || isHovered || isInteracting || !isDocVisible || !isInView) return
+    if (events.length < 2) return
+    const id = window.setTimeout(() => goTo((active + 1) % events.length), AUTOPLAY_MS)
+    return () => window.clearTimeout(id)
+  }, [isPlaying, isHovered, isInteracting, isDocVisible, isInView, active, events.length, goTo])
+
+  useEffect(() => () => window.clearTimeout(interactTimerRef.current), [])
+
+  const beginInteract = () => {
+    setIsInteracting(true)
+    window.clearTimeout(interactTimerRef.current)
+  }
+  const endInteract = () => {
+    window.clearTimeout(interactTimerRef.current)
+    interactTimerRef.current = window.setTimeout(() => setIsInteracting(false), INTERACT_IDLE_MS)
   }
 
-  if (preview) {
-    return (
-      <div className="timeline timeline--teaser">
-        <div className="timeline-teaser__years">
-          {events.map((e) => (
-            <span key={e.year} className="timeline-teaser__year">
-              {e.year}
-            </span>
-          ))}
-        </div>
-        <p className="timeline-teaser__copy">
-          {labels.timelineUi.teaser
-            .replace('{inicio}', events[0].title)
-            .replace('{fin}', events[events.length - 1].title)}
-        </p>
-      </div>
-    )
+  const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault()
+      goTo(active + 1)
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault()
+      goTo(active - 1)
+    } else if (e.key === 'Home') {
+      e.preventDefault()
+      goTo(0)
+    } else if (e.key === 'End') {
+      e.preventDefault()
+      goTo(events.length - 1)
+    }
   }
 
   return (
     <>
-      <div className="timeline timeline--scrolly" ref={wrapperRef}>
-        <aside className="timeline-rail" aria-label={labels.timelineUi.railAria}>
-        <div className="timeline-rail__head">
-          <span className="timeline-rail__eyebrow">Río de Mompox</span>
-          <strong className="timeline-rail__year">{activeId}</strong>
-          <span className="timeline-rail__status">
-            <span ref={percentRef}>0%</span>
-            <span>
-              {String(activeIndex + 1).padStart(2, '0')} / {String(events.length).padStart(2, '0')}
+      <div
+        className="timeline2"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onFocus={() => setIsHovered(true)}
+        onBlur={(e) => {
+          if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setIsHovered(false)
+        }}
+      >
+        <header className="timeline2__head">
+          <p className="section__eyebrow">{labels.timelineUi.railEyebrow}</p>
+          <div className="timeline2__controls">
+            <span className="timeline2__counter" aria-hidden="true">
+              {String(active + 1).padStart(2, '0')}
+              <span className="timeline2__counterSep">/</span>
+              {String(events.length).padStart(2, '0')}
             </span>
-          </span>
-        </div>
-
-        <div className="timeline-rail__track" aria-hidden="true">
-          <span className="timeline-rail__line" />
-          <span className="timeline-rail__fill" />
-          {events.map((e, i) => (
             <button
-              key={e.year}
               type="button"
-              tabIndex={-1}
-              aria-hidden="true"
-              className={`timeline-rail__dot ${ERA_TONES[i % ERA_TONES.length]}${activeId === e.year ? ' is-active' : ''}`}
-              ref={(node) => {
-                dotRefs.current[e.year] = node
-              }}
-              onClick={() => jumpTo(e.year)}
-            />
-          ))}
-        </div>
+              className={`timeline2__toggle${isPlaying ? ' is-playing' : ''}`}
+              onClick={() => setIsPlaying((value) => !value)}
+              aria-pressed={isPlaying}
+              aria-label={isPlaying ? labels.timelineUi.pause : labels.timelineUi.play}
+              title={labels.timelineUi.autoplayAria}
+            >
+              {isPlaying ? (
+                <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false">
+                  <rect x="2" y="1.5" width="2.7" height="9" rx="1" fill="currentColor" />
+                  <rect x="7.3" y="1.5" width="2.7" height="9" rx="1" fill="currentColor" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false">
+                  <path d="M3 1.6 10 6 3 10.4Z" fill="currentColor" />
+                </svg>
+              )}
+            </button>
+            <button
+              type="button"
+              className="timeline2__nav"
+              onClick={() => goTo(active - 1)}
+              disabled={active === 0}
+              aria-label={labels.timelineUi.prev}
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              className="timeline2__nav"
+              onClick={() => goTo(active + 1)}
+              disabled={active === events.length - 1}
+              aria-label={labels.timelineUi.next}
+            >
+              ›
+            </button>
+          </div>
+        </header>
 
-        <ol className="timeline-rail__years">
-          {events.map((e, i) => (
-            <li key={e.year}>
-              <button
-                type="button"
-                className={`timeline-rail__btn ${ERA_TONES[i % ERA_TONES.length]}${activeId === e.year ? ' is-active' : ''}`}
-                aria-current={activeId === e.year ? 'step' : undefined}
-                onClick={() => jumpTo(e.year)}
-              >
-                <span className="timeline-rail__idx">{String(i + 1).padStart(2, '0')}</span>
-                <span className="timeline-rail__y">{e.year}</span>
-              </button>
-            </li>
-          ))}
-        </ol>
-        </aside>
-
-        <div className="timeline-scenes">
-          {events.map((event, index) => {
-            const tone = ERA_TONES[index % ERA_TONES.length]
-            return (
-              <section
+        <div
+          className="timeline2__viewport"
+          ref={viewportRef}
+          tabIndex={0}
+          role="group"
+          aria-label={labels.timelineUi.railAria}
+          onKeyDown={onKeyDown}
+          onPointerDown={beginInteract}
+          onPointerUp={endInteract}
+          onPointerCancel={endInteract}
+          onWheel={() => {
+            beginInteract()
+            endInteract()
+          }}
+        >
+          <ol className="timeline2__track">
+            {events.map((event, i) => (
+              <li
                 key={event.year}
-                className={`timeline-scene ${tone}${activeId === event.year ? ' is-active' : ''}`}
-                data-year={event.year}
+                className={`timeline2__card tone-${i % TONES}${i === active ? ' is-active' : ''}`}
+                aria-current={i === active ? 'true' : undefined}
                 ref={(node) => {
-                  sceneRefs.current[event.year] = node
+                  cardRefs.current[event.year] = node
                 }}
               >
-                <span className="timeline-scene__year" aria-hidden="true">
-                  {event.year}
-                </span>
-                <div className="timeline-scene__card">
-                  <header className="timeline-scene__card-head">
-                    <span className="timeline-scene__index">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <h3 className="timeline-scene__title">{event.title}</h3>
-                  </header>
+                <div className="timeline2__media">
                   {event.image ? (
-                    <div className="timeline-scene__media">
-                      <img src={mediaUrl(event.image)} alt="" loading="lazy" decoding="async" />
-                    </div>
-                  ) : null}
-                  <p className="timeline-scene__detail">{event.detail}</p>
-                  {event.audio ? (
-                    <div className="timeline-scene__audio">
-                      <audio controls preload="none" src={mediaUrl(event.audio)}>
-                        Tu navegador no soporta audio.
-                      </audio>
-                    </div>
-                  ) : null}
+                    <img src={mediaUrl(event.image)} alt="" loading="lazy" decoding="async" />
+                  ) : (
+                    <span className="timeline2__watermark" aria-hidden="true">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  )}
                 </div>
-              </section>
-            )
-          })}
+                <div className="timeline2__body">
+                  <span className="timeline2__year">{event.year}</span>
+                  <h3 className="timeline2__cardTitle">{event.title}</h3>
+                  <p className="timeline2__detail">{event.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
+
+        <div className="timeline2__bar" aria-hidden="true">
+          <span className="timeline2__barFill" style={{ transform: `scaleX(${progress})` }} />
+        </div>
+
+        <nav className="timeline2__pills" aria-label={labels.timelineUi.railAria}>
+          {events.map((event, i) => (
+            <button
+              key={event.year}
+              type="button"
+              className={`timeline2__pill${i === active ? ' is-active' : ''}`}
+              onClick={() => goTo(i)}
+              aria-current={i === active ? 'true' : undefined}
+            >
+              {event.year}
+            </button>
+          ))}
+        </nav>
+
+        <p className="timeline2__hint">{labels.timelineUi.dragHint}</p>
       </div>
 
       {showCultural && (

@@ -28,18 +28,12 @@
 .hero--cinematic {
   background: linear-gradient(165deg, var(--mpx-teja-deep) 0%, var(--mpx-barro) 52%, #3d4a2a 100%);
 }
-.timeline--teaser {
-  background: linear-gradient(150deg, var(--mpx-ceiba) 0%, #3d5a2a 100%);
-}
 .section--band {
   background: linear-gradient(120deg, var(--mpx-ocre-soft), var(--mpx-ceiba-soft));
 }
 .home__band {
   background: linear-gradient(180deg, var(--mpx-cal) 0%, #f8f1e1 100%);
 }
-.timeline .era-terracotta { --accent: var(--mpx-teja-deep); --accent-bright: var(--mpx-teja); --accent-soft: rgba(181, 83, 46, 0.14); }
-.timeline .era-teal { --accent: #3d5a2a; --accent-bright: var(--mpx-ceiba); --accent-soft: rgba(94, 127, 58, 0.16); }
-.timeline .era-ink { --accent: var(--mpx-barro); --accent-bright: #a08868; --accent-soft: rgba(107, 90, 69, 0.14); }
 
 /* Acentos ocre en lugar de azul en elementos de énfasis */
 .info-card--accent { border-top-color: var(--mpx-ocre); }
@@ -797,4 +791,125 @@ h4 { font-family: var(--font-serif); }
   .hero--cinematic .hero__actions .btn { flex: 0 1 auto; }
   .site-nav.is-open { grid-template-columns: 1fr; }
   .site-nav__map-link { grid-column: 1; }
+}
+
+/* ===========================================================================
+   Historia — Símbolos de Mompox (bandera, escudo, himno) y datos generales
+   =========================================================================== */
+.section__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--mpx-teja);
+  margin-bottom: 0.5rem;
+}
+
+.simbolos__head { max-width: 60ch; margin-bottom: clamp(1.5rem, 3vw, 2.25rem); }
+.simbolos__head h2 { font-size: clamp(1.65rem, 3vw, 2.35rem); color: var(--mpx-teja-deep); letter-spacing: -0.02em; margin: 0 0 0.6rem; }
+.simbolos__head p { color: var(--mpx-tinta); opacity: 0.85; margin: 0; }
+
+.simbolos__grid {
+  display: grid;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.simbolo-card {
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.1rem, 2vw, 1.6rem);
+  border: 1px solid rgba(181, 83, 46, 0.18);
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--mpx-cal) 0%, #f8f1e1 100%);
+  box-shadow: 0 12px 30px rgba(42, 33, 28, 0.07);
+}
+
+.simbolo-card__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(181, 83, 46, 0.06);
+  border-radius: 10px;
+}
+.simbolo-card__media--flag { aspect-ratio: 3 / 2; }
+.simbolo-card__media--shield { aspect-ratio: 1 / 1; }
+.simbolo-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(42, 33, 28, 0.14));
+}
+
+.simbolo-card__copy h3 { font-size: 1.35rem; color: var(--mpx-teja-deep); margin: 0 0 0.5rem; }
+.simbolo-card__copy p { color: var(--mpx-tinta); opacity: 0.88; margin: 0 0 0.55rem; line-height: 1.55; }
+.simbolo-card__author { font-weight: 700; color: var(--mpx-ceiba-deep, #3d5a2a) !important; }
+.simbolo-card__note { font-size: 0.86rem; opacity: 0.7 !important; }
+
+.simbolo-card--anthem { grid-column: 1 / -1; }
+
+.simbolo-anthem {
+  margin: 0.5rem 0 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--mpx-teja);
+  background: rgba(94, 127, 58, 0.07);
+  border-radius: 0 12px 12px 0;
+}
+.simbolo-anthem__coroTitle { font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.8rem; color: var(--mpx-teja-deep); }
+.simbolo-anthem__coro { font-style: italic; font-weight: 600; }
+.simbolo-anthem__estrofas { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.9rem; }
+.simbolo-anthem__estrofas li { display: flex; gap: 0.7rem; align-items: flex-start; }
+.simbolo-anthem__num { flex: 0 0 auto; font-size: 0.85rem; color: var(--mpx-teja); font-weight: 700; padding-top: 0.15rem; }
+.simbolo-anthem__estrofas p { margin: 0; font-style: italic; line-height: 1.6; }
+
+.datos-generales {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid rgba(181, 83, 46, 0.18);
+  border-radius: 14px;
+  background: var(--mpx-cal);
+  padding: clamp(1.1rem, 2vw, 1.6rem);
+  box-shadow: 0 12px 30px rgba(42, 33, 28, 0.05);
+}
+.datos-generales h3 { font-size: 1.25rem; color: var(--mpx-teja-deep); margin: 0 0 1rem; }
+.datos-generales__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem 1.5rem;
+  margin: 0;
+}
+.datos-generales__item { display: flex; flex-direction: column; gap: 0.15rem; padding-right: 1rem; border-right: 1px dashed rgba(181, 83, 46, 0.22); }
+.datos-generales__item:nth-child(3n) { border-right: 0; }
+.datos-generales__item dt { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mpx-tinta); opacity: 0.6; }
+.datos-generales__item dd { margin: 0; font-weight: 600; color: var(--mpx-tinta); }
+
+.simbolos__creditos {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(107, 90, 69, 0.35);
+}
+.simbolos__creditos h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mpx-tinta); opacity: 0.6; margin: 0 0 0.4rem; }
+.simbolos__creditos ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.25rem; }
+.simbolos__creditos li { font-size: 0.82rem; color: var(--mpx-tinta); opacity: 0.75; }
+
+.simbolo-card a:focus-visible,
+.simbolo-card button:focus-visible,
+.simbolo-card img:focus-visible { outline: 2px solid var(--mpx-teja); outline-offset: 3px; }
+
+@media (max-width: 880px) {
+  .datos-generales__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .datos-generales__item:nth-child(3n) { border-right: 1px dashed rgba(181, 83, 46, 0.22); }
+  .datos-generales__item:nth-child(2n) { border-right: 0; }
+}
+
+@media (max-width: 620px) {
+  .simbolos__grid { grid-template-columns: 1fr; }
+  .datos-generales__list { grid-template-columns: 1fr; }
+  .datos-generales__item { border-right: 0; }
+  .simbolo-anthem { padding: 1rem 1.1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .simbolos .simbolo-card { box-shadow: none; }
 }

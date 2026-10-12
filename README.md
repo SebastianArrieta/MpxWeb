@@ -67,18 +67,19 @@ El sitio es 100% estático (Vite + React) y se despliega en Vercel/Netlify. **No
    - Audios → `public/media/audio/`
 2. **Referéncialos desde el contenido** (JSON en `content/`), con rutas relativas a `media/...`:
    - `content/es/labels.json` y `content/en/labels.json`:
-     - Timeline: campo `"image"` y `"audio"` por evento (la muestra está en el evento `1995`).
+     - Timeline: campo `"image"` por evento (los hitos reales de Mompox ya incluyen imágenes bajo licencia libre).
      - Galerías: `"galeria"` con `{ "src": "...", "caption": "..." }` (Semana Santa y Festival Jazz).
+     - Símbolos: sección `"simbolos"` con bandera, escudo e himno (`content/es|en/labels.json`).
    - `content/places/places.json`: campo `"foto"` de cada lugar (se muestra en la ficha del mapa).
 3. **Comitea y despliega.** `npm run build` empaqueta todo: verás tus archivos en `dist/media/`.
 
 El código usa `import.meta.env.BASE_URL` + ruta (helper `src/helpers/mediaUrl.ts`), con `base: './'` en `vite.config.ts`, así las rutas funcionan en raíz y en subcarpetas.
 
-### Muestra incluida
-- `public/media/images/muestra-mompox.svg` → ilustración de Mompox (hero, evento 1995, galerías, mapa).
-- `public/media/audio/muestra.wav` → chime de muestra en el evento 1995 (se expande la card para oírlo).
+### Medios incluidos
+- `public/media/images/` → bandera y escudo oficiales (Wikimedia Commons, CC BY-SA) y fotos reales de Mompox para la línea de tiempo (iglesias, albarrada, calles y casonas coloniales). Créditos en la sección Historia.
+- `public/media/images/muestra-mompox.svg` → ilustración de muestra en las galerías de Semana Santa y Festival Jazz.
 
-Para usar tus propios archivos, reemplaza los `muestra.*` (mantén el mismo nombre) o cambia las rutas en los JSON. Si un lugar/evento **no tiene** `image`/`audio`, se muestra el diseño anterior sin romperse.
+> **Docker (dev):** el servidor Vite cachea el listado de `public/` al arrancar. Si añades imágenes/audios con el contenedor en marcha, **reinícialo** para que se sirvan: `docker compose restart web` (o `docker compose up -d --force-recreate web`). Si no, esos archivos nuevos devuelven `index.html` (imagen rota) hasta reiniciar.
 
 ### Nota de despliegue (SPA)
 En Vercel/Netlify configura el redirect de SPA (todas las rutas → `index.html`) para que `/historia`, `/mapa`, etc. funcionen al recargar la página.
