@@ -119,6 +119,8 @@
   "presentacion": {
     "saltar": "Skip intro",
     "continuar": "Continue",
+    "pausar": "Pause intro",
+    "reproducir": "Resume intro",
     "slides": [
       {
         "eyebrow": "Welcome to",
@@ -301,11 +303,12 @@
     "teaser": "{inicio} → {fin}. Explore the full history.",
     "railAria": "Milestone navigation",
     "railEyebrow": "Mompox River",
+    "railLead": "The Magdalena sets the order: each branch tells a milestone. Follow the current, tap a year or use the arrows.",
     "culturalTitle": "Living tradition",
     "culturalLead": "Cultural highlights of the momposino calendar (no fixed invented year).",
     "prev": "Previous milestone",
     "next": "Next milestone",
-    "dragHint": "Swipe to explore the history",
+    "dragHint": "Follow the river's current",
     "play": "Play",
     "pause": "Pause",
     "autoplayAria": "Play or pause the automatic tour"
@@ -492,6 +495,12 @@
     "title": "Gallery",
     "tagline": "Images of events, streets, crafts and landscapes that capture the soul of the town.",
     "nota": "These are sample images while the team's own photos are prepared.",
+    "visor": {
+      "aria": "Image viewer",
+      "anterior": "Previous image",
+      "siguiente": "Next image",
+      "cerrar": "Close viewer"
+    },
     "filtros": {
       "todos": "All",
       "semanaSanta": "Holy Week",
@@ -854,6 +863,7 @@
     "formEnviar": "Send",
     "formRequerido": "Please fill in this field.",
     "formCorreoInvalido": "Please enter a valid email.",
+    "formResumen": "Please review the highlighted fields.",
     "formEnviado": "Message validated. Form delivery will be connected once the contact service is ready.",
     "autoresTitle": "Official channels",
     "note": "The form currently validates your details on this page but does not send them yet."

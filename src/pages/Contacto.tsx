@@ -1,32 +1,89 @@
-import { useState, type FormEvent } from 'react'
+import { useRef, useState, type FocusEvent, type FormEvent } from 'react'
 import { useApp } from '../context/AppContext'
 import Reveal from '../components/Reveal'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
+type Field = 'nombre' | 'email' | 'asunto' | 'mensaje'
+type Errors = Partial<Record<Field, string>>
+const FIELDS: Field[] = ['nombre', 'email', 'asunto', 'mensaje']
+
 export default function Contacto() {
   const { labels } = useApp()
   const l = labels.contacto
-  const [errors, setErrors] = useState<{ nombre?: string; email?: string; asunto?: string; mensaje?: string }>({})
+  const [errors, setErrors] = useState<Errors>({})
+  const [touched, setTouched] = useState<Partial<Record<Field, boolean>>>({})
+  const [submitted, setSubmitted] = useState(false)
   const [sent, setSent] = useState(false)
+  const formRef = useRef<HTMLFormElement | null>(null)
+  const summaryRef = useRef<HTMLDivElement | null>(null)
+  const successRef = useRef<HTMLParagraphElement | null>(null)
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const data = new FormData(e.currentTarget)
-    const nombre = String(data.get('nombre') ?? '').trim()
-    const email = String(data.get('email') ?? '').trim()
-    const asunto = String(data.get('asunto') ?? '').trim()
-    const mensaje = String(data.get('mensaje') ?? '').trim()
+  const fieldLabel: Record<Field, string> = {
+    nombre: l.formNombre,
+    email: l.formEmail,
+    asunto: l.formAsunto,
+    mensaje: l.formMensaje,
+  }
 
-    const next: typeof errors = {}
-    if (!nombre) next.nombre = l.formRequerido
-    if (!email) next.email = l.formRequerido
-    else if (!EMAIL_RE.test(email)) next.email = l.formCorreoInvalido
-    if (!asunto) next.asunto = l.formRequerido
-    if (!mensaje) next.mensaje = l.formRequerido
+  const validateField = (field: Field, value: string): string | undefined => {
+    const trimmed = value.trim()
+    if (!trimmed) return l.formRequerido
+    if (field === 'email' && !EMAIL_RE.test(trimmed)) return l.formCorreoInvalido
+    return undefined
+  }
 
+  const readValues = (): Record<Field, string> => {
+    const data = new FormData(formRef.current!)
+    const values = {} as Record<Field, string>
+    FIELDS.forEach((field) => {
+      values[field] = String(data.get(field) ?? '')
+    })
+    return values
+  }
+
+  const validateAll = (): Errors => {
+    const values = readValues()
+    const next: Errors = {}
+    FIELDS.forEach((field) => {
+      const error = validateField(field, values[field])
+      if (error) next[field] = error
+    })
+    return next
+  }
+
+  const onBlur = (field: Field) => (event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setTouched((prev) => ({ ...prev, [field]: true }))
+    const error = validateField(field, event.currentTarget.value)
+    setErrors((prev) => ({ ...prev, [field]: error }))
+  }
+
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const next = validateAll()
     setErrors(next)
-    setSent(Object.keys(next).length === 0)
+    setTouched({ nombre: true, email: true, asunto: true, mensaje: true })
+    setSubmitted(true)
+
+    const firstError = FIELDS.find((field) => next[field])
+    if (firstError) {
+      setSent(false)
+      summaryRef.current?.focus()
+      return
+    }
+
+    setSent(true)
+    formRef.current?.reset()
+    window.requestAnimationFrame(() => successRef.current?.focus())
+  }
+
+  const invalidFields = FIELDS.filter((field) => errors[field])
+  const showSummary = submitted && invalidFields.length > 0
+  const showError = (field: Field) =>
+    (touched[field] || submitted) && errors[field] ? errors[field] : undefined
+
+  const focusField = (field: Field) => {
+    formRef.current?.querySelector<HTMLElement>(`#campo-${field}`)?.focus()
   }
 
   return (
@@ -40,56 +97,99 @@ export default function Contacto() {
       <div className="contact-layout">
         <section className="section contact-form-wrap">
           <h2 className="section__title">{l.formTitle}</h2>
-          <form className="contact-form" onSubmit={onSubmit} noValidate>
+          <form className="contact-form" ref={formRef} onSubmit={onSubmit} noValidate>
+            {showSummary ? (
+              <div
+                className="error-summary"
+                role="alert"
+                tabIndex={-1}
+                ref={summaryRef}
+                aria-labelledby="error-summary-title"
+              >
+                <h3 id="error-summary-title">{l.formResumen}</h3>
+                <ul>
+                  {invalidFields.map((field) => (
+                    <li key={field}>
+                      <a
+                        href={`#campo-${field}`}
+                        onClick={(event) => {
+                          event.preventDefault()
+                          focusField(field)
+                        }}
+                      >
+                        {fieldLabel[field]} — {errors[field]}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+
             <label>
               {l.formNombre}
               <input
+                id="campo-nombre"
                 type="text"
                 name="nombre"
+                required
+                aria-required="true"
                 placeholder={l.formPlaceholderNombre}
-                aria-invalid={Boolean(errors.nombre)}
-                aria-describedby={errors.nombre ? 'err-nombre' : undefined}
+                aria-invalid={Boolean(showError('nombre'))}
+                aria-describedby={showError('nombre') ? 'err-nombre' : undefined}
+                onBlur={onBlur('nombre')}
               />
-              {errors.nombre ? <span id="err-nombre" className="form-error">{errors.nombre}</span> : null}
+              {showError('nombre') ? <span id="err-nombre" className="form-error">{errors.nombre}</span> : null}
             </label>
             <label>
               {l.formEmail}
               <input
+                id="campo-email"
                 type="email"
                 name="email"
+                required
+                aria-required="true"
                 placeholder={l.formPlaceholderEmail}
-                aria-invalid={Boolean(errors.email)}
-                aria-describedby={errors.email ? 'err-email' : undefined}
+                aria-invalid={Boolean(showError('email'))}
+                aria-describedby={showError('email') ? 'err-email' : undefined}
+                onBlur={onBlur('email')}
               />
-              {errors.email ? <span id="err-email" className="form-error">{errors.email}</span> : null}
+              {showError('email') ? <span id="err-email" className="form-error">{errors.email}</span> : null}
             </label>
             <label>
               {l.formAsunto}
               <input
+                id="campo-asunto"
                 type="text"
                 name="asunto"
+                required
+                aria-required="true"
                 placeholder={l.formPlaceholderAsunto}
-                aria-invalid={Boolean(errors.asunto)}
-                aria-describedby={errors.asunto ? 'err-asunto' : undefined}
+                aria-invalid={Boolean(showError('asunto'))}
+                aria-describedby={showError('asunto') ? 'err-asunto' : undefined}
+                onBlur={onBlur('asunto')}
               />
-              {errors.asunto ? <span id="err-asunto" className="form-error">{errors.asunto}</span> : null}
+              {showError('asunto') ? <span id="err-asunto" className="form-error">{errors.asunto}</span> : null}
             </label>
             <label>
               {l.formMensaje}
               <textarea
+                id="campo-mensaje"
                 name="mensaje"
                 rows={4}
+                required
+                aria-required="true"
                 placeholder={l.formPlaceholderMensaje}
-                aria-invalid={Boolean(errors.mensaje)}
-                aria-describedby={errors.mensaje ? 'err-mensaje' : undefined}
+                aria-invalid={Boolean(showError('mensaje'))}
+                aria-describedby={showError('mensaje') ? 'err-mensaje' : undefined}
+                onBlur={onBlur('mensaje')}
               />
-              {errors.mensaje ? <span id="err-mensaje" className="form-error">{errors.mensaje}</span> : null}
+              {showError('mensaje') ? <span id="err-mensaje" className="form-error">{errors.mensaje}</span> : null}
             </label>
             <button type="submit" className="btn btn--primary">
               {l.formEnviar}
             </button>
             {sent ? (
-              <p className="form-success" role="status">
+              <p className="form-success" role="status" tabIndex={-1} ref={successRef}>
                 {l.formEnviado}
               </p>
             ) : null}

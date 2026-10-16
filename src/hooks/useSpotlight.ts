@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 const SPOT_SELECTOR =
-  '.quick-card, .home__event-card, .info-card, .contact-author-card, .timeline__cultural-card, .map-list__item'
+  '.info-card, .contact-author-card, .timeline__cultural-card, .map-list__item'
 
 /**
  * Efecto de luz que sigue al cursor sobre tarjetas.

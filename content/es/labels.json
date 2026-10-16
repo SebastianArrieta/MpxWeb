@@ -119,6 +119,8 @@
   "presentacion": {
     "saltar": "Saltar presentación",
     "continuar": "Continuar",
+    "pausar": "Pausar presentación",
+    "reproducir": "Reanudar presentación",
     "slides": [
       {
         "eyebrow": "Bienvenido a",
@@ -301,11 +303,12 @@
     "teaser": "{inicio} → {fin}. Recorre la historia completa.",
     "railAria": "Navegación de hitos",
     "railEyebrow": "Río de Mompox",
+    "railLead": "El Magdalena marca el orden: cada brazo cuenta un hito. Sigue la corriente, toca un año o usa las flechas.",
     "culturalTitle": "Tradición viva",
     "culturalLead": "Hitos culturales del calendario momposino (sin año fijo inventado).",
     "prev": "Hito anterior",
     "next": "Hito siguiente",
-    "dragHint": "Desliza para recorrer la historia",
+    "dragHint": "Sigue la corriente del río",
     "play": "Reproducir",
     "pause": "Pausar",
     "autoplayAria": "Reproducir o pausar el recorrido automático"
@@ -492,6 +495,12 @@
     "title": "Galería",
     "tagline": "Imágenes de eventos, calles, oficios y paisajes que capturan el alma de la ciudad.",
     "nota": "Estas imágenes son de ambiente mientras llegan las fotos reales del equipo.",
+    "visor": {
+      "aria": "Visor de imágenes",
+      "anterior": "Imagen anterior",
+      "siguiente": "Imagen siguiente",
+      "cerrar": "Cerrar visor"
+    },
     "filtros": {
       "todos": "Todas",
       "semanaSanta": "Semana Santa",
@@ -854,6 +863,7 @@
     "formEnviar": "Enviar",
     "formRequerido": "Completa este campo.",
     "formCorreoInvalido": "Escribe un correo válido.",
+    "formResumen": "Revisa los campos marcados.",
     "formEnviado": "Mensaje validado. El envío del formulario se conectará cuando el servicio de contacto esté listo.",
     "autoresTitle": "Canales oficiales",
     "note": "Por ahora el formulario valida los datos en esta página, pero todavía no los envía."
