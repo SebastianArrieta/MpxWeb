@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
 import Reveal from '../components/Reveal'
+import { mediaUrl } from '../helpers/mediaUrl'
 
 export default function EventoDetalle({ tipo }: { tipo: 'semanaSanta' | 'festivalJazz' }) {
   const { labels } = useApp()
@@ -9,7 +10,7 @@ export default function EventoDetalle({ tipo }: { tipo: 'semanaSanta' | 'festiva
   return (
     <div className={`page event-detail event-detail--${tipo}`}>
       <header className="event-detail__hero">
-        <img src={event.heroImage} alt="" />
+        <img src={mediaUrl(event.heroImage)} alt="" />
         <div className="event-detail__shade" />
         <div className="event-detail__heading">
           <p className="page-header__eyebrow">{labels.eventos.eyebrow}</p>

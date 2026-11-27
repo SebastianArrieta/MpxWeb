@@ -186,7 +186,7 @@ export default function Mapa() {
       <span className="map-card__category">{catLabel(place.categoria)}</span>
       <h3>{placeName(place)}</h3>
       <p>{placeDescription(place)}</p>
-      {place.pendiente_campos.length ? (
+      {import.meta.env.DEV && place.pendiente_campos.length ? (
         <p className="map-card__note">
           {mapaLabels.pendiente}: {place.pendiente_campos.join(', ')}
         </p>

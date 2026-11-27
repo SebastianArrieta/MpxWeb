@@ -2,6 +2,9 @@ import { useRef, useState, type FocusEvent, type FormEvent } from 'react'
 import { useApp } from '../context/AppContext'
 import Reveal from '../components/Reveal'
 
+/** Si está configurado, el formulario envía a Formspree; si no, abre WhatsApp. */
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT?.trim() || ''
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
 type Field = 'nombre' | 'email' | 'asunto' | 'mensaje'
@@ -14,7 +17,13 @@ export default function Contacto() {
   const [errors, setErrors] = useState<Errors>({})
   const [touched, setTouched] = useState<Partial<Record<Field, boolean>>>({})
   const [submitted, setSubmitted] = useState(false)
+  // El resumen se fija al enviar: si cambiara al salir de un campo, el botón
+  // se movería justo cuando el usuario lo va a tocar y el clic se perdería.
+  const [summaryErrors, setSummaryErrors] = useState<Errors>({})
   const [sent, setSent] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [sendError, setSendError] = useState(false)
+  const [whatsappLink, setWhatsappLink] = useState('')
   const formRef = useRef<HTMLFormElement | null>(null)
   const summaryRef = useRef<HTMLDivElement | null>(null)
   const successRef = useRef<HTMLParagraphElement | null>(null)
@@ -58,13 +67,42 @@ export default function Contacto() {
     setErrors((prev) => ({ ...prev, [field]: error }))
   }
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  // Quita el error de un campo en cuanto el usuario lo corrige (mientras escribe),
+  // para que el diseño no salte justo al tocar "Enviar".
+  const onInput = (event: FormEvent<HTMLFormElement>) => {
+    const target = event.target as HTMLInputElement | HTMLTextAreaElement
+    const field = target.name as Field
+    if (!FIELDS.includes(field) || !errors[field]) return
+    if (!validateField(field, target.value)) setErrors((prev) => ({ ...prev, [field]: undefined }))
+  }
+
+  const destino = labels.authors.find((author) => author.id === l.destinoId) ?? labels.authors[0]
+
+  const buildWhatsappLink = (values: Record<Field, string>) => {
+    const text = FIELDS.reduce(
+      (msg, field) => msg.split(`{${field}}`).join(values[field].trim()),
+      l.whatsappPlantilla,
+    )
+    return `${destino.whatsappUrl}?text=${encodeURIComponent(text)}`
+  }
+
+  const finishSent = () => {
+    setSent(true)
+    formRef.current?.reset()
+    setTouched({})
+    window.requestAnimationFrame(() => successRef.current?.focus())
+  }
+
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    if (sending) return
+    setSendError(false)
     const next = validateAll()
     setErrors(next)
     setTouched({ nombre: true, email: true, asunto: true, mensaje: true })
     setSubmitted(true)
 
+    setSummaryErrors(next)
     const firstError = FIELDS.find((field) => next[field])
     if (firstError) {
       setSent(false)
@@ -72,12 +110,35 @@ export default function Contacto() {
       return
     }
 
-    setSent(true)
-    formRef.current?.reset()
-    window.requestAnimationFrame(() => successRef.current?.focus())
+    const values = readValues()
+    const link = buildWhatsappLink(values)
+    setWhatsappLink(link)
+
+    if (!FORMSPREE_ENDPOINT) {
+      // Se abre en el mismo gesto del usuario para que el navegador no lo bloquee.
+      window.open(link, '_blank', 'noopener')
+      finishSent()
+      return
+    }
+
+    setSending(true)
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...values, _subject: `Mompox web — ${values.asunto}` }),
+      })
+      if (!response.ok) throw new Error(String(response.status))
+      finishSent()
+    } catch {
+      setSent(false)
+      setSendError(true)
+    } finally {
+      setSending(false)
+    }
   }
 
-  const invalidFields = FIELDS.filter((field) => errors[field])
+  const invalidFields = FIELDS.filter((field) => summaryErrors[field])
   const showSummary = submitted && invalidFields.length > 0
   const showError = (field: Field) =>
     (touched[field] || submitted) && errors[field] ? errors[field] : undefined
@@ -97,7 +158,7 @@ export default function Contacto() {
       <div className="contact-layout">
         <section className="section contact-form-wrap">
           <h2 className="section__title">{l.formTitle}</h2>
-          <form className="contact-form" ref={formRef} onSubmit={onSubmit} noValidate>
+          <form className="contact-form" ref={formRef} onSubmit={onSubmit} onInput={onInput} noValidate>
             {showSummary ? (
               <div
                 className="error-summary"
@@ -117,7 +178,7 @@ export default function Contacto() {
                           focusField(field)
                         }}
                       >
-                        {fieldLabel[field]} — {errors[field]}
+                        {fieldLabel[field]} — {summaryErrors[field]}
                       </a>
                     </li>
                   ))}
@@ -185,12 +246,26 @@ export default function Contacto() {
               />
               {showError('mensaje') ? <span id="err-mensaje" className="form-error">{errors.mensaje}</span> : null}
             </label>
-            <button type="submit" className="btn btn--primary">
-              {l.formEnviar}
+            <button type="submit" className="btn btn--primary" disabled={sending} aria-busy={sending}>
+              {sending ? l.formEnviando : FORMSPREE_ENDPOINT ? l.formEnviarCorreo : l.formEnviar}
             </button>
             {sent ? (
               <p className="form-success" role="status" tabIndex={-1} ref={successRef}>
-                {l.formEnviado}
+                {FORMSPREE_ENDPOINT ? l.formEnviado : l.formEnviadoWhatsapp}
+                {!FORMSPREE_ENDPOINT && whatsappLink ? (
+                  <>
+                    {' '}
+                    <a href={whatsappLink} target="_blank" rel="noreferrer">{l.formAbrirWhatsapp} ↗</a>
+                  </>
+                ) : null}
+              </p>
+            ) : null}
+            {sendError ? (
+              <p className="form-error" role="alert">
+                {l.formErrorEnvio}{' '}
+                {whatsappLink ? (
+                  <a href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp ↗</a>
+                ) : null}
               </p>
             ) : null}
           </form>
@@ -226,7 +301,7 @@ export default function Contacto() {
               </Reveal>
             ))}
           </div>
-          <p className="placeholder-text">{l.note}</p>
+          <p className="placeholder-text">{FORMSPREE_ENDPOINT ? l.noteCorreo : l.note}</p>
         </aside>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
 import Reveal from '../components/Reveal'
+import { mediaUrl } from '../helpers/mediaUrl'
 
 export default function Eventos() {
   const { labels } = useApp()
@@ -21,7 +22,7 @@ export default function Eventos() {
           <Reveal key={to} delay={index * 0.1}>
             <Link to={to} className="start-card">
               <span className="start-card__image">
-                <img src={data.heroImage} alt="" loading="lazy" />
+                <img src={mediaUrl(data.heroImage)} alt="" loading="lazy" />
               </span>
               <span className="start-card__copy">
                 <strong>{data.title}</strong>

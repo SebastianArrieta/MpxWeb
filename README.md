@@ -1,11 +1,10 @@
 # Mompox Mágico — guía turística de Santa Cruz de Mompox
 
-Sitio turístico de **Santa Cruz de Mompox** construido con Vite, React, React Router y TypeScript. El contenido estático vive en `content/`; el mapa usa Leaflet y OpenStreetMap.
+Sitio turístico de **Santa Cruz de Mompox** construido con Vite, React, React Router y TypeScript. El contenido estático vive en `content/`; el mapa usa MapLibre GL con teselas de OpenStreetMap.
 
 ## Cómo correr en local
 
 ```bash
-cd MpxWeb-maquetado
 npm install
 npm run dev
 ```
@@ -41,22 +40,23 @@ npm run preview
 - Primera visita: pantalla de bienvenida para elegir audiencia.
 - La audiencia no oculta páginas; solo reordena los accesos rapidos del inicio y mensajes cortos.
 - Contenido único en `content/`: labels ES/EN y lugares. Los mockups estáticos de `maquetado/` leen `content/places`; la app React importa desde `content/` también.
-- El mapa usa Leaflet/OpenStreetMap y lugares estáticos en `content/places/places.json`; no requiere clave.
-- El mapa lee lugares estáticos de `content/places/places.json` y usa teselas de OpenStreetMap. El contador y el formulario aún no tienen backend. Ruta 404 y scroll-to-top incluidos.
+- El mapa usa MapLibre GL + teselas de OpenStreetMap y lugares estáticos en `content/places/places.json`; no requiere clave. Solo se muestran los lugares con `ubicacion_verificada: true` (ver `npm run places:report`).
+- El contador de visitas no se muestra mientras no haya un servicio real de conteo. Ruta 404 y scroll-to-top incluidos.
 
-## Publicar en GitHub
+## Formulario de contacto
 
-Sebastián debe copiar estos archivos al repositorio SebastianArrieta/MpxWeb y hacer push el mismo:
+Sin configuración, al enviar el formulario se abre **WhatsApp** con el mensaje ya escrito, dirigido al autor de `contacto.destinoId` en `content/*/labels.json` (por defecto `sebastian`).
+
+Para recibir los mensajes por **correo**, crea un formulario gratis en [Formspree](https://formspree.io) y define la variable al compilar (en Vercel/Netlify: *Environment variables*; en local: archivo `.env.local`):
 
 ```bash
-cp -R /ruta/a/MpxWeb-maquetado/. /ruta/a/MpxWeb/
-cd /ruta/a/MpxWeb
-git add .
-git commit -m "Maquetado inicial Mompox (Vite + React)"
-git push
+VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/xxxxxxx
 ```
 
-No hace falta subir node_modules; en el remoto basta con el codigo fuente y el package.json.
+## Scripts útiles
+
+- `npm run media:localize` — descarga a `public/media/images/` las imágenes que todavía se cargan desde Lovable y reescribe las rutas en `content/`, `Home.tsx` e `index.html`. Usa `-- --dry` para ver qué haría sin tocar nada. Se ejecuta una vez y se comitean las imágenes.
+- `npm run places:report` — lista qué datos le faltan a cada lugar del mapa (coordenadas, horario, teléfono, foto).
 
 ## Cómo subir imágenes y audios (sin base de datos)
 
@@ -83,3 +83,6 @@ El código usa `import.meta.env.BASE_URL` + ruta (helper `src/helpers/mediaUrl.t
 
 ### Nota de despliegue (SPA)
 En Vercel/Netlify configura el redirect de SPA (todas las rutas → `index.html`) para que `/historia`, `/mapa`, etc. funcionen al recargar la página.
+
+### Imagen para redes (og:image)
+`og:image` en `index.html` debe ser una URL **absoluta**. `npm run media:localize` descarga la copia en `public/media/images/og-mompox.png`, pero deja la URL remota hasta que el sitio tenga dominio propio; entonces cámbiala por `https://TU-DOMINIO/media/images/og-mompox.png`.

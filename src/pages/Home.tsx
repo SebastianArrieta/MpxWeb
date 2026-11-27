@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'motion/react'
 import { useApp } from '../context/AppContext'
 import Reveal from '../components/Reveal'
+import { mediaUrl } from '../helpers/mediaUrl'
 
 const mompoxHero = 'https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg'
 
@@ -41,7 +42,7 @@ export default function Home() {
     <div className="page home">
       <section className="hero hero--cinematic" ref={heroRef}>
         <motion.div className="hero__backdrop" style={{ y: imgY }}>
-          <img src={mompoxHero} alt={labels.site.fullName} fetchPriority="high" />
+          <img src={mediaUrl(mompoxHero)} alt={labels.site.fullName} fetchPriority="high" />
         </motion.div>
         <div className="hero__shade" aria-hidden="true" />
         <motion.div className="hero__overlay" style={{ opacity: overlayOpacity }}>
@@ -105,7 +106,7 @@ export default function Home() {
             <Reveal key={item.to} delay={(i % 2) * 0.08}>
               <Link to={item.to} className="start-card">
                 <span className="start-card__image">
-                  <img src={item.image} alt={item.label} loading="lazy" decoding="async" />
+                  <img src={mediaUrl(item.image)} alt={item.label} loading="lazy" decoding="async" />
                 </span>
                 <span className="start-card__copy">
                   <strong>{item.label}</strong>

@@ -26,6 +26,10 @@ export default function VisitCounter({ className = '' }: { className?: string })
     return () => cancelAnimationFrame(raf)
   }, [visitCount])
 
+  // Sin un servicio real de conteo el valor es 0: mejor no mostrar nada que
+  // mostrar "Visitas: 0". Cuando haya backend/analytics, se rellena visitCount.
+  if (visitCount <= 0) return null
+
   return (
     <span className={`visit-counter ${className}`.trim()} title={labels.shell.contadorTitle}>
       {labels.shell.contadorVisitas}: <strong>{shown.toLocaleString('es-CO')}</strong>
