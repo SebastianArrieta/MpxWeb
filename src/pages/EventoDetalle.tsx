@@ -1,10 +1,16 @@
 import { Link } from '../components/LocaleLink'
 import { useApp } from '../context/AppContext'
 import Reveal from '../components/Reveal'
+import FestijazzExperience from '../components/FestijazzExperience'
 import { mediaUrl } from '../helpers/mediaUrl'
 
 export default function EventoDetalle({ tipo }: { tipo: 'semanaSanta' | 'festivalJazz' }) {
   const { labels } = useApp()
+
+  if (tipo === 'festivalJazz') {
+    return <FestijazzExperience />
+  }
+
   const event = labels[tipo]
 
   return (

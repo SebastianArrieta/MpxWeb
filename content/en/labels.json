@@ -477,6 +477,38 @@
         "text": "Workshops, master classes and impromptu street performances make Mompox come alive during the festival."
       }
     ],
+    "ensemble": {
+      "eyebrow": "Sounds of the night",
+      "title": "Jazz and the Caribbean on one stage",
+      "lead": "Tap each instrument to explore the blend that makes Mompox Festijazz one of a kind.",
+      "soundHint": "Click an instrument to play a soft chord",
+      "items": [
+        {
+          "id": "saxofon",
+          "name": "Tenor saxophone",
+          "role": "Night melody",
+          "detail": "Warm brass improvisation echoing off colonial facades and along the riverfront."
+        },
+        {
+          "id": "trompeta",
+          "name": "Trumpet",
+          "role": "Plaza brightness",
+          "detail": "Luminous open-air phrases conversing with the Caribbean brass band tradition."
+        },
+        {
+          "id": "caribe",
+          "name": "Drums & gaitas",
+          "role": "Momposino roots",
+          "detail": "Tambor alegre, llamador and coastal gaita flutes: the pulse of the Magdalena woven into jazz."
+        },
+        {
+          "id": "ritmo",
+          "name": "Double bass & drums",
+          "role": "Groove & cadence",
+          "detail": "The acoustic heartbeat uniting classic swing with Caribbean rhythms late into the night."
+        }
+      ]
+    },
     "consejosTitle": "Tips for attending",
     "consulta": "Ask about dates and program",
     "consejos": [

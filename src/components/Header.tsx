@@ -3,6 +3,7 @@ import { Link as RouterLink, useLocation } from 'react-router-dom'
 import { NavLink } from './LocaleLink'
 import { localizePath, stripLocale } from '../i18n/locale'
 import { useApp } from '../context/AppContext'
+import { mediaUrl } from '../helpers/mediaUrl'
 import VisitCounter from './VisitCounter'
 
 export default function Header() {
@@ -98,8 +99,18 @@ export default function Header() {
     <header ref={headerRef} className={`site-header${isScrolled ? ' is-scrolled' : ''}`}>
       <div className="site-header__inner">
         <NavLink to="/" className="site-logo" end onClick={closeNav}>
-          <span className="site-logo__name">Mompox<span aria-hidden="true">.</span></span>
-          <span className="site-logo__country">Colombia</span>
+          <img
+            className="site-logo__shield"
+            src={mediaUrl('media/escudo-mompox.webp')}
+            alt=""
+            aria-hidden="true"
+            width="220"
+            height="202"
+          />
+          <span className="site-logo__copy">
+            <span className="site-logo__name">Mompox<span aria-hidden="true">.</span></span>
+            <span className="site-logo__country">Colombia</span>
+          </span>
         </NavLink>
 
         <nav

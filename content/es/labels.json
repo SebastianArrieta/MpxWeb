@@ -477,6 +477,38 @@
         "text": "Talleres, clases magistrales y descargas espontáneas en las calles: durante esos días Mompox no duerme."
       }
     ],
+    "ensemble": {
+      "eyebrow": "Sonidos de la noche",
+      "title": "Jazz y Caribe en un mismo escenario",
+      "lead": "Toca cada instrumento para sentir la mezcla que hace único al Festijazz de Mompox.",
+      "soundHint": "Haz clic en un instrumento para escuchar un acorde",
+      "items": [
+        {
+          "id": "saxofon",
+          "name": "Saxofón tenor",
+          "role": "Melodía nocturna",
+          "detail": "Improvisación cálida de latón que resuena contra las fachadas coloniales y el malecón."
+        },
+        {
+          "id": "trompeta",
+          "name": "Trompeta",
+          "role": "Brillo de plaza",
+          "detail": "Fraseos luminosos al aire libre que dialogan con la tradición de las bandas sabaneras."
+        },
+        {
+          "id": "caribe",
+          "name": "Tambores y gaitas",
+          "role": "Raíz momposina",
+          "detail": "Tambor alegre, llamador y gaitas costeñas: el pulso del río Magdalena fundido con el jazz."
+        },
+        {
+          "id": "ritmo",
+          "name": "Contrabajo y batería",
+          "role": "Pulso y cadencia",
+          "detail": "La base acústica que une el swing clásico con los aires del Caribe hasta la madrugada."
+        }
+      ]
+    },
     "consejosTitle": "Consejos para asistir",
     "consulta": "Consultar fechas y programación",
     "consejos": [
