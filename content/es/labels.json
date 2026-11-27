@@ -147,7 +147,8 @@
     "contacto": "Contacto",
     "principal": "Principal",
     "abrirMenu": "Abrir menú",
-    "cerrarMenu": "Cerrar menú"
+    "cerrarMenu": "Cerrar menú",
+    "guiaPractica": "Guía práctica"
   },
   "inicio": {
     "eyebrow": "Distrito Especial Turístico, Cultural e Histórico",
@@ -372,6 +373,10 @@
         "text": "Desde tiempos coloniales, las hermandades y nazarenos momposinos recorren las calles empedradas cargando los pasos. La ciudad entera se organiza durante todo el año para estos días."
       },
       {
+        "title": "Patrimonio de la Nación",
+        "text": "Se celebra desde el siglo XVI y en 2026 la Ley 2598 reconoció la Semana Santa de Mompox como Patrimonio Cultural Inmaterial de la Nación."
+      },
+      {
         "title": "Los nazarenos y el paso de mano",
         "text": "Vestidos de túnica, los nazarenos avanzan en un vaivén lento y rítmico, meciendo los pasos al compás de la banda. Es un movimiento único que los momposinos aprenden desde niños."
       },
@@ -386,17 +391,10 @@
       "Llega con varios días de anticipación: el alojamiento se agota.",
       "Usa ropa fresca y zapatos cómodos.",
       "Respeta el paso de las hermandades y pregunta antes de fotografiar de cerca.",
-      "Las fechas cambian cada año según el calendario litúrgico; consulta la programación antes de viajar."
+      "Las fechas cambian cada año según el calendario litúrgico. En 2027 será del 18 al 28 de marzo; consulta la programación antes de viajar."
     ],
     "historiaTitle": "Historia",
     "historiaText": "La Semana Santa de Mompox conserva una tradición de origen colonial: procesiones que recorren el centro histórico, hermandades con siglos de historia y un ambiente de recogimiento que contrasta con la vida cotidiana del río. Es uno de los momentos en que el pueblo se reúne más.",
-    "procesionesTitle": "Procesiones",
-    "procesiones": [
-      "Domingo de Ramos — recorrido placeholder",
-      "Jueves Santo — pasos y calles principales",
-      "Viernes Santo — silencio y velas",
-      "Sábado de Gloria — cierre simbólico"
-    ],
     "galeriaTitle": "Galería",
     "galeriaFoto": "Foto {n}",
     "galeria": [
@@ -416,13 +414,50 @@
         "src": "media/images/muestra-mompox.svg",
         "caption": "Semana Santa — procesión 4"
       }
-    ]
+    ],
+    "programaTitle": "Once días, una procesión cada día",
+    "programaIntro": "En Mompox la Semana Santa empieza antes que en el resto del país: arranca el Jueves de Dolores y termina el Domingo de Resurrección. Así suele organizarse:",
+    "programa": [
+      {
+        "dia": "Jueves de Dolores",
+        "texto": "Comienza la Semana Santa momposina, a la medianoche."
+      },
+      {
+        "dia": "Domingo de Ramos",
+        "texto": "Procesión del Burrito."
+      },
+      {
+        "dia": "Lunes Santo",
+        "texto": "Procesión de Jesús de Nazaret."
+      },
+      {
+        "dia": "Martes Santo",
+        "texto": "Nuestra Señora de las Angustias y el Santo Ecce Homo."
+      },
+      {
+        "dia": "Miércoles Santo",
+        "texto": "Serenata a los difuntos: al atardecer, los momposinos van al cementerio con sus mejores galas, flores, velas y música."
+      },
+      {
+        "dia": "Jueves y Viernes Santo",
+        "texto": "Los días grandes: procesiones nocturnas con los pasos de la Pasión que se prolongan hasta la madrugada."
+      },
+      {
+        "dia": "Sábado y Domingo",
+        "texto": "Vigilia Pascual y Domingo de Resurrección."
+      }
+    ],
+    "programaNota": "Horarios y recorridos cambian cada año: consulta la programación oficial de la Alcaldía antes de viajar."
   },
   "festivalJazz": {
     "title": "Festival de Jazz",
     "tagline": "Cada año la ciudad colonial se convierte en escenario abierto: jazz, música del Caribe y tradición momposina bajo las estrellas.",
     "heroImage": "media/images/jazz.jpg",
     "sections": [
+      {
+        "title": "Cuándo es",
+        "text": "Suele celebrarse en septiembre. La edición 2026, la duodécima, fue del 3 al 5 de septiembre con conciertos gratuitos desde las 7:00 p. m. en el Parque del Jazz, organizada por la Gobernación de Bolívar a través de Icultur."
+      },
       {
         "title": "Jazz frente a las iglesias",
         "text": "Las plazas y la albarrada se llenan de tarimas. Los conciertos son gratuitos y al aire libre, con las fachadas coloniales como telón de fondo."
@@ -441,7 +476,7 @@
     "consejos": [
       "Reserva alojamiento con meses de anticipación.",
       "Lleva efectivo y planea llegar temprano a las plazas.",
-      "La programación y las fechas cambian cada edición; consulta los canales oficiales antes de viajar."
+      "Las fechas cambian cada edición (suele ser en septiembre); consulta los canales oficiales de Icultur antes de viajar."
     ],
     "origenTitle": "Origen",
     "origenText": "El Festijazz convierte el jazz en una cita de la comunidad: músicos locales e invitados tocan en plazas, claustros y el malecón, y el río se vuelve parte del escenario.",
@@ -592,7 +627,8 @@
           "Pregunta por los horarios de buses antes de viajar; varían según la temporada."
         ]
       }
-    ]
+    ],
+    "ctaGuia": "Clima, dinero, comida típica y más consejos en la Guía práctica"
   },
   "itinerariosPagina": {
     "title": "Itinerarios sugeridos",
@@ -873,5 +909,164 @@
     "title": "Página no encontrada",
     "text": "La ruta que buscas no existe o cambió de lugar.",
     "cta": "Volver al inicio"
+  },
+  "guiaPractica": {
+    "title": "Guía práctica para visitar Mompox",
+    "eyebrow": "Planea tu viaje",
+    "tagline": "Clima, fechas clave, comida típica, dinero, transporte y salud: lo que conviene saber antes de llegar a la orilla del Magdalena.",
+    "actualizado": "Información revisada en noviembre de 2026. Fechas, precios y recomendaciones pueden cambiar: confírmalos antes de viajar.",
+    "indiceAria": "Secciones de la guía",
+    "secciones": [
+      {
+        "id": "clima",
+        "title": "Cuándo ir y qué clima esperar",
+        "items": [
+          "Hace calor todo el año: la máxima promedio ronda los 34 °C y las noches rara vez bajan de 23 °C.",
+          "Febrero es el mes más caluroso (máximas cercanas a 38 °C) y noviembre el más suave (alrededor de 32 °C).",
+          "La temporada más seca va de diciembre a marzo. Septiembre, octubre y noviembre son los meses más lluviosos.",
+          "Hay más visitantes en diciembre, enero, Semana Santa y el Festival de Jazz; febrero, marzo (fuera de Semana Santa) y octubre son más tranquilos.",
+          "Al mediodía las calles se vacían por el calor. Al caer el sol entra la brisa del río y los momposinos salen a conversar en las aceras: es la mejor hora para caminar."
+        ]
+      },
+      {
+        "id": "fechas",
+        "title": "Fechas clave",
+        "items": [
+          "Semana Santa 2027: del jueves 18 de marzo (Jueves de Dolores) al domingo 28 de marzo. En Mompox dura 11 días, con procesiones cada día.",
+          "Miércoles Santo (24 de marzo de 2027): serenata a los difuntos en el cementerio, al atardecer.",
+          "Festival de Jazz: suele celebrarse en septiembre. La edición 2026 fue del 3 al 5 de septiembre, con entrada libre en el Parque del Jazz. Las fechas de 2027 las anuncia la Gobernación de Bolívar (Icultur).",
+          "En ambas fechas el alojamiento se agota: reserva con meses de anticipación."
+        ]
+      },
+      {
+        "id": "comida",
+        "title": "Qué comer y beber",
+        "items": [
+          "Queso de capa: queso de leche de vaca hecho en láminas, solo o relleno de bocadillo. Lo elaboran unas pocas familias y lo venden por las calles en cajas de madera; aguanta unos días, así que sirve de recuerdo.",
+          "Vinos artesanales de frutas, sobre todo de corozo; también de tamarindo, guayaba agria o naranja agria. Muchos comercios dan a probar antes de comprar.",
+          "Dulces tradicionales: dulce de limón, de tamarindo y de corozo, bolón de coco y panochas.",
+          "Butifarra y chorizo ahumados, casabe y casabito. La butifarra momposina fue elegida la mejor del Caribe en Sabor Barranquilla 2024.",
+          "Para el calor: jugo de corozo y sodas de guayaba agria, jamaica o maracuyá."
+        ]
+      },
+      {
+        "id": "dinero",
+        "title": "Dinero",
+        "items": [
+          "Lleva efectivo en pesos colombianos: buena parte del comercio, los mototaxis y los vendedores ambulantes solo reciben efectivo.",
+          "Hay pocos cajeros y en temporada alta pueden quedarse sin dinero; retira lo necesario en Cartagena, Barranquilla o la ciudad desde donde salgas.",
+          "Algunos hoteles y restaurantes aceptan tarjeta, pero confírmalo antes."
+        ]
+      },
+      {
+        "id": "moverse",
+        "title": "Cómo moverte",
+        "items": [
+          "El centro histórico se recorre a pie: las iglesias, la albarrada y las plazas quedan a pocas cuadras entre sí.",
+          "La bicicleta es uno de los medios de transporte más usados por los momposinos y se puede alquilar para recorrer el pueblo.",
+          "Los mototaxis sirven para trayectos cortos o para un recorrido de una hora si el calor aprieta. Acuerda el precio antes de subir.",
+          "No necesitas carro dentro de Mompox."
+        ]
+      },
+      {
+        "id": "salud",
+        "title": "Calor, salud y bienestar",
+        "items": [
+          "Ropa fresca, sombrero, protector solar y una botella de agua son imprescindibles. Evita caminar entre las 11 a. m. y las 3 p. m.",
+          "Usa repelente, sobre todo al atardecer cerca del río y en los paseos por la ciénaga.",
+          "Fiebre amarilla: el CDC de EE. UU. recomienda vacunarse a todos los viajeros a Colombia desde los 9 meses, salvo si solo visitan Barranquilla, Cali, Cartagena o Medellín. Mompox queda dentro de la recomendación. La vacuna debe ponerse al menos 10 días antes del viaje; consulta a tu médico.",
+          "En una emergencia llama a la línea nacional 123 y pregunta en tu alojamiento por el centro de urgencias más cercano."
+        ]
+      },
+      {
+        "id": "naturaleza",
+        "title": "Río y naturaleza",
+        "items": [
+          "Paseo en lancha por el brazo de Mompox al atardecer: es uno de los planes clásicos y la mejor forma de ver la ciudad desde el agua.",
+          "Ciénaga de Pijiño: humedal río abajo que se recorre en canoas a motor, con aves acuáticas, iguanas y monos aulladores. El regreso coincide con la puesta de sol sobre el Magdalena.",
+          "Los tours salen desde la albarrada; pregunta en tu hospedaje o consulta la sección Tours."
+        ]
+      }
+    ],
+    "faqTitle": "Preguntas frecuentes",
+    "faq": [
+      {
+        "q": "¿Cuántos días necesito para conocer Mompox?",
+        "a": "Mínimo dos días con una noche. Llegar desde la costa toma más de cinco horas por carretera, así que vale la pena quedarse al menos una noche para ver el pueblo con calma y vivir el atardecer en el río. En Itinerarios hay rutas para uno y dos días."
+      },
+      {
+        "q": "¿Se puede ir en el día desde Cartagena?",
+        "a": "Es posible, pero no lo recomendamos: son unos 270 km y más de cinco horas por trayecto. Pasarías casi todo el día en la carretera."
+      },
+      {
+        "q": "¿Cuál es la mejor época para ir?",
+        "a": "De diciembre a marzo llueve menos. Si buscas tranquilidad, febrero y marzo (fuera de Semana Santa) suelen tener menos visitantes. Si quieres ver la ciudad en su momento más intenso, ve en Semana Santa o durante el Festival de Jazz, reservando con mucha anticipación."
+      },
+      {
+        "q": "¿Necesito llevar efectivo?",
+        "a": "Sí. Muchos negocios solo aceptan efectivo y los cajeros son pocos y a veces se quedan sin dinero en temporada alta."
+      },
+      {
+        "q": "¿El Festival de Jazz cuesta?",
+        "a": "En su edición 2026 los conciertos fueron de entrada libre. Confirma las condiciones de cada edición en los canales oficiales."
+      },
+      {
+        "q": "¿Qué me llevo de recuerdo?",
+        "a": "Joyas de filigrana de los talleres locales, queso de capa y una botella de vino de corozo."
+      },
+      {
+        "q": "¿La Semana Santa de Mompox tiene algún reconocimiento oficial?",
+        "a": "Sí. La Ley 2598 de 2026 la reconoció como Patrimonio Cultural Inmaterial de la Nación. Se celebra desde el siglo XVI."
+      }
+    ],
+    "fuentesTitle": "Fuentes",
+    "fuentesNota": "Consultadas en noviembre de 2026.",
+    "fuentes": [
+      {
+        "label": "Colombia Travel — Mompox (ProColombia)",
+        "url": "https://colombia.travel/es/mompox"
+      },
+      {
+        "label": "Clima de Santa Cruz de Mompox mes a mes (adonde-y-cuando)",
+        "url": "https://www.adonde-y-cuando.es/when/america-sur/colombia/santa-cruz-de-mompox/"
+      },
+      {
+        "label": "CDC — Salud del viajero: Colombia",
+        "url": "https://wwwnc.cdc.gov/travel/destinations/traveler/none/colombia"
+      },
+      {
+        "label": "El Universal — Programación oficial FestiJazz Mompox 2026",
+        "url": "https://www.eluniversal.com.co/farandula/2026/09/02/gilberto-santa-rosa-pipe-bueno-y-ana-del-castillo-llegan-al-festijazz-mompox-2026/"
+      },
+      {
+        "label": "Ley 2598 de 2026 — Semana Santa de Mompox, Patrimonio Cultural Inmaterial de la Nación",
+        "url": "https://cancilleria.gov.co/normograma/compilacion/docs/ley_2598_2026.htm"
+      },
+      {
+        "label": "El Universal — Mompox, bello lugar para soñar con el pasado (programa de Semana Santa)",
+        "url": "https://www.eluniversal.com.co/regional/2022/04/09/mompox-bello-lugar-para-sonar-con-el-pasado/"
+      },
+      {
+        "label": "Colombia Travel — Semana Santa en Mompox",
+        "url": "https://colombia.travel/en/blog/holy-week-mompox"
+      },
+      {
+        "label": "Culture Trip — La historia del queso de capa",
+        "url": "https://theculturetrip.com/south-america/colombia/articles/the-story-behind-queso-de-capa-colombias-most-sought-after-cheese"
+      },
+      {
+        "label": "El Universal — Mompox en Sabor Barranquilla 2024",
+        "url": "https://www.eluniversal.com.co/regional/atlantico/2024/08/26/los-productos-de-mompox-fueron-la-atraccion-en-sabor-barranquilla-2024/"
+      },
+      {
+        "label": "TripBase — Presupuesto para Mompox",
+        "url": "https://www.tripbase.com/destinations/mompox-colombia/budget/"
+      },
+      {
+        "label": "Colombia Travel — Excursión a la Ciénaga de Pijiño",
+        "url": "https://colombia.travel/en/mompox/take-daytrip-pijino"
+      }
+    ],
+    "cta": "Ver el mapa de la ciudad"
   }
 }

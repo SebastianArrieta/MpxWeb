@@ -4,10 +4,19 @@
   },
   "site": {
     "name": "Mompox Mágico",
-    "locale": { "es": "es_CO", "en": "en_US" },
+    "locale": {
+      "es": "es_CO",
+      "en": "en_US"
+    },
     "defaultImage": "media/images/og-mompox.png",
-    "titleTemplate": { "es": "{title} · Santa Cruz de Mompox", "en": "{title} · Santa Cruz de Mompox" },
-    "geo": { "lat": 9.2416, "lng": -74.4234 }
+    "titleTemplate": {
+      "es": "{title} · Santa Cruz de Mompox",
+      "en": "{title} · Santa Cruz de Mompox"
+    },
+    "geo": {
+      "lat": 9.2416,
+      "lng": -74.4234
+    }
   },
   "routes": [
     {
@@ -115,6 +124,20 @@
       }
     },
     {
+      "path": "/guia-practica",
+      "image": "media/images/hero-mompox.jpg",
+      "priority": 0.8,
+      "faqFrom": "guiaPractica",
+      "es": {
+        "title": "Guía práctica para visitar Mompox",
+        "description": "Clima y mejor época, fechas de Semana Santa y Festival de Jazz, comida típica, efectivo, transporte y salud: consejos prácticos para tu viaje a Mompox."
+      },
+      "en": {
+        "title": "Practical guide to visiting Mompox",
+        "description": "Weather and best time to go, Holy Week and Jazz Festival dates, local food, cash, getting around and health: practical tips for your trip to Mompox."
+      }
+    },
+    {
       "path": "/historia",
       "image": "media/images/mompox-casas-coloniales.jpg",
       "priority": 0.7,
@@ -155,7 +178,9 @@
     },
     {
       "path": "/sobre-nosotros",
-      "aliases": ["/autor"],
+      "aliases": [
+        "/autor"
+      ],
       "priority": 0.3,
       "es": {
         "title": "Sobre nosotros",

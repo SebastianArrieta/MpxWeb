@@ -33,6 +33,24 @@ export default function EventoDetalle({ tipo }: { tipo: 'semanaSanta' | 'festiva
         ))}
       </div>
 
+      {'programa' in event ? (
+        <Reveal>
+          <section className="event-detail__program" aria-labelledby="programa-title">
+            <h2 id="programa-title">{event.programaTitle}</h2>
+            <p>{event.programaIntro}</p>
+            <ol>
+              {event.programa.map((item) => (
+                <li key={item.dia}>
+                  <strong>{item.dia}</strong>
+                  <span>{item.texto}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="travel-note">{event.programaNota}</p>
+          </section>
+        </Reveal>
+      ) : null}
+
       <Reveal>
         <aside className="event-detail__tips">
           <div>

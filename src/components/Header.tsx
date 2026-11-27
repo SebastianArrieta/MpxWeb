@@ -35,6 +35,7 @@ export default function Header() {
     { to: '/historia', label: labels.nav.historia },
   ]
   const planning = [
+    { to: '/guia-practica', label: labels.nav.guiaPractica },
     { to: '/como-llegar', label: labels.nav.comoLlegar },
     { to: '/itinerarios', label: labels.nav.itinerarios },
     { to: '/tours', label: labels.nav.tours },

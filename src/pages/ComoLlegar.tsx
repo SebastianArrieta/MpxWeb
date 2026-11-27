@@ -46,6 +46,9 @@ export default function ComoLlegar() {
         </div>
       </section>
       <p className="travel-note">{l.nota}</p>
+      <p className="travel-guide-link">
+        <Link to="/guia-practica">{l.ctaGuia} →</Link>
+      </p>
       <Link to="/mapa" className="btn btn--primary itinerarios-map-link">
         {l.ctaMapa} ↗
       </Link>

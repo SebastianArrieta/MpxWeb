@@ -147,7 +147,8 @@
     "contacto": "Contact",
     "principal": "Main",
     "abrirMenu": "Open menu",
-    "cerrarMenu": "Close menu"
+    "cerrarMenu": "Close menu",
+    "guiaPractica": "Practical guide"
   },
   "inicio": {
     "eyebrow": "Special Tourist, Cultural and Historic District",
@@ -372,6 +373,10 @@
         "text": "Since colonial times, Mompox brotherhoods and nazarenos have carried the pasos through cobbled streets. The whole town prepares all year for these days."
       },
       {
+        "title": "National heritage",
+        "text": "It has been celebrated since the 16th century, and in 2026 Law 2598 recognised Mompox Holy Week as National Intangible Cultural Heritage of Colombia."
+      },
+      {
         "title": "The nazarenos and paso de mano",
         "text": "Dressed in robes, the nazarenos advance in a slow, rhythmic sway, moving the pasos to the band's beat. Momposinos learn this distinctive movement from childhood."
       },
@@ -386,17 +391,10 @@
       "Arrive several days early: accommodation fills up.",
       "Wear light clothing and comfortable shoes.",
       "Respect the brotherhoods' procession and ask before taking close-up photos.",
-      "Dates change each year with the liturgical calendar; check the program before traveling."
+      "Dates change every year with the liturgical calendar. In 2027 it runs from 18 to 28 March; check the programme before you travel."
     ],
     "historiaTitle": "History",
     "historiaText": "Mompox's Holy Week keeps a colonial tradition alive: processions through the historic center, brotherhoods with centuries of history and a mood of reflection that contrasts with daily life on the river. It is one of the moments when the whole town comes together.",
-    "procesionesTitle": "Processions",
-    "procesiones": [
-      "Palm Sunday — placeholder route",
-      "Maundy Thursday — steps and main streets",
-      "Good Friday — silence and candles",
-      "Holy Saturday — symbolic closing"
-    ],
     "galeriaTitle": "Gallery",
     "galeriaFoto": "Photo {n}",
     "galeria": [
@@ -416,13 +414,50 @@
         "src": "media/images/muestra-mompox.svg",
         "caption": "Holy Week — procession 4"
       }
-    ]
+    ],
+    "programaTitle": "Eleven days, a procession every day",
+    "programaIntro": "In Mompox, Holy Week starts earlier than in the rest of the country: it begins on Jueves de Dolores and ends on Easter Sunday. It is usually organised like this:",
+    "programa": [
+      {
+        "dia": "Jueves de Dolores",
+        "texto": "Mompox Holy Week begins at midnight."
+      },
+      {
+        "dia": "Palm Sunday",
+        "texto": "Procession of the Donkey (Procesión del Burrito)."
+      },
+      {
+        "dia": "Holy Monday",
+        "texto": "Procession of Jesus of Nazareth."
+      },
+      {
+        "dia": "Holy Tuesday",
+        "texto": "Our Lady of Sorrows (las Angustias) and the Holy Ecce Homo."
+      },
+      {
+        "dia": "Holy Wednesday",
+        "texto": "Serenade to the dead: at sunset, locals go to the cemetery in their best clothes with flowers, candles and music."
+      },
+      {
+        "dia": "Holy Thursday and Good Friday",
+        "texto": "The main days: night processions with the Passion floats that last until the early hours."
+      },
+      {
+        "dia": "Saturday and Sunday",
+        "texto": "Easter Vigil and Easter Sunday."
+      }
+    ],
+    "programaNota": "Times and routes change every year: check the official programme from the town hall before you travel."
   },
   "festivalJazz": {
     "title": "Jazz Festival",
     "tagline": "Each year the colonial town becomes an open-air stage for jazz, Caribbean music and Momposino tradition beneath the stars.",
     "heroImage": "media/images/jazz.jpg",
     "sections": [
+      {
+        "title": "When it happens",
+        "text": "It is usually held in September. The 2026 edition, the twelfth, ran from 3 to 5 September with free concerts from 7 p.m. at the Parque del Jazz, organised by the Bolívar government through Icultur."
+      },
       {
         "title": "Jazz by the churches",
         "text": "Stages fill the squares and riverfront. Concerts are free and outdoors, with colonial facades as their backdrop."
@@ -441,7 +476,7 @@
     "consejos": [
       "Book accommodation months in advance.",
       "Bring cash and arrive early at the squares.",
-      "Dates and programs change each year; check official channels before traveling."
+      "Dates change with each edition (usually September); check Icultur’s official channels before you travel."
     ],
     "origenTitle": "Origins",
     "origenText": "Festijazz turns jazz into a community gathering: local musicians and guests play in squares, cloisters and along the riverfront, and the river becomes part of the stage.",
@@ -592,7 +627,8 @@
           "Check bus schedules before traveling; they vary by season."
         ]
       }
-    ]
+    ],
+    "ctaGuia": "Weather, money, local food and more tips in the Practical guide"
   },
   "itinerariosPagina": {
     "title": "Suggested itineraries",
@@ -873,5 +909,164 @@
     "title": "Page not found",
     "text": "The route you are looking for does not exist or has moved.",
     "cta": "Back to home"
+  },
+  "guiaPractica": {
+    "title": "Practical guide to visiting Mompox",
+    "eyebrow": "Plan your trip",
+    "tagline": "Weather, key dates, local food, money, getting around and health: what to know before you reach the banks of the Magdalena.",
+    "actualizado": "Information reviewed in November 2026. Dates, prices and recommendations may change: confirm them before you travel.",
+    "indiceAria": "Guide sections",
+    "secciones": [
+      {
+        "id": "clima",
+        "title": "When to go and what weather to expect",
+        "items": [
+          "It is hot all year round: the average high is around 34 °C (94 °F) and nights rarely drop below 23 °C (74 °F).",
+          "February is the hottest month (highs near 38 °C / 100 °F) and November the mildest (around 32 °C / 89 °F).",
+          "The driest season runs from December to March. September, October and November are the rainiest months.",
+          "Visitor numbers peak in December, January, Holy Week and the Jazz Festival; February, March (outside Holy Week) and October are quieter.",
+          "At midday the streets empty because of the heat. At sunset the river breeze arrives and locals sit out on the sidewalks to chat: the best time for a walk."
+        ]
+      },
+      {
+        "id": "fechas",
+        "title": "Key dates",
+        "items": [
+          "Holy Week 2027: from Thursday 18 March (Jueves de Dolores) to Sunday 28 March. In Mompox it lasts 11 days, with processions every day.",
+          "Holy Wednesday (24 March 2027): serenade to the dead at the cemetery, at sunset.",
+          "Jazz Festival: usually held in September. The 2026 edition ran from 3 to 5 September, with free entry at the Parque del Jazz. The 2027 dates are announced by the Bolívar government (Icultur).",
+          "Accommodation sells out for both: book months in advance."
+        ]
+      },
+      {
+        "id": "comida",
+        "title": "What to eat and drink",
+        "items": [
+          "Queso de capa: a layered cow’s-milk cheese, plain or filled with guava paste. Only a few families make it and vendors sell it around town from wooden boxes; it keeps for a few days, so it makes a good souvenir.",
+          "Artisanal fruit wines, above all corozo wine; also tamarind, sour guava or bitter orange. Many shops offer tastings before you buy.",
+          "Traditional sweets: lime, tamarind and corozo sweets, coconut balls and panochas.",
+          "Smoked butifarra and chorizo sausages, casabe and casabito. Mompox butifarra was named the best in the Caribbean at Sabor Barranquilla 2024.",
+          "For the heat: corozo juice and sour guava, hibiscus or passion fruit sodas."
+        ]
+      },
+      {
+        "id": "dinero",
+        "title": "Money",
+        "items": [
+          "Bring cash in Colombian pesos: many shops, mototaxis and street vendors only take cash.",
+          "There are few ATMs and they can run out of money in high season; withdraw what you need in Cartagena, Barranquilla or wherever you set out from.",
+          "Some hotels and restaurants accept cards, but check first."
+        ]
+      },
+      {
+        "id": "moverse",
+        "title": "Getting around",
+        "items": [
+          "The historic centre is best explored on foot: the churches, the riverfront and the squares are a few blocks apart.",
+          "Bicycles are one of the most common ways locals get around, and you can rent one to tour the town.",
+          "Mototaxis are handy for short hops or a one-hour tour when the heat is strong. Agree on the price before you get on.",
+          "You do not need a car inside Mompox."
+        ]
+      },
+      {
+        "id": "salud",
+        "title": "Heat, health and wellbeing",
+        "items": [
+          "Light clothing, a hat, sunscreen and a water bottle are essential. Avoid walking between 11 a.m. and 3 p.m.",
+          "Wear insect repellent, especially at dusk near the river and on swamp boat trips.",
+          "Yellow fever: the US CDC recommends vaccination for all travellers to Colombia aged 9 months and over, except those visiting only Barranquilla, Cali, Cartagena or Medellín. Mompox falls within the recommendation. Get vaccinated at least 10 days before travel and talk to your doctor.",
+          "In an emergency call Colombia’s national line, 123, and ask your accommodation for the nearest emergency centre."
+        ]
+      },
+      {
+        "id": "naturaleza",
+        "title": "River and nature",
+        "items": [
+          "A sunset boat ride on the Mompox branch of the river is a classic, and the best way to see the town from the water.",
+          "Ciénaga de Pijiño: a wetland downstream explored in motorised canoes, with waterbirds, iguanas and howler monkeys. The trip back coincides with sunset over the Magdalena.",
+          "Tours leave from the riverfront; ask at your accommodation or see the Tours section."
+        ]
+      }
+    ],
+    "faqTitle": "Frequently asked questions",
+    "faq": [
+      {
+        "q": "How many days do I need in Mompox?",
+        "a": "At least two days with one night. Getting there from the coast takes more than five hours by road, so it is worth staying at least one night to see the town at an easy pace and enjoy sunset on the river. Itineraries has routes for one and two days."
+      },
+      {
+        "q": "Can I visit as a day trip from Cartagena?",
+        "a": "It is possible, but we do not recommend it: it is about 270 km and more than five hours each way. You would spend most of the day on the road."
+      },
+      {
+        "q": "When is the best time to go?",
+        "a": "December to March is the driest period. For a quieter visit, February and March (outside Holy Week) usually have fewer visitors. To see the town at its most intense, go for Holy Week or the Jazz Festival and book well ahead."
+      },
+      {
+        "q": "Do I need cash?",
+        "a": "Yes. Many businesses only take cash, and ATMs are few and can run out of money in high season."
+      },
+      {
+        "q": "Does the Jazz Festival cost anything?",
+        "a": "In 2026 the concerts were free to attend. Check each edition’s conditions on the official channels."
+      },
+      {
+        "q": "What should I take home as a souvenir?",
+        "a": "Filigree jewellery from the local workshops, queso de capa and a bottle of corozo wine."
+      },
+      {
+        "q": "Does Mompox Holy Week have official recognition?",
+        "a": "Yes. Law 2598 of 2026 recognised it as National Intangible Cultural Heritage of Colombia. It has been celebrated since the 16th century."
+      }
+    ],
+    "fuentesTitle": "Sources",
+    "fuentesNota": "Consulted in November 2026.",
+    "fuentes": [
+      {
+        "label": "Colombia Travel — Mompox (ProColombia)",
+        "url": "https://colombia.travel/es/mompox"
+      },
+      {
+        "label": "Santa Cruz de Mompox month-by-month climate (adonde-y-cuando)",
+        "url": "https://www.adonde-y-cuando.es/when/america-sur/colombia/santa-cruz-de-mompox/"
+      },
+      {
+        "label": "CDC — Travelers’ Health: Colombia",
+        "url": "https://wwwnc.cdc.gov/travel/destinations/traveler/none/colombia"
+      },
+      {
+        "label": "El Universal — FestiJazz Mompox 2026 official lineup",
+        "url": "https://www.eluniversal.com.co/farandula/2026/09/02/gilberto-santa-rosa-pipe-bueno-y-ana-del-castillo-llegan-al-festijazz-mompox-2026/"
+      },
+      {
+        "label": "Law 2598 of 2026 — Mompox Holy Week declared National Intangible Cultural Heritage",
+        "url": "https://cancilleria.gov.co/normograma/compilacion/docs/ley_2598_2026.htm"
+      },
+      {
+        "label": "El Universal — Holy Week program in Mompox",
+        "url": "https://www.eluniversal.com.co/regional/2022/04/09/mompox-bello-lugar-para-sonar-con-el-pasado/"
+      },
+      {
+        "label": "Colombia Travel — Holy Week in Mompox",
+        "url": "https://colombia.travel/en/blog/holy-week-mompox"
+      },
+      {
+        "label": "Culture Trip — The story behind queso de capa",
+        "url": "https://theculturetrip.com/south-america/colombia/articles/the-story-behind-queso-de-capa-colombias-most-sought-after-cheese"
+      },
+      {
+        "label": "El Universal — Mompox at Sabor Barranquilla 2024",
+        "url": "https://www.eluniversal.com.co/regional/atlantico/2024/08/26/los-productos-de-mompox-fueron-la-atraccion-en-sabor-barranquilla-2024/"
+      },
+      {
+        "label": "TripBase — Mompox budget",
+        "url": "https://www.tripbase.com/destinations/mompox-colombia/budget/"
+      },
+      {
+        "label": "Colombia Travel — Day trip to the Ciénaga de Pijiño",
+        "url": "https://colombia.travel/en/mompox/take-daytrip-pijino"
+      }
+    ],
+    "cta": "See the town map"
   }
 }

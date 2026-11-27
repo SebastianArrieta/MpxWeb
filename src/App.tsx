@@ -14,6 +14,7 @@ import ComoLlegar from './pages/ComoLlegar'
 import Itinerarios from './pages/Itinerarios'
 import EventoDetalle from './pages/EventoDetalle'
 import NotFound from './pages/NotFound'
+import GuiaPractica from './pages/GuiaPractica'
 
 const Mapa = lazy(() => import('./pages/Mapa'))
 
@@ -41,6 +42,7 @@ const pages = (
     <Route path="galeria" element={<Galeria />} />
     <Route path="como-llegar" element={<ComoLlegar />} />
     <Route path="itinerarios" element={<Itinerarios />} />
+    <Route path="guia-practica" element={<GuiaPractica />} />
     <Route path="autor" element={<Autor />} />
     <Route path="sobre-nosotros" element={<Autor />} />
     <Route path="contacto" element={<Contacto />} />
