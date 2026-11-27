@@ -22,6 +22,8 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = path.join(ROOT, 'dist')
 const env = { ...loadEnv('production', ROOT, 'VITE_'), ...process.env }
 const SITE_URL = (env.VITE_SITE_URL ?? '').trim().replace(/\/+$/, '')
+// Base de publicación (VITE_BASE), p. ej. '/MpxWeb/' en GitHub Pages.
+const BASE = `/${(env.VITE_BASE ?? '/').replace(/^\/+|\/+$/g, '')}/`.replace(/\/+/g, '/')
 const LANGS = ['es', 'en']
 const EN_PREFIX = '/en'
 
@@ -114,7 +116,7 @@ function headFor(route, lang) {
     )
   }
   if (route.path === '/') {
-    tags.push(`<link rel="preload" as="image" href="/media/images/hero-mompox.jpg" />`, jsonLd(lang))
+    tags.push(`<link rel="preload" as="image" href="${BASE}media/images/hero-mompox.jpg" />`, jsonLd(lang))
   }
   tags.push('<!-- seo:end -->')
   return tags.join('\n    ')
@@ -135,6 +137,10 @@ for (const lang of LANGS) {
     }
   }
 }
+
+// 404.html: GitHub Pages (y otros hostings estáticos) lo sirven para rutas
+// desconocidas; es la app normal, que muestra su página 404 con noindex.
+await writeFile(path.join(DIST, '404.html'), await readFile(path.join(DIST, 'index.html'), 'utf8'))
 
 const robots = ['User-agent: *', 'Allow: /']
 if (SITE_URL) robots.push('', `Sitemap: ${SITE_URL}/sitemap.xml`)

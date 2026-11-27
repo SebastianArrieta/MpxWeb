@@ -97,5 +97,22 @@ El código usa `import.meta.env.BASE_URL` + ruta (helper `src/helpers/mediaUrl.t
 
 > **Docker (dev):** el servidor Vite cachea el listado de `public/` al arrancar. Si añades imágenes/audios con el contenedor en marcha, **reinícialo** para que se sirvan: `docker compose restart web` (o `docker compose up -d --force-recreate web`). Si no, esos archivos nuevos devuelven `index.html` (imagen rota) hasta reiniciar.
 
-### Nota de despliegue (SPA)
-Cada ruta conocida tiene su propio `dist/<ruta>/index.html`; para las demás (404) configura en Vercel/Netlify el redirect de SPA (todas las rutas → `index.html`). El `nginx.conf` incluido ya lo hace.
+## Publicar el sitio
+
+El build (`npm run build`) genera en `dist/` una página HTML por ruta (ES y EN), `404.html`, `sitemap.xml` y `robots.txt`. Sirve en cualquier hosting estático. Define siempre `VITE_SITE_URL` con la dirección final.
+
+### Opción A — GitHub Pages (automático con cada push a `main`)
+El flujo `.github/workflows/deploy-pages.yml` compila y publica en `https://sebastianarrieta.github.io/MpxWeb/`.
+1. **Requisito:** GitHub Pages en repos **privados** exige un plan de pago (GitHub Pro o superior). Con el plan gratuito, el repo debe ser público.
+2. En **Settings → Pages → Build and deployment → Source**, elige **GitHub Actions** (una sola vez).
+3. Haz push a `main` o ejecuta el flujo a mano desde la pestaña **Actions**.
+4. Con dominio propio: en **Settings → Secrets and variables → Actions → Variables** define `SITE_URL=https://tu-dominio.com` y `BASE_PATH=/`, y configura el dominio en **Settings → Pages**. Opcional: `FORMSPREE_ENDPOINT`.
+
+### Opción B — Vercel o Netlify (gratis también con repo privado)
+Importa el repo desde su panel y configura:
+- **Build command:** `npm run build` · **Output directory:** `dist`
+- **Variable de entorno:** `VITE_SITE_URL=https://<la-dirección-que-te-asignen>` (y `VITE_FORMSPREE_ENDPOINT` si usas Formspree).
+No hace falta configurar redirects: cada ruta tiene su `index.html` y las demás reciben `404.html`.
+
+### Opción C — Docker / nginx
+`docker build --build-arg VITE_SITE_URL=https://... -t mpxweb . && docker run -p 8080:80 mpxweb`. El `nginx.conf` incluido ya sirve las rutas, el 404 y el worker `.mjs` del mapa.
