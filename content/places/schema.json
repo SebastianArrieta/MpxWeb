@@ -84,6 +84,18 @@
       "type": "boolean",
       "required": true,
       "note": "true solo si las coordenadas fueron contrastadas con una fuente cartografica"
+    },
+    {
+      "name": "fuente_ubicacion",
+      "type": "string",
+      "required": false,
+      "note": "De dónde salen lat/lng (p. ej. \"OpenStreetMap node/123\" o \"Google Maps\"). Obligatorio cuando ubicacion_verificada=true."
+    },
+    {
+      "name": "nota_verificacion",
+      "type": "string",
+      "required": false,
+      "note": "Por qué un lugar sigue oculto o qué falta confirmar."
     }
   ],
   "map_center": {
