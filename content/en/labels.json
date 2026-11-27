@@ -114,35 +114,13 @@
     "pregunta": "Are you a visitor or a momposino?",
     "opcionVisitante": "Visitor",
     "opcionMomposino": "Momposino",
-    "ayuda": "Your choice reorders the home page and shows short messages. You can change it anytime from the footer."
-  },
-  "presentacion": {
-    "saltar": "Skip intro",
-    "continuar": "Continue",
-    "pausar": "Pause intro",
-    "reproducir": "Resume intro",
-    "slides": [
-      {
-        "eyebrow": "Welcome to",
-        "title": "Santa Cruz de Mompox",
-        "text": "A colonial town frozen in time, on the waters of the Magdalena River."
-      },
-      {
-        "eyebrow": "Colombian Caribbean",
-        "title": "River, lime and living memory",
-        "text": "Processions, jazz by the riverfront, filigree and adobe houses that carry centuries of history."
-      },
-      {
-        "eyebrow": "Heritage",
-        "title": "Declared by UNESCO",
-        "text": "Since 1995 the historic center has been a World Heritage Site. Let us show you the way."
-      }
-    ]
+    "ayuda": "We order the home page around what helps you most. You can change it anytime from the footer.",
+    "cerrar": "Dismiss"
   },
   "audiencia": {
     "chipVisitante": "Visitor",
     "chipMomposino": "Momposino",
-    "cambiar": "Change audience"
+    "cambiarA": "Switch to {perfil}"
   },
   "idioma": {
     "es": "ES",

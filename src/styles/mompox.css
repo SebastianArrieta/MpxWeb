@@ -133,127 +133,6 @@
   .info-card::after { transition: none; }
 }
 
-/* ---------- Presentaci�n previa (EntryGate) ---------- */
-.intro {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: flex;
-  color: var(--mpx-cal);
-  background: var(--mpx-barro);
-  overflow: hidden;
-}
-.intro__bg,
-.intro__bg img,
-.intro__shade { position: absolute; inset: 0; }
-.intro__bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: mpx-kenburns 30s var(--ease) infinite alternate;
-}
-.intro__shade {
-  background:
-    linear-gradient(180deg, rgba(20, 12, 8, 0.45), rgba(40, 28, 18, 0.35) 45%, rgba(20, 12, 8, 0.85)),
-    radial-gradient(120% 90% at 50% 0%, transparent 40%, rgba(10, 6, 5, 0.5) 100%);
-}
-.intro__body {
-  position: relative;
-  z-index: 1;
-  width: min(760px, 100%);
-  margin: auto;
-  padding: clamp(1.5rem, 5vw, 3rem);
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  justify-content: center;
-}
-.intro__slide { min-height: 240px; }
-.intro__eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--mpx-ocre-soft);
-  margin-bottom: 0.9rem;
-}
-.intro__title {
-  font-size: clamp(2.2rem, 7vw, 4.2rem);
-  line-height: 1.04;
-  color: var(--mpx-cal);
-  text-shadow: 0 6px 30px rgba(20, 12, 8, 0.4);
-  margin-bottom: 1rem;
-}
-.intro__text {
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
-  line-height: 1.55;
-  max-width: 52ch;
-  color: rgba(254, 255, 252, 0.92);
-}
-.intro__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
-.intro__actions .btn--secondary { color: var(--mpx-cal); border-color: var(--mpx-cal); }
-.intro__actions .btn--secondary:hover { background: var(--mpx-cal); color: var(--mpx-tinta); }
-
-.intro__footer {
-  margin-top: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  min-height: 44px;
-}
-.intro__dots { display: flex; gap: 0.5rem; }
-.intro__dots span {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: rgba(254, 255, 252, 0.4);
-  transition: width 0.4s var(--ease), background 0.4s ease;
-}
-.intro__dots span.is-on { width: 26px; background: var(--mpx-ocre); }
-.intro__controls { display: flex; align-items: center; gap: 1rem; }
-.intro__skip {
-  background: none;
-  border: 0;
-  padding: 0.4rem 0;
-  color: rgba(254, 255, 252, 0.8);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  cursor: pointer;
-}
-.intro__skip:hover { color: var(--mpx-cal); }
-.intro__pause {
-  display: inline-grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: 1px solid rgba(254, 255, 252, 0.45);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--mpx-cal);
-  cursor: pointer;
-  transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
-}
-.intro__pause:hover { background: rgba(255, 255, 255, 0.16); border-color: var(--mpx-cal); }
-.intro__pause > span { display: block; }
-.intro__pause > span.is-pause {
-  width: 12px;
-  height: 14px;
-  border-left: 4px solid currentColor;
-  border-right: 4px solid currentColor;
-}
-.intro__pause > span.is-play {
-  width: 0;
-  height: 0;
-  margin-left: 2px;
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid transparent;
-  border-left: 12px solid currentColor;
-}
-.intro .btn--primary { background: var(--mpx-ocre); border-color: var(--mpx-ocre); color: var(--mpx-tinta); }
-
 /* ---------- Pie: cambio de perfil ---------- */
 .site-footer__profile {
   background: none;
@@ -266,11 +145,7 @@
   font: inherit;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .intro__bg img { animation: none; }
-}
-
-/* ---------- Pie: grupos de navegaci�n ---------- */
+/* ---------- Pie: grupos de navegación ---------- */
 .site-footer { background: #2f422a; color: var(--mpx-cal); border-top: 0; }
 .site-footer__brand { color: var(--mpx-cal); }
 .site-footer .visit-counter,
@@ -519,6 +394,10 @@
   --muted-foreground: oklch(50% 0.028 60);
   --accent: oklch(56% 0.152 34);
   --accent-foreground: oklch(98.5% 0.01 84);
+  /* Versiones para TEXTO sobre fondos claros (contraste AA >= 4.5:1).
+     --primary y --accent quedan para rellenos, bordes e íconos. */
+  --primary-text: oklch(52% 0.12 68);
+  --accent-text: oklch(52% 0.14 34);
   --border: oklch(88% 0.02 78);
   --input: oklch(88% 0.02 78);
   --ring: oklch(68% 0.142 72);
@@ -927,3 +806,56 @@ h4 { font-family: var(--font-serif); }
   .site-nav__map-link { min-height: 44px; }
   .chip-filter { min-height: 40px; }
 }
+
+/* ===========================================================================
+   Inicio — pregunta de perfil (no bloquea; reemplaza a la presentación previa)
+   =========================================================================== */
+.audience-prompt { overflow: hidden; }
+.audience-prompt__card {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  width: min(1120px, calc(100% - 2rem));
+  margin: clamp(1.5rem, 4vw, 2.5rem) auto 0;
+  padding: 1.25rem 3.5rem 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.audience-prompt__copy { flex: 1 1 320px; }
+.audience-prompt__copy h2 { margin: 0 0 0.3rem; font-size: clamp(1.25rem, 2.4vw, 1.5rem); color: var(--foreground); }
+.audience-prompt__copy p { margin: 0; color: var(--muted-foreground); max-width: 60ch; }
+.audience-prompt__actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.audience-prompt__close {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.audience-prompt__close:hover { background: var(--secondary); color: var(--foreground); }
+
+/* ===========================================================================
+   Contraste de texto (WCAG AA): el ocre (--primary) solo da 2.8:1 sobre el
+   fondo crema, así que como color de texto se usa --primary-text.
+   =========================================================================== */
+.app-main a:not([class]),
+.info-card__tag,
+.author-stub__role,
+.contact-author-card__role { color: var(--primary-text); }
+.app-main a:not([class]):hover { color: var(--foreground); }
+.page-header__eyebrow { color: var(--accent-text); }

@@ -1,9 +1,8 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { motion, MotionConfig } from 'motion/react'
 import Header from './Header'
 import Footer from './Footer'
-import EntryGate from './EntryGate'
 import { useApp } from '../context/AppContext'
 import { useSpotlight } from '../hooks/useSpotlight'
 
@@ -25,10 +24,9 @@ const TITLES: Record<string, { es: string; en: string }> = {
 }
 
 export default function Layout() {
-  const { hasChosenAudience, lang } = useApp()
+  const { lang } = useApp()
   const { pathname } = useLocation()
   const isHome = pathname === '/'
-  const shellRef = useRef<HTMLDivElement | null>(null)
 
   useSpotlight()
 
@@ -38,16 +36,9 @@ export default function Layout() {
     document.title = entry ? `${entry[lang]} · ${base}` : base
   }, [pathname, lang])
 
-  useEffect(() => {
-    const shell = shellRef.current
-    if (!shell) return
-    if (hasChosenAudience) shell.removeAttribute('inert')
-    else shell.setAttribute('inert', '')
-  }, [hasChosenAudience])
-
   return (
     <MotionConfig reducedMotion="user">
-      <div ref={shellRef} className={`app-shell${isHome ? ' app-shell--home' : ''}`}>
+      <div className={`app-shell${isHome ? ' app-shell--home' : ''}`}>
         <a className="skip-link" href="#contenido">
           {lang === 'en' ? 'Skip to content' : 'Saltar al contenido'}
         </a>
@@ -64,7 +55,6 @@ export default function Layout() {
         </main>
         <Footer />
       </div>
-      {!hasChosenAudience && <EntryGate />}
     </MotionConfig>
   )
 }

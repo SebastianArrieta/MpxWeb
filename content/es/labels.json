@@ -114,35 +114,13 @@
     "pregunta": "¿Eres visitante o momposino?",
     "opcionVisitante": "Visitante",
     "opcionMomposino": "Momposino",
-    "ayuda": "Tu elección ordena el inicio y muestra mensajes breves. Puedes cambiarla cuando quieras desde el pie de página."
-  },
-  "presentacion": {
-    "saltar": "Saltar presentación",
-    "continuar": "Continuar",
-    "pausar": "Pausar presentación",
-    "reproducir": "Reanudar presentación",
-    "slides": [
-      {
-        "eyebrow": "Bienvenido a",
-        "title": "Santa Cruz de Mompox",
-        "text": "Un pueblo colonial detenido en el tiempo, sobre las aguas del río Magdalena."
-      },
-      {
-        "eyebrow": "Caribe colombiano",
-        "title": "Río, cal y memoria viva",
-        "text": "Procesiones, jazz junto al malecón, filigrana y casas de tapia que cuentan siglos de historia."
-      },
-      {
-        "eyebrow": "Patrimonio",
-        "title": "Declarado por la UNESCO",
-        "text": "Desde 1995, el centro histórico es Patrimonio de la Humanidad. Déjanos mostrarte el camino."
-      }
-    ]
+    "ayuda": "Ordenamos el inicio según lo que te sirva más. Puedes cambiarlo cuando quieras desde el pie de página.",
+    "cerrar": "Cerrar"
   },
   "audiencia": {
     "chipVisitante": "Visitante",
     "chipMomposino": "Momposino",
-    "cambiar": "Cambiar audiencia"
+    "cambiarA": "Cambiar a {perfil}"
   },
   "idioma": {
     "es": "ES",

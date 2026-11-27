@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'motion/react'
+import AudiencePrompt from '../components/AudiencePrompt'
 import { useApp } from '../context/AppContext'
 import Reveal from '../components/Reveal'
 import { mediaUrl } from '../helpers/mediaUrl'
@@ -96,6 +97,8 @@ export default function Home() {
           ))}
         </ul>
       </section>
+
+      <AudiencePrompt />
 
       <section className="section home__section home__start">
         <Reveal>
