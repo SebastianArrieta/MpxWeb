@@ -14,7 +14,7 @@ Esta guía describe el sistema visual **tal como está implementado** en `src/st
 
 ## 2. Color
 
-Los valores reales viven en el último bloque `:root` de `src/styles/mompox.css` (sección *"Visual alignment…"*). Los hex son la conversión aproximada a sRGB.
+Todas las variables globales viven en **`src/styles/tokens.css`** (un único `:root`, cargado antes que el resto del CSS). Los hex son la conversión aproximada a sRGB.
 
 | Token | Valor | Hex ≈ | Uso |
 |---|---|---|---|
@@ -128,8 +128,8 @@ Escala en uso:
 - Sombras en botones, radios grandes o degradados de colores.
 - Imágenes enlazadas desde dominios externos.
 
-## 10. Deuda técnica de estilos (pendiente)
+## 10. Deuda técnica de estilos
 
-- `index.css` y `mompox.css` definen **tres bloques `:root` superpuestos**; solo el último cuenta. Conviene consolidarlos en un `src/styles/tokens.css` único.
-- Hay **alias heredados con nombres engañosos**: `--terracotta` es teja, `--teal` es el color del texto, `--color-signal-blue` es ocre, `--mpx-cielo` es verde río. Al consolidar, migra a los nombres semánticos (`--primary`, `--accent`, `--river`, `--foreground`, …) y elimina los alias.
-- Muchas reglas se sobrescriben en cascada entre los dos archivos (p. ej. `.btn--primary`, `.site-footer`). El CSS compilado pesa ~160 KB; tras consolidar debería bajar bastante.
+- ✅ **Resuelto:** los tres bloques `:root` superpuestos de `index.css` y `mompox.css` se unificaron en `src/styles/tokens.css`, con los valores que realmente se aplicaban, y se eliminaron 10 variables sin uso. Se verificó píxel a píxel en 14 rutas (escritorio y móvil): sin cambios visuales.
+- **Pendiente:** los **alias heredados** (`--terracotta` = teja, `--teal` = color del texto, `--color-signal-blue` = ocre, `--mpx-cielo` = verde río, …) siguen en `tokens.css`, agrupados y marcados como obsoletos, porque el CSS antiguo todavía los usa. Al tocar una regla, cámbiala al nombre semántico (`--primary`, `--accent`, `--river`, `--foreground`, …); cuando ningún alias tenga usos, se borra.
+- **Pendiente:** muchas reglas se sobrescriben en cascada entre `index.css` y `mompox.css` (p. ej. `.btn--primary`, `.site-footer`). Unificar cada componente en una sola regla reduciría el CSS (~159 KB) y evitaría sorpresas.

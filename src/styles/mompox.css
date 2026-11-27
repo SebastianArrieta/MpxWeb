@@ -376,75 +376,7 @@
 }
 
 /* ---------- Visual alignment with the supplied Mompox Mágico HTML ---------- */
-:root {
-  /* Tokens transcritos del tema del CSS que compartiste. */
-  --radius: 0.35rem;
-  --radius-lg: 0.6rem;
-  --background: oklch(98.2% 0.012 84);
-  --foreground: oklch(26% 0.028 55);
-  --card: oklch(99.5% 0.006 84);
-  --card-foreground: oklch(26% 0.028 55);
-  --popover: oklch(99.5% 0.006 84);
-  --popover-foreground: oklch(26% 0.028 55);
-  --primary: oklch(68% 0.142 72);
-  --primary-foreground: oklch(21% 0.03 55);
-  --secondary: oklch(94% 0.022 84);
-  --secondary-foreground: oklch(30% 0.03 55);
-  --muted-surface: oklch(94.5% 0.017 84);
-  --muted-foreground: oklch(50% 0.028 60);
-  --accent: oklch(56% 0.152 34);
-  --accent-foreground: oklch(98.5% 0.01 84);
-  /* Versiones para TEXTO sobre fondos claros (contraste AA >= 4.5:1).
-     --primary y --accent quedan para rellenos, bordes e íconos. */
-  --primary-text: oklch(52% 0.12 68);
-  --accent-text: oklch(52% 0.14 34);
-  --border: oklch(88% 0.02 78);
-  --input: oklch(88% 0.02 78);
-  --ring: oklch(68% 0.142 72);
-  --river: oklch(44% 0.062 168);
-  --river-foreground: oklch(98.5% 0.01 84);
-  --clay: oklch(56% 0.152 34);
-  --clay-foreground: oklch(98.5% 0.01 84);
-  --ink: oklch(22% 0.026 55);
-  --palette-sand: oklch(93% 0.03 82);
-
-  --mpx-cal: var(--background);
-  --mpx-ocre: var(--primary);
-  --mpx-ocre-soft: var(--palette-sand);
-  --mpx-teja: var(--clay);
-  --mpx-teja-deep: oklch(44% 0.11 34);
-  --mpx-ceiba: var(--river);
-  --mpx-ceiba-soft: var(--secondary);
-  --mpx-cielo: var(--river);
-  --mpx-cielo-deep: oklch(36% 0.07 168);
-  --mpx-barro: var(--muted-foreground);
-  --mpx-barro-soft: var(--secondary);
-  --mpx-tinta: var(--foreground);
-
-  --cream: var(--background);
-  --cream-dark: var(--secondary);
-  --sand: var(--border);
-  --terracotta: var(--primary);
-  --terracotta-deep: var(--accent);
-  --teal: var(--foreground);
-  --teal-mid: var(--muted-foreground);
-  --teal-soft: var(--muted-surface);
-  --ink: oklch(22% 0.026 55);
-  --muted: var(--muted-foreground);
-  --white: var(--card);
-
-  --color-parchment: var(--background);
-  --color-paper: var(--card);
-  --color-linen: var(--secondary);
-  --color-graphite: var(--foreground);
-  --color-charcoal: var(--foreground);
-  --color-ash: var(--muted-foreground);
-  --color-mist: var(--border);
-  --color-signal-blue: var(--primary);
-  --color-cerulean: var(--accent);
-  --font-serif: 'Bodoni Moda', Georgia, serif;
-  --font-sans: 'Karla', system-ui, sans-serif;
-}
+/* Variables globales: src/styles/tokens.css */
 
 body { background: var(--mpx-cal); color: var(--mpx-tinta); font-family: var(--font-sans); }
 h1, h2, h3, .site-logo__name { font-family: var(--font-serif); font-weight: 500; }

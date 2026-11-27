@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { AppProvider } from './context/AppContext'
 import App from './App'
 import 'maplibre-gl/dist/maplibre-gl.css'
+import './styles/tokens.css'
 import './styles/index.css'
 import './styles/mompox.css'
 
