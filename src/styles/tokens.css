@@ -1,0 +1,73 @@
+/* ===========================================================================
+   Tokens de diseño de Mompox Mágico — ÚNICA fuente de variables globales.
+   Antes había tres bloques :root superpuestos (dos en index.css y uno en
+   mompox.css); aquí quedan los valores que realmente se aplicaban.
+   Se carga antes que index.css y mompox.css (ver src/main.tsx).
+   Guía: SKILLS/DESIGN.MD
+   ========================================================================== */
+:root {
+  /* Tokens semánticos: úsalos en código nuevo */
+  --background: oklch(98.2% 0.012 84);
+  --foreground: oklch(26% 0.028 55);
+  --card: oklch(99.5% 0.006 84);
+  --card-foreground: oklch(26% 0.028 55);
+  --primary: oklch(68% 0.142 72);
+  --primary-foreground: oklch(21% 0.03 55);
+  --primary-text: oklch(52% 0.12 68);
+  --secondary: oklch(94% 0.022 84);
+  --muted-surface: oklch(94.5% 0.017 84);
+  --muted-foreground: oklch(50% 0.028 60);
+  --accent: oklch(56% 0.152 34);
+  --accent-text: oklch(52% 0.14 34);
+  --border: oklch(88% 0.02 78);
+  --river: oklch(44% 0.062 168);
+  --clay: oklch(56% 0.152 34);
+  --ink: oklch(22% 0.026 55);
+  --palette-sand: oklch(93% 0.03 82);
+
+  /* Forma, sombra, tipografía y movimiento */
+  --radius: 0.35rem;
+  --radius-lg: 0.6rem;
+  --shadow: rgba(0, 0, 0, 0.08) 0px 1px 1px 0px, rgba(0, 0, 0, 0.08) 0px 4px 5px 0px;
+  --shadow-lg: rgba(0, 0, 0, 0.15) 0px 2px 6px 0px;
+  --font-serif: 'Bodoni Moda', Georgia, serif;
+  --font-sans: 'Karla', system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --header-h: 56px;
+
+  /* Marca Mompox (nombres de material: cal, ocre, teja, ceiba, barro…) */
+  --mpx-cal: var(--background);
+  --mpx-ocre: var(--primary);
+  --mpx-ocre-soft: var(--palette-sand);
+  --mpx-teja: var(--clay);
+  --mpx-teja-deep: oklch(44% 0.11 34);
+  --mpx-ceiba: var(--river);
+  --mpx-ceiba-soft: var(--secondary);
+  --mpx-cielo: var(--river);
+  --mpx-cielo-deep: oklch(36% 0.07 168);
+  --mpx-barro: var(--muted-foreground);
+  --mpx-barro-soft: var(--secondary);
+  --mpx-tinta: var(--foreground);
+
+  /* Alias heredados (OBSOLETOS): existen porque el CSS antiguo los usa. No los uses en código nuevo; sus nombres no describen el color real (--terracotta es teja, --teal es el color del texto, --color-signal-blue es ocre). */
+  --color-twilight: var(--mpx-barro);
+  --color-dusk: #3a3026;
+  --cream: var(--background);
+  --cream-dark: var(--secondary);
+  --sand: var(--border);
+  --terracotta: var(--primary);
+  --terracotta-deep: var(--accent);
+  --teal: var(--foreground);
+  --teal-mid: var(--muted-foreground);
+  --teal-soft: var(--muted-surface);
+  --muted: var(--muted-foreground);
+  --white: var(--card);
+  --color-parchment: var(--background);
+  --color-paper: var(--card);
+  --color-linen: var(--secondary);
+  --color-graphite: var(--foreground);
+  --color-charcoal: var(--foreground);
+  --color-ash: var(--muted-foreground);
+  --color-mist: var(--border);
+  --color-signal-blue: var(--primary);
+}
