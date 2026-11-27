@@ -83,6 +83,20 @@ function jsonLd(lang) {
   return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`
 }
 
+/** FAQPage de schema.org a partir de una lista { q, a } de los labels. */
+function faqJsonLd(faq) {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  }
+  return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`
+}
+
 function headFor(route, lang) {
   const copy = route[lang]
   const title =
@@ -112,6 +126,10 @@ function headFor(route, lang) {
       `<meta property="og:image" content="${esc(abs(image))}" />`,
       `<meta name="twitter:image" content="${esc(abs(image))}" />`,
     )
+  }
+  if (route.faqFrom) {
+    const faq = (lang === 'en' ? labelsEn : labels)[route.faqFrom]?.faq ?? []
+    if (faq.length) tags.push(faqJsonLd(faq))
   }
   if (route.path === '/') {
     tags.push(`<link rel="preload" as="image" href="/media/images/hero-mompox.jpg" />`, jsonLd(lang))

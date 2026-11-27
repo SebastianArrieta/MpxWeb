@@ -11,6 +11,7 @@ export default function Footer() {
     { to: '/mapa', label: labels.nav.mapa },
     { to: '/itinerarios', label: labels.nav.itinerarios },
     { to: '/como-llegar', label: labels.nav.comoLlegar },
+    { to: '/guia-practica', label: labels.nav.guiaPractica },
     { to: '/galeria', label: labels.nav.galeria },
     { to: '/semana-santa', label: labels.nav.semanaSanta },
     { to: '/festival-jazz', label: labels.nav.festivalJazz },
