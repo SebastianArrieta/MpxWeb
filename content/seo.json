@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "note": "Título, descripción e imagen para buscadores y vistas previas (WhatsApp, Facebook, X). Lo usan el hook useSeo (al navegar) y scripts/seo-build.mjs (HTML por ruta, sitemap.xml y robots.txt). Las descripciones deben tener entre 120 y 160 caracteres."
+  },
+  "site": {
+    "name": "Mompox Mágico",
+    "locale": { "es": "es_CO", "en": "en_US" },
+    "defaultImage": "media/images/og-mompox.png",
+    "titleTemplate": { "es": "{title} · Santa Cruz de Mompox", "en": "{title} · Santa Cruz de Mompox" },
+    "geo": { "lat": 9.2416, "lng": -74.4234 }
+  },
+  "routes": [
+    {
+      "path": "/",
+      "image": "media/images/og-mompox.png",
+      "priority": 1.0,
+      "es": {
+        "title": "Mompox, Colombia — Semana Santa, Jazz, mapa y tours",
+        "description": "Guía de Santa Cruz de Mompox, Bolívar: Semana Santa, Festival de Jazz, mapa con sitios, hoteles y restaurantes, itinerarios y tours con guías locales."
+      },
+      "en": {
+        "title": "Mompox, Colombia — Holy Week, Jazz, map and tours",
+        "description": "Guide to Santa Cruz de Mompox, Colombia: Holy Week, the Jazz Festival, a map of sights, hotels and restaurants, itineraries and tours with local guides."
+      }
+    },
+    {
+      "path": "/semana-santa",
+      "image": "media/images/semana-santa.jpg",
+      "priority": 0.9,
+      "es": {
+        "title": "Semana Santa en Mompox",
+        "description": "Procesiones, tradición desde el siglo XVI y consejos para vivir la Semana Santa de Mompox, una de las más antiguas y solemnes de América."
+      },
+      "en": {
+        "title": "Holy Week in Mompox",
+        "description": "Processions, a tradition dating back to the 16th century and tips for experiencing Holy Week in Mompox, one of the oldest and most solemn in the Americas."
+      }
+    },
+    {
+      "path": "/festival-jazz",
+      "image": "media/images/jazz.jpg",
+      "priority": 0.9,
+      "es": {
+        "title": "Festival de Jazz de Mompox",
+        "description": "Jazz, música del Caribe y tradición momposina en las plazas y la albarrada. Origen del festival y consejos para asistir al Festijazz de Mompox."
+      },
+      "en": {
+        "title": "Mompox Jazz Festival",
+        "description": "Jazz, Caribbean music and Momposino tradition in the squares and along the riverfront. The festival's origins and tips for attending Festijazz."
+      }
+    },
+    {
+      "path": "/mapa",
+      "image": "media/images/mompox-calles.jpg",
+      "priority": 0.9,
+      "es": {
+        "title": "Mapa de Mompox",
+        "description": "Mapa interactivo de Mompox con sitios turísticos, restaurantes, hoteles, parqueaderos y servicios, y ruta directa desde donde estés."
+      },
+      "en": {
+        "title": "Map of Mompox",
+        "description": "Interactive map of Mompox with tourist sites, restaurants, hotels, parking and services, plus directions from wherever you are."
+      }
+    },
+    {
+      "path": "/que-ver",
+      "image": "media/images/mompox-santa-barbara.jpg",
+      "priority": 0.8,
+      "es": {
+        "title": "Qué ver en Mompox",
+        "description": "Qué ver en Mompox: arquitectura colonial, el río Magdalena, sus tradiciones y la filigrana de sus orfebres. Lo esencial para tu visita."
+      },
+      "en": {
+        "title": "What to see in Mompox",
+        "description": "What to see in Mompox: colonial architecture, the Magdalena River, its traditions and the filigree of its goldsmiths. The essentials for your visit."
+      }
+    },
+    {
+      "path": "/tours",
+      "image": "media/images/filigrana.jpg",
+      "priority": 0.8,
+      "es": {
+        "title": "Tours en Mompox",
+        "description": "Tours guiados por Mompox a pie, en bici o en motocarro, talleres de filigrana y recorridos virtuales con guías locales."
+      },
+      "en": {
+        "title": "Tours in Mompox",
+        "description": "Guided tours of Mompox on foot, by bike or motocarro, filigree workshops and virtual tours with local guides."
+      }
+    },
+    {
+      "path": "/itinerarios",
+      "image": "media/images/mompox-albarrada.jpg",
+      "priority": 0.7,
+      "es": {
+        "title": "Itinerarios en Mompox",
+        "description": "Rutas sugeridas para recorrer Mompox según el tiempo que tengas: paradas, recomendaciones y el orden para aprovechar tu visita."
+      },
+      "en": {
+        "title": "Mompox itineraries",
+        "description": "Suggested routes through Mompox for however much time you have: stops, recommendations and the best order to make the most of your visit."
+      }
+    },
+    {
+      "path": "/como-llegar",
+      "image": "media/images/rio-magdalena.jpg",
+      "priority": 0.8,
+      "es": {
+        "title": "Cómo llegar a Mompox",
+        "description": "Cómo llegar a Mompox, Bolívar, por tierra, aire y río: rutas, empresas de transporte y consejos para el viaje hasta la orilla del Magdalena."
+      },
+      "en": {
+        "title": "How to get to Mompox",
+        "description": "How to get to Mompox, Colombia by road, air and river: routes, transport companies and travel tips for reaching the banks of the Magdalena."
+      }
+    },
+    {
+      "path": "/historia",
+      "image": "media/images/mompox-casas-coloniales.jpg",
+      "priority": 0.7,
+      "es": {
+        "title": "Historia de Mompox",
+        "description": "La historia de Santa Cruz de Mompox en una línea de tiempo, desde su fundación en 1537 hasta Patrimonio de la Humanidad, con su bandera, escudo e himno."
+      },
+      "en": {
+        "title": "History of Mompox",
+        "description": "The history of Santa Cruz de Mompox on a timeline, from its founding in 1537 to World Heritage status, plus its flag, coat of arms and anthem."
+      }
+    },
+    {
+      "path": "/eventos",
+      "image": "media/images/semana-santa.jpg",
+      "priority": 0.6,
+      "es": {
+        "title": "Eventos en Mompox",
+        "description": "Las dos celebraciones que marcan el año en Mompox: la Semana Santa y el Festival de Jazz. Qué son, cuándo ocurren y cómo vivirlas."
+      },
+      "en": {
+        "title": "Events in Mompox",
+        "description": "The two celebrations that shape the year in Mompox: Holy Week and the Jazz Festival. What they are, when they happen and how to enjoy them."
+      }
+    },
+    {
+      "path": "/galeria",
+      "image": "media/images/mompox-calles.jpg",
+      "priority": 0.5,
+      "es": {
+        "title": "Galería de Mompox",
+        "description": "Fotos de Mompox: sus calles coloniales, iglesias, la albarrada, la Semana Santa, el Festival de Jazz y los oficios que le dan alma a la ciudad."
+      },
+      "en": {
+        "title": "Mompox gallery",
+        "description": "Photos of Mompox: its colonial streets, churches, riverfront, Holy Week, the Jazz Festival and the crafts that give the town its soul."
+      }
+    },
+    {
+      "path": "/sobre-nosotros",
+      "aliases": ["/autor"],
+      "priority": 0.3,
+      "es": {
+        "title": "Sobre nosotros",
+        "description": "Mompox Mágico es un sitio creado por dos amigos para mostrar Santa Cruz de Mompox al mundo, a visitantes y a momposinos."
+      },
+      "en": {
+        "title": "About us",
+        "description": "Mompox Mágico is a site created by two friends to share Santa Cruz de Mompox with the world, for visitors and locals alike."
+      }
+    },
+    {
+      "path": "/contacto",
+      "priority": 0.3,
+      "es": {
+        "title": "Contacto",
+        "description": "Escríbenos para proponer una corrección al mapa, compartir una foto de Mompox o hacernos una pregunta sobre tu viaje."
+      },
+      "en": {
+        "title": "Contact",
+        "description": "Write to us to suggest a map correction, share a photo of Mompox or ask a question about your trip."
+      }
+    }
+  ]
+}

@@ -13,6 +13,8 @@ declare module '*.jpg' {
 interface ImportMetaEnv {
   /** Endpoint de Formspree (https://formspree.io/f/xxxx). Si no existe, el formulario usa WhatsApp. */
   readonly VITE_FORMSPREE_ENDPOINT?: string
+  /** URL pública del sitio sin "/" final (canonical, og:url, og:image, sitemap). */
+  readonly VITE_SITE_URL?: string
 }
 
 interface ImportMeta {
