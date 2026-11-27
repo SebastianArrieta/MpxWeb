@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from '../components/LocaleLink'
 import { motion, useScroll, useTransform } from 'motion/react'
 import AudiencePrompt from '../components/AudiencePrompt'
 import { useApp } from '../context/AppContext'

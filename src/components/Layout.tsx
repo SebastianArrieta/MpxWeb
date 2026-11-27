@@ -5,10 +5,11 @@ import Footer from './Footer'
 import { useApp } from '../context/AppContext'
 import { useSpotlight } from '../hooks/useSpotlight'
 import { useSeo } from '../hooks/useSeo'
+import { stripLocale } from '../i18n/locale'
 
 export default function Layout() {
   const { lang } = useApp()
-  const { pathname } = useLocation()
+  const pathname = stripLocale(useLocation().pathname)
   const isHome = pathname === '/'
 
   useSpotlight()

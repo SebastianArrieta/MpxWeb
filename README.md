@@ -20,6 +20,9 @@ npm run preview
 
 ## Rutas
 
+Cada página existe en español en la raíz y en inglés bajo `/en` (p. ej. `/mapa` y `/en/mapa`). El idioma lo decide la URL; el selector ES|EN lleva a la misma página en el otro idioma. En el código usa `Link`/`NavLink` de `src/components/LocaleLink.tsx` (no los de `react-router-dom`) para que los enlaces internos conserven el idioma.
+
+
 - `/` – Inicio
 - `/semana-santa` – Semana Santa
 - `/festival-jazz` – Festival Jazz
@@ -49,8 +52,8 @@ npm run preview
 
 Título, descripción e imagen de cada página viven en **`content/seo.json`** (ES y EN). Con eso:
 
-- `useSeo` actualiza el `<head>` al navegar y al cambiar de idioma.
-- `npm run build` ejecuta al final `scripts/seo-build.mjs`, que genera `dist/<ruta>/index.html` con las etiquetas de cada página (lo que leen WhatsApp, Facebook y Google sin ejecutar JS), `robots.txt` y `sitemap.xml`. La página principal incluye datos estructurados de schema.org (`WebSite` y `TouristDestination`).
+- `useSeo` actualiza el `<head>` al navegar y al cambiar de idioma, con `hreflang` entre la versión en español y la inglesa.
+- `npm run build` ejecuta al final `scripts/seo-build.mjs`, que genera `dist/<ruta>/index.html` y `dist/en/<ruta>/index.html` con las etiquetas de cada página (lo que leen WhatsApp, Facebook y Google sin ejecutar JS), `robots.txt` y `sitemap.xml` (con ambas versiones de cada página). La página principal incluye datos estructurados de schema.org (`WebSite` y `TouristDestination`).
 
 **Al publicar, define `VITE_SITE_URL`** (ver `.env.example`), p. ej. `https://mompoxmagico.com`. Sin ella no se generan `canonical`, `og:image` ni `sitemap.xml`, porque necesitan URLs absolutas. En Docker: `docker build --build-arg VITE_SITE_URL=https://... .`
 

@@ -1,10 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link as RouterLink, useLocation } from 'react-router-dom'
+import { NavLink } from './LocaleLink'
+import { localizePath, stripLocale } from '../i18n/locale'
 import { useApp } from '../context/AppContext'
 import VisitCounter from './VisitCounter'
 
 export default function Header() {
-  const { lang, toggleLang, labels } = useApp()
+  const { lang, labels } = useApp()
+  const { pathname, search, hash } = useLocation()
+  const otherLang = lang === 'es' ? 'en' : 'es'
+  // Enlace real (no solo un botón) para que buscadores encuentren la otra versión.
+  const otherLangHref = localizePath(stripLocale(pathname), otherLang) + search + hash
   const [navOpen, setNavOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const navRef = useRef<HTMLElement | null>(null)
@@ -81,16 +87,17 @@ export default function Header() {
         </nav>
 
         <div className="site-header__tools">
-          <button
-            type="button"
+          <RouterLink
+            to={otherLangHref}
             className="lang-toggle"
-            onClick={toggleLang}
+            hrefLang={otherLang}
             aria-label={labels.idioma.aria}
+            onClick={closeNav}
           >
             <span className={lang === 'es' ? 'is-on' : ''}>{labels.idioma.es}</span>
             <span className="lang-toggle__sep">|</span>
             <span className={lang === 'en' ? 'is-on' : ''}>{labels.idioma.en}</span>
-          </button>
+          </RouterLink>
 
           <button
             type="button"

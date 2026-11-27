@@ -17,34 +17,45 @@ import NotFound from './pages/NotFound'
 
 const Mapa = lazy(() => import('./pages/Mapa'))
 
+/**
+ * Las mismas páginas en dos idiomas: español en la raíz e inglés bajo /en.
+ * Rutas relativas para poder montarlas en ambos prefijos.
+ */
+const pages = (
+  <>
+    <Route index element={<Home />} />
+    <Route path="historia" element={<Historia />} />
+    <Route path="eventos" element={<Eventos />} />
+    <Route path="semana-santa" element={<EventoDetalle tipo="semanaSanta" />} />
+    <Route path="festival-jazz" element={<EventoDetalle tipo="festivalJazz" />} />
+    <Route path="que-ver" element={<QueVer />} />
+    <Route
+      path="mapa"
+      element={
+        <Suspense fallback={<p className="map-loading" role="status">Cargando mapa…</p>}>
+          <Mapa />
+        </Suspense>
+      }
+    />
+    <Route path="tours" element={<Tours />} />
+    <Route path="galeria" element={<Galeria />} />
+    <Route path="como-llegar" element={<ComoLlegar />} />
+    <Route path="itinerarios" element={<Itinerarios />} />
+    <Route path="autor" element={<Autor />} />
+    <Route path="sobre-nosotros" element={<Autor />} />
+    <Route path="contacto" element={<Contacto />} />
+    <Route path="*" element={<NotFound />} />
+  </>
+)
+
 export default function App() {
   return (
     <>
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/historia" element={<Historia />} />
-          <Route path="/eventos" element={<Eventos />} />
-          <Route path="/semana-santa" element={<EventoDetalle tipo="semanaSanta" />} />
-          <Route path="/festival-jazz" element={<EventoDetalle tipo="festivalJazz" />} />
-          <Route path="/que-ver" element={<QueVer />} />
-          <Route
-            path="/mapa"
-            element={
-              <Suspense fallback={<p className="map-loading" role="status">Cargando mapa…</p>}>
-                <Mapa />
-              </Suspense>
-            }
-          />
-          <Route path="/tours" element={<Tours />} />
-          <Route path="/galeria" element={<Galeria />} />
-          <Route path="/como-llegar" element={<ComoLlegar />} />
-          <Route path="/itinerarios" element={<Itinerarios />} />
-          <Route path="/autor" element={<Autor />} />
-          <Route path="/sobre-nosotros" element={<Autor />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="en">{pages}</Route>
+          <Route path="/">{pages}</Route>
         </Route>
       </Routes>
     </>
