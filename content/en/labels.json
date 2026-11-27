@@ -179,37 +179,37 @@
         "to": "/semana-santa",
         "label": "Holy Week",
         "hint": "One of America's oldest and most solemn religious celebrations, alive in Mompox since the 16th century.",
-        "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg"
+        "image": "media/images/semana-santa.jpg"
       },
       {
         "to": "/festival-jazz",
         "label": "Jazz Festival",
         "hint": "Each year the colonial town becomes an open-air stage for jazz, Caribbean music and Momposino tradition beneath the stars.",
-        "image": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg"
+        "image": "media/images/jazz.jpg"
       },
       {
         "to": "/tours",
         "label": "Tours",
         "hint": "Guided experiences to discover Mompox on foot, by bike or from home with local guides.",
-        "image": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg"
+        "image": "media/images/filigrana.jpg"
       },
       {
         "to": "/itinerarios",
         "label": "Itineraries",
         "hint": "1-day, 2-day and weekend routes to make the most of your visit.",
-        "image": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg"
+        "image": "media/images/rio-magdalena.jpg"
       },
       {
         "to": "/galeria",
         "label": "Gallery",
         "hint": "Photos of the architecture, river, processions and jazz.",
-        "image": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg"
+        "image": "media/images/hero-mompox.jpg"
       },
       {
         "to": "/como-llegar",
         "label": "Getting here",
         "hint": "Buses, flights, roads and where to stay.",
-        "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg"
+        "image": "media/images/semana-santa.jpg"
       }
     ],
     "quickVisitante": [
@@ -365,7 +365,7 @@
   "semanaSanta": {
     "title": "Holy Week",
     "tagline": "One of America's oldest and most solemn religious celebrations, alive in Mompox since the 16th century.",
-    "heroImage": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg",
+    "heroImage": "media/images/semana-santa.jpg",
     "sections": [
       {
         "title": "A centuries-old tradition",
@@ -421,7 +421,7 @@
   "festivalJazz": {
     "title": "Jazz Festival",
     "tagline": "Each year the colonial town becomes an open-air stage for jazz, Caribbean music and Momposino tradition beneath the stars.",
-    "heroImage": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg",
+    "heroImage": "media/images/jazz.jpg",
     "sections": [
       {
         "title": "Jazz by the churches",
@@ -489,27 +489,27 @@
     },
     "fotos": [
       {
-        "src": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg",
+        "src": "media/images/hero-mompox.jpg",
         "caption": "Church of Santa Bárbara at sunset",
         "categoria": "calles"
       },
       {
-        "src": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg",
+        "src": "media/images/semana-santa.jpg",
         "caption": "Holy Week procession through Mompox",
         "categoria": "semanaSanta"
       },
       {
-        "src": "https://mompox-magic-map.lovable.app/assets/jazz-BSYbt2uI.jpg",
+        "src": "media/images/jazz.jpg",
         "caption": "Mompox Jazz Festival concert",
         "categoria": "jazz"
       },
       {
-        "src": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg",
+        "src": "media/images/filigrana.jpg",
         "caption": "Momposino filigree craftwork",
         "categoria": "filigrana"
       },
       {
-        "src": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg",
+        "src": "media/images/rio-magdalena.jpg",
         "caption": "The Magdalena River by Mompox",
         "categoria": "rio"
       }
@@ -682,22 +682,22 @@
       {
         "title": "Colonial and religious architecture",
         "text": "Six churches, cobbled streets and houses with cool courtyards. Santa Bárbara's octagonal tower is unique in the Americas.",
-        "image": "https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg"
+        "image": "media/images/hero-mompox.jpg"
       },
       {
         "title": "Magdalena River and ecotourism",
         "text": "Canoe trips through the wetlands, birdwatching and sunsets from the riverfront.",
-        "image": "https://mompox-magic-map.lovable.app/assets/rio-magdalena-C73BUJ8t.jpg"
+        "image": "media/images/rio-magdalena.jpg"
       },
       {
         "title": "Magical realism and traditions",
         "text": "The cemetery, its legends and Gabriel García Márquez's connection to Mompox as literary territory.",
-        "image": "https://mompox-magic-map.lovable.app/assets/semana-santa-DAOQy6g1.jpg"
+        "image": "media/images/semana-santa.jpg"
       },
       {
         "title": "Momposino filigree",
         "text": "Goldsmiths weave silver threads by hand. Visit workshops and watch a piece of jewelry take shape.",
-        "image": "https://mompox-magic-map.lovable.app/assets/filigrana-DevTqAeO.jpg"
+        "image": "media/images/filigrana.jpg"
       }
     ]
   },

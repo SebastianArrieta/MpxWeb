@@ -6,7 +6,7 @@ import { useApp } from '../context/AppContext'
 import Reveal from '../components/Reveal'
 import { mediaUrl } from '../helpers/mediaUrl'
 
-const mompoxHero = 'https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg'
+const mompoxHero = 'media/images/hero-mompox.jpg'
 
 function WordReveal({ text, delay = 0 }: { text: string; delay?: number }) {
   const words = text.split(' ')
