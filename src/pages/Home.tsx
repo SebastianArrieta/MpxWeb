@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'motion/react'
 import { useApp } from '../context/AppContext'
 import Reveal from '../components/Reveal'
+import AudiencePrompt from '../components/AudiencePrompt'
 
 const mompoxHero = 'https://mompox-magic-map.lovable.app/assets/hero-mompox-DYvqeVN5.jpg'
 
@@ -95,6 +96,8 @@ export default function Home() {
           ))}
         </ul>
       </section>
+
+      <AudiencePrompt />
 
       <section className="section home__section home__start">
         <Reveal>

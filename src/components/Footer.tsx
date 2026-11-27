@@ -3,10 +3,10 @@ import VisitCounter from './VisitCounter'
 import { useApp } from '../context/AppContext'
 
 export default function Footer() {
-  const { labels, audience, resetAudience } = useApp()
-  const profile = audience === 'momposino'
-    ? labels.audiencia.chipMomposino
-    : labels.audiencia.chipVisitante
+  const { labels, audience, setAudience } = useApp()
+  const isLocal = audience === 'momposino'
+  const profile = isLocal ? labels.audiencia.chipMomposino : labels.audiencia.chipVisitante
+  const other = isLocal ? labels.audiencia.chipVisitante : labels.audiencia.chipMomposino
   const siteLinks = [
     { to: '/mapa', label: labels.nav.mapa },
     { to: '/itinerarios', label: labels.nav.itinerarios },
@@ -59,8 +59,8 @@ export default function Footer() {
         <p>{labels.shell.footerNote} — {labels.shell.footerCreators}</p>
         <p className="site-footer__profile-line">
           {profile} ·{' '}
-          <button type="button" className="site-footer__profile" onClick={resetAudience}>
-            {labels.audiencia.cambiar}
+          <button type="button" className="site-footer__profile" onClick={() => setAudience(isLocal ? 'visitante' : 'momposino')}>
+            {labels.audiencia.cambiarA.replace('{perfil}', other)}
           </button>
         </p>
       </div>

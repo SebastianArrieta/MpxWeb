@@ -37,8 +37,10 @@ npm run preview
 
 ## Notas del maquetado
 
+- Guía de diseño (colores, tipografía, componentes, contraste): [`SKILLS/DESIGN.MD`](SKILLS/DESIGN.MD).
+
 - Barra superior: logo, navegación agrupada, toggle ES|EN y acceso al mapa. La elección Visitante | Momposino se conserva en localStorage y puede cambiarse desde el pie.
-- Primera visita: pantalla de bienvenida para elegir audiencia.
+- Primera visita: el inicio muestra una tarjeta (no bloqueante) para elegir Visitante o Momposino; se puede cerrar y el cambio también está en el pie.
 - La audiencia no oculta páginas; solo reordena los accesos rapidos del inicio y mensajes cortos.
 - Contenido único en `content/`: labels ES/EN y lugares. Los mockups estáticos de `maquetado/` leen `content/places`; la app React importa desde `content/` también.
 - El mapa usa Leaflet/OpenStreetMap y lugares estáticos en `content/places/places.json`; no requiere clave.
