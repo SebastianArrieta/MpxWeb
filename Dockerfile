@@ -6,6 +6,10 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 COPY . .
+# URL pública para canonical/og:image/sitemap: docker build --build-arg VITE_SITE_URL=https://...
+ARG VITE_SITE_URL=
+ARG VITE_FORMSPREE_ENDPOINT=
+ENV VITE_SITE_URL=$VITE_SITE_URL VITE_FORMSPREE_ENDPOINT=$VITE_FORMSPREE_ENDPOINT
 RUN npm run build
 
 # Serve

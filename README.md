@@ -45,6 +45,17 @@ npm run preview
 - El mapa usa MapLibre GL + teselas de OpenStreetMap y lugares estáticos en `content/places/places.json`; no requiere clave. Solo se muestran los lugares con `ubicacion_verificada: true` (ver `npm run places:report`).
 - El contador de visitas no se muestra mientras no haya un servicio real de conteo. Ruta 404 y scroll-to-top incluidos.
 
+## SEO y vistas previas al compartir
+
+Título, descripción e imagen de cada página viven en **`content/seo.json`** (ES y EN). Con eso:
+
+- `useSeo` actualiza el `<head>` al navegar y al cambiar de idioma.
+- `npm run build` ejecuta al final `scripts/seo-build.mjs`, que genera `dist/<ruta>/index.html` con las etiquetas de cada página (lo que leen WhatsApp, Facebook y Google sin ejecutar JS), `robots.txt` y `sitemap.xml`. La página principal incluye datos estructurados de schema.org (`WebSite` y `TouristDestination`).
+
+**Al publicar, define `VITE_SITE_URL`** (ver `.env.example`), p. ej. `https://mompoxmagico.com`. Sin ella no se generan `canonical`, `og:image` ni `sitemap.xml`, porque necesitan URLs absolutas. En Docker: `docker build --build-arg VITE_SITE_URL=https://... .`
+
+Para una página nueva: añádela a `content/seo.json` con `path`, `image` y los textos `es`/`en` (descripción de 120–160 caracteres).
+
 ## Formulario de contacto
 
 Sin configuración, al enviar el formulario se abre **WhatsApp** con el mensaje ya escrito, dirigido al autor de `contacto.destinoId` en `content/*/labels.json` (por defecto `sebastian`).
@@ -75,7 +86,7 @@ El sitio es 100% estático (Vite + React) y se despliega en Vercel/Netlify. **No
    - `content/places/places.json`: campo `"foto"` de cada lugar (se muestra en la ficha del mapa).
 3. **Comitea y despliega.** `npm run build` empaqueta todo: verás tus archivos en `dist/media/`.
 
-El código usa `import.meta.env.BASE_URL` + ruta (helper `src/helpers/mediaUrl.ts`), con `base: './'` en `vite.config.ts`, así las rutas funcionan en raíz y en subcarpetas.
+El código usa `import.meta.env.BASE_URL` + ruta (helper `src/helpers/mediaUrl.ts`), con `base: '/'` en `vite.config.ts` (para publicar en una subcarpeta, define `VITE_BASE=/subcarpeta/`).
 
 ### Medios incluidos
 - `public/media/images/` → bandera y escudo oficiales (Wikimedia Commons, CC BY-SA) y fotos reales de Mompox para la línea de tiempo (iglesias, albarrada, calles y casonas coloniales). Créditos en la sección Historia.
@@ -84,7 +95,4 @@ El código usa `import.meta.env.BASE_URL` + ruta (helper `src/helpers/mediaUrl.t
 > **Docker (dev):** el servidor Vite cachea el listado de `public/` al arrancar. Si añades imágenes/audios con el contenedor en marcha, **reinícialo** para que se sirvan: `docker compose restart web` (o `docker compose up -d --force-recreate web`). Si no, esos archivos nuevos devuelven `index.html` (imagen rota) hasta reiniciar.
 
 ### Nota de despliegue (SPA)
-En Vercel/Netlify configura el redirect de SPA (todas las rutas → `index.html`) para que `/historia`, `/mapa`, etc. funcionen al recargar la página.
-
-### Imagen para redes (og:image)
-`og:image` en `index.html` debe ser una URL **absoluta**. `npm run media:localize` descarga la copia en `public/media/images/og-mompox.png`, pero deja la URL remota hasta que el sitio tenga dominio propio; entonces cámbiala por `https://TU-DOMINIO/media/images/og-mompox.png`.
+Cada ruta conocida tiene su propio `dist/<ruta>/index.html`; para las demás (404) configura en Vercel/Netlify el redirect de SPA (todas las rutas → `index.html`). El `nginx.conf` incluido ya lo hace.
