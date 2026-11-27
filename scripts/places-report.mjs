@@ -22,7 +22,13 @@ const missing = (p) => [
 console.log(`Lugares: ${data.items.length} · en el mapa: ${visible.length} · ocultos: ${hidden.length}\n`)
 
 console.log('OCULTOS (falta verificar coordenadas):')
-for (const p of hidden) console.log(`  - ${p.id.padEnd(24)} ${p.categoria.padEnd(14)} falta: ${missing(p).join(', ')}`)
+for (const p of hidden) {
+  console.log(`  - ${p.id.padEnd(24)} ${p.categoria.padEnd(14)} falta: ${missing(p).join(', ')}`)
+  if (p.nota_verificacion) console.log(`      ${p.nota_verificacion}`)
+}
+
+const sinFuente = visible.filter((p) => !p.fuente_ubicacion)
+if (sinFuente.length) console.log(`\nVISIBLES sin fuente_ubicacion: ${sinFuente.map((p) => p.id).join(', ')}`)
 
 console.log('\nVISIBLES con datos incompletos:')
 for (const p of visible) {
