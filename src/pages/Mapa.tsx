@@ -1,5 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import * as maplibregl from 'maplibre-gl'
+// MapLibre calcula la URL de su worker en tiempo de ejecución, así que Vite no
+// lo empaqueta solo: lo importamos como recurso y le damos la URL final.
+import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 import placesData from '../../content/places/places.json'
 import categoriesData from '../../content/places/categories.json'
 import { useApp } from '../context/AppContext'
@@ -7,6 +10,8 @@ import { useApp } from '../context/AppContext'
 type Place = (typeof placesData.items)[number]
 type MappedPlace = Place & { lat: number; lng: number; ubicacion_verificada: true }
 type MobileView = 'lista' | 'mapa'
+
+maplibregl.setWorkerUrl(maplibreWorkerUrl)
 
 const center: [number, number] = [placesData.meta.map_center.lng, placesData.meta.map_center.lat]
 const categoryColors: Record<string, string> = {

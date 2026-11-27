@@ -10,7 +10,8 @@ import './styles/mompox.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    {/* basename: permite publicar en una subcarpeta (p. ej. GitHub Pages: /MpxWeb/). */}
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/+$/, '') || undefined}>
       <AppProvider>
         <App />
       </AppProvider>
