@@ -453,7 +453,68 @@
         "texto": "Easter Vigil and Easter Sunday."
       }
     ],
-    "programaNota": "Times and routes change every year: check the official programme from the town hall before you travel."
+    "programaNota": "Times and routes change every year: check the official programme from the town hall before you travel.",
+    "posterTitle": "Holy Week in Mompox",
+    "colophon": "Santa Cruz de Mompox · Bolívar",
+    "fotosDocumentales": {
+      "iglesia": "Church of Santa Bárbara in Mompox’s historic centre.",
+      "calles": "Colonial streets along which the processions move.",
+      "filigrana": "Momposino filigree, the town’s traditional goldsmith craft."
+    },
+    "afiches": {
+      "eyebrow": "Graphic archive",
+      "title": "Presentation posters",
+      "intro": "Each edition of Holy Week in Mompox has its own official poster. Sweep your cursor sideways to glide smoothly through the gallery.",
+      "hint": "Move cursor sideways to glide",
+      "prev": "Previous poster",
+      "next": "Next poster",
+      "placeholderTag": "Archive slot",
+      "placeholderNote": "Reserved space for each edition’s official printed poster.",
+      "items": [
+        {
+          "id": "portada",
+          "label": "Night procession",
+          "sublabel": "Holy Week in Mompox",
+          "src": "media/images/semana-santa.jpg",
+          "tone": "ink"
+        },
+        {
+          "id": "archivo-01",
+          "label": "Official poster · 01",
+          "sublabel": "Archive slot",
+          "src": "",
+          "tone": "parchment"
+        },
+        {
+          "id": "archivo-02",
+          "label": "Official poster · 02",
+          "sublabel": "Archive slot",
+          "src": "",
+          "tone": "terracotta"
+        },
+        {
+          "id": "archivo-03",
+          "label": "Official poster · 03",
+          "sublabel": "Archive slot",
+          "src": "",
+          "tone": "river"
+        },
+        {
+          "id": "archivo-04",
+          "label": "Official poster · 04",
+          "sublabel": "Archive slot",
+          "src": "",
+          "tone": "ochre"
+        },
+        {
+          "id": "archivo-05",
+          "label": "Official poster · 05",
+          "sublabel": "Archive slot",
+          "src": "",
+          "tone": "parchment"
+        }
+      ]
+    }
   },
   "festivalJazz": {
     "title": "Jazz Festival",

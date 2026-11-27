@@ -12,6 +12,7 @@ import './styles/home-editorial.css'
 import './styles/pages-polish.css'
 import './styles/historia-rio.css'
 import './styles/festijazz.css'
+import './styles/semana-santa.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

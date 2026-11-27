@@ -453,7 +453,68 @@
         "texto": "Vigilia Pascual y Domingo de Resurrección."
       }
     ],
-    "programaNota": "Horarios y recorridos cambian cada año: consulta la programación oficial de la Alcaldía antes de viajar."
+    "programaNota": "Horarios y recorridos cambian cada año: consulta la programación oficial de la Alcaldía antes de viajar.",
+    "posterTitle": "Semana Santa en Mompox",
+    "colophon": "Santa Cruz de Mompox · Bolívar",
+    "fotosDocumentales": {
+      "iglesia": "Iglesia de Santa Bárbara en el centro histórico de Mompox.",
+      "calles": "Calles coloniales por donde avanzan las procesiones.",
+      "filigrana": "Filigrana momposina, oficio artesanal de la ciudad."
+    },
+    "afiches": {
+      "eyebrow": "Archivo gráfico",
+      "title": "Afiches de presentación",
+      "intro": "Cada edición de la Semana Santa en Mompox cuenta con un afiche de presentación. Desliza el cursor de lado a lado para recorrer la galería.",
+      "hint": "Desliza el cursor para rodar",
+      "prev": "Afiche anterior",
+      "next": "Afiche siguiente",
+      "placeholderTag": "Archivo por completar",
+      "placeholderNote": "Espacio reservado para el afiche oficial de cada edición.",
+      "items": [
+        {
+          "id": "portada",
+          "label": "Procesión nocturna",
+          "sublabel": "Semana Santa en Mompox",
+          "src": "media/images/semana-santa.jpg",
+          "tone": "ink"
+        },
+        {
+          "id": "archivo-01",
+          "label": "Afiche oficial · 01",
+          "sublabel": "Espacio de archivo",
+          "src": "",
+          "tone": "parchment"
+        },
+        {
+          "id": "archivo-02",
+          "label": "Afiche oficial · 02",
+          "sublabel": "Espacio de archivo",
+          "src": "",
+          "tone": "terracotta"
+        },
+        {
+          "id": "archivo-03",
+          "label": "Afiche oficial · 03",
+          "sublabel": "Espacio de archivo",
+          "src": "",
+          "tone": "river"
+        },
+        {
+          "id": "archivo-04",
+          "label": "Afiche oficial · 04",
+          "sublabel": "Espacio de archivo",
+          "src": "",
+          "tone": "ochre"
+        },
+        {
+          "id": "archivo-05",
+          "label": "Afiche oficial · 05",
+          "sublabel": "Espacio de archivo",
+          "src": "",
+          "tone": "parchment"
+        }
+      ]
+    }
   },
   "festivalJazz": {
     "title": "Festival de Jazz",
