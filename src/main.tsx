@@ -7,6 +7,10 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import './styles/tokens.css'
 import './styles/index.css'
 import './styles/mompox.css'
+import './styles/chrome.css'
+import './styles/home-editorial.css'
+import './styles/pages-polish.css'
+import './styles/historia-rio.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

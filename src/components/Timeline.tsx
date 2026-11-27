@@ -3,6 +3,13 @@ import type { KeyboardEvent } from 'react'
 import { motion, useScroll, useSpring, useTransform } from 'motion/react'
 import { useApp } from '../context/AppContext'
 import { mediaUrl } from '../helpers/mediaUrl'
+import {
+  RiverBankDiscovery,
+  RiverBankScenery,
+  RiverCanoe,
+  RiverChannelSvg,
+  RiverWaterOverlaySvg,
+} from './RiverWildlife'
 
 type TimelineProps = {
   showCultural?: boolean
@@ -24,13 +31,28 @@ export default function Timeline({ showCultural = true }: TimelineProps) {
   const events = labels.timeline as TimelineEvent[]
   const stageRef = useRef<HTMLDivElement | null>(null)
   const hitoRefs = useRef<Record<string, HTMLLIElement | null>>({})
-  const reduced = useRef(prefersReducedMotion()).current
+  const [reduced, setReduced] = useState(prefersReducedMotion)
   const [active, setActive] = useState(0)
   const [isLive, setIsLive] = useState(false)
 
+  useEffect(() => {
+    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const onChange = (e: MediaQueryListEvent) => setReduced(e.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+
   const { scrollYProgress } = useScroll({ target: stageRef, offset: ['start 72%', 'end 55%'] })
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 80, damping: 24, mass: 0.5 })
-  const waterClip = useTransform(smoothProgress, [0, 1], ['inset(0 0 100% 0)', 'inset(0 0 0% 0)'])
+  const waterClip = useTransform(smoothProgress, [0, 1], ['inset(0 0 94% 0)', 'inset(0 0 0% 0)'])
+  const canoeTop = useTransform(smoothProgress, [0, 1], ['2%', '94%'])
+  const canoeSway = useTransform(
+    smoothProgress,
+    [0, 0.2, 0.4, 0.6, 0.8, 1],
+    ['-10px', '14px', '-14px', '12px', '-10px', '6px'],
+  )
+  const sceneryY = useTransform(smoothProgress, [0, 1], ['0px', '-48px'])
 
   const goTo = useCallback(
     (index: number) => {
@@ -82,7 +104,7 @@ export default function Timeline({ showCultural = true }: TimelineProps) {
     const stage = stageRef.current
     if (!stage || typeof IntersectionObserver === 'undefined') return
     const observer = new IntersectionObserver((entries) => setIsLive(entries[0]?.isIntersecting ?? false), {
-      threshold: 0.15,
+      threshold: 0.02,
     })
     observer.observe(stage)
     return () => observer.disconnect()
@@ -145,59 +167,93 @@ export default function Timeline({ showCultural = true }: TimelineProps) {
           </div>
         </header>
 
-        <div className="rio__stage" ref={stageRef}>
-          <div className="rio__cauce" aria-hidden="true">
-            <motion.span
-              className="rio__water"
-              style={{ clipPath: reduced ? 'inset(0 0 0% 0)' : waterClip }}
-            >
-              <span className="rio__flow" />
-            </motion.span>
-          </div>
+        <div className="rio__viewport">
+          <motion.div
+            className="rio__scenery-parallax"
+            style={{ y: reduced ? 0 : sceneryY }}
+            aria-hidden="true"
+          >
+            <RiverBankScenery activeIndex={active} />
+          </motion.div>
 
-          <ol className="rio__hitos">
-            {events.map((event, i) => {
-              const side = i % 2 === 0 ? 'left' : 'right'
-              const state = i === active ? ' is-active' : i < active ? ' is-reached' : ''
-              return (
-                <li
-                  key={event.year}
-                  ref={(node) => {
-                    hitoRefs.current[event.year] = node
-                  }}
-                  className={`rio__hito rio__hito--${side}${state}`}
-                  aria-current={i === active ? 'true' : undefined}
-                >
-                  <svg className="rio__brazo" viewBox="0 0 120 36" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-                    <path d="M0 18 C 36 2, 78 34, 120 18" />
-                  </svg>
+          <div className="rio__stage" ref={stageRef} style={{ position: 'relative' }}>
+            <div className="rio__cauce" aria-hidden="true">
+              <div className="rio__river-bed">
+                <RiverChannelSvg reduced={reduced} />
+              </div>
+              <motion.div
+                className="rio__water-reveal"
+                style={{ clipPath: reduced ? 'inset(0 0 0% 0)' : waterClip }}
+              >
+                <RiverWaterOverlaySvg />
+                <span className="rio__flow" />
+              </motion.div>
+              <motion.div
+                className="rio__canoe-wrap"
+                style={{ top: reduced ? '10%' : canoeTop, x: reduced ? 0 : canoeSway }}
+              >
+                <RiverCanoe />
+              </motion.div>
+            </div>
 
-                  <button
-                    type="button"
-                    className="rio__nodo"
-                    onClick={() => goTo(i)}
-                    aria-label={`${event.year} · ${event.title}`}
+            <ol className="rio__hitos">
+              {events.map((event, i) => {
+                const side = i % 2 === 0 ? 'left' : 'right'
+                const state = i === active ? ' is-active' : i < active ? ' is-reached' : ''
+                return (
+                  <li
+                    key={event.year}
+                    ref={(node) => {
+                      hitoRefs.current[event.year] = node
+                    }}
+                    className={`rio__hito rio__hito--${side}${state}`}
                     aria-current={i === active ? 'true' : undefined}
                   >
-                    <span className="rio__nodoYear">{event.year}</span>
-                  </button>
+                    <svg
+                      className="rio__brazo"
+                      viewBox="0 0 140 44"
+                      fill="none"
+                      preserveAspectRatio="none"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M0 22 C 42 4, 92 40, 140 22" />
+                      <path className="rio__brazoSub" d="M6 27 C 46 11, 94 43, 134 25" opacity="0.45" />
+                    </svg>
 
-                  <article className="rio__card">
-                    {event.image && (
-                      <div className="rio__media">
-                        <img src={mediaUrl(event.image)} alt="" loading="lazy" decoding="async" />
+                    <button
+                      type="button"
+                      className="rio__nodo"
+                      onClick={() => goTo(i)}
+                      aria-label={`${event.year} · ${event.title}`}
+                      aria-current={i === active ? 'true' : undefined}
+                    >
+                      <span className="rio__nodoYear">{event.year}</span>
+                    </button>
+
+                    <article className="rio__card">
+                      {event.image && (
+                        <div className="rio__media">
+                          <img src={mediaUrl(event.image)} alt="" loading="lazy" decoding="async" />
+                        </div>
+                      )}
+                      <div className="rio__body">
+                        <span className="rio__year">{event.year}</span>
+                        <h3 className="rio__cardTitle">{event.title}</h3>
+                        <p className="rio__detail">{event.detail}</p>
                       </div>
-                    )}
-                    <div className="rio__body">
-                      <span className="rio__year">{event.year}</span>
-                      <h3 className="rio__cardTitle">{event.title}</h3>
-                      <p className="rio__detail">{event.detail}</p>
-                    </div>
-                  </article>
-                </li>
-              )
-            })}
-          </ol>
+                    </article>
+
+                    <RiverBankDiscovery
+                      index={i}
+                      side={side === 'left' ? 'right' : 'left'}
+                      reduced={reduced}
+                    />
+                  </li>
+                )
+              })}
+            </ol>
+          </div>
         </div>
 
         <p className="rio__hint">{labels.timelineUi.dragHint}</p>

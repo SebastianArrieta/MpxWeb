@@ -179,38 +179,44 @@
       {
         "to": "/semana-santa",
         "label": "Holy Week",
+        "tag": "Tradition · 16th century",
         "hint": "One of America's oldest and most solemn religious celebrations, alive in Mompox since the 16th century.",
         "image": "media/images/semana-santa.jpg"
       },
       {
         "to": "/festival-jazz",
         "label": "Jazz Festival",
+        "tag": "Music · Open air",
         "hint": "Each year the colonial town becomes an open-air stage for jazz, Caribbean music and Momposino tradition beneath the stars.",
         "image": "media/images/jazz.jpg"
       },
       {
         "to": "/tours",
         "label": "Tours",
+        "tag": "Local guides",
         "hint": "Guided experiences to discover Mompox on foot, by bike or from home with local guides.",
         "image": "media/images/filigrana.jpg"
       },
       {
         "to": "/itinerarios",
         "label": "Itineraries",
+        "tag": "Suggested routes",
         "hint": "1-day, 2-day and weekend routes to make the most of your visit.",
         "image": "media/images/rio-magdalena.jpg"
       },
       {
         "to": "/galeria",
         "label": "Gallery",
+        "tag": "Visual archive",
         "hint": "Photos of the architecture, river, processions and jazz.",
-        "image": "media/images/hero-mompox.jpg"
+        "image": "media/images/mompox-calles.jpg"
       },
       {
         "to": "/como-llegar",
         "label": "Getting here",
+        "tag": "Travel guide",
         "hint": "Buses, flights, roads and where to stay.",
-        "image": "media/images/semana-santa.jpg"
+        "image": "media/images/mompox-albarrada.jpg"
       }
     ],
     "quickVisitante": [
