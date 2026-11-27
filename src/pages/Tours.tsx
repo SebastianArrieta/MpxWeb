@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from '../components/LocaleLink'
 import { useApp } from '../context/AppContext'
 import Reveal from '../components/Reveal'
 

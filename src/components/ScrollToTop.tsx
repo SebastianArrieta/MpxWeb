@@ -1,8 +1,11 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { stripLocale } from '../i18n/locale'
 
 export default function ScrollToTop() {
-  const { pathname, hash } = useLocation()
+  const { pathname: rawPathname, hash } = useLocation()
+  // Cambiar de idioma (/mapa <-> /en/mapa) no es cambiar de página: no sube.
+  const pathname = stripLocale(rawPathname)
 
   useEffect(() => {
     if (!hash) {

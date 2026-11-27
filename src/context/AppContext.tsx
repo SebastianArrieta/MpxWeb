@@ -7,6 +7,8 @@ import {
   useState,
   type ReactNode,
 } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { langFromPath, localizePath, stripLocale } from '../i18n/locale'
 import esLabels from '../../content/es/labels.json'
 import enLabels from '../../content/en/labels.json'
 
@@ -15,7 +17,6 @@ export type Lang = 'es' | 'en'
 export type ContentLabels = typeof esLabels
 
 const AUDIENCE_KEY = 'mpx-audience'
-const LANG_KEY = 'mpx-lang'
 
 const LABELS_BY_LANG: Record<Lang, ContentLabels> = { es: esLabels, en: enLabels }
 
@@ -38,10 +39,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (stored === 'visitante' || stored === 'momposino') return stored
     return null
   })
-  const [lang, setLang] = useState<Lang>(() => {
-    const stored = localStorage.getItem(LANG_KEY)
-    return stored === 'en' ? 'en' : 'es'
-  })
+  const { pathname, search, hash } = useLocation()
+  const navigate = useNavigate()
+  // El idioma lo decide la URL (/en/... = inglés).
+  const lang = langFromPath(pathname)
 
   useEffect(() => {
     document.documentElement.setAttribute('data-lang', lang)
@@ -67,12 +68,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const toggleLang = useCallback(() => {
-    setLang((prev) => {
-      const next: Lang = prev === 'es' ? 'en' : 'es'
-      localStorage.setItem(LANG_KEY, next)
-      return next
-    })
-  }, [])
+    const next: Lang = lang === 'es' ? 'en' : 'es'
+    navigate(localizePath(stripLocale(pathname), next) + search + hash)
+  }, [lang, pathname, search, hash, navigate])
 
   const value = useMemo(
     () => ({

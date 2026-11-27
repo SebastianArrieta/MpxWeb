@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import seo from '../../content/seo.json'
 import type { Lang } from '../context/AppContext'
+import { localizePath } from '../i18n/locale'
 
 type SeoRoute = (typeof seo.routes)[number] & { aliases?: string[]; image?: string }
 
@@ -39,6 +40,18 @@ function setMeta(attr: 'name' | 'property', key: string, content: string | null)
   el.setAttribute('content', content)
 }
 
+function setAlternates(hrefs: Record<string, string> | null) {
+  document.head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => el.remove())
+  if (!hrefs) return
+  for (const [hreflang, href] of Object.entries(hrefs)) {
+    const el = document.createElement('link')
+    el.rel = 'alternate'
+    el.hreflang = hreflang
+    el.href = href
+    document.head.appendChild(el)
+  }
+}
+
 function setCanonical(href: string | null) {
   let el = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]')
   if (!href) {
@@ -55,7 +68,7 @@ function setCanonical(href: string | null) {
 
 /**
  * Mantiene el <head> (título, descripción, Open Graph, canonical) al día con
- * la ruta y el idioma. El HTML inicial de cada ruta lo genera
+ * la ruta y el idioma. `pathname` llega sin el prefijo /en. El HTML inicial de cada ruta lo genera
  * scripts/seo-build.mjs con los mismos datos de content/seo.json.
  */
 export function useSeo(pathname: string, lang: Lang) {
@@ -67,7 +80,10 @@ export function useSeo(pathname: string, lang: Lang) {
         ? copy.title
         : seo.site.titleTemplate[lang].replace('{title}', copy.title)
     const image = absolute(route?.image ?? seo.site.defaultImage)
-    const canonical = route && SITE_URL ? `${SITE_URL}${route.path === '/' ? '/' : route.path}` : null
+    const urlFor = (l: Lang) => (route ? `${SITE_URL}${localizePath(route.path, l)}` : '')
+    const canonical = route && SITE_URL ? urlFor(lang) : null
+    const alternates =
+      route && SITE_URL ? { es: urlFor('es'), en: urlFor('en'), 'x-default': urlFor('es') } : null
 
     document.title = title
     setMeta('name', 'description', copy.description)
@@ -81,5 +97,6 @@ export function useSeo(pathname: string, lang: Lang) {
     setMeta('name', 'twitter:description', copy.description)
     setMeta('name', 'twitter:image', image)
     setCanonical(canonical)
+    setAlternates(alternates)
   }, [pathname, lang])
 }

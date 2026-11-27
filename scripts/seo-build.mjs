@@ -3,7 +3,8 @@
  * Paso posterior a `vite build`. A partir de content/seo.json:
  *   - Reescribe el bloque <!-- seo:start --> … <!-- seo:end --> de dist/index.html
  *     y crea dist/<ruta>/index.html para cada ruta, con su título, descripción,
- *     Open Graph, Twitter Card y canonical. Así WhatsApp, Facebook o Google
+ *     Open Graph, Twitter Card, canonical y hreflang, en español (/ruta) y en
+ *     inglés (/en/ruta). Así WhatsApp, Facebook o Google
  *     ven los datos correctos de cada página sin ejecutar JavaScript.
  *   - Escribe dist/robots.txt y, si hay VITE_SITE_URL, dist/sitemap.xml.
  *
@@ -21,10 +22,12 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = path.join(ROOT, 'dist')
 const env = { ...loadEnv('production', ROOT, 'VITE_'), ...process.env }
 const SITE_URL = (env.VITE_SITE_URL ?? '').trim().replace(/\/+$/, '')
-const LANG = 'es' // idioma por defecto del HTML inicial
+const LANGS = ['es', 'en']
+const EN_PREFIX = '/en'
 
 const seo = JSON.parse(await readFile(path.join(ROOT, 'content/seo.json'), 'utf8'))
 const labels = JSON.parse(await readFile(path.join(ROOT, 'content/es/labels.json'), 'utf8'))
+const labelsEn = JSON.parse(await readFile(path.join(ROOT, 'content/en/labels.json'), 'utf8'))
 const template = await readFile(path.join(DIST, 'index.html'), 'utf8')
 
 const BLOCK_RE = /<!-- seo:start[\s\S]*?<!-- seo:end -->/
@@ -41,24 +44,30 @@ const esc = (value) =>
     .replace(/>/g, '&gt;')
 
 const abs = (p) => `${SITE_URL}/${p.replace(/^\/+/, '')}`
-const pageUrl = (routePath) => `${SITE_URL}${routePath === '/' ? '/' : routePath}`
+/** '/mapa' -> '/mapa' (es) o '/en/mapa' (en); '/' -> '/' o '/en'. */
+const localPath = (routePath, lang) =>
+  lang === 'es' ? routePath : routePath === '/' ? EN_PREFIX : `${EN_PREFIX}${routePath}`
+const pageUrl = (routePath, lang = 'es') => `${SITE_URL}${localPath(routePath, lang)}`
 
-function jsonLd() {
+function jsonLd(lang) {
   const data = {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'WebSite',
         name: seo.site.name,
-        inLanguage: ['es', 'en'],
-        ...(SITE_URL ? { url: `${SITE_URL}/` } : {}),
+        inLanguage: lang,
+        ...(SITE_URL ? { url: pageUrl('/', lang) } : {}),
       },
       {
         '@type': 'TouristDestination',
-        name: labels.site.fullName,
+        name: (lang === 'en' ? labelsEn : labels).site.fullName,
         alternateName: 'Mompox',
-        description: seo.routes[0].es.description,
-        touristType: ['Turismo cultural', 'Turismo religioso', 'Turismo histórico'],
+        description: seo.routes[0][lang].description,
+        touristType:
+          lang === 'en'
+            ? ['Cultural tourism', 'Religious tourism', 'Heritage tourism']
+            : ['Turismo cultural', 'Turismo religioso', 'Turismo histórico'],
         geo: { '@type': 'GeoCoordinates', latitude: seo.site.geo.lat, longitude: seo.site.geo.lng },
         address: {
           '@type': 'PostalAddress',
@@ -66,7 +75,7 @@ function jsonLd() {
           addressRegion: 'Bolívar',
           addressCountry: 'CO',
         },
-        ...(SITE_URL ? { image: abs(seo.site.defaultImage), url: `${SITE_URL}/` } : {}),
+        ...(SITE_URL ? { image: abs(seo.site.defaultImage), url: pageUrl('/', lang) } : {}),
       },
     ],
   }
@@ -74,10 +83,10 @@ function jsonLd() {
   return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`
 }
 
-function headFor(route) {
-  const copy = route[LANG]
+function headFor(route, lang) {
+  const copy = route[lang]
   const title =
-    route.path === '/' ? copy.title : seo.site.titleTemplate[LANG].replace('{title}', copy.title)
+    route.path === '/' ? copy.title : seo.site.titleTemplate[lang].replace('{title}', copy.title)
   const image = route.image ?? seo.site.defaultImage
   const tags = [
     '<!-- seo:start — generado desde content/seo.json por scripts/seo-build.mjs -->',
@@ -85,7 +94,7 @@ function headFor(route) {
     `<meta name="description" content="${esc(copy.description)}" />`,
     `<meta property="og:type" content="website" />`,
     `<meta property="og:site_name" content="${esc(seo.site.name)}" />`,
-    `<meta property="og:locale" content="${seo.site.locale[LANG]}" />`,
+    `<meta property="og:locale" content="${seo.site.locale[lang]}" />`,
     `<meta property="og:title" content="${esc(copy.title)}" />`,
     `<meta property="og:description" content="${esc(copy.description)}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
@@ -94,27 +103,36 @@ function headFor(route) {
   ]
   if (SITE_URL) {
     tags.push(
-      `<link rel="canonical" href="${esc(pageUrl(route.path))}" />`,
-      `<meta property="og:url" content="${esc(pageUrl(route.path))}" />`,
+      `<link rel="canonical" href="${esc(pageUrl(route.path, lang))}" />`,
+      `<link rel="alternate" hreflang="es" href="${esc(pageUrl(route.path, 'es'))}" />`,
+      `<link rel="alternate" hreflang="en" href="${esc(pageUrl(route.path, 'en'))}" />`,
+      `<link rel="alternate" hreflang="x-default" href="${esc(pageUrl(route.path, 'es'))}" />`,
+      `<meta property="og:locale:alternate" content="${seo.site.locale[lang === 'es' ? 'en' : 'es']}" />`,
+      `<meta property="og:url" content="${esc(pageUrl(route.path, lang))}" />`,
       `<meta property="og:image" content="${esc(abs(image))}" />`,
       `<meta name="twitter:image" content="${esc(abs(image))}" />`,
     )
   }
   if (route.path === '/') {
-    tags.push(`<link rel="preload" as="image" href="/media/images/hero-mompox.jpg" />`, jsonLd())
+    tags.push(`<link rel="preload" as="image" href="/media/images/hero-mompox.jpg" />`, jsonLd(lang))
   }
   tags.push('<!-- seo:end -->')
   return tags.join('\n    ')
 }
 
 const written = []
-for (const route of seo.routes) {
-  const html = template.replace(BLOCK_RE, () => headFor(route))
-  for (const p of [route.path, ...(route.aliases ?? [])]) {
-    const file = p === '/' ? path.join(DIST, 'index.html') : path.join(DIST, p, 'index.html')
-    await mkdir(path.dirname(file), { recursive: true })
-    await writeFile(file, html)
-    written.push(p)
+for (const lang of LANGS) {
+  for (const route of seo.routes) {
+    const html = template
+      .replace(BLOCK_RE, () => headFor(route, lang))
+      .replace(/<html lang="[^"]*"/, `<html lang="${lang}"`)
+    for (const p of [route.path, ...(route.aliases ?? [])]) {
+      const urlPath = localPath(p, lang)
+      const file = path.join(DIST, urlPath, 'index.html')
+      await mkdir(path.dirname(file), { recursive: true })
+      await writeFile(file, html)
+      written.push(urlPath)
+    }
   }
 }
 
@@ -124,15 +142,22 @@ await writeFile(path.join(DIST, 'robots.txt'), robots.join('\n') + '\n')
 
 if (SITE_URL) {
   const today = new Date().toISOString().slice(0, 10)
-  const urls = seo.routes
-    .map(
+  const alternates = (r) =>
+    ['es', 'en', 'x-default']
+      .map(
+        (h) =>
+          `<xhtml:link rel="alternate" hreflang="${h}" href="${esc(pageUrl(r.path, h === 'en' ? 'en' : 'es'))}"/>`,
+      )
+      .join('')
+  const urls = LANGS.flatMap((lang) =>
+    seo.routes.map(
       (r) =>
-        `  <url><loc>${esc(pageUrl(r.path))}</loc><lastmod>${today}</lastmod><priority>${Number(r.priority ?? 0.5).toFixed(1)}</priority></url>`,
-    )
-    .join('\n')
+        `  <url><loc>${esc(pageUrl(r.path, lang))}</loc><lastmod>${today}</lastmod><priority>${Number(r.priority ?? 0.5).toFixed(1)}</priority>${alternates(r)}</url>`,
+    ),
+  ).join('\n')
   await writeFile(
     path.join(DIST, 'sitemap.xml'),
-    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`,
   )
 }
 

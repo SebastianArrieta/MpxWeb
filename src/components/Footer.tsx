@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from './LocaleLink'
 import VisitCounter from './VisitCounter'
 import { useApp } from '../context/AppContext'
 
